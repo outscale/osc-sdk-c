@@ -1,4 +1,4 @@
-example0: osc_sdk.c osc_sdk.h
+example0: osc_sdk.c osc_sdk.h examples/example0.c
 	$(CC) examples/example0.c ./osc_sdk.c -I./ `pkg-config --cflags json-c` -lcurl -ljson-c -o example0
 
 COGNAC/config.mk:
