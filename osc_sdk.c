@@ -718,31 +718,37 @@ static int accepter_net_setter(struct accepter_net *args, struct osc_str *data) 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ip_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -753,51 +759,61 @@ static int access_key_setter(struct access_key *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccessKeyId\":" ))
+		if (osc_str_append_string(data, "\"AccessKeyId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->access_key_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->creation_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CreationDate\":" ))
+		if (osc_str_append_string(data, "\"CreationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->creation_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->expiration_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ExpirationDate\":" ))
+		if (osc_str_append_string(data, "\"ExpirationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->expiration_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->last_modification_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LastModificationDate\":" ))
+		if (osc_str_append_string(data, "\"LastModificationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->last_modification_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -808,61 +824,73 @@ static int access_key_secret_key_setter(struct access_key_secret_key *args, stru
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccessKeyId\":" ))
+		if (osc_str_append_string(data, "\"AccessKeyId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->access_key_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->creation_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CreationDate\":" ))
+		if (osc_str_append_string(data, "\"CreationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->creation_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->expiration_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ExpirationDate\":" ))
+		if (osc_str_append_string(data, "\"ExpirationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->expiration_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->last_modification_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LastModificationDate\":" ))
+		if (osc_str_append_string(data, "\"LastModificationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->last_modification_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->secret_key) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecretKey\":" ))
+		if (osc_str_append_string(data, "\"SecretKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->secret_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -883,21 +911,25 @@ static int access_log_setter(struct access_log *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuBucketName\":" ))
+		if (osc_str_append_string(data, "\"OsuBucketName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_bucket_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_bucket_prefix) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuBucketPrefix\":" ))
+		if (osc_str_append_string(data, "\"OsuBucketPrefix\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_bucket_prefix))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_publication_interval) {
 		if (count_args++ > 0)
@@ -918,11 +950,13 @@ static int account_setter(struct account *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->additional_emails) {
 		if (count_args++ > 0)
@@ -938,131 +972,157 @@ static int account_setter(struct account *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"City\":" ))
+		if (osc_str_append_string(data, "\"City\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->city))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->company_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CompanyName\":" ))
+		if (osc_str_append_string(data, "\"CompanyName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->company_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->country) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Country\":" ))
+		if (osc_str_append_string(data, "\"Country\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->country))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->customer_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CustomerId\":" ))
+		if (osc_str_append_string(data, "\"CustomerId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->customer_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->email) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Email\":" ))
+		if (osc_str_append_string(data, "\"Email\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->email))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->first_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FirstName\":" ))
+		if (osc_str_append_string(data, "\"FirstName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->first_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->job_title) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"JobTitle\":" ))
+		if (osc_str_append_string(data, "\"JobTitle\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->job_title))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->last_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LastName\":" ))
+		if (osc_str_append_string(data, "\"LastName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->last_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->mobile_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"MobileNumber\":" ))
+		if (osc_str_append_string(data, "\"MobileNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->mobile_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->phone_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PhoneNumber\":" ))
+		if (osc_str_append_string(data, "\"PhoneNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->phone_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_province) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateProvince\":" ))
+		if (osc_str_append_string(data, "\"StateProvince\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_province))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vat_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VatNumber\":" ))
+		if (osc_str_append_string(data, "\"VatNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vat_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->zip_code) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ZipCode\":" ))
+		if (osc_str_append_string(data, "\"ZipCode\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->zip_code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1098,11 +1158,13 @@ static int api_access_rule_setter(struct api_access_rule *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ApiAccessRuleId\":" ))
+		if (osc_str_append_string(data, "\"ApiAccessRuleId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->api_access_rule_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ca_ids) {
 		if (count_args++ > 0)
@@ -1128,11 +1190,13 @@ static int api_access_rule_setter(struct api_access_rule *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ip_ranges) {
 		if (count_args++ > 0)
@@ -1153,21 +1217,25 @@ static int application_sticky_cookie_policy_setter(struct application_sticky_coo
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CookieName\":" ))
+		if (osc_str_append_string(data, "\"CookieName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->cookie_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->policy_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PolicyName\":" ))
+		if (osc_str_append_string(data, "\"PolicyName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->policy_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1178,41 +1246,49 @@ static int backend_vm_health_setter(struct backend_vm_health *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_reason) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateReason\":" ))
+		if (osc_str_append_string(data, "\"StateReason\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_reason))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1233,11 +1309,13 @@ static int block_device_mapping_created_setter(struct block_device_mapping_creat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DeviceName\":" ))
+		if (osc_str_append_string(data, "\"DeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1258,21 +1336,25 @@ static int block_device_mapping_image_setter(struct block_device_mapping_image *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DeviceName\":" ))
+		if (osc_str_append_string(data, "\"DeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_device_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualDeviceName\":" ))
+		if (osc_str_append_string(data, "\"VirtualDeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1293,31 +1375,37 @@ static int block_device_mapping_vm_creation_setter(struct block_device_mapping_v
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DeviceName\":" ))
+		if (osc_str_append_string(data, "\"DeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->no_device) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NoDevice\":" ))
+		if (osc_str_append_string(data, "\"NoDevice\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->no_device))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_device_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualDeviceName\":" ))
+		if (osc_str_append_string(data, "\"VirtualDeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1338,31 +1426,37 @@ static int block_device_mapping_vm_update_setter(struct block_device_mapping_vm_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DeviceName\":" ))
+		if (osc_str_append_string(data, "\"DeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->no_device) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NoDevice\":" ))
+		if (osc_str_append_string(data, "\"NoDevice\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->no_device))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_device_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualDeviceName\":" ))
+		if (osc_str_append_string(data, "\"VirtualDeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1383,31 +1477,37 @@ static int bsu_created_setter(struct bsu_created *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkDate\":" ))
+		if (osc_str_append_string(data, "\"LinkDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->volume_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1438,11 +1538,13 @@ static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_volume_size) {
 		if (count_args++ > 0)
@@ -1458,11 +1560,13 @@ static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeType\":" ))
+		if (osc_str_append_string(data, "\"VolumeType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1483,11 +1587,13 @@ static int bsu_to_update_vm_setter(struct bsu_to_update_vm *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1498,31 +1604,37 @@ static int ca_setter(struct ca *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CaFingerprint\":" ))
+		if (osc_str_append_string(data, "\"CaFingerprint\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ca_fingerprint))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ca_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CaId\":" ))
+		if (osc_str_append_string(data, "\"CaId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ca_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1548,71 +1660,85 @@ static int catalog_entry_setter(struct catalog_entry *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Category\":" ))
+		if (osc_str_append_string(data, "\"Category\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->category))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->flags) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Flags\":" ))
+		if (osc_str_append_string(data, "\"Flags\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flags))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->operation) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Operation\":" ))
+		if (osc_str_append_string(data, "\"Operation\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->operation))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->service) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Service\":" ))
+		if (osc_str_append_string(data, "\"Service\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->service))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->title) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Title\":" ))
+		if (osc_str_append_string(data, "\"Title\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->title))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Type\":" ))
+		if (osc_str_append_string(data, "\"Type\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->unit_price) {
 		if (count_args++ > 0)
@@ -1643,41 +1769,49 @@ static int client_gateway_setter(struct client_gateway *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientGatewayId\":" ))
+		if (osc_str_append_string(data, "\"ClientGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->connection_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ConnectionType\":" ))
+		if (osc_str_append_string(data, "\"ConnectionType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->connection_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -1698,101 +1832,121 @@ static int consumption_entry_setter(struct consumption_entry *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->category) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Category\":" ))
+		if (osc_str_append_string(data, "\"Category\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->category))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->from_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FromDate\":" ))
+		if (osc_str_append_string(data, "\"FromDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->from_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->operation) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Operation\":" ))
+		if (osc_str_append_string(data, "\"Operation\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->operation))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->paying_account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PayingAccountId\":" ))
+		if (osc_str_append_string(data, "\"PayingAccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->paying_account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->service) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Service\":" ))
+		if (osc_str_append_string(data, "\"Service\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->service))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->title) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Title\":" ))
+		if (osc_str_append_string(data, "\"Title\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->title))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->to_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ToDate\":" ))
+		if (osc_str_append_string(data, "\"ToDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->to_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Type\":" ))
+		if (osc_str_append_string(data, "\"Type\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->value) {
 		if (count_args++ > 0)
@@ -1823,21 +1977,25 @@ static int dhcp_options_set_setter(struct dhcp_options_set *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":" ))
+		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->dhcp_options_set_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->domain_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DomainName\":" ))
+		if (osc_str_append_string(data, "\"DomainName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->domain_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->domain_name_servers) {
 		if (count_args++ > 0)
@@ -1888,71 +2046,85 @@ static int direct_link_setter(struct direct_link *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->bandwidth) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Bandwidth\":" ))
+		if (osc_str_append_string(data, "\"Bandwidth\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->bandwidth))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkId\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkName\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->location) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Location\":" ))
+		if (osc_str_append_string(data, "\"Location\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->location))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->region_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RegionName\":" ))
+		if (osc_str_append_string(data, "\"RegionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->region_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -1973,51 +2145,61 @@ static int direct_link_interface_setter(struct direct_link_interface *args, stru
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"BgpKey\":" ))
+		if (osc_str_append_string(data, "\"BgpKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->bgp_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->client_private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientPrivateIp\":" ))
+		if (osc_str_append_string(data, "\"ClientPrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_interface_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkInterfaceName\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkInterfaceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_interface_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->outscale_private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OutscalePrivateIp\":" ))
+		if (osc_str_append_string(data, "\"OutscalePrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->outscale_private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_vlan) {
 		if (count_args++ > 0)
@@ -2038,11 +2220,13 @@ static int direct_link_interfaces_setter(struct direct_link_interfaces *args, st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_bgp_asn) {
 		if (count_args++ > 0)
@@ -2058,71 +2242,85 @@ static int direct_link_interfaces_setter(struct direct_link_interfaces *args, st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"BgpKey\":" ))
+		if (osc_str_append_string(data, "\"BgpKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->bgp_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->client_private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientPrivateIp\":" ))
+		if (osc_str_append_string(data, "\"ClientPrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkId\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_interface_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkInterfaceId\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkInterfaceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_interface_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_interface_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkInterfaceName\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkInterfaceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_interface_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->interface_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"InterfaceType\":" ))
+		if (osc_str_append_string(data, "\"InterfaceType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->interface_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->location) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Location\":" ))
+		if (osc_str_append_string(data, "\"Location\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->location))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_mtu) {
 		if (count_args++ > 0)
@@ -2138,31 +2336,37 @@ static int direct_link_interfaces_setter(struct direct_link_interfaces *args, st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OutscalePrivateIp\":" ))
+		if (osc_str_append_string(data, "\"OutscalePrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->outscale_private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_vlan) {
 		if (count_args++ > 0)
@@ -2183,31 +2387,37 @@ static int errors_setter(struct errors *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Code\":" ))
+		if (osc_str_append_string(data, "\"Code\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->details) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Details\":" ))
+		if (osc_str_append_string(data, "\"Details\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->details))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Type\":" ))
+		if (osc_str_append_string(data, "\"Type\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -2328,21 +2538,25 @@ static int filters_api_log_setter(struct filters_api_log *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryDateAfter\":" ))
+		if (osc_str_append_string(data, "\"QueryDateAfter\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_date_after))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_date_before) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryDateBefore\":" ))
+		if (osc_str_append_string(data, "\"QueryDateBefore\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_date_before))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_ip_addresses) {
 		if (count_args++ > 0)
@@ -5193,61 +5407,73 @@ static int flexible_gpu_setter(struct flexible_gpu *args, struct osc_str *data) 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FlexibleGpuId\":" ))
+		if (osc_str_append_string(data, "\"FlexibleGpuId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flexible_gpu_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->generation) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Generation\":" ))
+		if (osc_str_append_string(data, "\"Generation\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->generation))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->model_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ModelName\":" ))
+		if (osc_str_append_string(data, "\"ModelName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->model_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5288,11 +5514,13 @@ static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ModelName\":" ))
+		if (osc_str_append_string(data, "\"ModelName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->model_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_vram) {
 		if (count_args++ > 0)
@@ -5333,11 +5561,13 @@ static int health_check_setter(struct health_check *args, struct osc_str *data) 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Path\":" ))
+		if (osc_str_append_string(data, "\"Path\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->path))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_port) {
 		if (count_args++ > 0)
@@ -5353,11 +5583,13 @@ static int health_check_setter(struct health_check *args, struct osc_str *data) 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Protocol\":" ))
+		if (osc_str_append_string(data, "\"Protocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_timeout) {
 		if (count_args++ > 0)
@@ -5388,31 +5620,37 @@ static int image_setter(struct image *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountAlias\":" ))
+		if (osc_str_append_string(data, "\"AccountAlias\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_alias))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->architecture) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Architecture\":" ))
+		if (osc_str_append_string(data, "\"Architecture\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->architecture))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->block_device_mappings) {
 		if (count_args++ > 0)
@@ -5428,61 +5666,73 @@ static int image_setter(struct image *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CreationDate\":" ))
+		if (osc_str_append_string(data, "\"CreationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->creation_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->file_location) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FileLocation\":" ))
+		if (osc_str_append_string(data, "\"FileLocation\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->file_location))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->image_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageId\":" ))
+		if (osc_str_append_string(data, "\"ImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->image_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageName\":" ))
+		if (osc_str_append_string(data, "\"ImageName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->image_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageType\":" ))
+		if (osc_str_append_string(data, "\"ImageType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->permissions_to_launch) {
 		if (count_args++ > 0)
@@ -5508,31 +5758,37 @@ static int image_setter(struct image *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RootDeviceName\":" ))
+		if (osc_str_append_string(data, "\"RootDeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->root_device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->root_device_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RootDeviceType\":" ))
+		if (osc_str_append_string(data, "\"RootDeviceType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->root_device_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_comment) {
 		if (count_args++ > 0)
@@ -5563,21 +5819,25 @@ static int image_export_task_setter(struct image_export_task *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Comment\":" ))
+		if (osc_str_append_string(data, "\"Comment\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->comment))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->image_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageId\":" ))
+		if (osc_str_append_string(data, "\"ImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_export) {
 		if (count_args++ > 0)
@@ -5603,11 +5863,13 @@ static int image_export_task_setter(struct image_export_task *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -5623,11 +5885,13 @@ static int image_export_task_setter(struct image_export_task *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"TaskId\":" ))
+		if (osc_str_append_string(data, "\"TaskId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->task_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5638,31 +5902,37 @@ static int internet_service_setter(struct internet_service *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"InternetServiceId\":" ))
+		if (osc_str_append_string(data, "\"InternetServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->internet_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -5683,21 +5953,25 @@ static int keypair_setter(struct keypair *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairFingerprint\":" ))
+		if (osc_str_append_string(data, "\"KeypairFingerprint\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_fingerprint))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->keypair_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairName\":" ))
+		if (osc_str_append_string(data, "\"KeypairName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5708,31 +5982,37 @@ static int keypair_created_setter(struct keypair_created *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairFingerprint\":" ))
+		if (osc_str_append_string(data, "\"KeypairFingerprint\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_fingerprint))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->keypair_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairName\":" ))
+		if (osc_str_append_string(data, "\"KeypairName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_key) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateKey\":" ))
+		if (osc_str_append_string(data, "\"PrivateKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5763,41 +6043,49 @@ static int link_nic_setter(struct link_nic *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkNicId\":" ))
+		if (osc_str_append_string(data, "\"LinkNicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmAccountId\":" ))
+		if (osc_str_append_string(data, "\"VmAccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5828,21 +6116,25 @@ static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkNicId\":" ))
+		if (osc_str_append_string(data, "\"LinkNicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5863,11 +6155,13 @@ static int link_nic_to_update_setter(struct link_nic_to_update *args, struct osc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkNicId\":" ))
+		if (osc_str_append_string(data, "\"LinkNicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5878,51 +6172,61 @@ static int link_public_ip_setter(struct link_public_ip *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkPublicIpId\":" ))
+		if (osc_str_append_string(data, "\"LinkPublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_dns_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicDnsName\":" ))
+		if (osc_str_append_string(data, "\"PublicDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip_account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpAccountId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpAccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5933,31 +6237,37 @@ static int link_public_ip_light_for_vm_setter(struct link_public_ip_light_for_vm
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicDnsName\":" ))
+		if (osc_str_append_string(data, "\"PublicDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip_account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpAccountId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpAccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -5968,11 +6278,13 @@ static int link_route_table_setter(struct link_route_table *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkRouteTableId\":" ))
+		if (osc_str_append_string(data, "\"LinkRouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_main) {
 		if (count_args++ > 0)
@@ -5988,21 +6300,25 @@ static int link_route_table_setter(struct link_route_table *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6023,41 +6339,49 @@ static int linked_volume_setter(struct linked_volume *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DeviceName\":" ))
+		if (osc_str_append_string(data, "\"DeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->volume_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6078,11 +6402,13 @@ static int listener_setter(struct listener *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"BackendProtocol\":" ))
+		if (osc_str_append_string(data, "\"BackendProtocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->backend_protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_load_balancer_port) {
 		if (count_args++ > 0)
@@ -6098,11 +6424,13 @@ static int listener_setter(struct listener *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerProtocol\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerProtocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->policy_names) {
 		if (count_args++ > 0)
@@ -6118,11 +6446,13 @@ static int listener_setter(struct listener *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ServerCertificateId\":" ))
+		if (osc_str_append_string(data, "\"ServerCertificateId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->server_certificate_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6143,11 +6473,13 @@ static int listener_for_creation_setter(struct listener_for_creation *args, stru
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"BackendProtocol\":" ))
+		if (osc_str_append_string(data, "\"BackendProtocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->backend_protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_load_balancer_port) {
 		if (count_args++ > 0)
@@ -6163,21 +6495,25 @@ static int listener_for_creation_setter(struct listener_for_creation *args, stru
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerProtocol\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerProtocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->server_certificate_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ServerCertificateId\":" ))
+		if (osc_str_append_string(data, "\"ServerCertificateId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->server_certificate_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6188,21 +6524,25 @@ static int listener_rule_setter(struct listener_rule *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Action\":" ))
+		if (osc_str_append_string(data, "\"Action\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->action))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->host_name_pattern) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"HostNamePattern\":" ))
+		if (osc_str_append_string(data, "\"HostNamePattern\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->host_name_pattern))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_listener_id) {
 		if (count_args++ > 0)
@@ -6228,21 +6568,25 @@ static int listener_rule_setter(struct listener_rule *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ListenerRuleName\":" ))
+		if (osc_str_append_string(data, "\"ListenerRuleName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->listener_rule_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->path_pattern) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PathPattern\":" ))
+		if (osc_str_append_string(data, "\"PathPattern\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->path_pattern))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_priority) {
 		if (count_args++ > 0)
@@ -6273,41 +6617,49 @@ static int listener_rule_for_creation_setter(struct listener_rule_for_creation *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Action\":" ))
+		if (osc_str_append_string(data, "\"Action\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->action))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->host_name_pattern) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"HostNamePattern\":" ))
+		if (osc_str_append_string(data, "\"HostNamePattern\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->host_name_pattern))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->listener_rule_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ListenerRuleName\":" ))
+		if (osc_str_append_string(data, "\"ListenerRuleName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->listener_rule_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->path_pattern) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PathPattern\":" ))
+		if (osc_str_append_string(data, "\"PathPattern\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->path_pattern))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_priority) {
 		if (count_args++ > 0)
@@ -6368,11 +6720,13 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DnsName\":" ))
+		if (osc_str_append_string(data, "\"DnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->health_check) {
 		if (count_args++ > 0)
@@ -6398,11 +6752,13 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->load_balancer_sticky_cookie_policies) {
 		if (count_args++ > 0)
@@ -6418,31 +6774,37 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerType\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_secured_cookies) {
 		if (count_args++ > 0)
@@ -6513,11 +6875,13 @@ static int load_balancer_light_setter(struct load_balancer_light *args, struct o
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_load_balancer_port) {
 		if (count_args++ > 0)
@@ -6548,11 +6912,13 @@ static int load_balancer_sticky_cookie_policy_setter(struct load_balancer_sticky
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PolicyName\":" ))
+		if (osc_str_append_string(data, "\"PolicyName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->policy_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6563,31 +6929,37 @@ static int load_balancer_tag_setter(struct load_balancer_tag *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Key\":" ))
+		if (osc_str_append_string(data, "\"Key\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->value) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Value\":" ))
+		if (osc_str_append_string(data, "\"Value\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->value))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6598,21 +6970,25 @@ static int location_setter(struct location *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Code\":" ))
+		if (osc_str_append_string(data, "\"Code\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Name\":" ))
+		if (osc_str_append_string(data, "\"Name\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6623,11 +6999,13 @@ static int log_setter(struct log *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_call_duration) {
 		if (count_args++ > 0)
@@ -6643,61 +7021,73 @@ static int log_setter(struct log *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryAccessKey\":" ))
+		if (osc_str_append_string(data, "\"QueryAccessKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_access_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_api_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryApiName\":" ))
+		if (osc_str_append_string(data, "\"QueryApiName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_api_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_api_version) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryApiVersion\":" ))
+		if (osc_str_append_string(data, "\"QueryApiVersion\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_api_version))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_call_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryCallName\":" ))
+		if (osc_str_append_string(data, "\"QueryCallName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_call_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryDate\":" ))
+		if (osc_str_append_string(data, "\"QueryDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_header_raw) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryHeaderRaw\":" ))
+		if (osc_str_append_string(data, "\"QueryHeaderRaw\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_header_raw))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_query_header_size) {
 		if (count_args++ > 0)
@@ -6713,21 +7103,25 @@ static int log_setter(struct log *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryIpAddress\":" ))
+		if (osc_str_append_string(data, "\"QueryIpAddress\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_ip_address))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->query_payload_raw) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryPayloadRaw\":" ))
+		if (osc_str_append_string(data, "\"QueryPayloadRaw\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_payload_raw))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_query_payload_size) {
 		if (count_args++ > 0)
@@ -6743,21 +7137,25 @@ static int log_setter(struct log *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QueryUserAgent\":" ))
+		if (osc_str_append_string(data, "\"QueryUserAgent\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->query_user_agent))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->request_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RequestId\":" ))
+		if (osc_str_append_string(data, "\"RequestId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->request_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_response_size) {
 		if (count_args++ > 0)
@@ -6788,41 +7186,49 @@ static int maintenance_event_setter(struct maintenance_event *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Code\":" ))
+		if (osc_str_append_string(data, "\"Code\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->not_after) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NotAfter\":" ))
+		if (osc_str_append_string(data, "\"NotAfter\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->not_after))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->not_before) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NotBefore\":" ))
+		if (osc_str_append_string(data, "\"NotBefore\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->not_before))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6833,21 +7239,25 @@ static int nat_service_setter(struct nat_service *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NatServiceId\":" ))
+		if (osc_str_append_string(data, "\"NatServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nat_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ips) {
 		if (count_args++ > 0)
@@ -6863,21 +7273,25 @@ static int nat_service_setter(struct nat_service *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -6898,41 +7312,49 @@ static int net_setter(struct net *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":" ))
+		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->dhcp_options_set_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ip_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -6948,11 +7370,13 @@ static int net_setter(struct net *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Tenancy\":" ))
+		if (osc_str_append_string(data, "\"Tenancy\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->tenancy))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -6963,21 +7387,25 @@ static int net_access_point_setter(struct net_access_point *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetAccessPointId\":" ))
+		if (osc_str_append_string(data, "\"NetAccessPointId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_access_point_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->route_table_ids) {
 		if (count_args++ > 0)
@@ -6993,21 +7421,25 @@ static int net_access_point_setter(struct net_access_point *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ServiceName\":" ))
+		if (osc_str_append_string(data, "\"ServiceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->service_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -7038,11 +7470,13 @@ static int net_peering_setter(struct net_peering *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetPeeringId\":" ))
+		if (osc_str_append_string(data, "\"NetPeeringId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_peering_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->source_net) {
 		if (count_args++ > 0)
@@ -7083,21 +7517,25 @@ static int net_peering_state_setter(struct net_peering_state *args, struct osc_s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Message\":" ))
+		if (osc_str_append_string(data, "\"Message\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->message))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Name\":" ))
+		if (osc_str_append_string(data, "\"Name\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7108,21 +7546,25 @@ static int net_to_virtual_gateway_link_setter(struct net_to_virtual_gateway_link
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7133,21 +7575,25 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_is_source_dest_checked) {
 		if (count_args++ > 0)
@@ -7183,41 +7629,49 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"MacAddress\":" ))
+		if (osc_str_append_string(data, "\"MacAddress\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->mac_address))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nic_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_dns_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateDnsName\":" ))
+		if (osc_str_append_string(data, "\"PrivateDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ips) {
 		if (count_args++ > 0)
@@ -7243,31 +7697,37 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -7298,11 +7758,13 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_device_number) {
 		if (count_args++ > 0)
@@ -7318,11 +7780,13 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ips) {
 		if (count_args++ > 0)
@@ -7358,11 +7822,13 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7373,21 +7839,25 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_is_source_dest_checked) {
 		if (count_args++ > 0)
@@ -7423,41 +7893,49 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"MacAddress\":" ))
+		if (osc_str_append_string(data, "\"MacAddress\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->mac_address))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nic_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_dns_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateDnsName\":" ))
+		if (osc_str_append_string(data, "\"PrivateDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ips) {
 		if (count_args++ > 0)
@@ -7483,21 +7961,25 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7508,21 +7990,25 @@ static int osu_api_key_setter(struct osu_api_key *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ApiKeyId\":" ))
+		if (osc_str_append_string(data, "\"ApiKeyId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->api_key_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->secret_key) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecretKey\":" ))
+		if (osc_str_append_string(data, "\"SecretKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->secret_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7533,41 +8019,49 @@ static int osu_export_image_export_task_setter(struct osu_export_image_export_ta
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DiskImageFormat\":" ))
+		if (osc_str_append_string(data, "\"DiskImageFormat\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->disk_image_format))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_bucket) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuBucket\":" ))
+		if (osc_str_append_string(data, "\"OsuBucket\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_bucket))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_manifest_url) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuManifestUrl\":" ))
+		if (osc_str_append_string(data, "\"OsuManifestUrl\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_manifest_url))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_prefix) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuPrefix\":" ))
+		if (osc_str_append_string(data, "\"OsuPrefix\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_prefix))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7578,31 +8072,37 @@ static int osu_export_snapshot_export_task_setter(struct osu_export_snapshot_exp
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DiskImageFormat\":" ))
+		if (osc_str_append_string(data, "\"DiskImageFormat\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->disk_image_format))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_bucket) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuBucket\":" ))
+		if (osc_str_append_string(data, "\"OsuBucket\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_bucket))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_prefix) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuPrefix\":" ))
+		if (osc_str_append_string(data, "\"OsuPrefix\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_prefix))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7613,11 +8113,13 @@ static int osu_export_to_create_setter(struct osu_export_to_create *args, struct
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DiskImageFormat\":" ))
+		if (osc_str_append_string(data, "\"DiskImageFormat\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->disk_image_format))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_api_key) {
 		if (count_args++ > 0)
@@ -7633,31 +8135,37 @@ static int osu_export_to_create_setter(struct osu_export_to_create *args, struct
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuBucket\":" ))
+		if (osc_str_append_string(data, "\"OsuBucket\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_bucket))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_manifest_url) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuManifestUrl\":" ))
+		if (osc_str_append_string(data, "\"OsuManifestUrl\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_manifest_url))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_prefix) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsuPrefix\":" ))
+		if (osc_str_append_string(data, "\"OsuPrefix\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->osu_prefix))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7718,11 +8226,13 @@ static int phase1_options_setter(struct phase1_options *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DpdTimeoutAction\":" ))
+		if (osc_str_append_string(data, "\"DpdTimeoutAction\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->dpd_timeout_action))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dpd_timeout_seconds) {
 		if (count_args++ > 0)
@@ -7798,11 +8308,13 @@ static int phase1_options_setter(struct phase1_options *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StartupAction\":" ))
+		if (osc_str_append_string(data, "\"StartupAction\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->startup_action))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7853,11 +8365,13 @@ static int phase2_options_setter(struct phase2_options *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PreSharedKey\":" ))
+		if (osc_str_append_string(data, "\"PreSharedKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->pre_shared_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7868,21 +8382,25 @@ static int placement_setter(struct placement *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tenancy) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Tenancy\":" ))
+		if (osc_str_append_string(data, "\"Tenancy\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->tenancy))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7913,21 +8431,25 @@ static int private_ip_setter(struct private_ip *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateDnsName\":" ))
+		if (osc_str_append_string(data, "\"PrivateDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateIp\":" ))
+		if (osc_str_append_string(data, "\"PrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7948,11 +8470,13 @@ static int private_ip_light_setter(struct private_ip_light *args, struct osc_str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateIp\":" ))
+		if (osc_str_append_string(data, "\"PrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -7983,21 +8507,25 @@ static int private_ip_light_for_vm_setter(struct private_ip_light_for_vm *args, 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateDnsName\":" ))
+		if (osc_str_append_string(data, "\"PrivateDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateIp\":" ))
+		if (osc_str_append_string(data, "\"PrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8008,31 +8536,37 @@ static int product_type_setter(struct product_type *args, struct osc_str *data) 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->product_type_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ProductTypeId\":" ))
+		if (osc_str_append_string(data, "\"ProductTypeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->product_type_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vendor) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Vendor\":" ))
+		if (osc_str_append_string(data, "\"Vendor\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vendor))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8043,61 +8577,73 @@ static int public_ip_setter(struct public_ip *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkPublicIpId\":" ))
+		if (osc_str_append_string(data, "\"LinkPublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nic_account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicAccountId\":" ))
+		if (osc_str_append_string(data, "\"NicAccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nic_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateIp\":" ))
+		if (osc_str_append_string(data, "\"PrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -8113,11 +8659,13 @@ static int public_ip_setter(struct public_ip *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8128,21 +8676,25 @@ static int public_ip_light_setter(struct public_ip_light *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8153,21 +8705,25 @@ static int quota_setter(struct quota *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_max_value) {
 		if (count_args++ > 0)
@@ -8183,31 +8739,37 @@ static int quota_setter(struct quota *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Name\":" ))
+		if (osc_str_append_string(data, "\"Name\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->quota_collection) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QuotaCollection\":" ))
+		if (osc_str_append_string(data, "\"QuotaCollection\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->quota_collection))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->short_description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ShortDescription\":" ))
+		if (osc_str_append_string(data, "\"ShortDescription\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->short_description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_used_value) {
 		if (count_args++ > 0)
@@ -8228,11 +8790,13 @@ static int quota_types_setter(struct quota_types *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"QuotaType\":" ))
+		if (osc_str_append_string(data, "\"QuotaType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->quota_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->quotas) {
 		if (count_args++ > 0)
@@ -8253,21 +8817,25 @@ static int region_setter(struct region *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Endpoint\":" ))
+		if (osc_str_append_string(data, "\"Endpoint\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->endpoint))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->region_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RegionName\":" ))
+		if (osc_str_append_string(data, "\"RegionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->region_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8278,11 +8846,13 @@ static int resource_load_balancer_tag_setter(struct resource_load_balancer_tag *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Key\":" ))
+		if (osc_str_append_string(data, "\"Key\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8293,21 +8863,25 @@ static int resource_tag_setter(struct resource_tag *args, struct osc_str *data) 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Key\":" ))
+		if (osc_str_append_string(data, "\"Key\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->value) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Value\":" ))
+		if (osc_str_append_string(data, "\"Value\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->value))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8318,111 +8892,133 @@ static int route_setter(struct route *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CreationMethod\":" ))
+		if (osc_str_append_string(data, "\"CreationMethod\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->creation_method))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->destination_ip_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationIpRange\":" ))
+		if (osc_str_append_string(data, "\"DestinationIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->destination_service_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationServiceId\":" ))
+		if (osc_str_append_string(data, "\"DestinationServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->gateway_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"GatewayId\":" ))
+		if (osc_str_append_string(data, "\"GatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nat_service_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NatServiceId\":" ))
+		if (osc_str_append_string(data, "\"NatServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nat_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_access_point_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetAccessPointId\":" ))
+		if (osc_str_append_string(data, "\"NetAccessPointId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_access_point_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_peering_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetPeeringId\":" ))
+		if (osc_str_append_string(data, "\"NetPeeringId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_peering_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nic_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmAccountId\":" ))
+		if (osc_str_append_string(data, "\"VmAccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8433,31 +9029,37 @@ static int route_light_setter(struct route_light *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationIpRange\":" ))
+		if (osc_str_append_string(data, "\"DestinationIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->route_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteType\":" ))
+		if (osc_str_append_string(data, "\"RouteType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8468,11 +9070,13 @@ static int route_propagating_virtual_gateway_setter(struct route_propagating_vir
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8493,11 +9097,13 @@ static int route_table_setter(struct route_table *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->route_propagating_virtual_gateways) {
 		if (count_args++ > 0)
@@ -8513,11 +9119,13 @@ static int route_table_setter(struct route_table *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->routes) {
 		if (count_args++ > 0)
@@ -8548,21 +9156,25 @@ static int security_group_setter(struct security_group *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->inbound_rules) {
 		if (count_args++ > 0)
@@ -8578,11 +9190,13 @@ static int security_group_setter(struct security_group *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->outbound_rules) {
 		if (count_args++ > 0)
@@ -8598,21 +9212,25 @@ static int security_group_setter(struct security_group *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupId\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupName\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -8633,21 +9251,25 @@ static int security_group_light_setter(struct security_group_light *args, struct
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupId\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupName\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8668,11 +9290,13 @@ static int security_group_rule_setter(struct security_group_rule *args, struct o
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpProtocol\":" ))
+		if (osc_str_append_string(data, "\"IpProtocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ip_ranges) {
 		if (count_args++ > 0)
@@ -8723,31 +9347,37 @@ static int security_groups_member_setter(struct security_groups_member *args, st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupId\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupName\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8758,61 +9388,73 @@ static int server_certificate_setter(struct server_certificate *args, struct osc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ExpirationDate\":" ))
+		if (osc_str_append_string(data, "\"ExpirationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->expiration_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Id\":" ))
+		if (osc_str_append_string(data, "\"Id\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Name\":" ))
+		if (osc_str_append_string(data, "\"Name\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->orn) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Orn\":" ))
+		if (osc_str_append_string(data, "\"Orn\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->orn))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->path) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Path\":" ))
+		if (osc_str_append_string(data, "\"Path\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->path))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->upload_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"UploadDate\":" ))
+		if (osc_str_append_string(data, "\"UploadDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->upload_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8833,21 +9475,25 @@ static int service_setter(struct service *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ServiceId\":" ))
+		if (osc_str_append_string(data, "\"ServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->service_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ServiceName\":" ))
+		if (osc_str_append_string(data, "\"ServiceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->service_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -8858,41 +9504,49 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountAlias\":" ))
+		if (osc_str_append_string(data, "\"AccountAlias\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_alias))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->account_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->creation_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CreationDate\":" ))
+		if (osc_str_append_string(data, "\"CreationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->creation_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->permissions_to_create_volume) {
 		if (count_args++ > 0)
@@ -8918,21 +9572,25 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -8948,11 +9606,13 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_volume_size) {
 		if (count_args++ > 0)
@@ -8973,11 +9633,13 @@ static int snapshot_export_task_setter(struct snapshot_export_task *args, struct
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Comment\":" ))
+		if (osc_str_append_string(data, "\"Comment\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->comment))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_export) {
 		if (count_args++ > 0)
@@ -9003,21 +9665,25 @@ static int snapshot_export_task_setter(struct snapshot_export_task *args, struct
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -9033,11 +9699,13 @@ static int snapshot_export_task_setter(struct snapshot_export_task *args, struct
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"TaskId\":" ))
+		if (osc_str_append_string(data, "\"TaskId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->task_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9048,31 +9716,37 @@ static int source_net_setter(struct source_net *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccountId\":" ))
+		if (osc_str_append_string(data, "\"AccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ip_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9083,21 +9757,25 @@ static int source_security_group_setter(struct source_security_group *args, stru
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupAccountId\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupAccountId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_account_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupName\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9108,21 +9786,25 @@ static int state_comment_setter(struct state_comment *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateCode\":" ))
+		if (osc_str_append_string(data, "\"StateCode\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_message) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateMessage\":" ))
+		if (osc_str_append_string(data, "\"StateMessage\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_message))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9143,11 +9825,13 @@ static int subnet_setter(struct subnet *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_map_public_ip_on_launch) {
 		if (count_args++ > 0)
@@ -9163,41 +9847,49 @@ static int subnet_setter(struct subnet *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -9218,41 +9910,49 @@ static int subregion_setter(struct subregion *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LocationCode\":" ))
+		if (osc_str_append_string(data, "\"LocationCode\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->location_code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->region_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RegionName\":" ))
+		if (osc_str_append_string(data, "\"RegionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->region_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9263,41 +9963,49 @@ static int tag_setter(struct tag *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Key\":" ))
+		if (osc_str_append_string(data, "\"Key\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->resource_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ResourceId\":" ))
+		if (osc_str_append_string(data, "\"ResourceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->resource_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->resource_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ResourceType\":" ))
+		if (osc_str_append_string(data, "\"ResourceType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->resource_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->value) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Value\":" ))
+		if (osc_str_append_string(data, "\"Value\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->value))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9318,41 +10026,49 @@ static int vgw_telemetry_setter(struct vgw_telemetry *args, struct osc_str *data
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LastStateChangeDate\":" ))
+		if (osc_str_append_string(data, "\"LastStateChangeDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->last_state_change_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->outside_ip_address) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OutsideIpAddress\":" ))
+		if (osc_str_append_string(data, "\"OutsideIpAddress\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->outside_ip_address))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateDescription\":" ))
+		if (osc_str_append_string(data, "\"StateDescription\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9363,11 +10079,13 @@ static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ConnectionType\":" ))
+		if (osc_str_append_string(data, "\"ConnectionType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->connection_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_to_virtual_gateway_links) {
 		if (count_args++ > 0)
@@ -9383,11 +10101,13 @@ static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -9403,11 +10123,13 @@ static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9418,11 +10140,13 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Architecture\":" ))
+		if (osc_str_append_string(data, "\"Architecture\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->architecture))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->block_device_mappings) {
 		if (count_args++ > 0)
@@ -9448,21 +10172,25 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientToken\":" ))
+		if (osc_str_append_string(data, "\"ClientToken\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_token))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->creation_date) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CreationDate\":" ))
+		if (osc_str_append_string(data, "\"CreationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->creation_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_deletion_protection) {
 		if (count_args++ > 0)
@@ -9478,21 +10206,25 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Hypervisor\":" ))
+		if (osc_str_append_string(data, "\"Hypervisor\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->hypervisor))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->image_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageId\":" ))
+		if (osc_str_append_string(data, "\"ImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_is_source_dest_checked) {
 		if (count_args++ > 0)
@@ -9508,11 +10240,13 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairName\":" ))
+		if (osc_str_append_string(data, "\"KeypairName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_launch_number) {
 		if (count_args++ > 0)
@@ -9538,11 +10272,13 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nics) {
 		if (count_args++ > 0)
@@ -9558,21 +10294,25 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"OsFamily\":" ))
+		if (osc_str_append_string(data, "\"OsFamily\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->os_family))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->performance) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Performance\":" ))
+		if (osc_str_append_string(data, "\"Performance\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->performance))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->placement) {
 		if (count_args++ > 0)
@@ -9588,21 +10328,25 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateDnsName\":" ))
+		if (osc_str_append_string(data, "\"PrivateDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateIp\":" ))
+		if (osc_str_append_string(data, "\"PrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->product_codes) {
 		if (count_args++ > 0)
@@ -9618,51 +10362,61 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicDnsName\":" ))
+		if (osc_str_append_string(data, "\"PublicDnsName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_dns_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->reservation_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ReservationId\":" ))
+		if (osc_str_append_string(data, "\"ReservationId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->reservation_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->root_device_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RootDeviceName\":" ))
+		if (osc_str_append_string(data, "\"RootDeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->root_device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->root_device_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RootDeviceType\":" ))
+		if (osc_str_append_string(data, "\"RootDeviceType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->root_device_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_groups) {
 		if (count_args++ > 0)
@@ -9678,31 +10432,37 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_reason) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateReason\":" ))
+		if (osc_str_append_string(data, "\"StateReason\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_reason))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -9718,41 +10478,49 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"UserData\":" ))
+		if (osc_str_append_string(data, "\"UserData\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->user_data))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_initiated_shutdown_behavior) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmInitiatedShutdownBehavior\":" ))
+		if (osc_str_append_string(data, "\"VmInitiatedShutdownBehavior\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_initiated_shutdown_behavior))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmType\":" ))
+		if (osc_str_append_string(data, "\"VmType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9763,31 +10531,37 @@ static int vm_state_setter(struct vm_state *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CurrentState\":" ))
+		if (osc_str_append_string(data, "\"CurrentState\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->current_state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->previous_state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PreviousState\":" ))
+		if (osc_str_append_string(data, "\"PreviousState\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->previous_state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9808,31 +10582,37 @@ static int vm_states_setter(struct vm_states *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmState\":" ))
+		if (osc_str_append_string(data, "\"VmState\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -9883,11 +10663,13 @@ static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmTypeName\":" ))
+		if (osc_str_append_string(data, "\"VmTypeName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_type_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_volume_count) {
 		if (count_args++ > 0)
@@ -9918,11 +10700,13 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CreationDate\":" ))
+		if (osc_str_append_string(data, "\"CreationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->creation_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_iops) {
 		if (count_args++ > 0)
@@ -9958,31 +10742,37 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tags) {
 		if (count_args++ > 0)
@@ -9998,21 +10788,25 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->volume_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeType\":" ))
+		if (osc_str_append_string(data, "\"VolumeType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -10023,31 +10817,37 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientGatewayConfiguration\":" ))
+		if (osc_str_append_string(data, "\"ClientGatewayConfiguration\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_gateway_configuration))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->client_gateway_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientGatewayId\":" ))
+		if (osc_str_append_string(data, "\"ClientGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->connection_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ConnectionType\":" ))
+		if (osc_str_append_string(data, "\"ConnectionType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->connection_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->routes) {
 		if (count_args++ > 0)
@@ -10063,11 +10863,13 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_static_routes_only) {
 		if (count_args++ > 0)
@@ -10103,21 +10905,25 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vpn_connection_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VpnConnectionId\":" ))
+		if (osc_str_append_string(data, "\"VpnConnectionId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vpn_connection_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vpn_options) {
 		if (count_args++ > 0)
@@ -10158,11 +10964,13 @@ static int vpn_options_setter(struct vpn_options *args, struct osc_str *data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"TunnelInsideIpRange\":" ))
+		if (osc_str_append_string(data, "\"TunnelInsideIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->tunnel_inside_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	return !!ret;;			       
 }
@@ -10344,11 +11152,13 @@ static  int update_vpn_connection_data(struct osc_update_vpn_connection_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientGatewayId\":" ))
+		if (osc_str_append_string(data, "\"ClientGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -10364,21 +11174,25 @@ static  int update_vpn_connection_data(struct osc_update_vpn_connection_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vpn_connection_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VpnConnectionId\":" ))
+		if (osc_str_append_string(data, "\"VpnConnectionId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vpn_connection_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vpn_options_str) {
 		if (count_args++ > 0)
@@ -10470,21 +11284,25 @@ static  int update_volume_data(struct osc_update_volume_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->volume_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeType\":" ))
+		if (osc_str_append_string(data, "\"VolumeType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -10578,11 +11396,13 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairName\":" ))
+		if (osc_str_append_string(data, "\"KeypairName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_nested_virtualization) {
 		if (count_args++ > 0)
@@ -10598,11 +11418,13 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Performance\":" ))
+		if (osc_str_append_string(data, "\"Performance\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->performance))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_ids) {
 		if (count_args++ > 0)
@@ -10618,41 +11440,49 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"UserData\":" ))
+		if (osc_str_append_string(data, "\"UserData\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->user_data))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_initiated_shutdown_behavior) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmInitiatedShutdownBehavior\":" ))
+		if (osc_str_append_string(data, "\"VmInitiatedShutdownBehavior\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_initiated_shutdown_behavior))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmType\":" ))
+		if (osc_str_append_string(data, "\"VmType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -10716,11 +11546,13 @@ static  int update_subnet_data(struct osc_update_subnet_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -10792,11 +11624,13 @@ static  int update_snapshot_data(struct osc_update_snapshot_arg *args, struct os
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -10850,31 +11684,37 @@ static  int update_server_certificate_data(struct osc_update_server_certificate_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Name\":" ))
+		if (osc_str_append_string(data, "\"Name\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->new_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NewName\":" ))
+		if (osc_str_append_string(data, "\"NewName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->new_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->new_path) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NewPath\":" ))
+		if (osc_str_append_string(data, "\"NewPath\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->new_path))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -10938,21 +11778,25 @@ static  int update_route_propagation_data(struct osc_update_route_propagation_ar
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -10996,11 +11840,13 @@ static  int update_route_data(struct osc_update_route_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationIpRange\":" ))
+		if (osc_str_append_string(data, "\"DestinationIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -11016,61 +11862,73 @@ static  int update_route_data(struct osc_update_route_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"GatewayId\":" ))
+		if (osc_str_append_string(data, "\"GatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nat_service_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NatServiceId\":" ))
+		if (osc_str_append_string(data, "\"NatServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nat_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_peering_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetPeeringId\":" ))
+		if (osc_str_append_string(data, "\"NetPeeringId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_peering_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nic_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->route_table_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -11114,11 +11972,13 @@ static  int update_nic_data(struct osc_update_nic_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -11152,11 +12012,13 @@ static  int update_nic_data(struct osc_update_nic_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_ids) {
 		if (count_args++ > 0)
@@ -11230,11 +12092,13 @@ static  int update_net_access_point_data(struct osc_update_net_access_point_arg 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetAccessPointId\":" ))
+		if (osc_str_append_string(data, "\"NetAccessPointId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_access_point_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->remove_route_table_ids) {
 		if (count_args++ > 0)
@@ -11288,11 +12152,13 @@ static  int update_net_data(struct osc_update_net_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":" ))
+		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->dhcp_options_set_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -11308,11 +12174,13 @@ static  int update_net_data(struct osc_update_net_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -11402,11 +12270,13 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_load_balancer_port) {
 		if (count_args++ > 0)
@@ -11432,11 +12302,13 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_secured_cookies) {
 		if (count_args++ > 0)
@@ -11462,11 +12334,13 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ServerCertificateId\":" ))
+		if (osc_str_append_string(data, "\"ServerCertificateId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->server_certificate_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -11520,31 +12394,37 @@ static  int update_listener_rule_data(struct osc_update_listener_rule_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"HostPattern\":" ))
+		if (osc_str_append_string(data, "\"HostPattern\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->host_pattern))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->listener_rule_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ListenerRuleName\":" ))
+		if (osc_str_append_string(data, "\"ListenerRuleName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->listener_rule_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->path_pattern) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PathPattern\":" ))
+		if (osc_str_append_string(data, "\"PathPattern\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->path_pattern))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -11598,11 +12478,13 @@ static  int update_image_data(struct osc_update_image_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageId\":" ))
+		if (osc_str_append_string(data, "\"ImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->permissions_to_launch_str) {
 		if (count_args++ > 0)
@@ -11684,11 +12566,13 @@ static  int update_flexible_gpu_data(struct osc_update_flexible_gpu_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FlexibleGpuId\":" ))
+		if (osc_str_append_string(data, "\"FlexibleGpuId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flexible_gpu_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -11732,11 +12616,13 @@ static  int update_direct_link_interface_data(struct osc_update_direct_link_inte
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkInterfaceId\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkInterfaceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_interface_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -11800,21 +12686,25 @@ static  int update_ca_data(struct osc_update_ca_arg *args, struct osc_str *data)
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CaId\":" ))
+		if (osc_str_append_string(data, "\"CaId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ca_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -11868,11 +12758,13 @@ static  int update_api_access_rule_data(struct osc_update_api_access_rule_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ApiAccessRuleId\":" ))
+		if (osc_str_append_string(data, "\"ApiAccessRuleId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->api_access_rule_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ca_ids) {
 		if (count_args++ > 0)
@@ -11898,11 +12790,13 @@ static  int update_api_access_rule_data(struct osc_update_api_access_rule_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -12044,31 +12938,37 @@ static  int update_account_data(struct osc_update_account_arg *args, struct osc_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"City\":" ))
+		if (osc_str_append_string(data, "\"City\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->city))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->company_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CompanyName\":" ))
+		if (osc_str_append_string(data, "\"CompanyName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->company_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->country) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Country\":" ))
+		if (osc_str_append_string(data, "\"Country\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->country))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -12084,91 +12984,109 @@ static  int update_account_data(struct osc_update_account_arg *args, struct osc_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Email\":" ))
+		if (osc_str_append_string(data, "\"Email\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->email))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->first_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FirstName\":" ))
+		if (osc_str_append_string(data, "\"FirstName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->first_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->job_title) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"JobTitle\":" ))
+		if (osc_str_append_string(data, "\"JobTitle\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->job_title))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->last_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LastName\":" ))
+		if (osc_str_append_string(data, "\"LastName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->last_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->mobile_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"MobileNumber\":" ))
+		if (osc_str_append_string(data, "\"MobileNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->mobile_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->phone_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PhoneNumber\":" ))
+		if (osc_str_append_string(data, "\"PhoneNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->phone_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_province) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateProvince\":" ))
+		if (osc_str_append_string(data, "\"StateProvince\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_province))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vat_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VatNumber\":" ))
+		if (osc_str_append_string(data, "\"VatNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vat_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->zip_code) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ZipCode\":" ))
+		if (osc_str_append_string(data, "\"ZipCode\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->zip_code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12212,11 +13130,13 @@ static  int update_access_key_data(struct osc_update_access_key_arg *args, struc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccessKeyId\":" ))
+		if (osc_str_append_string(data, "\"AccessKeyId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->access_key_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -12232,21 +13152,25 @@ static  int update_access_key_data(struct osc_update_access_key_arg *args, struc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ExpirationDate\":" ))
+		if (osc_str_append_string(data, "\"ExpirationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->expiration_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"State\":" ))
+		if (osc_str_append_string(data, "\"State\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12310,11 +13234,13 @@ static  int unlink_volume_data(struct osc_unlink_volume_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12368,21 +13294,25 @@ static  int unlink_virtual_gateway_data(struct osc_unlink_virtual_gateway_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12436,11 +13366,13 @@ static  int unlink_route_table_data(struct osc_unlink_route_table_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkRouteTableId\":" ))
+		if (osc_str_append_string(data, "\"LinkRouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12494,21 +13426,25 @@ static  int unlink_public_ip_data(struct osc_unlink_public_ip_arg *args, struct 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkPublicIpId\":" ))
+		if (osc_str_append_string(data, "\"LinkPublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12562,11 +13498,13 @@ static  int unlink_private_ips_data(struct osc_unlink_private_ips_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ips) {
 		if (count_args++ > 0)
@@ -12630,11 +13568,13 @@ static  int unlink_nic_data(struct osc_unlink_nic_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LinkNicId\":" ))
+		if (osc_str_append_string(data, "\"LinkNicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->link_nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12708,11 +13648,13 @@ static  int unlink_load_balancer_backend_machines_data(struct osc_unlink_load_ba
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12766,21 +13708,25 @@ static  int unlink_internet_service_data(struct osc_unlink_internet_service_arg 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"InternetServiceId\":" ))
+		if (osc_str_append_string(data, "\"InternetServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->internet_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -12834,11 +13780,13 @@ static  int unlink_flexible_gpu_data(struct osc_unlink_flexible_gpu_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FlexibleGpuId\":" ))
+		if (osc_str_append_string(data, "\"FlexibleGpuId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flexible_gpu_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -13018,11 +13966,13 @@ static  int send_reset_password_email_data(struct osc_send_reset_password_email_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Email\":" ))
+		if (osc_str_append_string(data, "\"Email\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->email))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -13076,21 +14026,25 @@ static  int reset_account_password_data(struct osc_reset_account_password_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Password\":" ))
+		if (osc_str_append_string(data, "\"Password\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->password))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->token) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Token\":" ))
+		if (osc_str_append_string(data, "\"Token\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->token))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -13144,11 +14098,13 @@ static  int reject_net_peering_data(struct osc_reject_net_peering_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetPeeringId\":" ))
+		if (osc_str_append_string(data, "\"NetPeeringId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_peering_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -13212,11 +14168,13 @@ static  int register_vms_in_load_balancer_data(struct osc_register_vms_in_load_b
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -13546,11 +14504,13 @@ static  int read_vms_health_data(struct osc_read_vms_health_arg *args, struct os
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -14254,11 +15214,13 @@ static  int read_secret_access_key_data(struct osc_read_secret_access_key_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccessKeyId\":" ))
+		if (osc_str_append_string(data, "\"AccessKeyId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->access_key_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -15940,11 +16902,13 @@ static  int read_consumption_account_data(struct osc_read_consumption_account_ar
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FromDate\":" ))
+		if (osc_str_append_string(data, "\"FromDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->from_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_overall) {
 		if (count_args++ > 0)
@@ -15960,11 +16924,13 @@ static  int read_consumption_account_data(struct osc_read_consumption_account_ar
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ToDate\":" ))
+		if (osc_str_append_string(data, "\"ToDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->to_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -16018,11 +16984,13 @@ static  int read_console_output_data(struct osc_read_console_output_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -16274,11 +17242,13 @@ static  int read_api_logs_data(struct osc_read_api_logs_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NextPageToken\":" ))
+		if (osc_str_append_string(data, "\"NextPageToken\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->next_page_token))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_results_per_page) {
 		if (count_args++ > 0)
@@ -16474,11 +17444,13 @@ static  int read_admin_password_data(struct osc_read_admin_password_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -16636,11 +17608,13 @@ static  int link_volume_data(struct osc_link_volume_arg *args, struct osc_str *d
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DeviceName\":" ))
+		if (osc_str_append_string(data, "\"DeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -16656,21 +17630,25 @@ static  int link_volume_data(struct osc_link_volume_arg *args, struct osc_str *d
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->volume_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -16724,21 +17702,25 @@ static  int link_virtual_gateway_data(struct osc_link_virtual_gateway_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -16792,21 +17774,25 @@ static  int link_route_table_data(struct osc_link_route_table_arg *args, struct 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -16870,51 +17856,61 @@ static  int link_public_ip_data(struct osc_link_public_ip_arg *args, struct osc_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateIp\":" ))
+		if (osc_str_append_string(data, "\"PrivateIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -16978,11 +17974,13 @@ static  int link_private_ips_data(struct osc_link_private_ips_arg *args, struct 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_ips) {
 		if (count_args++ > 0)
@@ -17066,21 +18064,25 @@ static  int link_nic_data(struct osc_link_nic_arg *args, struct osc_str *data)
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17154,11 +18156,13 @@ static  int link_load_balancer_backend_machines_data(struct osc_link_load_balanc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17212,21 +18216,25 @@ static  int link_internet_service_data(struct osc_link_internet_service_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"InternetServiceId\":" ))
+		if (osc_str_append_string(data, "\"InternetServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->internet_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17280,21 +18288,25 @@ static  int link_flexible_gpu_data(struct osc_link_flexible_gpu_arg *args, struc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FlexibleGpuId\":" ))
+		if (osc_str_append_string(data, "\"FlexibleGpuId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flexible_gpu_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17358,11 +18370,13 @@ static  int deregister_vms_in_load_balancer_data(struct osc_deregister_vms_in_lo
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17406,11 +18420,13 @@ static  int delete_vpn_connection_route_data(struct osc_delete_vpn_connection_ro
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationIpRange\":" ))
+		if (osc_str_append_string(data, "\"DestinationIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -17426,11 +18442,13 @@ static  int delete_vpn_connection_route_data(struct osc_delete_vpn_connection_ro
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VpnConnectionId\":" ))
+		if (osc_str_append_string(data, "\"VpnConnectionId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vpn_connection_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17484,11 +18502,13 @@ static  int delete_vpn_connection_data(struct osc_delete_vpn_connection_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VpnConnectionId\":" ))
+		if (osc_str_append_string(data, "\"VpnConnectionId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vpn_connection_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17542,11 +18562,13 @@ static  int delete_volume_data(struct osc_delete_volume_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17658,11 +18680,13 @@ static  int delete_virtual_gateway_data(struct osc_delete_virtual_gateway_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17784,11 +18808,13 @@ static  int delete_subnet_data(struct osc_delete_subnet_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17842,11 +18868,13 @@ static  int delete_snapshot_data(struct osc_delete_snapshot_arg *args, struct os
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17900,11 +18928,13 @@ static  int delete_server_certificate_data(struct osc_delete_server_certificate_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Name\":" ))
+		if (osc_str_append_string(data, "\"Name\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -17958,11 +18988,13 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Flow\":" ))
+		if (osc_str_append_string(data, "\"Flow\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flow))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_from_port_range) {
 		if (count_args++ > 0)
@@ -17978,21 +19010,25 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpProtocol\":" ))
+		if (osc_str_append_string(data, "\"IpProtocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ip_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->rules) {
 		if (count_args++ > 0)
@@ -18008,31 +19044,37 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupAccountIdToUnlink\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupAccountIdToUnlink\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_account_id_to_unlink))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupId\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name_to_unlink) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupNameToUnlink\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupNameToUnlink\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name_to_unlink))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_to_port_range) {
 		if (count_args++ > 0)
@@ -18096,21 +19138,25 @@ static  int delete_security_group_data(struct osc_delete_security_group_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupId\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupName\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18164,11 +19210,13 @@ static  int delete_route_table_data(struct osc_delete_route_table_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18212,11 +19260,13 @@ static  int delete_route_data(struct osc_delete_route_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationIpRange\":" ))
+		if (osc_str_append_string(data, "\"DestinationIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -18232,11 +19282,13 @@ static  int delete_route_data(struct osc_delete_route_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18290,21 +19342,25 @@ static  int delete_public_ip_data(struct osc_delete_public_ip_arg *args, struct 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18358,11 +19414,13 @@ static  int delete_nic_data(struct osc_delete_nic_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18416,11 +19474,13 @@ static  int delete_net_peering_data(struct osc_delete_net_peering_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetPeeringId\":" ))
+		if (osc_str_append_string(data, "\"NetPeeringId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_peering_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18474,11 +19534,13 @@ static  int delete_net_access_point_data(struct osc_delete_net_access_point_arg 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetAccessPointId\":" ))
+		if (osc_str_append_string(data, "\"NetAccessPointId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_access_point_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18532,11 +19594,13 @@ static  int delete_net_data(struct osc_delete_net_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18590,11 +19654,13 @@ static  int delete_nat_service_data(struct osc_delete_nat_service_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NatServiceId\":" ))
+		if (osc_str_append_string(data, "\"NatServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nat_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18716,21 +19782,25 @@ static  int delete_load_balancer_policy_data(struct osc_delete_load_balancer_pol
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->policy_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PolicyName\":" ))
+		if (osc_str_append_string(data, "\"PolicyName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->policy_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18784,11 +19854,13 @@ static  int delete_load_balancer_listeners_data(struct osc_delete_load_balancer_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->load_balancer_ports) {
 		int *ip;
@@ -18870,11 +19942,13 @@ static  int delete_load_balancer_data(struct osc_delete_load_balancer_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18928,11 +20002,13 @@ static  int delete_listener_rule_data(struct osc_delete_listener_rule_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ListenerRuleName\":" ))
+		if (osc_str_append_string(data, "\"ListenerRuleName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->listener_rule_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -18986,11 +20062,13 @@ static  int delete_keypair_data(struct osc_delete_keypair_arg *args, struct osc_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairName\":" ))
+		if (osc_str_append_string(data, "\"KeypairName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19044,11 +20122,13 @@ static  int delete_internet_service_data(struct osc_delete_internet_service_arg 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"InternetServiceId\":" ))
+		if (osc_str_append_string(data, "\"InternetServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->internet_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19102,11 +20182,13 @@ static  int delete_image_data(struct osc_delete_image_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageId\":" ))
+		if (osc_str_append_string(data, "\"ImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19160,11 +20242,13 @@ static  int delete_flexible_gpu_data(struct osc_delete_flexible_gpu_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FlexibleGpuId\":" ))
+		if (osc_str_append_string(data, "\"FlexibleGpuId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flexible_gpu_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19218,11 +20302,13 @@ static  int delete_export_task_data(struct osc_delete_export_task_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ExportTaskId\":" ))
+		if (osc_str_append_string(data, "\"ExportTaskId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->export_task_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19266,11 +20352,13 @@ static  int delete_direct_link_interface_data(struct osc_delete_direct_link_inte
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkInterfaceId\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkInterfaceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_interface_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19324,11 +20412,13 @@ static  int delete_direct_link_data(struct osc_delete_direct_link_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkId\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19382,11 +20472,13 @@ static  int delete_dhcp_options_data(struct osc_delete_dhcp_options_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":" ))
+		if (osc_str_append_string(data, "\"DhcpOptionsSetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->dhcp_options_set_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19440,11 +20532,13 @@ static  int delete_client_gateway_data(struct osc_delete_client_gateway_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientGatewayId\":" ))
+		if (osc_str_append_string(data, "\"ClientGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19498,11 +20592,13 @@ static  int delete_ca_data(struct osc_delete_ca_arg *args, struct osc_str *data)
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CaId\":" ))
+		if (osc_str_append_string(data, "\"CaId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ca_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19556,11 +20652,13 @@ static  int delete_api_access_rule_data(struct osc_delete_api_access_rule_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ApiAccessRuleId\":" ))
+		if (osc_str_append_string(data, "\"ApiAccessRuleId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->api_access_rule_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19614,11 +20712,13 @@ static  int delete_access_key_data(struct osc_delete_access_key_arg *args, struc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccessKeyId\":" ))
+		if (osc_str_append_string(data, "\"AccessKeyId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->access_key_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19672,11 +20772,13 @@ static  int create_vpn_connection_route_data(struct osc_create_vpn_connection_ro
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationIpRange\":" ))
+		if (osc_str_append_string(data, "\"DestinationIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19692,11 +20794,13 @@ static  int create_vpn_connection_route_data(struct osc_create_vpn_connection_ro
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VpnConnectionId\":" ))
+		if (osc_str_append_string(data, "\"VpnConnectionId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vpn_connection_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19740,21 +20844,25 @@ static  int create_vpn_connection_data(struct osc_create_vpn_connection_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientGatewayId\":" ))
+		if (osc_str_append_string(data, "\"ClientGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->connection_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ConnectionType\":" ))
+		if (osc_str_append_string(data, "\"ConnectionType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->connection_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -19780,11 +20888,13 @@ static  int create_vpn_connection_data(struct osc_create_vpn_connection_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VirtualGatewayId\":" ))
+		if (osc_str_append_string(data, "\"VirtualGatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->virtual_gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19858,31 +20968,37 @@ static  int create_volume_data(struct osc_create_volume_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->volume_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeType\":" ))
+		if (osc_str_append_string(data, "\"VolumeType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -19956,11 +21072,13 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ClientToken\":" ))
+		if (osc_str_append_string(data, "\"ClientToken\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->client_token))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_deletion_protection) {
 		if (count_args++ > 0)
@@ -19986,21 +21104,25 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageId\":" ))
+		if (osc_str_append_string(data, "\"ImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->keypair_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairName\":" ))
+		if (osc_str_append_string(data, "\"KeypairName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_max_vms_count) {
 		if (count_args++ > 0)
@@ -20046,11 +21168,13 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Performance\":" ))
+		if (osc_str_append_string(data, "\"Performance\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->performance))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->placement_str) {
 		if (count_args++ > 0)
@@ -20104,41 +21228,49 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->user_data) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"UserData\":" ))
+		if (osc_str_append_string(data, "\"UserData\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->user_data))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_initiated_shutdown_behavior) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmInitiatedShutdownBehavior\":" ))
+		if (osc_str_append_string(data, "\"VmInitiatedShutdownBehavior\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_initiated_shutdown_behavior))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmType\":" ))
+		if (osc_str_append_string(data, "\"VmType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -20182,11 +21314,13 @@ static  int create_virtual_gateway_data(struct osc_create_virtual_gateway_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ConnectionType\":" ))
+		if (osc_str_append_string(data, "\"ConnectionType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->connection_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -20318,31 +21452,37 @@ static  int create_subnet_data(struct osc_create_subnet_arg *args, struct osc_st
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -20414,11 +21554,13 @@ static  int create_snapshot_export_task_data(struct osc_create_snapshot_export_t
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -20462,11 +21604,13 @@ static  int create_snapshot_data(struct osc_create_snapshot_arg *args, struct os
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -20482,11 +21626,13 @@ static  int create_snapshot_data(struct osc_create_snapshot_arg *args, struct os
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FileLocation\":" ))
+		if (osc_str_append_string(data, "\"FileLocation\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->file_location))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_snapshot_size) {
 		if (count_args++ > 0)
@@ -20502,31 +21648,37 @@ static  int create_snapshot_data(struct osc_create_snapshot_arg *args, struct os
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SourceRegionName\":" ))
+		if (osc_str_append_string(data, "\"SourceRegionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->source_region_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->source_snapshot_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SourceSnapshotId\":" ))
+		if (osc_str_append_string(data, "\"SourceSnapshotId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->source_snapshot_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->volume_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VolumeId\":" ))
+		if (osc_str_append_string(data, "\"VolumeId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->volume_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -20570,21 +21722,25 @@ static  int create_server_certificate_data(struct osc_create_server_certificate_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Body\":" ))
+		if (osc_str_append_string(data, "\"Body\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->body))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->chain) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Chain\":" ))
+		if (osc_str_append_string(data, "\"Chain\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->chain))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -20600,31 +21756,37 @@ static  int create_server_certificate_data(struct osc_create_server_certificate_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Name\":" ))
+		if (osc_str_append_string(data, "\"Name\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->path) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Path\":" ))
+		if (osc_str_append_string(data, "\"Path\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->path))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->private_key) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PrivateKey\":" ))
+		if (osc_str_append_string(data, "\"PrivateKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->private_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -20678,11 +21840,13 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Flow\":" ))
+		if (osc_str_append_string(data, "\"Flow\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->flow))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_from_port_range) {
 		if (count_args++ > 0)
@@ -20698,21 +21862,25 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpProtocol\":" ))
+		if (osc_str_append_string(data, "\"IpProtocol\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_protocol))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->ip_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->rules) {
 		if (count_args++ > 0)
@@ -20728,31 +21896,37 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupAccountIdToLink\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupAccountIdToLink\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_account_id_to_link))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupId\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name_to_link) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupNameToLink\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupNameToLink\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name_to_link))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_to_port_range) {
 		if (count_args++ > 0)
@@ -20806,11 +21980,13 @@ static  int create_security_group_data(struct osc_create_security_group_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -20826,21 +22002,25 @@ static  int create_security_group_data(struct osc_create_security_group_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_group_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SecurityGroupName\":" ))
+		if (osc_str_append_string(data, "\"SecurityGroupName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->security_group_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -20894,11 +22074,13 @@ static  int create_route_table_data(struct osc_create_route_table_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -20942,11 +22124,13 @@ static  int create_route_data(struct osc_create_route_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DestinationIpRange\":" ))
+		if (osc_str_append_string(data, "\"DestinationIpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->destination_ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -20962,61 +22146,73 @@ static  int create_route_data(struct osc_create_route_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"GatewayId\":" ))
+		if (osc_str_append_string(data, "\"GatewayId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->gateway_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nat_service_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NatServiceId\":" ))
+		if (osc_str_append_string(data, "\"NatServiceId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nat_service_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->net_peering_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetPeeringId\":" ))
+		if (osc_str_append_string(data, "\"NetPeeringId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_peering_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->nic_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NicId\":" ))
+		if (osc_str_append_string(data, "\"NicId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->nic_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->route_table_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RouteTableId\":" ))
+		if (osc_str_append_string(data, "\"RouteTableId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->route_table_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21108,11 +22304,13 @@ static  int create_nic_data(struct osc_create_nic_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -21148,11 +22346,13 @@ static  int create_nic_data(struct osc_create_nic_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21196,11 +22396,13 @@ static  int create_net_peering_data(struct osc_create_net_peering_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"AccepterNetId\":" ))
+		if (osc_str_append_string(data, "\"AccepterNetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->accepter_net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -21216,11 +22418,13 @@ static  int create_net_peering_data(struct osc_create_net_peering_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SourceNetId\":" ))
+		if (osc_str_append_string(data, "\"SourceNetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->source_net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21274,11 +22478,13 @@ static  int create_net_access_point_data(struct osc_create_net_access_point_arg 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetId\":" ))
+		if (osc_str_append_string(data, "\"NetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->route_table_ids) {
 		if (count_args++ > 0)
@@ -21294,11 +22500,13 @@ static  int create_net_access_point_data(struct osc_create_net_access_point_arg 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ServiceName\":" ))
+		if (osc_str_append_string(data, "\"ServiceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->service_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21352,21 +22560,25 @@ static  int create_net_data(struct osc_create_net_arg *args, struct osc_str *dat
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"IpRange\":" ))
+		if (osc_str_append_string(data, "\"IpRange\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ip_range))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->tenancy) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Tenancy\":" ))
+		if (osc_str_append_string(data, "\"Tenancy\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->tenancy))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21420,21 +22632,25 @@ static  int create_nat_service_data(struct osc_create_nat_service_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIpId\":" ))
+		if (osc_str_append_string(data, "\"PublicIpId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subnet_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubnetId\":" ))
+		if (osc_str_append_string(data, "\"SubnetId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subnet_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21556,11 +22772,13 @@ static  int create_load_balancer_policy_data(struct osc_create_load_balancer_pol
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CookieName\":" ))
+		if (osc_str_append_string(data, "\"CookieName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->cookie_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -21576,31 +22794,37 @@ static  int create_load_balancer_policy_data(struct osc_create_load_balancer_pol
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->policy_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PolicyName\":" ))
+		if (osc_str_append_string(data, "\"PolicyName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->policy_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->policy_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PolicyType\":" ))
+		if (osc_str_append_string(data, "\"PolicyType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->policy_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21664,11 +22888,13 @@ static  int create_load_balancer_listeners_data(struct osc_create_load_balancer_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -21732,31 +22958,37 @@ static  int create_load_balancer_data(struct osc_create_load_balancer_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerName\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->load_balancer_type) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LoadBalancerType\":" ))
+		if (osc_str_append_string(data, "\"LoadBalancerType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->load_balancer_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_ip) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->security_groups) {
 		if (count_args++ > 0)
@@ -21944,21 +23176,25 @@ static  int create_keypair_data(struct osc_create_keypair_arg *args, struct osc_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"KeypairName\":" ))
+		if (osc_str_append_string(data, "\"KeypairName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->keypair_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->public_key) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicKey\":" ))
+		if (osc_str_append_string(data, "\"PublicKey\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_key))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -22060,11 +23296,13 @@ static  int create_image_export_task_data(struct osc_create_image_export_task_ar
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageId\":" ))
+		if (osc_str_append_string(data, "\"ImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->osu_export_str) {
 		if (count_args++ > 0)
@@ -22126,11 +23364,13 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Architecture\":" ))
+		if (osc_str_append_string(data, "\"Architecture\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->architecture))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->block_device_mappings) {
 		if (count_args++ > 0)
@@ -22146,11 +23386,13 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -22166,21 +23408,25 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FileLocation\":" ))
+		if (osc_str_append_string(data, "\"FileLocation\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->file_location))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->image_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ImageName\":" ))
+		if (osc_str_append_string(data, "\"ImageName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->image_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_no_reboot) {
 		if (count_args++ > 0)
@@ -22196,41 +23442,49 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"RootDeviceName\":" ))
+		if (osc_str_append_string(data, "\"RootDeviceName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->root_device_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->source_image_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SourceImageId\":" ))
+		if (osc_str_append_string(data, "\"SourceImageId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->source_image_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->source_region_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SourceRegionName\":" ))
+		if (osc_str_append_string(data, "\"SourceRegionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->source_region_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vm_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VmId\":" ))
+		if (osc_str_append_string(data, "\"VmId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vm_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -22294,31 +23548,37 @@ static  int create_flexible_gpu_data(struct osc_create_flexible_gpu_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Generation\":" ))
+		if (osc_str_append_string(data, "\"Generation\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->generation))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->model_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ModelName\":" ))
+		if (osc_str_append_string(data, "\"ModelName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->model_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->subregion_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"SubregionName\":" ))
+		if (osc_str_append_string(data, "\"SubregionName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->subregion_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -22362,11 +23622,13 @@ static  int create_direct_link_interface_data(struct osc_create_direct_link_inte
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkId\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_interface_str) {
 		if (count_args++ > 0)
@@ -22438,21 +23700,25 @@ static  int create_direct_link_data(struct osc_create_direct_link_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Bandwidth\":" ))
+		if (osc_str_append_string(data, "\"Bandwidth\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->bandwidth))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->direct_link_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DirectLinkName\":" ))
+		if (osc_str_append_string(data, "\"DirectLinkName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->direct_link_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -22468,11 +23734,13 @@ static  int create_direct_link_data(struct osc_create_direct_link_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Location\":" ))
+		if (osc_str_append_string(data, "\"Location\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->location))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -22516,11 +23784,13 @@ static  int create_dhcp_options_data(struct osc_create_dhcp_options_arg *args, s
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"DomainName\":" ))
+		if (osc_str_append_string(data, "\"DomainName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->domain_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->domain_name_servers) {
 		if (count_args++ > 0)
@@ -22614,11 +23884,13 @@ static  int create_client_gateway_data(struct osc_create_client_gateway_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ConnectionType\":" ))
+		if (osc_str_append_string(data, "\"ConnectionType\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->connection_type))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -22634,11 +23906,13 @@ static  int create_client_gateway_data(struct osc_create_client_gateway_arg *arg
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PublicIp\":" ))
+		if (osc_str_append_string(data, "\"PublicIp\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->public_ip))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -22682,21 +23956,25 @@ static  int create_ca_data(struct osc_create_ca_arg *args, struct osc_str *data)
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CaPem\":" ))
+		if (osc_str_append_string(data, "\"CaPem\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->ca_pem))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->description) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -22770,11 +24048,13 @@ static  int create_api_access_rule_data(struct osc_create_api_access_rule_arg *a
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Description\":" ))
+		if (osc_str_append_string(data, "\"Description\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->description))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -22848,41 +24128,49 @@ static  int create_account_data(struct osc_create_account_arg *args, struct osc_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"City\":" ))
+		if (osc_str_append_string(data, "\"City\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->city))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->company_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CompanyName\":" ))
+		if (osc_str_append_string(data, "\"CompanyName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->company_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->country) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Country\":" ))
+		if (osc_str_append_string(data, "\"Country\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->country))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->customer_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"CustomerId\":" ))
+		if (osc_str_append_string(data, "\"CustomerId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->customer_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
 		if (count_args++ > 0)
@@ -22898,91 +24186,109 @@ static  int create_account_data(struct osc_create_account_arg *args, struct osc_
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Email\":" ))
+		if (osc_str_append_string(data, "\"Email\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->email))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->first_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"FirstName\":" ))
+		if (osc_str_append_string(data, "\"FirstName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->first_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->job_title) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"JobTitle\":" ))
+		if (osc_str_append_string(data, "\"JobTitle\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->job_title))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->last_name) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"LastName\":" ))
+		if (osc_str_append_string(data, "\"LastName\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->last_name))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->mobile_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"MobileNumber\":" ))
+		if (osc_str_append_string(data, "\"MobileNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->mobile_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->phone_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"PhoneNumber\":" ))
+		if (osc_str_append_string(data, "\"PhoneNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->phone_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->state_province) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"StateProvince\":" ))
+		if (osc_str_append_string(data, "\"StateProvince\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->state_province))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->vat_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"VatNumber\":" ))
+		if (osc_str_append_string(data, "\"VatNumber\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->vat_number))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->zip_code) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ZipCode\":" ))
+		if (osc_str_append_string(data, "\"ZipCode\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->zip_code))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -23036,11 +24342,13 @@ static  int create_access_key_data(struct osc_create_access_key_arg *args, struc
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"ExpirationDate\":" ))
+		if (osc_str_append_string(data, "\"ExpirationDate\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->expiration_date))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -23094,21 +24402,25 @@ static  int check_authentication_data(struct osc_check_authentication_arg *args,
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Login\":" ))
+		if (osc_str_append_string(data, "\"Login\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->login))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	if (args->password) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"Password\":" ))
+		if (osc_str_append_string(data, "\"Password\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->password))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
@@ -23162,11 +24474,13 @@ static  int accept_net_peering_data(struct osc_accept_net_peering_arg *args, str
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
-		if (osc_str_append_string(data, "\"NetPeeringId\":" ))
+		if (osc_str_append_string(data, "\"NetPeeringId\":\"" ))
 			return -1;
                 if (osc_str_append_string(data, args->net_peering_id))
 			return -1;
-		ret += 1;
+		if (osc_str_append_string(data, "\"" ))
+			return -1;
+	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
 	return !!ret;
