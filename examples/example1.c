@@ -19,8 +19,9 @@ int main(void)
 	/* use C99 compound literal to construct arguments */
         if (osc_read_images(&e, &r, &(struct osc_read_images_arg)
 			    {.filters=(struct filters_image) {
-					    .account_aliases = "[\"Outscale\"]"
-				    }}
+					    .image_names = "[\"*Arch*\"]"
+				    },
+			     .is_set_filters = 1}
 		    ) < 0)
 		return 1;
 
