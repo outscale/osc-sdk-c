@@ -2,6 +2,8 @@
 
 Welcome to Outscale SDK for C.
 
+** THIS IS STILL WORK IN PROGRESS !!!!! **
+
 ## Dependency
 
 json-c and libcurl (7.75 and after)

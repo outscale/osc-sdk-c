@@ -36,4 +36,6 @@ clean:
 clean_sdk:
 	rm -rvf COGNAC/
 
-.PHONY: clean clean_sdk all
+clean_all: clean clean_sdk
+
+.PHONY: clean clean_sdk clean_all all
