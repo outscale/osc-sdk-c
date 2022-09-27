@@ -5,7 +5,9 @@
 
 int main(void)
 {
-	/* auto_osc_env and auto_osc_str auto call deinit functions */
+	/*
+	 * auto_osc_env and auto_osc_str auto call deinit functions (use GNU C)
+	 */
         auto_osc_env struct osc_env e;
         auto_osc_str struct osc_str r;
 	json_object *jobj;

@@ -2,7 +2,7 @@
 
 Welcome to Outscale SDK for C.
 
-** THIS IS STILL WORK IN PROGRESS !!!!! **
+** THIS IS STILL WORK IN PROGRESS EVERYTHING CAN STILL CHANGE !!!!! **
 
 ## Dependency
 
