@@ -5,7 +5,8 @@ int main(void)
         struct osc_env e;
         struct osc_str r;
 
-        osc_init_sdk(&e, NULL, 0);
+        if (osc_init_sdk(&e, NULL, 0) < 0)
+		return 1;
         osc_init_str(&r);
 
         osc_read_load_balancers(&e, &r, NULL);
