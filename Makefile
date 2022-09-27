@@ -22,4 +22,7 @@ osc_sdk.h: COGNAC/osc_sdk.h
 clean:
 	rm -rvf examples/*.o example0
 
+clean_sdk:
+	rm -rvf COGNAC/
+
 .PHONY: clean
