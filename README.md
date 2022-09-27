@@ -2,11 +2,24 @@
 
 Welcome to Outscale SDK for C.
 
+## Dependency
+
+json-c and libcurl (7.75 and after)
+
 ## How to use the SDK ?
 
 Simply grab the C source and add it to your project, you need to include json-c and curl (version > 7.75) to your code.
 
 See [examples](examples/) folder to jump straight into the code!
+
+`$(CC) examples/example0.c ./osc_sdk.c -I./ `pkg-config --cflags json-c` -lcurl -ljson-c -o example0`
+`-I` to specify include path (so where to find `osc_sdk.h`, if osc_sdk.h where in the same derectory than `example0.c` it wouldn't be needed)
+`-lcurl -ljson-c` are to specify curl and json-c libraries.
+
+## Notes:
+You need libcurl to a version superior to 7.75 (again it's important)
+json-c have deprecated ANSI C in favor to C99 and C11, if you want to continue using C89 you might stick to current or olded versions.
+
 
 # Contributing
 
