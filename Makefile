@@ -1,4 +1,4 @@
-all: example0 example1
+all: example0 example1 example2
 
 osc_sdk.o:
 	gcc -c osc_sdk.c `pkg-config --cflags json-c`
@@ -11,6 +11,9 @@ example0: osc_sdk.a osc_sdk.h examples/example0.c
 
 example1: osc_sdk.c osc_sdk.h examples/example1.c
 	$(CC) examples/example1.c ./osc_sdk.c -I./ `pkg-config --cflags json-c` -lcurl -ljson-c -o example1 -Wall -Wno-unused-function -g
+
+example2: osc_sdk.c osc_sdk.h examples/example2.c
+	$(CC) examples/example2.c ./osc_sdk.c -I./ `pkg-config --cflags json-c` -lcurl -ljson-c -o example2 -Wall -Wno-unused-function -g
 
 COGNAC/:
 	git submodule update --init

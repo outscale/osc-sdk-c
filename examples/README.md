@@ -11,3 +11,7 @@ it's in C89
 call osc_read_images with *Arch* image_names as filter, and pretty print the result using json-c.
 it's in GNU C 99
 
+
+## LICENSE
+
+exemples are dual-license under BSD-3 and Beer-ware
