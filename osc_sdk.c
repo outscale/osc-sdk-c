@@ -750,7 +750,7 @@ static int accepter_net_setter(struct accepter_net *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int access_key_setter(struct access_key *args, struct osc_str *data) {
        int count_args = 0;
@@ -815,7 +815,7 @@ static int access_key_setter(struct access_key *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int access_key_secret_key_setter(struct access_key_secret_key *args, struct osc_str *data) {
        int count_args = 0;
@@ -892,7 +892,7 @@ static int access_key_secret_key_setter(struct access_key_secret_key *args, stru
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int access_log_setter(struct access_log *args, struct osc_str *data) {
        int count_args = 0;
@@ -941,7 +941,7 @@ static int access_log_setter(struct access_log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int account_setter(struct account *args, struct osc_str *data) {
        int count_args = 0;
@@ -1124,7 +1124,7 @@ static int account_setter(struct account *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int api_access_policy_setter(struct api_access_policy *args, struct osc_str *data) {
        int count_args = 0;
@@ -1149,7 +1149,7 @@ static int api_access_policy_setter(struct api_access_policy *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int api_access_rule_setter(struct api_access_rule *args, struct osc_str *data) {
        int count_args = 0;
@@ -1208,7 +1208,7 @@ static int api_access_rule_setter(struct api_access_rule *args, struct osc_str *
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int application_sticky_cookie_policy_setter(struct application_sticky_cookie_policy *args, struct osc_str *data) {
        int count_args = 0;
@@ -1237,7 +1237,7 @@ static int application_sticky_cookie_policy_setter(struct application_sticky_coo
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int backend_vm_health_setter(struct backend_vm_health *args, struct osc_str *data) {
        int count_args = 0;
@@ -1290,7 +1290,7 @@ static int backend_vm_health_setter(struct backend_vm_health *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int block_device_mapping_created_setter(struct block_device_mapping_created *args, struct osc_str *data) {
        int count_args = 0;
@@ -1317,7 +1317,7 @@ static int block_device_mapping_created_setter(struct block_device_mapping_creat
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int block_device_mapping_image_setter(struct block_device_mapping_image *args, struct osc_str *data) {
        int count_args = 0;
@@ -1356,7 +1356,7 @@ static int block_device_mapping_image_setter(struct block_device_mapping_image *
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int block_device_mapping_vm_creation_setter(struct block_device_mapping_vm_creation *args, struct osc_str *data) {
        int count_args = 0;
@@ -1407,7 +1407,7 @@ static int block_device_mapping_vm_creation_setter(struct block_device_mapping_v
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int block_device_mapping_vm_update_setter(struct block_device_mapping_vm_update *args, struct osc_str *data) {
        int count_args = 0;
@@ -1458,7 +1458,7 @@ static int block_device_mapping_vm_update_setter(struct block_device_mapping_vm_
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int bsu_created_setter(struct bsu_created *args, struct osc_str *data) {
        int count_args = 0;
@@ -1509,7 +1509,7 @@ static int bsu_created_setter(struct bsu_created *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data) {
        int count_args = 0;
@@ -1568,7 +1568,7 @@ static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int bsu_to_update_vm_setter(struct bsu_to_update_vm *args, struct osc_str *data) {
        int count_args = 0;
@@ -1595,7 +1595,7 @@ static int bsu_to_update_vm_setter(struct bsu_to_update_vm *args, struct osc_str
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int ca_setter(struct ca *args, struct osc_str *data) {
        int count_args = 0;
@@ -1636,7 +1636,7 @@ static int ca_setter(struct ca *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int catalog_setter(struct catalog *args, struct osc_str *data) {
        int count_args = 0;
@@ -1651,7 +1651,7 @@ static int catalog_setter(struct catalog *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int catalog_entry_setter(struct catalog_entry *args, struct osc_str *data) {
        int count_args = 0;
@@ -1750,7 +1750,7 @@ static int catalog_entry_setter(struct catalog_entry *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int client_gateway_setter(struct client_gateway *args, struct osc_str *data) {
        int count_args = 0;
@@ -1823,7 +1823,7 @@ static int client_gateway_setter(struct client_gateway *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int consumption_entry_setter(struct consumption_entry *args, struct osc_str *data) {
        int count_args = 0;
@@ -1958,7 +1958,7 @@ static int consumption_entry_setter(struct consumption_entry *args, struct osc_s
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int dhcp_options_set_setter(struct dhcp_options_set *args, struct osc_str *data) {
        int count_args = 0;
@@ -2037,7 +2037,7 @@ static int dhcp_options_set_setter(struct dhcp_options_set *args, struct osc_str
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int direct_link_setter(struct direct_link *args, struct osc_str *data) {
        int count_args = 0;
@@ -2126,7 +2126,7 @@ static int direct_link_setter(struct direct_link *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int direct_link_interface_setter(struct direct_link_interface *args, struct osc_str *data) {
        int count_args = 0;
@@ -2211,7 +2211,7 @@ static int direct_link_interface_setter(struct direct_link_interface *args, stru
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int direct_link_interfaces_setter(struct direct_link_interfaces *args, struct osc_str *data) {
        int count_args = 0;
@@ -2378,7 +2378,7 @@ static int direct_link_interfaces_setter(struct direct_link_interfaces *args, st
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int errors_setter(struct errors *args, struct osc_str *data) {
        int count_args = 0;
@@ -2419,7 +2419,7 @@ static int errors_setter(struct errors *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_access_keys_setter(struct filters_access_keys *args, struct osc_str *data) {
        int count_args = 0;
@@ -2444,7 +2444,7 @@ static int filters_access_keys_setter(struct filters_access_keys *args, struct o
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_api_access_rule_setter(struct filters_api_access_rule *args, struct osc_str *data) {
        int count_args = 0;
@@ -2499,7 +2499,7 @@ static int filters_api_access_rule_setter(struct filters_api_access_rule *args, 
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_api_log_setter(struct filters_api_log *args, struct osc_str *data) {
        int count_args = 0;
@@ -2598,7 +2598,7 @@ static int filters_api_log_setter(struct filters_api_log *args, struct osc_str *
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_ca_setter(struct filters_ca *args, struct osc_str *data) {
        int count_args = 0;
@@ -2633,7 +2633,7 @@ static int filters_ca_setter(struct filters_ca *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_client_gateway_setter(struct filters_client_gateway *args, struct osc_str *data) {
        int count_args = 0;
@@ -2718,7 +2718,7 @@ static int filters_client_gateway_setter(struct filters_client_gateway *args, st
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_dhcp_options_setter(struct filters_dhcp_options *args, struct osc_str *data) {
        int count_args = 0;
@@ -2813,7 +2813,7 @@ static int filters_dhcp_options_setter(struct filters_dhcp_options *args, struct
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_direct_link_setter(struct filters_direct_link *args, struct osc_str *data) {
        int count_args = 0;
@@ -2828,7 +2828,7 @@ static int filters_direct_link_setter(struct filters_direct_link *args, struct o
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_direct_link_interface_setter(struct filters_direct_link_interface *args, struct osc_str *data) {
        int count_args = 0;
@@ -2853,7 +2853,7 @@ static int filters_direct_link_interface_setter(struct filters_direct_link_inter
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_export_task_setter(struct filters_export_task *args, struct osc_str *data) {
        int count_args = 0;
@@ -2868,7 +2868,7 @@ static int filters_export_task_setter(struct filters_export_task *args, struct o
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_flexible_gpu_setter(struct filters_flexible_gpu *args, struct osc_str *data) {
        int count_args = 0;
@@ -2943,7 +2943,7 @@ static int filters_flexible_gpu_setter(struct filters_flexible_gpu *args, struct
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_image_setter(struct filters_image *args, struct osc_str *data) {
        int count_args = 0;
@@ -3178,7 +3178,7 @@ static int filters_image_setter(struct filters_image *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_internet_service_setter(struct filters_internet_service *args, struct osc_str *data) {
        int count_args = 0;
@@ -3243,7 +3243,7 @@ static int filters_internet_service_setter(struct filters_internet_service *args
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_keypair_setter(struct filters_keypair *args, struct osc_str *data) {
        int count_args = 0;
@@ -3268,7 +3268,7 @@ static int filters_keypair_setter(struct filters_keypair *args, struct osc_str *
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_listener_rule_setter(struct filters_listener_rule *args, struct osc_str *data) {
        int count_args = 0;
@@ -3283,7 +3283,7 @@ static int filters_listener_rule_setter(struct filters_listener_rule *args, stru
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_load_balancer_setter(struct filters_load_balancer *args, struct osc_str *data) {
        int count_args = 0;
@@ -3298,7 +3298,7 @@ static int filters_load_balancer_setter(struct filters_load_balancer *args, stru
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_nat_service_setter(struct filters_nat_service *args, struct osc_str *data) {
        int count_args = 0;
@@ -3373,7 +3373,7 @@ static int filters_nat_service_setter(struct filters_nat_service *args, struct o
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_net_setter(struct filters_net *args, struct osc_str *data) {
        int count_args = 0;
@@ -3458,7 +3458,7 @@ static int filters_net_setter(struct filters_net *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_net_access_point_setter(struct filters_net_access_point *args, struct osc_str *data) {
        int count_args = 0;
@@ -3533,7 +3533,7 @@ static int filters_net_access_point_setter(struct filters_net_access_point *args
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_net_peering_setter(struct filters_net_peering *args, struct osc_str *data) {
        int count_args = 0;
@@ -3658,7 +3658,7 @@ static int filters_net_peering_setter(struct filters_net_peering *args, struct o
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_nic_setter(struct filters_nic *args, struct osc_str *data) {
        int count_args = 0;
@@ -3943,7 +3943,7 @@ static int filters_nic_setter(struct filters_nic *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_product_type_setter(struct filters_product_type *args, struct osc_str *data) {
        int count_args = 0;
@@ -3958,7 +3958,7 @@ static int filters_product_type_setter(struct filters_product_type *args, struct
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_public_ip_setter(struct filters_public_ip *args, struct osc_str *data) {
        int count_args = 0;
@@ -4073,7 +4073,7 @@ static int filters_public_ip_setter(struct filters_public_ip *args, struct osc_s
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_quota_setter(struct filters_quota *args, struct osc_str *data) {
        int count_args = 0;
@@ -4118,7 +4118,7 @@ static int filters_quota_setter(struct filters_quota *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_route_table_setter(struct filters_route_table *args, struct osc_str *data) {
        int count_args = 0;
@@ -4293,7 +4293,7 @@ static int filters_route_table_setter(struct filters_route_table *args, struct o
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_security_group_setter(struct filters_security_group *args, struct osc_str *data) {
        int count_args = 0;
@@ -4518,7 +4518,7 @@ static int filters_security_group_setter(struct filters_security_group *args, st
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_server_certificate_setter(struct filters_server_certificate *args, struct osc_str *data) {
        int count_args = 0;
@@ -4533,7 +4533,7 @@ static int filters_server_certificate_setter(struct filters_server_certificate *
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_service_setter(struct filters_service *args, struct osc_str *data) {
        int count_args = 0;
@@ -4558,7 +4558,7 @@ static int filters_service_setter(struct filters_service *args, struct osc_str *
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_snapshot_setter(struct filters_snapshot *args, struct osc_str *data) {
        int count_args = 0;
@@ -4693,7 +4693,7 @@ static int filters_snapshot_setter(struct filters_snapshot *args, struct osc_str
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_subnet_setter(struct filters_subnet *args, struct osc_str *data) {
        int count_args = 0;
@@ -4788,7 +4788,7 @@ static int filters_subnet_setter(struct filters_subnet *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_subregion_setter(struct filters_subregion *args, struct osc_str *data) {
        int count_args = 0;
@@ -4803,7 +4803,7 @@ static int filters_subregion_setter(struct filters_subregion *args, struct osc_s
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_tag_setter(struct filters_tag *args, struct osc_str *data) {
        int count_args = 0;
@@ -4848,7 +4848,7 @@ static int filters_tag_setter(struct filters_tag *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_virtual_gateway_setter(struct filters_virtual_gateway *args, struct osc_str *data) {
        int count_args = 0;
@@ -4933,7 +4933,7 @@ static int filters_virtual_gateway_setter(struct filters_virtual_gateway *args, 
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_vm_setter(struct filters_vm *args, struct osc_str *data) {
        int count_args = 0;
@@ -4978,7 +4978,7 @@ static int filters_vm_setter(struct filters_vm *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *data) {
        int count_args = 0;
@@ -5043,7 +5043,7 @@ static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data) {
        int count_args = 0;
@@ -5118,7 +5118,7 @@ static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_s
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_volume_setter(struct filters_volume *args, struct osc_str *data) {
        int count_args = 0;
@@ -5273,7 +5273,7 @@ static int filters_volume_setter(struct filters_volume *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int filters_vpn_connection_setter(struct filters_vpn_connection *args, struct osc_str *data) {
        int count_args = 0;
@@ -5388,7 +5388,7 @@ static int filters_vpn_connection_setter(struct filters_vpn_connection *args, st
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int flexible_gpu_setter(struct flexible_gpu *args, struct osc_str *data) {
        int count_args = 0;
@@ -5475,7 +5475,7 @@ static int flexible_gpu_setter(struct flexible_gpu *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct osc_str *data) {
        int count_args = 0;
@@ -5532,7 +5532,7 @@ static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int health_check_setter(struct health_check *args, struct osc_str *data) {
        int count_args = 0;
@@ -5611,7 +5611,7 @@ static int health_check_setter(struct health_check *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int image_setter(struct image *args, struct osc_str *data) {
        int count_args = 0;
@@ -5810,7 +5810,7 @@ static int image_setter(struct image *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int image_export_task_setter(struct image_export_task *args, struct osc_str *data) {
        int count_args = 0;
@@ -5893,7 +5893,7 @@ static int image_export_task_setter(struct image_export_task *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int internet_service_setter(struct internet_service *args, struct osc_str *data) {
        int count_args = 0;
@@ -5944,7 +5944,7 @@ static int internet_service_setter(struct internet_service *args, struct osc_str
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int keypair_setter(struct keypair *args, struct osc_str *data) {
        int count_args = 0;
@@ -5973,7 +5973,7 @@ static int keypair_setter(struct keypair *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int keypair_created_setter(struct keypair_created *args, struct osc_str *data) {
        int count_args = 0;
@@ -6014,7 +6014,7 @@ static int keypair_created_setter(struct keypair_created *args, struct osc_str *
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int link_nic_setter(struct link_nic *args, struct osc_str *data) {
        int count_args = 0;
@@ -6087,7 +6087,7 @@ static int link_nic_setter(struct link_nic *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *data) {
        int count_args = 0;
@@ -6136,7 +6136,7 @@ static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int link_nic_to_update_setter(struct link_nic_to_update *args, struct osc_str *data) {
        int count_args = 0;
@@ -6163,7 +6163,7 @@ static int link_nic_to_update_setter(struct link_nic_to_update *args, struct osc
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int link_public_ip_setter(struct link_public_ip *args, struct osc_str *data) {
        int count_args = 0;
@@ -6228,7 +6228,7 @@ static int link_public_ip_setter(struct link_public_ip *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int link_public_ip_light_for_vm_setter(struct link_public_ip_light_for_vm *args, struct osc_str *data) {
        int count_args = 0;
@@ -6269,7 +6269,7 @@ static int link_public_ip_light_for_vm_setter(struct link_public_ip_light_for_vm
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int link_route_table_setter(struct link_route_table *args, struct osc_str *data) {
        int count_args = 0;
@@ -6320,7 +6320,7 @@ static int link_route_table_setter(struct link_route_table *args, struct osc_str
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int linked_volume_setter(struct linked_volume *args, struct osc_str *data) {
        int count_args = 0;
@@ -6383,7 +6383,7 @@ static int linked_volume_setter(struct linked_volume *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int listener_setter(struct listener *args, struct osc_str *data) {
        int count_args = 0;
@@ -6454,7 +6454,7 @@ static int listener_setter(struct listener *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int listener_for_creation_setter(struct listener_for_creation *args, struct osc_str *data) {
        int count_args = 0;
@@ -6515,7 +6515,7 @@ static int listener_for_creation_setter(struct listener_for_creation *args, stru
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int listener_rule_setter(struct listener_rule *args, struct osc_str *data) {
        int count_args = 0;
@@ -6608,7 +6608,7 @@ static int listener_rule_setter(struct listener_rule *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int listener_rule_for_creation_setter(struct listener_rule_for_creation *args, struct osc_str *data) {
        int count_args = 0;
@@ -6671,7 +6671,7 @@ static int listener_rule_for_creation_setter(struct listener_rule_for_creation *
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int load_balancer_setter(struct load_balancer *args, struct osc_str *data) {
        int count_args = 0;
@@ -6866,7 +6866,7 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int load_balancer_light_setter(struct load_balancer_light *args, struct osc_str *data) {
        int count_args = 0;
@@ -6893,7 +6893,7 @@ static int load_balancer_light_setter(struct load_balancer_light *args, struct o
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int load_balancer_sticky_cookie_policy_setter(struct load_balancer_sticky_cookie_policy *args, struct osc_str *data) {
        int count_args = 0;
@@ -6920,7 +6920,7 @@ static int load_balancer_sticky_cookie_policy_setter(struct load_balancer_sticky
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int load_balancer_tag_setter(struct load_balancer_tag *args, struct osc_str *data) {
        int count_args = 0;
@@ -6961,7 +6961,7 @@ static int load_balancer_tag_setter(struct load_balancer_tag *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int location_setter(struct location *args, struct osc_str *data) {
        int count_args = 0;
@@ -6990,7 +6990,7 @@ static int location_setter(struct location *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int log_setter(struct log *args, struct osc_str *data) {
        int count_args = 0;
@@ -7177,7 +7177,7 @@ static int log_setter(struct log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int maintenance_event_setter(struct maintenance_event *args, struct osc_str *data) {
        int count_args = 0;
@@ -7230,7 +7230,7 @@ static int maintenance_event_setter(struct maintenance_event *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int nat_service_setter(struct nat_service *args, struct osc_str *data) {
        int count_args = 0;
@@ -7303,7 +7303,7 @@ static int nat_service_setter(struct nat_service *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int net_setter(struct net *args, struct osc_str *data) {
        int count_args = 0;
@@ -7378,7 +7378,7 @@ static int net_setter(struct net *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int net_access_point_setter(struct net_access_point *args, struct osc_str *data) {
        int count_args = 0;
@@ -7451,7 +7451,7 @@ static int net_access_point_setter(struct net_access_point *args, struct osc_str
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int net_peering_setter(struct net_peering *args, struct osc_str *data) {
        int count_args = 0;
@@ -7508,7 +7508,7 @@ static int net_peering_setter(struct net_peering *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int net_peering_state_setter(struct net_peering_state *args, struct osc_str *data) {
        int count_args = 0;
@@ -7537,7 +7537,7 @@ static int net_peering_state_setter(struct net_peering_state *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int net_to_virtual_gateway_link_setter(struct net_to_virtual_gateway_link *args, struct osc_str *data) {
        int count_args = 0;
@@ -7566,7 +7566,7 @@ static int net_to_virtual_gateway_link_setter(struct net_to_virtual_gateway_link
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int nic_setter(struct nic *args, struct osc_str *data) {
        int count_args = 0;
@@ -7739,7 +7739,7 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct osc_str *data) {
        int count_args = 0;
@@ -7830,7 +7830,7 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
        int count_args = 0;
@@ -7981,7 +7981,7 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int osu_api_key_setter(struct osu_api_key *args, struct osc_str *data) {
        int count_args = 0;
@@ -8010,7 +8010,7 @@ static int osu_api_key_setter(struct osu_api_key *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int osu_export_image_export_task_setter(struct osu_export_image_export_task *args, struct osc_str *data) {
        int count_args = 0;
@@ -8063,7 +8063,7 @@ static int osu_export_image_export_task_setter(struct osu_export_image_export_ta
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int osu_export_snapshot_export_task_setter(struct osu_export_snapshot_export_task *args, struct osc_str *data) {
        int count_args = 0;
@@ -8104,7 +8104,7 @@ static int osu_export_snapshot_export_task_setter(struct osu_export_snapshot_exp
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int osu_export_to_create_setter(struct osu_export_to_create *args, struct osc_str *data) {
        int count_args = 0;
@@ -8167,7 +8167,7 @@ static int osu_export_to_create_setter(struct osu_export_to_create *args, struct
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int permissions_on_resource_setter(struct permissions_on_resource *args, struct osc_str *data) {
        int count_args = 0;
@@ -8192,7 +8192,7 @@ static int permissions_on_resource_setter(struct permissions_on_resource *args, 
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int permissions_on_resource_creation_setter(struct permissions_on_resource_creation *args, struct osc_str *data) {
        int count_args = 0;
@@ -8217,7 +8217,7 @@ static int permissions_on_resource_creation_setter(struct permissions_on_resourc
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int phase1_options_setter(struct phase1_options *args, struct osc_str *data) {
        int count_args = 0;
@@ -8316,7 +8316,7 @@ static int phase1_options_setter(struct phase1_options *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int phase2_options_setter(struct phase2_options *args, struct osc_str *data) {
        int count_args = 0;
@@ -8373,7 +8373,7 @@ static int phase2_options_setter(struct phase2_options *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int placement_setter(struct placement *args, struct osc_str *data) {
        int count_args = 0;
@@ -8402,7 +8402,7 @@ static int placement_setter(struct placement *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int private_ip_setter(struct private_ip *args, struct osc_str *data) {
        int count_args = 0;
@@ -8451,7 +8451,7 @@ static int private_ip_setter(struct private_ip *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int private_ip_light_setter(struct private_ip_light *args, struct osc_str *data) {
        int count_args = 0;
@@ -8478,7 +8478,7 @@ static int private_ip_light_setter(struct private_ip_light *args, struct osc_str
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int private_ip_light_for_vm_setter(struct private_ip_light_for_vm *args, struct osc_str *data) {
        int count_args = 0;
@@ -8527,7 +8527,7 @@ static int private_ip_light_for_vm_setter(struct private_ip_light_for_vm *args, 
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int product_type_setter(struct product_type *args, struct osc_str *data) {
        int count_args = 0;
@@ -8568,7 +8568,7 @@ static int product_type_setter(struct product_type *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int public_ip_setter(struct public_ip *args, struct osc_str *data) {
        int count_args = 0;
@@ -8667,7 +8667,7 @@ static int public_ip_setter(struct public_ip *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int public_ip_light_setter(struct public_ip_light *args, struct osc_str *data) {
        int count_args = 0;
@@ -8696,7 +8696,7 @@ static int public_ip_light_setter(struct public_ip_light *args, struct osc_str *
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int quota_setter(struct quota *args, struct osc_str *data) {
        int count_args = 0;
@@ -8781,7 +8781,7 @@ static int quota_setter(struct quota *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int quota_types_setter(struct quota_types *args, struct osc_str *data) {
        int count_args = 0;
@@ -8808,7 +8808,7 @@ static int quota_types_setter(struct quota_types *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int region_setter(struct region *args, struct osc_str *data) {
        int count_args = 0;
@@ -8837,7 +8837,7 @@ static int region_setter(struct region *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int resource_load_balancer_tag_setter(struct resource_load_balancer_tag *args, struct osc_str *data) {
        int count_args = 0;
@@ -8854,7 +8854,7 @@ static int resource_load_balancer_tag_setter(struct resource_load_balancer_tag *
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int resource_tag_setter(struct resource_tag *args, struct osc_str *data) {
        int count_args = 0;
@@ -8883,7 +8883,7 @@ static int resource_tag_setter(struct resource_tag *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int route_setter(struct route *args, struct osc_str *data) {
        int count_args = 0;
@@ -9020,7 +9020,7 @@ static int route_setter(struct route *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int route_light_setter(struct route_light *args, struct osc_str *data) {
        int count_args = 0;
@@ -9061,7 +9061,7 @@ static int route_light_setter(struct route_light *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int route_propagating_virtual_gateway_setter(struct route_propagating_virtual_gateway *args, struct osc_str *data) {
        int count_args = 0;
@@ -9078,7 +9078,7 @@ static int route_propagating_virtual_gateway_setter(struct route_propagating_vir
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int route_table_setter(struct route_table *args, struct osc_str *data) {
        int count_args = 0;
@@ -9147,7 +9147,7 @@ static int route_table_setter(struct route_table *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int security_group_setter(struct security_group *args, struct osc_str *data) {
        int count_args = 0;
@@ -9242,7 +9242,7 @@ static int security_group_setter(struct security_group *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int security_group_light_setter(struct security_group_light *args, struct osc_str *data) {
        int count_args = 0;
@@ -9271,7 +9271,7 @@ static int security_group_light_setter(struct security_group_light *args, struct
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int security_group_rule_setter(struct security_group_rule *args, struct osc_str *data) {
        int count_args = 0;
@@ -9338,7 +9338,7 @@ static int security_group_rule_setter(struct security_group_rule *args, struct o
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int security_groups_member_setter(struct security_groups_member *args, struct osc_str *data) {
        int count_args = 0;
@@ -9379,7 +9379,7 @@ static int security_groups_member_setter(struct security_groups_member *args, st
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int server_certificate_setter(struct server_certificate *args, struct osc_str *data) {
        int count_args = 0;
@@ -9456,7 +9456,7 @@ static int server_certificate_setter(struct server_certificate *args, struct osc
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int service_setter(struct service *args, struct osc_str *data) {
        int count_args = 0;
@@ -9495,7 +9495,7 @@ static int service_setter(struct service *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
        int count_args = 0;
@@ -9624,7 +9624,7 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int snapshot_export_task_setter(struct snapshot_export_task *args, struct osc_str *data) {
        int count_args = 0;
@@ -9707,7 +9707,7 @@ static int snapshot_export_task_setter(struct snapshot_export_task *args, struct
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int source_net_setter(struct source_net *args, struct osc_str *data) {
        int count_args = 0;
@@ -9748,7 +9748,7 @@ static int source_net_setter(struct source_net *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int source_security_group_setter(struct source_security_group *args, struct osc_str *data) {
        int count_args = 0;
@@ -9777,7 +9777,7 @@ static int source_security_group_setter(struct source_security_group *args, stru
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int state_comment_setter(struct state_comment *args, struct osc_str *data) {
        int count_args = 0;
@@ -9806,7 +9806,7 @@ static int state_comment_setter(struct state_comment *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int subnet_setter(struct subnet *args, struct osc_str *data) {
        int count_args = 0;
@@ -9901,7 +9901,7 @@ static int subnet_setter(struct subnet *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int subregion_setter(struct subregion *args, struct osc_str *data) {
        int count_args = 0;
@@ -9954,7 +9954,7 @@ static int subregion_setter(struct subregion *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int tag_setter(struct tag *args, struct osc_str *data) {
        int count_args = 0;
@@ -10007,7 +10007,7 @@ static int tag_setter(struct tag *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int vgw_telemetry_setter(struct vgw_telemetry *args, struct osc_str *data) {
        int count_args = 0;
@@ -10070,7 +10070,7 @@ static int vgw_telemetry_setter(struct vgw_telemetry *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *data) {
        int count_args = 0;
@@ -10131,7 +10131,7 @@ static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int vm_setter(struct vm *args, struct osc_str *data) {
        int count_args = 0;
@@ -10522,7 +10522,7 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int vm_state_setter(struct vm_state *args, struct osc_str *data) {
        int count_args = 0;
@@ -10563,7 +10563,7 @@ static int vm_state_setter(struct vm_state *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int vm_states_setter(struct vm_states *args, struct osc_str *data) {
        int count_args = 0;
@@ -10614,7 +10614,7 @@ static int vm_states_setter(struct vm_states *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
        int count_args = 0;
@@ -10691,7 +10691,7 @@ static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int volume_setter(struct volume *args, struct osc_str *data) {
        int count_args = 0;
@@ -10808,7 +10808,7 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *data) {
        int count_args = 0;
@@ -10935,7 +10935,7 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int vpn_options_setter(struct vpn_options *args, struct osc_str *data) {
        int count_args = 0;
@@ -10972,7 +10972,7 @@ static int vpn_options_setter(struct vpn_options *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 static int with_setter(struct with *args, struct osc_str *data) {
        int count_args = 0;
@@ -11137,7 +11137,7 @@ static int with_setter(struct with *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	return !!ret;;			       
+	return !!ret;
 }
 
 static  int update_vpn_connection_data(struct osc_update_vpn_connection_arg *args, struct osc_str *data)
@@ -11427,12 +11427,34 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->security_group_ids; *as > 0; ++as) {
+			if (as != args->security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_ids))
+                if (osc_str_append_string(data, args->security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -12021,12 +12043,34 @@ static  int update_nic_data(struct osc_update_nic_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->security_group_ids; *as > 0; ++as) {
+			if (as != args->security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_ids))
+                if (osc_str_append_string(data, args->security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -12069,12 +12113,34 @@ static  int update_net_access_point_data(struct osc_update_net_access_point_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->add_route_table_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AddRouteTableIds\":[" ))
+			return -1;
+		for (as = args->add_route_table_ids; *as > 0; ++as) {
+			if (as != args->add_route_table_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->add_route_table_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AddRouteTableIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->add_route_table_ids))
+                if (osc_str_append_string(data, args->add_route_table_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -12101,12 +12167,34 @@ static  int update_net_access_point_data(struct osc_update_net_access_point_arg 
 	   	ret += 1;
 	}
 	if (args->remove_route_table_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RemoveRouteTableIds\":[" ))
+			return -1;
+		for (as = args->remove_route_table_ids; *as > 0; ++as) {
+			if (as != args->remove_route_table_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->remove_route_table_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RemoveRouteTableIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->remove_route_table_ids))
+                if (osc_str_append_string(data, args->remove_route_table_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -12289,12 +12377,34 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 	   	ret += 1;
 	}
 	if (args->policy_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PolicyNames\":[" ))
+			return -1;
+		for (as = args->policy_names; *as > 0; ++as) {
+			if (as != args->policy_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->policy_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PolicyNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->policy_names))
+                if (osc_str_append_string(data, args->policy_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -12321,12 +12431,34 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 	   	ret += 1;
 	}
 	if (args->security_groups) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroups\":[" ))
+			return -1;
+		for (as = args->security_groups; *as > 0; ++as) {
+			if (as != args->security_groups)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_groups_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroups\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups))
+                if (osc_str_append_string(data, args->security_groups_str))
 			return -1;
 		ret += 1;
 	}
@@ -12767,22 +12899,66 @@ static  int update_api_access_rule_data(struct osc_update_api_access_rule_arg *a
 	   	ret += 1;
 	}
 	if (args->ca_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"CaIds\":[" ))
+			return -1;
+		for (as = args->ca_ids; *as > 0; ++as) {
+			if (as != args->ca_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ca_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"CaIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ca_ids))
+                if (osc_str_append_string(data, args->ca_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->cns) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Cns\":[" ))
+			return -1;
+		for (as = args->cns; *as > 0; ++as) {
+			if (as != args->cns)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->cns_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Cns\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->cns))
+                if (osc_str_append_string(data, args->cns_str))
 			return -1;
 		ret += 1;
 	}
@@ -12809,12 +12985,34 @@ static  int update_api_access_rule_data(struct osc_update_api_access_rule_arg *a
 	   	ret += 1;
 	}
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
@@ -12925,12 +13123,34 @@ static  int update_account_data(struct osc_update_account_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->additional_emails) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AdditionalEmails\":[" ))
+			return -1;
+		for (as = args->additional_emails; *as > 0; ++as) {
+			if (as != args->additional_emails)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->additional_emails_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AdditionalEmails\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->additional_emails))
+                if (osc_str_append_string(data, args->additional_emails_str))
 			return -1;
 		ret += 1;
 	}
@@ -13507,12 +13727,34 @@ static  int unlink_private_ips_data(struct osc_unlink_private_ips_arg *args, str
 	   	ret += 1;
 	}
 	if (args->private_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (as = args->private_ips; *as > 0; ++as) {
+			if (as != args->private_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
@@ -13615,22 +13857,66 @@ static  int unlink_load_balancer_backend_machines_data(struct osc_unlink_load_ba
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->backend_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendIps\":[" ))
+			return -1;
+		for (as = args->backend_ips; *as > 0; ++as) {
+			if (as != args->backend_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_ips))
+                if (osc_str_append_string(data, args->backend_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->backend_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendVmIds\":[" ))
+			return -1;
+		for (as = args->backend_vm_ids; *as > 0; ++as) {
+			if (as != args->backend_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_vm_ids))
+                if (osc_str_append_string(data, args->backend_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -13847,12 +14133,34 @@ static  int stop_vms_data(struct osc_stop_vms_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -13905,12 +14213,34 @@ static  int start_vms_data(struct osc_start_vms_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -14145,12 +14475,34 @@ static  int register_vms_in_load_balancer_data(struct osc_register_vms_in_load_b
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendVmIds\":[" ))
+			return -1;
+		for (as = args->backend_vm_ids; *as > 0; ++as) {
+			if (as != args->backend_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_vm_ids))
+                if (osc_str_append_string(data, args->backend_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -14225,12 +14577,34 @@ static  int reboot_vms_data(struct osc_reboot_vms_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -14481,12 +14855,34 @@ static  int read_vms_health_data(struct osc_read_vms_health_arg *args, struct os
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendVmIds\":[" ))
+			return -1;
+		for (as = args->backend_vm_ids; *as > 0; ++as) {
+			if (as != args->backend_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_vm_ids))
+                if (osc_str_append_string(data, args->backend_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -16199,12 +16595,34 @@ static  int read_load_balancer_tags_data(struct osc_read_load_balancer_tags_arg 
 	   	ret += 1;
 	}
 	if (args->load_balancer_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LoadBalancerNames\":[" ))
+			return -1;
+		for (as = args->load_balancer_names; *as > 0; ++as) {
+			if (as != args->load_balancer_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->load_balancer_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LoadBalancerNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->load_balancer_names))
+                if (osc_str_append_string(data, args->load_balancer_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -17983,12 +18401,34 @@ static  int link_private_ips_data(struct osc_link_private_ips_arg *args, struct 
 	   	ret += 1;
 	}
 	if (args->private_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (as = args->private_ips; *as > 0; ++as) {
+			if (as != args->private_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
@@ -18123,22 +18563,66 @@ static  int link_load_balancer_backend_machines_data(struct osc_link_load_balanc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->backend_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendIps\":[" ))
+			return -1;
+		for (as = args->backend_ips; *as > 0; ++as) {
+			if (as != args->backend_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_ips))
+                if (osc_str_append_string(data, args->backend_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->backend_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendVmIds\":[" ))
+			return -1;
+		for (as = args->backend_vm_ids; *as > 0; ++as) {
+			if (as != args->backend_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_vm_ids))
+                if (osc_str_append_string(data, args->backend_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -18347,12 +18831,34 @@ static  int deregister_vms_in_load_balancer_data(struct osc_deregister_vms_in_lo
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendVmIds\":[" ))
+			return -1;
+		for (as = args->backend_vm_ids; *as > 0; ++as) {
+			if (as != args->backend_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_vm_ids))
+                if (osc_str_append_string(data, args->backend_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -18619,12 +19125,34 @@ static  int delete_vms_data(struct osc_delete_vms_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -18737,12 +19265,34 @@ static  int delete_tags_data(struct osc_delete_tags_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	if (args->resource_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ResourceIds\":[" ))
+			return -1;
+		for (as = args->resource_ids; *as > 0; ++as) {
+			if (as != args->resource_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->resource_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ResourceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->resource_ids))
+                if (osc_str_append_string(data, args->resource_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -19711,12 +20261,34 @@ static  int delete_load_balancer_tags_data(struct osc_delete_load_balancer_tags_
 	   	ret += 1;
 	}
 	if (args->load_balancer_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LoadBalancerNames\":[" ))
+			return -1;
+		for (as = args->load_balancer_names; *as > 0; ++as) {
+			if (as != args->load_balancer_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->load_balancer_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LoadBalancerNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->load_balancer_names))
+                if (osc_str_append_string(data, args->load_balancer_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -19874,7 +20446,7 @@ static  int delete_load_balancer_listeners_data(struct osc_delete_load_balancer_
 			if (ip != args->load_balancer_ports)
 				if (osc_str_append_string(data, "," ))
 					return -1;
-			if (osc_str_append_int(data, *args->load_balancer_ports))
+			if (osc_str_append_int(data, *ip))
 				return -1;
 		}
 		if (osc_str_append_string(data, "]" ))
@@ -21195,32 +21767,98 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 	       ret += 1;
 	}
 	if (args->private_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (as = args->private_ips; *as > 0; ++as) {
+			if (as != args->private_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->security_group_ids; *as > 0; ++as) {
+			if (as != args->security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_ids))
+                if (osc_str_append_string(data, args->security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->security_groups) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroups\":[" ))
+			return -1;
+		for (as = args->security_groups; *as > 0; ++as) {
+			if (as != args->security_groups)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_groups_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroups\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups))
+                if (osc_str_append_string(data, args->security_groups_str))
 			return -1;
 		ret += 1;
 	}
@@ -21381,12 +22019,34 @@ static  int create_tags_data(struct osc_create_tags_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	if (args->resource_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ResourceIds\":[" ))
+			return -1;
+		for (as = args->resource_ids; *as > 0; ++as) {
+			if (as != args->resource_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->resource_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ResourceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->resource_ids))
+                if (osc_str_append_string(data, args->resource_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -22333,12 +22993,34 @@ static  int create_nic_data(struct osc_create_nic_arg *args, struct osc_str *dat
 		ret += 1;
 	}
 	if (args->security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->security_group_ids; *as > 0; ++as) {
+			if (as != args->security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_ids))
+                if (osc_str_append_string(data, args->security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -22487,12 +23169,34 @@ static  int create_net_access_point_data(struct osc_create_net_access_point_arg 
 	   	ret += 1;
 	}
 	if (args->route_table_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteTableIds\":[" ))
+			return -1;
+		for (as = args->route_table_ids; *as > 0; ++as) {
+			if (as != args->route_table_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_table_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteTableIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_table_ids))
+                if (osc_str_append_string(data, args->route_table_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -22701,12 +23405,34 @@ static  int create_load_balancer_tags_data(struct osc_create_load_balancer_tags_
 	   	ret += 1;
 	}
 	if (args->load_balancer_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LoadBalancerNames\":[" ))
+			return -1;
+		for (as = args->load_balancer_names; *as > 0; ++as) {
+			if (as != args->load_balancer_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->load_balancer_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LoadBalancerNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->load_balancer_names))
+                if (osc_str_append_string(data, args->load_balancer_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -22991,32 +23717,98 @@ static  int create_load_balancer_data(struct osc_create_load_balancer_arg *args,
 	   	ret += 1;
 	}
 	if (args->security_groups) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroups\":[" ))
+			return -1;
+		for (as = args->security_groups; *as > 0; ++as) {
+			if (as != args->security_groups)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_groups_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroups\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups))
+                if (osc_str_append_string(data, args->security_groups_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subnets) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Subnets\":[" ))
+			return -1;
+		for (as = args->subnets; *as > 0; ++as) {
+			if (as != args->subnets)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subnets_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Subnets\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subnets))
+                if (osc_str_append_string(data, args->subnets_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -23115,12 +23907,34 @@ static  int create_listener_rule_data(struct osc_create_listener_rule_arg *args,
 	       ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -23793,12 +24607,34 @@ static  int create_dhcp_options_data(struct osc_create_dhcp_options_arg *args, s
 	   	ret += 1;
 	}
 	if (args->domain_name_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DomainNameServers\":[" ))
+			return -1;
+		for (as = args->domain_name_servers; *as > 0; ++as) {
+			if (as != args->domain_name_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->domain_name_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DomainNameServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->domain_name_servers))
+                if (osc_str_append_string(data, args->domain_name_servers_str))
 			return -1;
 		ret += 1;
 	}
@@ -23813,22 +24649,66 @@ static  int create_dhcp_options_data(struct osc_create_dhcp_options_arg *args, s
 	   	ret += 1;
 	}
 	if (args->log_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LogServers\":[" ))
+			return -1;
+		for (as = args->log_servers; *as > 0; ++as) {
+			if (as != args->log_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->log_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LogServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->log_servers))
+                if (osc_str_append_string(data, args->log_servers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ntp_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NtpServers\":[" ))
+			return -1;
+		for (as = args->ntp_servers; *as > 0; ++as) {
+			if (as != args->ntp_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ntp_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NtpServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ntp_servers))
+                if (osc_str_append_string(data, args->ntp_servers_str))
 			return -1;
 		ret += 1;
 	}
@@ -24025,22 +24905,66 @@ static  int create_api_access_rule_data(struct osc_create_api_access_rule_arg *a
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->ca_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"CaIds\":[" ))
+			return -1;
+		for (as = args->ca_ids; *as > 0; ++as) {
+			if (as != args->ca_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ca_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"CaIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ca_ids))
+                if (osc_str_append_string(data, args->ca_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->cns) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Cns\":[" ))
+			return -1;
+		for (as = args->cns; *as > 0; ++as) {
+			if (as != args->cns)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->cns_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Cns\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->cns))
+                if (osc_str_append_string(data, args->cns_str))
 			return -1;
 		ret += 1;
 	}
@@ -24067,12 +24991,34 @@ static  int create_api_access_rule_data(struct osc_create_api_access_rule_arg *a
 	   	ret += 1;
 	}
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
@@ -24115,12 +25061,34 @@ static  int create_account_data(struct osc_create_account_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->additional_emails) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AdditionalEmails\":[" ))
+			return -1;
+		for (as = args->additional_emails; *as > 0; ++as) {
+			if (as != args->additional_emails)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->additional_emails_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AdditionalEmails\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->additional_emails))
+                if (osc_str_append_string(data, args->additional_emails_str))
 			return -1;
 		ret += 1;
 	}
