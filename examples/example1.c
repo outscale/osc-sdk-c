@@ -19,7 +19,7 @@ int main(void)
 	/* use C99 compound literal to construct arguments */
         if (osc_read_images(&e, &r, &(struct osc_read_images_arg)
 			    {.filters=(struct filters_image) {
-					    .image_names = "[\"*Arch*\"]"
+					    .image_names_str = "[\"*Arch*\"]"
 				    },
 			     .is_set_filters = 1}
 		    ) < 0)

@@ -959,12 +959,34 @@ static int account_setter(struct account *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->additional_emails) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AdditionalEmails\":[" ))
+			return -1;
+		for (as = args->additional_emails; *as > 0; ++as) {
+			if (as != args->additional_emails)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->additional_emails_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AdditionalEmails\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->additional_emails))
+                if (osc_str_append_string(data, args->additional_emails_str))
 			return -1;
 		ret += 1;
 	}
@@ -1167,22 +1189,66 @@ static int api_access_rule_setter(struct api_access_rule *args, struct osc_str *
 	   	ret += 1;
 	}
 	if (args->ca_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"CaIds\":[" ))
+			return -1;
+		for (as = args->ca_ids; *as > 0; ++as) {
+			if (as != args->ca_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ca_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"CaIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ca_ids))
+                if (osc_str_append_string(data, args->ca_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->cns) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Cns\":[" ))
+			return -1;
+		for (as = args->cns; *as > 0; ++as) {
+			if (as != args->cns)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->cns_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Cns\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->cns))
+                if (osc_str_append_string(data, args->cns_str))
 			return -1;
 		ret += 1;
 	}
@@ -1199,12 +1265,34 @@ static int api_access_rule_setter(struct api_access_rule *args, struct osc_str *
 	   	ret += 1;
 	}
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
@@ -1998,32 +2086,98 @@ static int dhcp_options_set_setter(struct dhcp_options_set *args, struct osc_str
 	   	ret += 1;
 	}
 	if (args->domain_name_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DomainNameServers\":[" ))
+			return -1;
+		for (as = args->domain_name_servers; *as > 0; ++as) {
+			if (as != args->domain_name_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->domain_name_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DomainNameServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->domain_name_servers))
+                if (osc_str_append_string(data, args->domain_name_servers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->log_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LogServers\":[" ))
+			return -1;
+		for (as = args->log_servers; *as > 0; ++as) {
+			if (as != args->log_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->log_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LogServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->log_servers))
+                if (osc_str_append_string(data, args->log_servers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ntp_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NtpServers\":[" ))
+			return -1;
+		for (as = args->ntp_servers; *as > 0; ++as) {
+			if (as != args->ntp_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ntp_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NtpServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ntp_servers))
+                if (osc_str_append_string(data, args->ntp_servers_str))
 			return -1;
 		ret += 1;
 	}
@@ -2425,22 +2579,66 @@ static int filters_access_keys_setter(struct filters_access_keys *args, struct o
        int count_args = 0;
        int ret = 0;
 	if (args->access_key_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccessKeyIds\":[" ))
+			return -1;
+		for (as = args->access_key_ids; *as > 0; ++as) {
+			if (as != args->access_key_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->access_key_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccessKeyIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->access_key_ids))
+                if (osc_str_append_string(data, args->access_key_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
@@ -2450,52 +2648,162 @@ static int filters_api_access_rule_setter(struct filters_api_access_rule *args, 
        int count_args = 0;
        int ret = 0;
 	if (args->api_access_rule_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ApiAccessRuleIds\":[" ))
+			return -1;
+		for (as = args->api_access_rule_ids; *as > 0; ++as) {
+			if (as != args->api_access_rule_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->api_access_rule_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ApiAccessRuleIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->api_access_rule_ids))
+                if (osc_str_append_string(data, args->api_access_rule_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ca_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"CaIds\":[" ))
+			return -1;
+		for (as = args->ca_ids; *as > 0; ++as) {
+			if (as != args->ca_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ca_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"CaIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ca_ids))
+                if (osc_str_append_string(data, args->ca_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->cns) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Cns\":[" ))
+			return -1;
+		for (as = args->cns; *as > 0; ++as) {
+			if (as != args->cns)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->cns_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Cns\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->cns))
+                if (osc_str_append_string(data, args->cns_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Descriptions\":[" ))
+			return -1;
+		for (as = args->descriptions; *as > 0; ++as) {
+			if (as != args->descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Descriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->descriptions))
+                if (osc_str_append_string(data, args->descriptions_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
@@ -2505,32 +2813,98 @@ static int filters_api_log_setter(struct filters_api_log *args, struct osc_str *
        int count_args = 0;
        int ret = 0;
 	if (args->query_access_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"QueryAccessKeys\":[" ))
+			return -1;
+		for (as = args->query_access_keys; *as > 0; ++as) {
+			if (as != args->query_access_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->query_access_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"QueryAccessKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->query_access_keys))
+                if (osc_str_append_string(data, args->query_access_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->query_api_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"QueryApiNames\":[" ))
+			return -1;
+		for (as = args->query_api_names; *as > 0; ++as) {
+			if (as != args->query_api_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->query_api_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"QueryApiNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->query_api_names))
+                if (osc_str_append_string(data, args->query_api_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->query_call_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"QueryCallNames\":[" ))
+			return -1;
+		for (as = args->query_call_names; *as > 0; ++as) {
+			if (as != args->query_call_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->query_call_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"QueryCallNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->query_call_names))
+                if (osc_str_append_string(data, args->query_call_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -2559,42 +2933,126 @@ static int filters_api_log_setter(struct filters_api_log *args, struct osc_str *
 	   	ret += 1;
 	}
 	if (args->query_ip_addresses) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"QueryIpAddresses\":[" ))
+			return -1;
+		for (as = args->query_ip_addresses; *as > 0; ++as) {
+			if (as != args->query_ip_addresses)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->query_ip_addresses_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"QueryIpAddresses\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->query_ip_addresses))
+                if (osc_str_append_string(data, args->query_ip_addresses_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->query_user_agents) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"QueryUserAgents\":[" ))
+			return -1;
+		for (as = args->query_user_agents; *as > 0; ++as) {
+			if (as != args->query_user_agents)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->query_user_agents_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"QueryUserAgents\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->query_user_agents))
+                if (osc_str_append_string(data, args->query_user_agents_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->request_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RequestIds\":[" ))
+			return -1;
+		for (as = args->request_ids; *as > 0; ++as) {
+			if (as != args->request_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->request_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RequestIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->request_ids))
+                if (osc_str_append_string(data, args->request_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->response_status_codes) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ResponseStatusCodes\":[" ))
+			return -1;
+		for (ip = args->response_status_codes; *ip > 0; ++ip) {
+			if (ip != args->response_status_codes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->response_status_codes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ResponseStatusCodes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->response_status_codes))
+                if (osc_str_append_string(data, args->response_status_codes_str))
 			return -1;
 		ret += 1;
 	}
@@ -2604,32 +3062,98 @@ static int filters_ca_setter(struct filters_ca *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->ca_fingerprints) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"CaFingerprints\":[" ))
+			return -1;
+		for (as = args->ca_fingerprints; *as > 0; ++as) {
+			if (as != args->ca_fingerprints)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ca_fingerprints_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"CaFingerprints\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ca_fingerprints))
+                if (osc_str_append_string(data, args->ca_fingerprints_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ca_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"CaIds\":[" ))
+			return -1;
+		for (as = args->ca_ids; *as > 0; ++as) {
+			if (as != args->ca_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ca_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"CaIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ca_ids))
+                if (osc_str_append_string(data, args->ca_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Descriptions\":[" ))
+			return -1;
+		for (as = args->descriptions; *as > 0; ++as) {
+			if (as != args->descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Descriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->descriptions))
+                if (osc_str_append_string(data, args->descriptions_str))
 			return -1;
 		ret += 1;
 	}
@@ -2639,82 +3163,254 @@ static int filters_client_gateway_setter(struct filters_client_gateway *args, st
        int count_args = 0;
        int ret = 0;
 	if (args->bgp_asns) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BgpAsns\":[" ))
+			return -1;
+		for (ip = args->bgp_asns; *ip > 0; ++ip) {
+			if (ip != args->bgp_asns)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->bgp_asns_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BgpAsns\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->bgp_asns))
+                if (osc_str_append_string(data, args->bgp_asns_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->client_gateway_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ClientGatewayIds\":[" ))
+			return -1;
+		for (as = args->client_gateway_ids; *as > 0; ++as) {
+			if (as != args->client_gateway_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->client_gateway_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ClientGatewayIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->client_gateway_ids))
+                if (osc_str_append_string(data, args->client_gateway_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->connection_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ConnectionTypes\":[" ))
+			return -1;
+		for (as = args->connection_types; *as > 0; ++as) {
+			if (as != args->connection_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->connection_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ConnectionTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->connection_types))
+                if (osc_str_append_string(data, args->connection_types_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->public_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PublicIps\":[" ))
+			return -1;
+		for (as = args->public_ips; *as > 0; ++as) {
+			if (as != args->public_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->public_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PublicIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->public_ips))
+                if (osc_str_append_string(data, args->public_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -2734,82 +3430,258 @@ static int filters_dhcp_options_setter(struct filters_dhcp_options *args, struct
 	   	ret += 1;
 	}
 	if (args->dhcp_options_set_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DhcpOptionsSetIds\":[" ))
+			return -1;
+		for (as = args->dhcp_options_set_ids; *as > 0; ++as) {
+			if (as != args->dhcp_options_set_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->dhcp_options_set_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DhcpOptionsSetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->dhcp_options_set_ids))
+                if (osc_str_append_string(data, args->dhcp_options_set_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->domain_name_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DomainNameServers\":[" ))
+			return -1;
+		for (as = args->domain_name_servers; *as > 0; ++as) {
+			if (as != args->domain_name_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->domain_name_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DomainNameServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->domain_name_servers))
+                if (osc_str_append_string(data, args->domain_name_servers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->domain_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DomainNames\":[" ))
+			return -1;
+		for (as = args->domain_names; *as > 0; ++as) {
+			if (as != args->domain_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->domain_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DomainNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->domain_names))
+                if (osc_str_append_string(data, args->domain_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->log_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LogServers\":[" ))
+			return -1;
+		for (as = args->log_servers; *as > 0; ++as) {
+			if (as != args->log_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->log_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LogServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->log_servers))
+                if (osc_str_append_string(data, args->log_servers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ntp_servers) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NtpServers\":[" ))
+			return -1;
+		for (as = args->ntp_servers; *as > 0; ++as) {
+			if (as != args->ntp_servers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ntp_servers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NtpServers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ntp_servers))
+                if (osc_str_append_string(data, args->ntp_servers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -2819,12 +3691,34 @@ static int filters_direct_link_setter(struct filters_direct_link *args, struct o
        int count_args = 0;
        int ret = 0;
 	if (args->direct_link_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DirectLinkIds\":[" ))
+			return -1;
+		for (as = args->direct_link_ids; *as > 0; ++as) {
+			if (as != args->direct_link_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->direct_link_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DirectLinkIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->direct_link_ids))
+                if (osc_str_append_string(data, args->direct_link_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -2834,22 +3728,66 @@ static int filters_direct_link_interface_setter(struct filters_direct_link_inter
        int count_args = 0;
        int ret = 0;
 	if (args->direct_link_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DirectLinkIds\":[" ))
+			return -1;
+		for (as = args->direct_link_ids; *as > 0; ++as) {
+			if (as != args->direct_link_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->direct_link_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DirectLinkIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->direct_link_ids))
+                if (osc_str_append_string(data, args->direct_link_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->direct_link_interface_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DirectLinkInterfaceIds\":[" ))
+			return -1;
+		for (as = args->direct_link_interface_ids; *as > 0; ++as) {
+			if (as != args->direct_link_interface_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->direct_link_interface_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DirectLinkInterfaceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->direct_link_interface_ids))
+                if (osc_str_append_string(data, args->direct_link_interface_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -2859,12 +3797,34 @@ static int filters_export_task_setter(struct filters_export_task *args, struct o
        int count_args = 0;
        int ret = 0;
 	if (args->task_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TaskIds\":[" ))
+			return -1;
+		for (as = args->task_ids; *as > 0; ++as) {
+			if (as != args->task_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->task_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TaskIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->task_ids))
+                if (osc_str_append_string(data, args->task_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -2884,62 +3844,194 @@ static int filters_flexible_gpu_setter(struct filters_flexible_gpu *args, struct
 	   	ret += 1;
 	}
 	if (args->flexible_gpu_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"FlexibleGpuIds\":[" ))
+			return -1;
+		for (as = args->flexible_gpu_ids; *as > 0; ++as) {
+			if (as != args->flexible_gpu_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->flexible_gpu_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"FlexibleGpuIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->flexible_gpu_ids))
+                if (osc_str_append_string(data, args->flexible_gpu_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->generations) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Generations\":[" ))
+			return -1;
+		for (as = args->generations; *as > 0; ++as) {
+			if (as != args->generations)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->generations_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Generations\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->generations))
+                if (osc_str_append_string(data, args->generations_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->model_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ModelNames\":[" ))
+			return -1;
+		for (as = args->model_names; *as > 0; ++as) {
+			if (as != args->model_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->model_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ModelNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->model_names))
+                if (osc_str_append_string(data, args->model_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -2949,32 +4041,98 @@ static int filters_image_setter(struct filters_image *args, struct osc_str *data
        int count_args = 0;
        int ret = 0;
 	if (args->account_aliases) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccountAliases\":[" ))
+			return -1;
+		for (as = args->account_aliases; *as > 0; ++as) {
+			if (as != args->account_aliases)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->account_aliases_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccountAliases\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->account_aliases))
+                if (osc_str_append_string(data, args->account_aliases_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccountIds\":[" ))
+			return -1;
+		for (as = args->account_ids; *as > 0; ++as) {
+			if (as != args->account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->account_ids))
+                if (osc_str_append_string(data, args->account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->architectures) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Architectures\":[" ))
+			return -1;
+		for (as = args->architectures; *as > 0; ++as) {
+			if (as != args->architectures)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->architectures_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Architectures\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->architectures))
+                if (osc_str_append_string(data, args->architectures_str))
 			return -1;
 		ret += 1;
 	}
@@ -2989,102 +4147,318 @@ static int filters_image_setter(struct filters_image *args, struct osc_str *data
 	   	ret += 1;
 	}
 	if (args->block_device_mapping_device_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappingDeviceNames\":[" ))
+			return -1;
+		for (as = args->block_device_mapping_device_names; *as > 0; ++as) {
+			if (as != args->block_device_mapping_device_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->block_device_mapping_device_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappingDeviceNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mapping_device_names))
+                if (osc_str_append_string(data, args->block_device_mapping_device_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->block_device_mapping_snapshot_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappingSnapshotIds\":[" ))
+			return -1;
+		for (as = args->block_device_mapping_snapshot_ids; *as > 0; ++as) {
+			if (as != args->block_device_mapping_snapshot_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->block_device_mapping_snapshot_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappingSnapshotIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mapping_snapshot_ids))
+                if (osc_str_append_string(data, args->block_device_mapping_snapshot_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->block_device_mapping_volume_sizes) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappingVolumeSizes\":[" ))
+			return -1;
+		for (ip = args->block_device_mapping_volume_sizes; *ip > 0; ++ip) {
+			if (ip != args->block_device_mapping_volume_sizes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->block_device_mapping_volume_sizes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappingVolumeSizes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mapping_volume_sizes))
+                if (osc_str_append_string(data, args->block_device_mapping_volume_sizes_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->block_device_mapping_volume_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappingVolumeTypes\":[" ))
+			return -1;
+		for (as = args->block_device_mapping_volume_types; *as > 0; ++as) {
+			if (as != args->block_device_mapping_volume_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->block_device_mapping_volume_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappingVolumeTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mapping_volume_types))
+                if (osc_str_append_string(data, args->block_device_mapping_volume_types_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Descriptions\":[" ))
+			return -1;
+		for (as = args->descriptions; *as > 0; ++as) {
+			if (as != args->descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Descriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->descriptions))
+                if (osc_str_append_string(data, args->descriptions_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->file_locations) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"FileLocations\":[" ))
+			return -1;
+		for (as = args->file_locations; *as > 0; ++as) {
+			if (as != args->file_locations)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->file_locations_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"FileLocations\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->file_locations))
+                if (osc_str_append_string(data, args->file_locations_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->hypervisors) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Hypervisors\":[" ))
+			return -1;
+		for (as = args->hypervisors; *as > 0; ++as) {
+			if (as != args->hypervisors)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->hypervisors_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Hypervisors\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->hypervisors))
+                if (osc_str_append_string(data, args->hypervisors_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->image_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ImageIds\":[" ))
+			return -1;
+		for (as = args->image_ids; *as > 0; ++as) {
+			if (as != args->image_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->image_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ImageIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->image_ids))
+                if (osc_str_append_string(data, args->image_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->image_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ImageNames\":[" ))
+			return -1;
+		for (as = args->image_names; *as > 0; ++as) {
+			if (as != args->image_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->image_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ImageNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->image_names))
+                if (osc_str_append_string(data, args->image_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->permissions_to_launch_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PermissionsToLaunchAccountIds\":[" ))
+			return -1;
+		for (as = args->permissions_to_launch_account_ids; *as > 0; ++as) {
+			if (as != args->permissions_to_launch_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->permissions_to_launch_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PermissionsToLaunchAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->permissions_to_launch_account_ids))
+                if (osc_str_append_string(data, args->permissions_to_launch_account_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -3099,82 +4473,258 @@ static int filters_image_setter(struct filters_image *args, struct osc_str *data
 	   	ret += 1;
 	}
 	if (args->product_codes) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ProductCodes\":[" ))
+			return -1;
+		for (as = args->product_codes; *as > 0; ++as) {
+			if (as != args->product_codes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->product_codes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ProductCodes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->product_codes))
+                if (osc_str_append_string(data, args->product_codes_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->root_device_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RootDeviceNames\":[" ))
+			return -1;
+		for (as = args->root_device_names; *as > 0; ++as) {
+			if (as != args->root_device_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->root_device_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RootDeviceNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->root_device_names))
+                if (osc_str_append_string(data, args->root_device_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->root_device_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RootDeviceTypes\":[" ))
+			return -1;
+		for (as = args->root_device_types; *as > 0; ++as) {
+			if (as != args->root_device_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->root_device_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RootDeviceTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->root_device_types))
+                if (osc_str_append_string(data, args->root_device_types_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->virtualization_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VirtualizationTypes\":[" ))
+			return -1;
+		for (as = args->virtualization_types; *as > 0; ++as) {
+			if (as != args->virtualization_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->virtualization_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VirtualizationTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->virtualization_types))
+                if (osc_str_append_string(data, args->virtualization_types_str))
 			return -1;
 		ret += 1;
 	}
@@ -3184,62 +4734,194 @@ static int filters_internet_service_setter(struct filters_internet_service *args
        int count_args = 0;
        int ret = 0;
 	if (args->internet_service_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InternetServiceIds\":[" ))
+			return -1;
+		for (as = args->internet_service_ids; *as > 0; ++as) {
+			if (as != args->internet_service_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->internet_service_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InternetServiceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->internet_service_ids))
+                if (osc_str_append_string(data, args->internet_service_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkNetIds\":[" ))
+			return -1;
+		for (as = args->link_net_ids; *as > 0; ++as) {
+			if (as != args->link_net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkNetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_net_ids))
+                if (osc_str_append_string(data, args->link_net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkStates\":[" ))
+			return -1;
+		for (as = args->link_states; *as > 0; ++as) {
+			if (as != args->link_states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkStates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_states))
+                if (osc_str_append_string(data, args->link_states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -3249,22 +4931,66 @@ static int filters_keypair_setter(struct filters_keypair *args, struct osc_str *
        int count_args = 0;
        int ret = 0;
 	if (args->keypair_fingerprints) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"KeypairFingerprints\":[" ))
+			return -1;
+		for (as = args->keypair_fingerprints; *as > 0; ++as) {
+			if (as != args->keypair_fingerprints)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->keypair_fingerprints_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"KeypairFingerprints\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->keypair_fingerprints))
+                if (osc_str_append_string(data, args->keypair_fingerprints_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->keypair_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"KeypairNames\":[" ))
+			return -1;
+		for (as = args->keypair_names; *as > 0; ++as) {
+			if (as != args->keypair_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->keypair_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"KeypairNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->keypair_names))
+                if (osc_str_append_string(data, args->keypair_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -3274,12 +5000,34 @@ static int filters_listener_rule_setter(struct filters_listener_rule *args, stru
        int count_args = 0;
        int ret = 0;
 	if (args->listener_rule_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ListenerRuleNames\":[" ))
+			return -1;
+		for (as = args->listener_rule_names; *as > 0; ++as) {
+			if (as != args->listener_rule_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->listener_rule_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ListenerRuleNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->listener_rule_names))
+                if (osc_str_append_string(data, args->listener_rule_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -3289,12 +5037,34 @@ static int filters_load_balancer_setter(struct filters_load_balancer *args, stru
        int count_args = 0;
        int ret = 0;
 	if (args->load_balancer_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LoadBalancerNames\":[" ))
+			return -1;
+		for (as = args->load_balancer_names; *as > 0; ++as) {
+			if (as != args->load_balancer_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->load_balancer_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LoadBalancerNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->load_balancer_names))
+                if (osc_str_append_string(data, args->load_balancer_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -3304,72 +5074,226 @@ static int filters_nat_service_setter(struct filters_nat_service *args, struct o
        int count_args = 0;
        int ret = 0;
 	if (args->nat_service_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NatServiceIds\":[" ))
+			return -1;
+		for (as = args->nat_service_ids; *as > 0; ++as) {
+			if (as != args->nat_service_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->nat_service_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NatServiceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->nat_service_ids))
+                if (osc_str_append_string(data, args->nat_service_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetIds\":[" ))
+			return -1;
+		for (as = args->net_ids; *as > 0; ++as) {
+			if (as != args->net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_ids))
+                if (osc_str_append_string(data, args->net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subnet_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubnetIds\":[" ))
+			return -1;
+		for (as = args->subnet_ids; *as > 0; ++as) {
+			if (as != args->subnet_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subnet_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubnetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subnet_ids))
+                if (osc_str_append_string(data, args->subnet_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -3379,22 +5303,66 @@ static int filters_net_setter(struct filters_net *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->dhcp_options_set_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"DhcpOptionsSetIds\":[" ))
+			return -1;
+		for (as = args->dhcp_options_set_ids; *as > 0; ++as) {
+			if (as != args->dhcp_options_set_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->dhcp_options_set_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"DhcpOptionsSetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->dhcp_options_set_ids))
+                if (osc_str_append_string(data, args->dhcp_options_set_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
@@ -3409,52 +5377,162 @@ static int filters_net_setter(struct filters_net *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetIds\":[" ))
+			return -1;
+		for (as = args->net_ids; *as > 0; ++as) {
+			if (as != args->net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_ids))
+                if (osc_str_append_string(data, args->net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -3464,72 +5542,226 @@ static int filters_net_access_point_setter(struct filters_net_access_point *args
        int count_args = 0;
        int ret = 0;
 	if (args->net_access_point_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetAccessPointIds\":[" ))
+			return -1;
+		for (as = args->net_access_point_ids; *as > 0; ++as) {
+			if (as != args->net_access_point_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_access_point_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetAccessPointIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_access_point_ids))
+                if (osc_str_append_string(data, args->net_access_point_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetIds\":[" ))
+			return -1;
+		for (as = args->net_ids; *as > 0; ++as) {
+			if (as != args->net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_ids))
+                if (osc_str_append_string(data, args->net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->service_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ServiceNames\":[" ))
+			return -1;
+		for (as = args->service_names; *as > 0; ++as) {
+			if (as != args->service_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->service_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ServiceNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->service_names))
+                if (osc_str_append_string(data, args->service_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -3539,122 +5771,386 @@ static int filters_net_peering_setter(struct filters_net_peering *args, struct o
        int count_args = 0;
        int ret = 0;
 	if (args->accepter_net_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccepterNetAccountIds\":[" ))
+			return -1;
+		for (as = args->accepter_net_account_ids; *as > 0; ++as) {
+			if (as != args->accepter_net_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->accepter_net_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccepterNetAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->accepter_net_account_ids))
+                if (osc_str_append_string(data, args->accepter_net_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->accepter_net_ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccepterNetIpRanges\":[" ))
+			return -1;
+		for (as = args->accepter_net_ip_ranges; *as > 0; ++as) {
+			if (as != args->accepter_net_ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->accepter_net_ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccepterNetIpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->accepter_net_ip_ranges))
+                if (osc_str_append_string(data, args->accepter_net_ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->accepter_net_net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccepterNetNetIds\":[" ))
+			return -1;
+		for (as = args->accepter_net_net_ids; *as > 0; ++as) {
+			if (as != args->accepter_net_net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->accepter_net_net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccepterNetNetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->accepter_net_net_ids))
+                if (osc_str_append_string(data, args->accepter_net_net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->net_peering_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetPeeringIds\":[" ))
+			return -1;
+		for (as = args->net_peering_ids; *as > 0; ++as) {
+			if (as != args->net_peering_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_peering_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetPeeringIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_peering_ids))
+                if (osc_str_append_string(data, args->net_peering_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->source_net_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SourceNetAccountIds\":[" ))
+			return -1;
+		for (as = args->source_net_account_ids; *as > 0; ++as) {
+			if (as != args->source_net_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->source_net_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SourceNetAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->source_net_account_ids))
+                if (osc_str_append_string(data, args->source_net_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->source_net_ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SourceNetIpRanges\":[" ))
+			return -1;
+		for (as = args->source_net_ip_ranges; *as > 0; ++as) {
+			if (as != args->source_net_ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->source_net_ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SourceNetIpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->source_net_ip_ranges))
+                if (osc_str_append_string(data, args->source_net_ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->source_net_net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SourceNetNetIds\":[" ))
+			return -1;
+		for (as = args->source_net_net_ids; *as > 0; ++as) {
+			if (as != args->source_net_net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->source_net_net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SourceNetNetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->source_net_net_ids))
+                if (osc_str_append_string(data, args->source_net_net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->state_messages) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"StateMessages\":[" ))
+			return -1;
+		for (as = args->state_messages; *as > 0; ++as) {
+			if (as != args->state_messages)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->state_messages_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"StateMessages\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->state_messages))
+                if (osc_str_append_string(data, args->state_messages_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->state_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"StateNames\":[" ))
+			return -1;
+		for (as = args->state_names; *as > 0; ++as) {
+			if (as != args->state_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->state_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"StateNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->state_names))
+                if (osc_str_append_string(data, args->state_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -3664,12 +6160,34 @@ static int filters_nic_setter(struct filters_nic *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Descriptions\":[" ))
+			return -1;
+		for (as = args->descriptions; *as > 0; ++as) {
+			if (as != args->descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Descriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->descriptions))
+                if (osc_str_append_string(data, args->descriptions_str))
 			return -1;
 		ret += 1;
 	}
@@ -3694,152 +6212,478 @@ static int filters_nic_setter(struct filters_nic *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->link_nic_device_numbers) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkNicDeviceNumbers\":[" ))
+			return -1;
+		for (ip = args->link_nic_device_numbers; *ip > 0; ++ip) {
+			if (ip != args->link_nic_device_numbers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_nic_device_numbers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkNicDeviceNumbers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_nic_device_numbers))
+                if (osc_str_append_string(data, args->link_nic_device_numbers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_nic_link_nic_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkNicLinkNicIds\":[" ))
+			return -1;
+		for (as = args->link_nic_link_nic_ids; *as > 0; ++as) {
+			if (as != args->link_nic_link_nic_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_nic_link_nic_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkNicLinkNicIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_nic_link_nic_ids))
+                if (osc_str_append_string(data, args->link_nic_link_nic_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_nic_states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkNicStates\":[" ))
+			return -1;
+		for (as = args->link_nic_states; *as > 0; ++as) {
+			if (as != args->link_nic_states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_nic_states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkNicStates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_nic_states))
+                if (osc_str_append_string(data, args->link_nic_states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_nic_vm_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkNicVmAccountIds\":[" ))
+			return -1;
+		for (as = args->link_nic_vm_account_ids; *as > 0; ++as) {
+			if (as != args->link_nic_vm_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_nic_vm_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkNicVmAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_nic_vm_account_ids))
+                if (osc_str_append_string(data, args->link_nic_vm_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_nic_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkNicVmIds\":[" ))
+			return -1;
+		for (as = args->link_nic_vm_ids; *as > 0; ++as) {
+			if (as != args->link_nic_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_nic_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkNicVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_nic_vm_ids))
+                if (osc_str_append_string(data, args->link_nic_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_public_ip_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkPublicIpAccountIds\":[" ))
+			return -1;
+		for (as = args->link_public_ip_account_ids; *as > 0; ++as) {
+			if (as != args->link_public_ip_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_public_ip_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkPublicIpAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_public_ip_account_ids))
+                if (osc_str_append_string(data, args->link_public_ip_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_public_ip_link_public_ip_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkPublicIpLinkPublicIpIds\":[" ))
+			return -1;
+		for (as = args->link_public_ip_link_public_ip_ids; *as > 0; ++as) {
+			if (as != args->link_public_ip_link_public_ip_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_public_ip_link_public_ip_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkPublicIpLinkPublicIpIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_public_ip_link_public_ip_ids))
+                if (osc_str_append_string(data, args->link_public_ip_link_public_ip_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_public_ip_public_ip_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkPublicIpPublicIpIds\":[" ))
+			return -1;
+		for (as = args->link_public_ip_public_ip_ids; *as > 0; ++as) {
+			if (as != args->link_public_ip_public_ip_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_public_ip_public_ip_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkPublicIpPublicIpIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_public_ip_public_ip_ids))
+                if (osc_str_append_string(data, args->link_public_ip_public_ip_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_public_ip_public_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkPublicIpPublicIps\":[" ))
+			return -1;
+		for (as = args->link_public_ip_public_ips; *as > 0; ++as) {
+			if (as != args->link_public_ip_public_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_public_ip_public_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkPublicIpPublicIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_public_ip_public_ips))
+                if (osc_str_append_string(data, args->link_public_ip_public_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->mac_addresses) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"MacAddresses\":[" ))
+			return -1;
+		for (as = args->mac_addresses; *as > 0; ++as) {
+			if (as != args->mac_addresses)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->mac_addresses_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MacAddresses\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->mac_addresses))
+                if (osc_str_append_string(data, args->mac_addresses_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetIds\":[" ))
+			return -1;
+		for (as = args->net_ids; *as > 0; ++as) {
+			if (as != args->net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_ids))
+                if (osc_str_append_string(data, args->net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->nic_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NicIds\":[" ))
+			return -1;
+		for (as = args->nic_ids; *as > 0; ++as) {
+			if (as != args->nic_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->nic_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NicIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->nic_ids))
+                if (osc_str_append_string(data, args->nic_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->private_dns_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateDnsNames\":[" ))
+			return -1;
+		for (as = args->private_dns_names; *as > 0; ++as) {
+			if (as != args->private_dns_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_dns_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateDnsNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_dns_names))
+                if (osc_str_append_string(data, args->private_dns_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->private_ips_link_public_ip_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIpsLinkPublicIpAccountIds\":[" ))
+			return -1;
+		for (as = args->private_ips_link_public_ip_account_ids; *as > 0; ++as) {
+			if (as != args->private_ips_link_public_ip_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_ips_link_public_ip_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIpsLinkPublicIpAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips_link_public_ip_account_ids))
+                if (osc_str_append_string(data, args->private_ips_link_public_ip_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->private_ips_link_public_ip_public_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIpsLinkPublicIpPublicIps\":[" ))
+			return -1;
+		for (as = args->private_ips_link_public_ip_public_ips; *as > 0; ++as) {
+			if (as != args->private_ips_link_public_ip_public_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_ips_link_public_ip_public_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIpsLinkPublicIpPublicIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips_link_public_ip_public_ips))
+                if (osc_str_append_string(data, args->private_ips_link_public_ip_public_ips_str))
 			return -1;
 		ret += 1;
 	}
@@ -3854,92 +6698,290 @@ static int filters_nic_setter(struct filters_nic *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->private_ips_private_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIpsPrivateIps\":[" ))
+			return -1;
+		for (as = args->private_ips_private_ips; *as > 0; ++as) {
+			if (as != args->private_ips_private_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_ips_private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIpsPrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips_private_ips))
+                if (osc_str_append_string(data, args->private_ips_private_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->security_group_ids; *as > 0; ++as) {
+			if (as != args->security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_ids))
+                if (osc_str_append_string(data, args->security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->security_group_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupNames\":[" ))
+			return -1;
+		for (as = args->security_group_names; *as > 0; ++as) {
+			if (as != args->security_group_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_names))
+                if (osc_str_append_string(data, args->security_group_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subnet_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubnetIds\":[" ))
+			return -1;
+		for (as = args->subnet_ids; *as > 0; ++as) {
+			if (as != args->subnet_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subnet_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubnetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subnet_ids))
+                if (osc_str_append_string(data, args->subnet_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -3949,12 +6991,34 @@ static int filters_product_type_setter(struct filters_product_type *args, struct
        int count_args = 0;
        int ret = 0;
 	if (args->product_type_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ProductTypeIds\":[" ))
+			return -1;
+		for (as = args->product_type_ids; *as > 0; ++as) {
+			if (as != args->product_type_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->product_type_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ProductTypeIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->product_type_ids))
+                if (osc_str_append_string(data, args->product_type_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -3964,112 +7028,354 @@ static int filters_public_ip_setter(struct filters_public_ip *args, struct osc_s
        int count_args = 0;
        int ret = 0;
 	if (args->link_public_ip_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkPublicIpIds\":[" ))
+			return -1;
+		for (as = args->link_public_ip_ids; *as > 0; ++as) {
+			if (as != args->link_public_ip_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_public_ip_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkPublicIpIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_public_ip_ids))
+                if (osc_str_append_string(data, args->link_public_ip_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->nic_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NicAccountIds\":[" ))
+			return -1;
+		for (as = args->nic_account_ids; *as > 0; ++as) {
+			if (as != args->nic_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->nic_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NicAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->nic_account_ids))
+                if (osc_str_append_string(data, args->nic_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->nic_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NicIds\":[" ))
+			return -1;
+		for (as = args->nic_ids; *as > 0; ++as) {
+			if (as != args->nic_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->nic_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NicIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->nic_ids))
+                if (osc_str_append_string(data, args->nic_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->placements) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Placements\":[" ))
+			return -1;
+		for (as = args->placements; *as > 0; ++as) {
+			if (as != args->placements)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->placements_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Placements\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->placements))
+                if (osc_str_append_string(data, args->placements_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->private_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (as = args->private_ips; *as > 0; ++as) {
+			if (as != args->private_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->public_ip_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PublicIpIds\":[" ))
+			return -1;
+		for (as = args->public_ip_ids; *as > 0; ++as) {
+			if (as != args->public_ip_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->public_ip_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PublicIpIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->public_ip_ids))
+                if (osc_str_append_string(data, args->public_ip_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->public_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PublicIps\":[" ))
+			return -1;
+		for (as = args->public_ips; *as > 0; ++as) {
+			if (as != args->public_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->public_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PublicIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->public_ips))
+                if (osc_str_append_string(data, args->public_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -4079,42 +7385,130 @@ static int filters_quota_setter(struct filters_quota *args, struct osc_str *data
        int count_args = 0;
        int ret = 0;
 	if (args->collections) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Collections\":[" ))
+			return -1;
+		for (as = args->collections; *as > 0; ++as) {
+			if (as != args->collections)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->collections_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Collections\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->collections))
+                if (osc_str_append_string(data, args->collections_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->quota_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"QuotaNames\":[" ))
+			return -1;
+		for (as = args->quota_names; *as > 0; ++as) {
+			if (as != args->quota_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->quota_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"QuotaNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->quota_names))
+                if (osc_str_append_string(data, args->quota_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->quota_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"QuotaTypes\":[" ))
+			return -1;
+		for (as = args->quota_types; *as > 0; ++as) {
+			if (as != args->quota_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->quota_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"QuotaTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->quota_types))
+                if (osc_str_append_string(data, args->quota_types_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->short_descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ShortDescriptions\":[" ))
+			return -1;
+		for (as = args->short_descriptions; *as > 0; ++as) {
+			if (as != args->short_descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->short_descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ShortDescriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->short_descriptions))
+                if (osc_str_append_string(data, args->short_descriptions_str))
 			return -1;
 		ret += 1;
 	}
@@ -4124,22 +7518,66 @@ static int filters_route_table_setter(struct filters_route_table *args, struct o
        int count_args = 0;
        int ret = 0;
 	if (args->link_route_table_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkRouteTableIds\":[" ))
+			return -1;
+		for (as = args->link_route_table_ids; *as > 0; ++as) {
+			if (as != args->link_route_table_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_route_table_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkRouteTableIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_route_table_ids))
+                if (osc_str_append_string(data, args->link_route_table_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_route_table_link_route_table_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkRouteTableLinkRouteTableIds\":[" ))
+			return -1;
+		for (as = args->link_route_table_link_route_table_ids; *as > 0; ++as) {
+			if (as != args->link_route_table_link_route_table_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_route_table_link_route_table_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkRouteTableLinkRouteTableIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_route_table_link_route_table_ids))
+                if (osc_str_append_string(data, args->link_route_table_link_route_table_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -4154,142 +7592,450 @@ static int filters_route_table_setter(struct filters_route_table *args, struct o
 	   	ret += 1;
 	}
 	if (args->link_subnet_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkSubnetIds\":[" ))
+			return -1;
+		for (as = args->link_subnet_ids; *as > 0; ++as) {
+			if (as != args->link_subnet_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_subnet_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkSubnetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_subnet_ids))
+                if (osc_str_append_string(data, args->link_subnet_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetIds\":[" ))
+			return -1;
+		for (as = args->net_ids; *as > 0; ++as) {
+			if (as != args->net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_ids))
+                if (osc_str_append_string(data, args->net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_creation_methods) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteCreationMethods\":[" ))
+			return -1;
+		for (as = args->route_creation_methods; *as > 0; ++as) {
+			if (as != args->route_creation_methods)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_creation_methods_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteCreationMethods\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_creation_methods))
+                if (osc_str_append_string(data, args->route_creation_methods_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_destination_ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteDestinationIpRanges\":[" ))
+			return -1;
+		for (as = args->route_destination_ip_ranges; *as > 0; ++as) {
+			if (as != args->route_destination_ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_destination_ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteDestinationIpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_destination_ip_ranges))
+                if (osc_str_append_string(data, args->route_destination_ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_destination_service_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteDestinationServiceIds\":[" ))
+			return -1;
+		for (as = args->route_destination_service_ids; *as > 0; ++as) {
+			if (as != args->route_destination_service_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_destination_service_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteDestinationServiceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_destination_service_ids))
+                if (osc_str_append_string(data, args->route_destination_service_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_gateway_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteGatewayIds\":[" ))
+			return -1;
+		for (as = args->route_gateway_ids; *as > 0; ++as) {
+			if (as != args->route_gateway_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_gateway_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteGatewayIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_gateway_ids))
+                if (osc_str_append_string(data, args->route_gateway_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_nat_service_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteNatServiceIds\":[" ))
+			return -1;
+		for (as = args->route_nat_service_ids; *as > 0; ++as) {
+			if (as != args->route_nat_service_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_nat_service_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteNatServiceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_nat_service_ids))
+                if (osc_str_append_string(data, args->route_nat_service_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_net_peering_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteNetPeeringIds\":[" ))
+			return -1;
+		for (as = args->route_net_peering_ids; *as > 0; ++as) {
+			if (as != args->route_net_peering_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_net_peering_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteNetPeeringIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_net_peering_ids))
+                if (osc_str_append_string(data, args->route_net_peering_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteStates\":[" ))
+			return -1;
+		for (as = args->route_states; *as > 0; ++as) {
+			if (as != args->route_states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteStates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_states))
+                if (osc_str_append_string(data, args->route_states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_table_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteTableIds\":[" ))
+			return -1;
+		for (as = args->route_table_ids; *as > 0; ++as) {
+			if (as != args->route_table_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_table_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteTableIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_table_ids))
+                if (osc_str_append_string(data, args->route_table_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteVmIds\":[" ))
+			return -1;
+		for (as = args->route_vm_ids; *as > 0; ++as) {
+			if (as != args->route_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_vm_ids))
+                if (osc_str_append_string(data, args->route_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -4299,222 +8045,690 @@ static int filters_security_group_setter(struct filters_security_group *args, st
        int count_args = 0;
        int ret = 0;
 	if (args->account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccountIds\":[" ))
+			return -1;
+		for (as = args->account_ids; *as > 0; ++as) {
+			if (as != args->account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->account_ids))
+                if (osc_str_append_string(data, args->account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Descriptions\":[" ))
+			return -1;
+		for (as = args->descriptions; *as > 0; ++as) {
+			if (as != args->descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Descriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->descriptions))
+                if (osc_str_append_string(data, args->descriptions_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->inbound_rule_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRuleAccountIds\":[" ))
+			return -1;
+		for (as = args->inbound_rule_account_ids; *as > 0; ++as) {
+			if (as != args->inbound_rule_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->inbound_rule_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRuleAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rule_account_ids))
+                if (osc_str_append_string(data, args->inbound_rule_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->inbound_rule_from_port_ranges) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRuleFromPortRanges\":[" ))
+			return -1;
+		for (ip = args->inbound_rule_from_port_ranges; *ip > 0; ++ip) {
+			if (ip != args->inbound_rule_from_port_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->inbound_rule_from_port_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRuleFromPortRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rule_from_port_ranges))
+                if (osc_str_append_string(data, args->inbound_rule_from_port_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->inbound_rule_ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRuleIpRanges\":[" ))
+			return -1;
+		for (as = args->inbound_rule_ip_ranges; *as > 0; ++as) {
+			if (as != args->inbound_rule_ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->inbound_rule_ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRuleIpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rule_ip_ranges))
+                if (osc_str_append_string(data, args->inbound_rule_ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->inbound_rule_protocols) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRuleProtocols\":[" ))
+			return -1;
+		for (as = args->inbound_rule_protocols; *as > 0; ++as) {
+			if (as != args->inbound_rule_protocols)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->inbound_rule_protocols_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRuleProtocols\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rule_protocols))
+                if (osc_str_append_string(data, args->inbound_rule_protocols_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->inbound_rule_security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRuleSecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->inbound_rule_security_group_ids; *as > 0; ++as) {
+			if (as != args->inbound_rule_security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->inbound_rule_security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRuleSecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rule_security_group_ids))
+                if (osc_str_append_string(data, args->inbound_rule_security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->inbound_rule_security_group_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRuleSecurityGroupNames\":[" ))
+			return -1;
+		for (as = args->inbound_rule_security_group_names; *as > 0; ++as) {
+			if (as != args->inbound_rule_security_group_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->inbound_rule_security_group_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRuleSecurityGroupNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rule_security_group_names))
+                if (osc_str_append_string(data, args->inbound_rule_security_group_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->inbound_rule_to_port_ranges) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRuleToPortRanges\":[" ))
+			return -1;
+		for (ip = args->inbound_rule_to_port_ranges; *ip > 0; ++ip) {
+			if (ip != args->inbound_rule_to_port_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->inbound_rule_to_port_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRuleToPortRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rule_to_port_ranges))
+                if (osc_str_append_string(data, args->inbound_rule_to_port_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetIds\":[" ))
+			return -1;
+		for (as = args->net_ids; *as > 0; ++as) {
+			if (as != args->net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_ids))
+                if (osc_str_append_string(data, args->net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->outbound_rule_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRuleAccountIds\":[" ))
+			return -1;
+		for (as = args->outbound_rule_account_ids; *as > 0; ++as) {
+			if (as != args->outbound_rule_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->outbound_rule_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRuleAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rule_account_ids))
+                if (osc_str_append_string(data, args->outbound_rule_account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->outbound_rule_from_port_ranges) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRuleFromPortRanges\":[" ))
+			return -1;
+		for (ip = args->outbound_rule_from_port_ranges; *ip > 0; ++ip) {
+			if (ip != args->outbound_rule_from_port_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->outbound_rule_from_port_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRuleFromPortRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rule_from_port_ranges))
+                if (osc_str_append_string(data, args->outbound_rule_from_port_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->outbound_rule_ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRuleIpRanges\":[" ))
+			return -1;
+		for (as = args->outbound_rule_ip_ranges; *as > 0; ++as) {
+			if (as != args->outbound_rule_ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->outbound_rule_ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRuleIpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rule_ip_ranges))
+                if (osc_str_append_string(data, args->outbound_rule_ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->outbound_rule_protocols) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRuleProtocols\":[" ))
+			return -1;
+		for (as = args->outbound_rule_protocols; *as > 0; ++as) {
+			if (as != args->outbound_rule_protocols)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->outbound_rule_protocols_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRuleProtocols\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rule_protocols))
+                if (osc_str_append_string(data, args->outbound_rule_protocols_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->outbound_rule_security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRuleSecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->outbound_rule_security_group_ids; *as > 0; ++as) {
+			if (as != args->outbound_rule_security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->outbound_rule_security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRuleSecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rule_security_group_ids))
+                if (osc_str_append_string(data, args->outbound_rule_security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->outbound_rule_security_group_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRuleSecurityGroupNames\":[" ))
+			return -1;
+		for (as = args->outbound_rule_security_group_names; *as > 0; ++as) {
+			if (as != args->outbound_rule_security_group_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->outbound_rule_security_group_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRuleSecurityGroupNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rule_security_group_names))
+                if (osc_str_append_string(data, args->outbound_rule_security_group_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->outbound_rule_to_port_ranges) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRuleToPortRanges\":[" ))
+			return -1;
+		for (ip = args->outbound_rule_to_port_ranges; *ip > 0; ++ip) {
+			if (ip != args->outbound_rule_to_port_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->outbound_rule_to_port_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRuleToPortRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rule_to_port_ranges))
+                if (osc_str_append_string(data, args->outbound_rule_to_port_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->security_group_ids; *as > 0; ++as) {
+			if (as != args->security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_ids))
+                if (osc_str_append_string(data, args->security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->security_group_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupNames\":[" ))
+			return -1;
+		for (as = args->security_group_names; *as > 0; ++as) {
+			if (as != args->security_group_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_names))
+                if (osc_str_append_string(data, args->security_group_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -4524,12 +8738,34 @@ static int filters_server_certificate_setter(struct filters_server_certificate *
        int count_args = 0;
        int ret = 0;
 	if (args->paths) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Paths\":[" ))
+			return -1;
+		for (as = args->paths; *as > 0; ++as) {
+			if (as != args->paths)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->paths_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Paths\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->paths))
+                if (osc_str_append_string(data, args->paths_str))
 			return -1;
 		ret += 1;
 	}
@@ -4539,22 +8775,66 @@ static int filters_service_setter(struct filters_service *args, struct osc_str *
        int count_args = 0;
        int ret = 0;
 	if (args->service_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ServiceIds\":[" ))
+			return -1;
+		for (as = args->service_ids; *as > 0; ++as) {
+			if (as != args->service_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->service_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ServiceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->service_ids))
+                if (osc_str_append_string(data, args->service_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->service_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ServiceNames\":[" ))
+			return -1;
+		for (as = args->service_names; *as > 0; ++as) {
+			if (as != args->service_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->service_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ServiceNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->service_names))
+                if (osc_str_append_string(data, args->service_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -4564,42 +8844,130 @@ static int filters_snapshot_setter(struct filters_snapshot *args, struct osc_str
        int count_args = 0;
        int ret = 0;
 	if (args->account_aliases) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccountAliases\":[" ))
+			return -1;
+		for (as = args->account_aliases; *as > 0; ++as) {
+			if (as != args->account_aliases)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->account_aliases_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccountAliases\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->account_aliases))
+                if (osc_str_append_string(data, args->account_aliases_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccountIds\":[" ))
+			return -1;
+		for (as = args->account_ids; *as > 0; ++as) {
+			if (as != args->account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->account_ids))
+                if (osc_str_append_string(data, args->account_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Descriptions\":[" ))
+			return -1;
+		for (as = args->descriptions; *as > 0; ++as) {
+			if (as != args->descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Descriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->descriptions))
+                if (osc_str_append_string(data, args->descriptions_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->permissions_to_create_volume_account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PermissionsToCreateVolumeAccountIds\":[" ))
+			return -1;
+		for (as = args->permissions_to_create_volume_account_ids; *as > 0; ++as) {
+			if (as != args->permissions_to_create_volume_account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->permissions_to_create_volume_account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PermissionsToCreateVolumeAccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->permissions_to_create_volume_account_ids))
+                if (osc_str_append_string(data, args->permissions_to_create_volume_account_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -4614,82 +8982,250 @@ static int filters_snapshot_setter(struct filters_snapshot *args, struct osc_str
 	   	ret += 1;
 	}
 	if (args->progresses) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Progresses\":[" ))
+			return -1;
+		for (ip = args->progresses; *ip > 0; ++ip) {
+			if (ip != args->progresses)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->progresses_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Progresses\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->progresses))
+                if (osc_str_append_string(data, args->progresses_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->snapshot_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SnapshotIds\":[" ))
+			return -1;
+		for (as = args->snapshot_ids; *as > 0; ++as) {
+			if (as != args->snapshot_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->snapshot_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SnapshotIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->snapshot_ids))
+                if (osc_str_append_string(data, args->snapshot_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeIds\":[" ))
+			return -1;
+		for (as = args->volume_ids; *as > 0; ++as) {
+			if (as != args->volume_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_ids))
+                if (osc_str_append_string(data, args->volume_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_sizes) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeSizes\":[" ))
+			return -1;
+		for (ip = args->volume_sizes; *ip > 0; ++ip) {
+			if (ip != args->volume_sizes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_sizes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeSizes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_sizes))
+                if (osc_str_append_string(data, args->volume_sizes_str))
 			return -1;
 		ret += 1;
 	}
@@ -4699,92 +9235,286 @@ static int filters_subnet_setter(struct filters_subnet *args, struct osc_str *da
        int count_args = 0;
        int ret = 0;
 	if (args->available_ips_counts) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AvailableIpsCounts\":[" ))
+			return -1;
+		for (ip = args->available_ips_counts; *ip > 0; ++ip) {
+			if (ip != args->available_ips_counts)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->available_ips_counts_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AvailableIpsCounts\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->available_ips_counts))
+                if (osc_str_append_string(data, args->available_ips_counts_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetIds\":[" ))
+			return -1;
+		for (as = args->net_ids; *as > 0; ++as) {
+			if (as != args->net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_ids))
+                if (osc_str_append_string(data, args->net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subnet_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubnetIds\":[" ))
+			return -1;
+		for (as = args->subnet_ids; *as > 0; ++as) {
+			if (as != args->subnet_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subnet_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubnetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subnet_ids))
+                if (osc_str_append_string(data, args->subnet_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -4794,12 +9524,34 @@ static int filters_subregion_setter(struct filters_subregion *args, struct osc_s
        int count_args = 0;
        int ret = 0;
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -4809,42 +9561,130 @@ static int filters_tag_setter(struct filters_tag *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Keys\":[" ))
+			return -1;
+		for (as = args->keys; *as > 0; ++as) {
+			if (as != args->keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Keys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->keys))
+                if (osc_str_append_string(data, args->keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->resource_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ResourceIds\":[" ))
+			return -1;
+		for (as = args->resource_ids; *as > 0; ++as) {
+			if (as != args->resource_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->resource_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ResourceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->resource_ids))
+                if (osc_str_append_string(data, args->resource_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->resource_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ResourceTypes\":[" ))
+			return -1;
+		for (as = args->resource_types; *as > 0; ++as) {
+			if (as != args->resource_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->resource_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ResourceTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->resource_types))
+                if (osc_str_append_string(data, args->resource_types_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Values\":[" ))
+			return -1;
+		for (as = args->values; *as > 0; ++as) {
+			if (as != args->values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Values\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->values))
+                if (osc_str_append_string(data, args->values_str))
 			return -1;
 		ret += 1;
 	}
@@ -4854,82 +9694,258 @@ static int filters_virtual_gateway_setter(struct filters_virtual_gateway *args, 
        int count_args = 0;
        int ret = 0;
 	if (args->connection_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ConnectionTypes\":[" ))
+			return -1;
+		for (as = args->connection_types; *as > 0; ++as) {
+			if (as != args->connection_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->connection_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ConnectionTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->connection_types))
+                if (osc_str_append_string(data, args->connection_types_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_net_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkNetIds\":[" ))
+			return -1;
+		for (as = args->link_net_ids; *as > 0; ++as) {
+			if (as != args->link_net_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_net_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkNetIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_net_ids))
+                if (osc_str_append_string(data, args->link_net_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkStates\":[" ))
+			return -1;
+		for (as = args->link_states; *as > 0; ++as) {
+			if (as != args->link_states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkStates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_states))
+                if (osc_str_append_string(data, args->link_states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->virtual_gateway_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VirtualGatewayIds\":[" ))
+			return -1;
+		for (as = args->virtual_gateway_ids; *as > 0; ++as) {
+			if (as != args->virtual_gateway_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->virtual_gateway_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VirtualGatewayIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->virtual_gateway_ids))
+                if (osc_str_append_string(data, args->virtual_gateway_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -4939,42 +9955,130 @@ static int filters_vm_setter(struct filters_vm *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -5004,42 +10108,118 @@ static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *
 		ret += 1;
 	}
 	if (args->vcore_counts) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VcoreCounts\":[" ))
+			return -1;
+		for (ip = args->vcore_counts; *ip > 0; ++ip) {
+			if (ip != args->vcore_counts)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vcore_counts_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VcoreCounts\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vcore_counts))
+                if (osc_str_append_string(data, args->vcore_counts_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->vm_type_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmTypeNames\":[" ))
+			return -1;
+		for (as = args->vm_type_names; *as > 0; ++as) {
+			if (as != args->vm_type_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_type_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmTypeNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_type_names))
+                if (osc_str_append_string(data, args->vm_type_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_counts) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeCounts\":[" ))
+			return -1;
+		for (ip = args->volume_counts; *ip > 0; ++ip) {
+			if (ip != args->volume_counts)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_counts_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeCounts\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_counts))
+                if (osc_str_append_string(data, args->volume_counts_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_sizes) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeSizes\":[" ))
+			return -1;
+		for (ip = args->volume_sizes; *ip > 0; ++ip) {
+			if (ip != args->volume_sizes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_sizes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeSizes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_sizes))
+                if (osc_str_append_string(data, args->volume_sizes_str))
 			return -1;
 		ret += 1;
 	}
@@ -5049,72 +10229,226 @@ static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_s
        int count_args = 0;
        int ret = 0;
 	if (args->maintenance_event_codes) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"MaintenanceEventCodes\":[" ))
+			return -1;
+		for (as = args->maintenance_event_codes; *as > 0; ++as) {
+			if (as != args->maintenance_event_codes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->maintenance_event_codes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MaintenanceEventCodes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->maintenance_event_codes))
+                if (osc_str_append_string(data, args->maintenance_event_codes_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->maintenance_event_descriptions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"MaintenanceEventDescriptions\":[" ))
+			return -1;
+		for (as = args->maintenance_event_descriptions; *as > 0; ++as) {
+			if (as != args->maintenance_event_descriptions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->maintenance_event_descriptions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MaintenanceEventDescriptions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->maintenance_event_descriptions))
+                if (osc_str_append_string(data, args->maintenance_event_descriptions_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->maintenance_events_not_after) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"MaintenanceEventsNotAfter\":[" ))
+			return -1;
+		for (as = args->maintenance_events_not_after; *as > 0; ++as) {
+			if (as != args->maintenance_events_not_after)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->maintenance_events_not_after_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MaintenanceEventsNotAfter\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->maintenance_events_not_after))
+                if (osc_str_append_string(data, args->maintenance_events_not_after_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->maintenance_events_not_before) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"MaintenanceEventsNotBefore\":[" ))
+			return -1;
+		for (as = args->maintenance_events_not_before; *as > 0; ++as) {
+			if (as != args->maintenance_events_not_before)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->maintenance_events_not_before_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MaintenanceEventsNotBefore\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->maintenance_events_not_before))
+                if (osc_str_append_string(data, args->maintenance_events_not_before_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->vm_states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmStates\":[" ))
+			return -1;
+		for (as = args->vm_states; *as > 0; ++as) {
+			if (as != args->vm_states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmStates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_states))
+                if (osc_str_append_string(data, args->vm_states_str))
 			return -1;
 		ret += 1;
 	}
@@ -5124,12 +10458,34 @@ static int filters_volume_setter(struct filters_volume *args, struct osc_str *da
        int count_args = 0;
        int ret = 0;
 	if (args->creation_dates) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"CreationDates\":[" ))
+			return -1;
+		for (as = args->creation_dates; *as > 0; ++as) {
+			if (as != args->creation_dates)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->creation_dates_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"CreationDates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->creation_dates))
+                if (osc_str_append_string(data, args->creation_dates_str))
 			return -1;
 		ret += 1;
 	}
@@ -5144,132 +10500,414 @@ static int filters_volume_setter(struct filters_volume *args, struct osc_str *da
 	   	ret += 1;
 	}
 	if (args->link_volume_device_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkVolumeDeviceNames\":[" ))
+			return -1;
+		for (as = args->link_volume_device_names; *as > 0; ++as) {
+			if (as != args->link_volume_device_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_volume_device_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkVolumeDeviceNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_volume_device_names))
+                if (osc_str_append_string(data, args->link_volume_device_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_volume_link_dates) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkVolumeLinkDates\":[" ))
+			return -1;
+		for (as = args->link_volume_link_dates; *as > 0; ++as) {
+			if (as != args->link_volume_link_dates)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_volume_link_dates_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkVolumeLinkDates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_volume_link_dates))
+                if (osc_str_append_string(data, args->link_volume_link_dates_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_volume_link_states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkVolumeLinkStates\":[" ))
+			return -1;
+		for (as = args->link_volume_link_states; *as > 0; ++as) {
+			if (as != args->link_volume_link_states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_volume_link_states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkVolumeLinkStates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_volume_link_states))
+                if (osc_str_append_string(data, args->link_volume_link_states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->link_volume_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkVolumeVmIds\":[" ))
+			return -1;
+		for (as = args->link_volume_vm_ids; *as > 0; ++as) {
+			if (as != args->link_volume_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->link_volume_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkVolumeVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_volume_vm_ids))
+                if (osc_str_append_string(data, args->link_volume_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->snapshot_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SnapshotIds\":[" ))
+			return -1;
+		for (as = args->snapshot_ids; *as > 0; ++as) {
+			if (as != args->snapshot_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->snapshot_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SnapshotIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->snapshot_ids))
+                if (osc_str_append_string(data, args->snapshot_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeIds\":[" ))
+			return -1;
+		for (as = args->volume_ids; *as > 0; ++as) {
+			if (as != args->volume_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_ids))
+                if (osc_str_append_string(data, args->volume_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_sizes) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeSizes\":[" ))
+			return -1;
+		for (ip = args->volume_sizes; *ip > 0; ++ip) {
+			if (ip != args->volume_sizes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_sizes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeSizes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_sizes))
+                if (osc_str_append_string(data, args->volume_sizes_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeStates\":[" ))
+			return -1;
+		for (as = args->volume_states; *as > 0; ++as) {
+			if (as != args->volume_states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeStates\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_states))
+                if (osc_str_append_string(data, args->volume_states_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->volume_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VolumeTypes\":[" ))
+			return -1;
+		for (as = args->volume_types; *as > 0; ++as) {
+			if (as != args->volume_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->volume_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VolumeTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->volume_types))
+                if (osc_str_append_string(data, args->volume_types_str))
 			return -1;
 		ret += 1;
 	}
@@ -5279,52 +10917,158 @@ static int filters_vpn_connection_setter(struct filters_vpn_connection *args, st
        int count_args = 0;
        int ret = 0;
 	if (args->bgp_asns) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BgpAsns\":[" ))
+			return -1;
+		for (ip = args->bgp_asns; *ip > 0; ++ip) {
+			if (ip != args->bgp_asns)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->bgp_asns_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BgpAsns\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->bgp_asns))
+                if (osc_str_append_string(data, args->bgp_asns_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->client_gateway_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ClientGatewayIds\":[" ))
+			return -1;
+		for (as = args->client_gateway_ids; *as > 0; ++as) {
+			if (as != args->client_gateway_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->client_gateway_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ClientGatewayIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->client_gateway_ids))
+                if (osc_str_append_string(data, args->client_gateway_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->connection_types) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ConnectionTypes\":[" ))
+			return -1;
+		for (as = args->connection_types; *as > 0; ++as) {
+			if (as != args->connection_types)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->connection_types_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ConnectionTypes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->connection_types))
+                if (osc_str_append_string(data, args->connection_types_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->route_destination_ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteDestinationIpRanges\":[" ))
+			return -1;
+		for (as = args->route_destination_ip_ranges; *as > 0; ++as) {
+			if (as != args->route_destination_ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_destination_ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteDestinationIpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_destination_ip_ranges))
+                if (osc_str_append_string(data, args->route_destination_ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->states) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"States\":[" ))
+			return -1;
+		for (as = args->states; *as > 0; ++as) {
+			if (as != args->states)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->states_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"States\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->states))
+                if (osc_str_append_string(data, args->states_str))
 			return -1;
 		ret += 1;
 	}
@@ -5339,52 +11083,162 @@ static int filters_vpn_connection_setter(struct filters_vpn_connection *args, st
 	   	ret += 1;
 	}
 	if (args->tag_keys) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagKeys\":[" ))
+			return -1;
+		for (as = args->tag_keys; *as > 0; ++as) {
+			if (as != args->tag_keys)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_keys_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagKeys\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_keys))
+                if (osc_str_append_string(data, args->tag_keys_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tag_values) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"TagValues\":[" ))
+			return -1;
+		for (as = args->tag_values; *as > 0; ++as) {
+			if (as != args->tag_values)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tag_values_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"TagValues\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tag_values))
+                if (osc_str_append_string(data, args->tag_values_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->tags) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (as = args->tags; *as > 0; ++as) {
+			if (as != args->tags)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->virtual_gateway_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VirtualGatewayIds\":[" ))
+			return -1;
+		for (as = args->virtual_gateway_ids; *as > 0; ++as) {
+			if (as != args->virtual_gateway_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->virtual_gateway_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VirtualGatewayIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->virtual_gateway_ids))
+                if (osc_str_append_string(data, args->virtual_gateway_ids_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->vpn_connection_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VpnConnectionIds\":[" ))
+			return -1;
+		for (as = args->vpn_connection_ids; *as > 0; ++as) {
+			if (as != args->vpn_connection_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vpn_connection_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VpnConnectionIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vpn_connection_ids))
+                if (osc_str_append_string(data, args->vpn_connection_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -5481,12 +11335,34 @@ static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct
        int count_args = 0;
        int ret = 0;
 	if (args->generations) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Generations\":[" ))
+			return -1;
+		for (as = args->generations; *as > 0; ++as) {
+			if (as != args->generations)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->generations_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Generations\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->generations))
+                if (osc_str_append_string(data, args->generations_str))
 			return -1;
 		ret += 1;
 	}
@@ -5745,12 +11621,34 @@ static int image_setter(struct image *args, struct osc_str *data) {
 		ret += 1;
 	}
 	if (args->product_codes) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ProductCodes\":[" ))
+			return -1;
+		for (as = args->product_codes; *as > 0; ++as) {
+			if (as != args->product_codes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->product_codes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ProductCodes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->product_codes))
+                if (osc_str_append_string(data, args->product_codes_str))
 			return -1;
 		ret += 1;
 	}
@@ -6433,12 +12331,34 @@ static int listener_setter(struct listener *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->policy_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PolicyNames\":[" ))
+			return -1;
+		for (as = args->policy_names; *as > 0; ++as) {
+			if (as != args->policy_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->policy_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PolicyNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->policy_names))
+                if (osc_str_append_string(data, args->policy_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -6599,12 +12519,34 @@ static int listener_rule_setter(struct listener_rule *args, struct osc_str *data
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VmIds\":[" ))
+			return -1;
+		for (as = args->vm_ids; *as > 0; ++as) {
+			if (as != args->vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vm_ids))
+                if (osc_str_append_string(data, args->vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -6697,22 +12639,66 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 		ret += 1;
 	}
 	if (args->backend_ips) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendIps\":[" ))
+			return -1;
+		for (as = args->backend_ips; *as > 0; ++as) {
+			if (as != args->backend_ips)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_ips))
+                if (osc_str_append_string(data, args->backend_ips_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->backend_vm_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BackendVmIds\":[" ))
+			return -1;
+		for (as = args->backend_vm_ids; *as > 0; ++as) {
+			if (as != args->backend_vm_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->backend_vm_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BackendVmIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->backend_vm_ids))
+                if (osc_str_append_string(data, args->backend_vm_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -6817,12 +12803,34 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 	   	ret += 1;
 	}
 	if (args->security_groups) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroups\":[" ))
+			return -1;
+		for (as = args->security_groups; *as > 0; ++as) {
+			if (as != args->security_groups)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_groups_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroups\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups))
+                if (osc_str_append_string(data, args->security_groups_str))
 			return -1;
 		ret += 1;
 	}
@@ -6837,22 +12845,66 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 		ret += 1;
 	}
 	if (args->subnets) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Subnets\":[" ))
+			return -1;
+		for (as = args->subnets; *as > 0; ++as) {
+			if (as != args->subnets)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subnets_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Subnets\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subnets))
+                if (osc_str_append_string(data, args->subnets_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->subregion_names) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SubregionNames\":[" ))
+			return -1;
+		for (as = args->subregion_names; *as > 0; ++as) {
+			if (as != args->subregion_names)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->subregion_names_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SubregionNames\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->subregion_names))
+                if (osc_str_append_string(data, args->subregion_names_str))
 			return -1;
 		ret += 1;
 	}
@@ -7408,12 +13460,34 @@ static int net_access_point_setter(struct net_access_point *args, struct osc_str
 	   	ret += 1;
 	}
 	if (args->route_table_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RouteTableIds\":[" ))
+			return -1;
+		for (as = args->route_table_ids; *as > 0; ++as) {
+			if (as != args->route_table_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->route_table_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RouteTableIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_table_ids))
+                if (osc_str_append_string(data, args->route_table_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -7809,12 +13883,34 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 	   	ret += 1;
 	}
 	if (args->security_group_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupIds\":[" ))
+			return -1;
+		for (as = args->security_group_ids; *as > 0; ++as) {
+			if (as != args->security_group_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->security_group_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_group_ids))
+                if (osc_str_append_string(data, args->security_group_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -8173,12 +14269,34 @@ static int permissions_on_resource_setter(struct permissions_on_resource *args, 
        int count_args = 0;
        int ret = 0;
 	if (args->account_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"AccountIds\":[" ))
+			return -1;
+		for (as = args->account_ids; *as > 0; ++as) {
+			if (as != args->account_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->account_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"AccountIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->account_ids))
+                if (osc_str_append_string(data, args->account_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -8245,42 +14363,126 @@ static int phase1_options_setter(struct phase1_options *args, struct osc_str *da
 	   	ret += 1;
 	}
 	if (args->ike_versions) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IkeVersions\":[" ))
+			return -1;
+		for (as = args->ike_versions; *as > 0; ++as) {
+			if (as != args->ike_versions)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ike_versions_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IkeVersions\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ike_versions))
+                if (osc_str_append_string(data, args->ike_versions_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->phase1_dh_group_numbers) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Phase1DhGroupNumbers\":[" ))
+			return -1;
+		for (ip = args->phase1_dh_group_numbers; *ip > 0; ++ip) {
+			if (ip != args->phase1_dh_group_numbers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->phase1_dh_group_numbers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Phase1DhGroupNumbers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->phase1_dh_group_numbers))
+                if (osc_str_append_string(data, args->phase1_dh_group_numbers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->phase1_encryption_algorithms) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Phase1EncryptionAlgorithms\":[" ))
+			return -1;
+		for (as = args->phase1_encryption_algorithms; *as > 0; ++as) {
+			if (as != args->phase1_encryption_algorithms)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->phase1_encryption_algorithms_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Phase1EncryptionAlgorithms\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->phase1_encryption_algorithms))
+                if (osc_str_append_string(data, args->phase1_encryption_algorithms_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->phase1_integrity_algorithms) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Phase1IntegrityAlgorithms\":[" ))
+			return -1;
+		for (as = args->phase1_integrity_algorithms; *as > 0; ++as) {
+			if (as != args->phase1_integrity_algorithms)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->phase1_integrity_algorithms_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Phase1IntegrityAlgorithms\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->phase1_integrity_algorithms))
+                if (osc_str_append_string(data, args->phase1_integrity_algorithms_str))
 			return -1;
 		ret += 1;
 	}
@@ -8322,32 +14524,94 @@ static int phase2_options_setter(struct phase2_options *args, struct osc_str *da
        int count_args = 0;
        int ret = 0;
 	if (args->phase2_dh_group_numbers) {
+		int *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Phase2DhGroupNumbers\":[" ))
+			return -1;
+		for (ip = args->phase2_dh_group_numbers; *ip > 0; ++ip) {
+			if (ip != args->phase2_dh_group_numbers)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_int(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->phase2_dh_group_numbers_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Phase2DhGroupNumbers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->phase2_dh_group_numbers))
+                if (osc_str_append_string(data, args->phase2_dh_group_numbers_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->phase2_encryption_algorithms) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Phase2EncryptionAlgorithms\":[" ))
+			return -1;
+		for (as = args->phase2_encryption_algorithms; *as > 0; ++as) {
+			if (as != args->phase2_encryption_algorithms)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->phase2_encryption_algorithms_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Phase2EncryptionAlgorithms\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->phase2_encryption_algorithms))
+                if (osc_str_append_string(data, args->phase2_encryption_algorithms_str))
 			return -1;
 		ret += 1;
 	}
 	if (args->phase2_integrity_algorithms) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Phase2IntegrityAlgorithms\":[" ))
+			return -1;
+		for (as = args->phase2_integrity_algorithms; *as > 0; ++as) {
+			if (as != args->phase2_integrity_algorithms)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->phase2_integrity_algorithms_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Phase2IntegrityAlgorithms\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->phase2_integrity_algorithms))
+                if (osc_str_append_string(data, args->phase2_integrity_algorithms_str))
 			return -1;
 		ret += 1;
 	}
@@ -9299,12 +15563,34 @@ static int security_group_rule_setter(struct security_group_rule *args, struct o
 	   	ret += 1;
 	}
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
@@ -9319,12 +15605,34 @@ static int security_group_rule_setter(struct security_group_rule *args, struct o
 		ret += 1;
 	}
 	if (args->service_ids) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ServiceIds\":[" ))
+			return -1;
+		for (as = args->service_ids; *as > 0; ++as) {
+			if (as != args->service_ids)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->service_ids_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ServiceIds\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->service_ids))
+                if (osc_str_append_string(data, args->service_ids_str))
 			return -1;
 		ret += 1;
 	}
@@ -9462,12 +15770,34 @@ static int service_setter(struct service *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->ip_ranges) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"IpRanges\":[" ))
+			return -1;
+		for (as = args->ip_ranges; *as > 0; ++as) {
+			if (as != args->ip_ranges)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->ip_ranges_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"IpRanges\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->ip_ranges))
+                if (osc_str_append_string(data, args->ip_ranges_str))
 			return -1;
 		ret += 1;
 	}
@@ -10349,12 +16679,34 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->product_codes) {
+		char **as;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ProductCodes\":[" ))
+			return -1;
+		for (as = args->product_codes; *as > 0; ++as) {
+			if (as != args->product_codes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+			if (osc_str_append_string(data, *as))
+				return -1;
+			if (osc_str_append_string(data, "\"" ))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->product_codes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ProductCodes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->product_codes))
+                if (osc_str_append_string(data, args->product_codes_str))
 			return -1;
 		ret += 1;
 	}

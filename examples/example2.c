@@ -13,7 +13,6 @@ enum ACTION {
 int main(int ac, char **av)
 {
 	char *vm_ids[1024];
-	char filer_buf[1024];
 	int action_type = 0;
 
 	if (ac < 2) {
@@ -40,10 +39,6 @@ int main(int ac, char **av)
 		}
 	}
 
-	sprintf(filer_buf, "[\"*%s*\"]", av[1]);
-	/*
-	 * auto_osc_env and auto_osc_str auto call deinit functions (use GNU C)
-	 */
         auto_osc_env struct osc_env e;
         auto_osc_str struct osc_str r;
 	json_object *jobj;
@@ -56,8 +51,11 @@ int main(int ac, char **av)
 	/* ./cognac ReadVms --Filters.TagKeys '["Name"]' --Filters.TagValues '["*buntu*"]' */
         if (osc_read_vms(&e, &r, &(struct osc_read_vms_arg)
 				{.filters=(struct filters_vm) {
-						.tag_keys = "[\"Name\"]",
-						.tag_values = filer_buf
+						.tag_keys_str = "[\"Name\"]",
+						.tag_values = (char *[2]) {
+							av[1],
+							NULL
+						}
 					},
 				 .is_set_filters = 1}
 				) < 0)

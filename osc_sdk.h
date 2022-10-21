@@ -98,8 +98,8 @@ struct access_log {
 
 struct account {
 	char *account_id; /* | string | string | account_id */
-/* type 2 array */
-	char *additional_emails; /* | array | array | additional_emails */
+        char *additional_emails_str;
+	char **additional_emails; /* | array string | array string | additional_emails */
 	char *city; /* | string | string | city */
 	char *company_name; /* | string | string | company_name */
 	char *country; /* | string | string | country */
@@ -124,13 +124,13 @@ struct api_access_policy {
 
 struct api_access_rule {
 	char *api_access_rule_id; /* | string | string | api_access_rule_id */
-/* type 2 array */
-	char *ca_ids; /* | array | array | ca_ids */
-/* type 2 array */
-	char *cns; /* | array | array | cns */
+        char *ca_ids_str;
+	char **ca_ids; /* | array string | array string | ca_ids */
+        char *cns_str;
+	char **cns; /* | array string | array string | cns */
 	char *description; /* | string | string | description */
-/* type 2 array */
-	char *ip_ranges; /* | array | array | ip_ranges */
+        char *ip_ranges_str;
+	char **ip_ranges; /* | array string | array string | ip_ranges */
 };
 
 struct application_sticky_cookie_policy {
@@ -247,12 +247,12 @@ struct dhcp_options_set {
 	int default_arg; /* | bool | bool | default_arg */
 	char *dhcp_options_set_id; /* | string | string | dhcp_options_set_id */
 	char *domain_name; /* | string | string | domain_name */
-/* type 2 array */
-	char *domain_name_servers; /* | array | array | domain_name_servers */
-/* type 2 array */
-	char *log_servers; /* | array | array | log_servers */
-/* type 2 array */
-	char *ntp_servers; /* | array | array | ntp_servers */
+        char *domain_name_servers_str;
+	char **domain_name_servers; /* | array string | array string | domain_name_servers */
+        char *log_servers_str;
+	char **log_servers; /* | array string | array string | log_servers */
+        char *ntp_servers_str;
+	char **ntp_servers; /* | array string | array string | ntp_servers */
 /* type 2 array */
 	char *tags; /* | array | array | tags */
 };
@@ -306,578 +306,578 @@ struct errors {
 };
 
 struct filters_access_keys {
-/* type 2 array */
-	char *access_key_ids; /* | array | array | access_key_ids */
-/* type 2 array */
-	char *states; /* | array | array | states */
+        char *access_key_ids_str;
+	char **access_key_ids; /* | array string | array string | access_key_ids */
+        char *states_str;
+	char **states; /* | array string | array string | states */
 };
 
 struct filters_api_access_rule {
-/* type 2 array */
-	char *api_access_rule_ids; /* | array | array | api_access_rule_ids */
-/* type 2 array */
-	char *ca_ids; /* | array | array | ca_ids */
-/* type 2 array */
-	char *cns; /* | array | array | cns */
-/* type 2 array */
-	char *descriptions; /* | array | array | descriptions */
-/* type 2 array */
-	char *ip_ranges; /* | array | array | ip_ranges */
+        char *api_access_rule_ids_str;
+	char **api_access_rule_ids; /* | array string | array string | api_access_rule_ids */
+        char *ca_ids_str;
+	char **ca_ids; /* | array string | array string | ca_ids */
+        char *cns_str;
+	char **cns; /* | array string | array string | cns */
+        char *descriptions_str;
+	char **descriptions; /* | array string | array string | descriptions */
+        char *ip_ranges_str;
+	char **ip_ranges; /* | array string | array string | ip_ranges */
 };
 
 struct filters_api_log {
-/* type 2 array */
-	char *query_access_keys; /* | array | array | query_access_keys */
-/* type 2 array */
-	char *query_api_names; /* | array | array | query_api_names */
-/* type 2 array */
-	char *query_call_names; /* | array | array | query_call_names */
+        char *query_access_keys_str;
+	char **query_access_keys; /* | array string | array string | query_access_keys */
+        char *query_api_names_str;
+	char **query_api_names; /* | array string | array string | query_api_names */
+        char *query_call_names_str;
+	char **query_call_names; /* | array string | array string | query_call_names */
 	char *query_date_after; /* | string | string | query_date_after */
 	char *query_date_before; /* | string | string | query_date_before */
-/* type 2 array */
-	char *query_ip_addresses; /* | array | array | query_ip_addresses */
-/* type 2 array */
-	char *query_user_agents; /* | array | array | query_user_agents */
-/* type 2 array */
-	char *request_ids; /* | array | array | request_ids */
-/* type 2 array */
-	char *response_status_codes; /* | array | array | response_status_codes */
+        char *query_ip_addresses_str;
+	char **query_ip_addresses; /* | array string | array string | query_ip_addresses */
+        char *query_user_agents_str;
+	char **query_user_agents; /* | array string | array string | query_user_agents */
+        char *request_ids_str;
+	char **request_ids; /* | array string | array string | request_ids */
+        char *response_status_codes_str;
+	int *response_status_codes; /* | array integer | array integer | response_status_codes */
 };
 
 struct filters_ca {
-/* type 2 array */
-	char *ca_fingerprints; /* | array | array | ca_fingerprints */
-/* type 2 array */
-	char *ca_ids; /* | array | array | ca_ids */
-/* type 2 array */
-	char *descriptions; /* | array | array | descriptions */
+        char *ca_fingerprints_str;
+	char **ca_fingerprints; /* | array string | array string | ca_fingerprints */
+        char *ca_ids_str;
+	char **ca_ids; /* | array string | array string | ca_ids */
+        char *descriptions_str;
+	char **descriptions; /* | array string | array string | descriptions */
 };
 
 struct filters_client_gateway {
-/* type 2 array */
-	char *bgp_asns; /* | array | array | bgp_asns */
-/* type 2 array */
-	char *client_gateway_ids; /* | array | array | client_gateway_ids */
-/* type 2 array */
-	char *connection_types; /* | array | array | connection_types */
-/* type 2 array */
-	char *public_ips; /* | array | array | public_ips */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *bgp_asns_str;
+	int *bgp_asns; /* | array integer | array integer | bgp_asns */
+        char *client_gateway_ids_str;
+	char **client_gateway_ids; /* | array string | array string | client_gateway_ids */
+        char *connection_types_str;
+	char **connection_types; /* | array string | array string | connection_types */
+        char *public_ips_str;
+	char **public_ips; /* | array string | array string | public_ips */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_dhcp_options {
         int is_set_default_arg;
 	int default_arg; /* | bool | bool | default_arg */
-/* type 2 array */
-	char *dhcp_options_set_ids; /* | array | array | dhcp_options_set_ids */
-/* type 2 array */
-	char *domain_name_servers; /* | array | array | domain_name_servers */
-/* type 2 array */
-	char *domain_names; /* | array | array | domain_names */
-/* type 2 array */
-	char *log_servers; /* | array | array | log_servers */
-/* type 2 array */
-	char *ntp_servers; /* | array | array | ntp_servers */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *dhcp_options_set_ids_str;
+	char **dhcp_options_set_ids; /* | array string | array string | dhcp_options_set_ids */
+        char *domain_name_servers_str;
+	char **domain_name_servers; /* | array string | array string | domain_name_servers */
+        char *domain_names_str;
+	char **domain_names; /* | array string | array string | domain_names */
+        char *log_servers_str;
+	char **log_servers; /* | array string | array string | log_servers */
+        char *ntp_servers_str;
+	char **ntp_servers; /* | array string | array string | ntp_servers */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_direct_link {
-/* type 2 array */
-	char *direct_link_ids; /* | array | array | direct_link_ids */
+        char *direct_link_ids_str;
+	char **direct_link_ids; /* | array string | array string | direct_link_ids */
 };
 
 struct filters_direct_link_interface {
-/* type 2 array */
-	char *direct_link_ids; /* | array | array | direct_link_ids */
-/* type 2 array */
-	char *direct_link_interface_ids; /* | array | array | direct_link_interface_ids */
+        char *direct_link_ids_str;
+	char **direct_link_ids; /* | array string | array string | direct_link_ids */
+        char *direct_link_interface_ids_str;
+	char **direct_link_interface_ids; /* | array string | array string | direct_link_interface_ids */
 };
 
 struct filters_export_task {
-/* type 2 array */
-	char *task_ids; /* | array | array | task_ids */
+        char *task_ids_str;
+	char **task_ids; /* | array string | array string | task_ids */
 };
 
 struct filters_flexible_gpu {
         int is_set_delete_on_vm_deletion;
 	int delete_on_vm_deletion; /* | bool | bool | delete_on_vm_deletion */
-/* type 2 array */
-	char *flexible_gpu_ids; /* | array | array | flexible_gpu_ids */
-/* type 2 array */
-	char *generations; /* | array | array | generations */
-/* type 2 array */
-	char *model_names; /* | array | array | model_names */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *subregion_names; /* | array | array | subregion_names */
-/* type 2 array */
-	char *vm_ids; /* | array | array | vm_ids */
+        char *flexible_gpu_ids_str;
+	char **flexible_gpu_ids; /* | array string | array string | flexible_gpu_ids */
+        char *generations_str;
+	char **generations; /* | array string | array string | generations */
+        char *model_names_str;
+	char **model_names; /* | array string | array string | model_names */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *subregion_names_str;
+	char **subregion_names; /* | array string | array string | subregion_names */
+        char *vm_ids_str;
+	char **vm_ids; /* | array string | array string | vm_ids */
 };
 
 struct filters_image {
-/* type 2 array */
-	char *account_aliases; /* | array | array | account_aliases */
-/* type 2 array */
-	char *account_ids; /* | array | array | account_ids */
-/* type 2 array */
-	char *architectures; /* | array | array | architectures */
+        char *account_aliases_str;
+	char **account_aliases; /* | array string | array string | account_aliases */
+        char *account_ids_str;
+	char **account_ids; /* | array string | array string | account_ids */
+        char *architectures_str;
+	char **architectures; /* | array string | array string | architectures */
         int is_set_block_device_mapping_delete_on_vm_deletion;
 	int block_device_mapping_delete_on_vm_deletion; /* | bool | bool | block_device_mapping_delete_on_vm_deletion */
-/* type 2 array */
-	char *block_device_mapping_device_names; /* | array | array | block_device_mapping_device_names */
-/* type 2 array */
-	char *block_device_mapping_snapshot_ids; /* | array | array | block_device_mapping_snapshot_ids */
-/* type 2 array */
-	char *block_device_mapping_volume_sizes; /* | array | array | block_device_mapping_volume_sizes */
-/* type 2 array */
-	char *block_device_mapping_volume_types; /* | array | array | block_device_mapping_volume_types */
-/* type 2 array */
-	char *descriptions; /* | array | array | descriptions */
-/* type 2 array */
-	char *file_locations; /* | array | array | file_locations */
-/* type 2 array */
-	char *hypervisors; /* | array | array | hypervisors */
-/* type 2 array */
-	char *image_ids; /* | array | array | image_ids */
-/* type 2 array */
-	char *image_names; /* | array | array | image_names */
-/* type 2 array */
-	char *permissions_to_launch_account_ids; /* | array | array | permissions_to_launch_account_ids */
+        char *block_device_mapping_device_names_str;
+	char **block_device_mapping_device_names; /* | array string | array string | block_device_mapping_device_names */
+        char *block_device_mapping_snapshot_ids_str;
+	char **block_device_mapping_snapshot_ids; /* | array string | array string | block_device_mapping_snapshot_ids */
+        char *block_device_mapping_volume_sizes_str;
+	int *block_device_mapping_volume_sizes; /* | array integer | array integer | block_device_mapping_volume_sizes */
+        char *block_device_mapping_volume_types_str;
+	char **block_device_mapping_volume_types; /* | array string | array string | block_device_mapping_volume_types */
+        char *descriptions_str;
+	char **descriptions; /* | array string | array string | descriptions */
+        char *file_locations_str;
+	char **file_locations; /* | array string | array string | file_locations */
+        char *hypervisors_str;
+	char **hypervisors; /* | array string | array string | hypervisors */
+        char *image_ids_str;
+	char **image_ids; /* | array string | array string | image_ids */
+        char *image_names_str;
+	char **image_names; /* | array string | array string | image_names */
+        char *permissions_to_launch_account_ids_str;
+	char **permissions_to_launch_account_ids; /* | array string | array string | permissions_to_launch_account_ids */
         int is_set_permissions_to_launch_global_permission;
 	int permissions_to_launch_global_permission; /* | bool | bool | permissions_to_launch_global_permission */
-/* type 2 array */
-	char *product_codes; /* | array | array | product_codes */
-/* type 2 array */
-	char *root_device_names; /* | array | array | root_device_names */
-/* type 2 array */
-	char *root_device_types; /* | array | array | root_device_types */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
-/* type 2 array */
-	char *virtualization_types; /* | array | array | virtualization_types */
+        char *product_codes_str;
+	char **product_codes; /* | array string | array string | product_codes */
+        char *root_device_names_str;
+	char **root_device_names; /* | array string | array string | root_device_names */
+        char *root_device_types_str;
+	char **root_device_types; /* | array string | array string | root_device_types */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
+        char *virtualization_types_str;
+	char **virtualization_types; /* | array string | array string | virtualization_types */
 };
 
 struct filters_internet_service {
-/* type 2 array */
-	char *internet_service_ids; /* | array | array | internet_service_ids */
-/* type 2 array */
-	char *link_net_ids; /* | array | array | link_net_ids */
-/* type 2 array */
-	char *link_states; /* | array | array | link_states */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *internet_service_ids_str;
+	char **internet_service_ids; /* | array string | array string | internet_service_ids */
+        char *link_net_ids_str;
+	char **link_net_ids; /* | array string | array string | link_net_ids */
+        char *link_states_str;
+	char **link_states; /* | array string | array string | link_states */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_keypair {
-/* type 2 array */
-	char *keypair_fingerprints; /* | array | array | keypair_fingerprints */
-/* type 2 array */
-	char *keypair_names; /* | array | array | keypair_names */
+        char *keypair_fingerprints_str;
+	char **keypair_fingerprints; /* | array string | array string | keypair_fingerprints */
+        char *keypair_names_str;
+	char **keypair_names; /* | array string | array string | keypair_names */
 };
 
 struct filters_listener_rule {
-/* type 2 array */
-	char *listener_rule_names; /* | array | array | listener_rule_names */
+        char *listener_rule_names_str;
+	char **listener_rule_names; /* | array string | array string | listener_rule_names */
 };
 
 struct filters_load_balancer {
-/* type 2 array */
-	char *load_balancer_names; /* | array | array | load_balancer_names */
+        char *load_balancer_names_str;
+	char **load_balancer_names; /* | array string | array string | load_balancer_names */
 };
 
 struct filters_nat_service {
-/* type 2 array */
-	char *nat_service_ids; /* | array | array | nat_service_ids */
-/* type 2 array */
-	char *net_ids; /* | array | array | net_ids */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *subnet_ids; /* | array | array | subnet_ids */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *nat_service_ids_str;
+	char **nat_service_ids; /* | array string | array string | nat_service_ids */
+        char *net_ids_str;
+	char **net_ids; /* | array string | array string | net_ids */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *subnet_ids_str;
+	char **subnet_ids; /* | array string | array string | subnet_ids */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_net {
-/* type 2 array */
-	char *dhcp_options_set_ids; /* | array | array | dhcp_options_set_ids */
-/* type 2 array */
-	char *ip_ranges; /* | array | array | ip_ranges */
+        char *dhcp_options_set_ids_str;
+	char **dhcp_options_set_ids; /* | array string | array string | dhcp_options_set_ids */
+        char *ip_ranges_str;
+	char **ip_ranges; /* | array string | array string | ip_ranges */
         int is_set_is_default_arg;
 	int is_default_arg; /* | bool | bool | is_default_arg */
-/* type 2 array */
-	char *net_ids; /* | array | array | net_ids */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *net_ids_str;
+	char **net_ids; /* | array string | array string | net_ids */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_net_access_point {
-/* type 2 array */
-	char *net_access_point_ids; /* | array | array | net_access_point_ids */
-/* type 2 array */
-	char *net_ids; /* | array | array | net_ids */
-/* type 2 array */
-	char *service_names; /* | array | array | service_names */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *net_access_point_ids_str;
+	char **net_access_point_ids; /* | array string | array string | net_access_point_ids */
+        char *net_ids_str;
+	char **net_ids; /* | array string | array string | net_ids */
+        char *service_names_str;
+	char **service_names; /* | array string | array string | service_names */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_net_peering {
-/* type 2 array */
-	char *accepter_net_account_ids; /* | array | array | accepter_net_account_ids */
-/* type 2 array */
-	char *accepter_net_ip_ranges; /* | array | array | accepter_net_ip_ranges */
-/* type 2 array */
-	char *accepter_net_net_ids; /* | array | array | accepter_net_net_ids */
-/* type 2 array */
-	char *net_peering_ids; /* | array | array | net_peering_ids */
-/* type 2 array */
-	char *source_net_account_ids; /* | array | array | source_net_account_ids */
-/* type 2 array */
-	char *source_net_ip_ranges; /* | array | array | source_net_ip_ranges */
-/* type 2 array */
-	char *source_net_net_ids; /* | array | array | source_net_net_ids */
-/* type 2 array */
-	char *state_messages; /* | array | array | state_messages */
-/* type 2 array */
-	char *state_names; /* | array | array | state_names */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *accepter_net_account_ids_str;
+	char **accepter_net_account_ids; /* | array string | array string | accepter_net_account_ids */
+        char *accepter_net_ip_ranges_str;
+	char **accepter_net_ip_ranges; /* | array string | array string | accepter_net_ip_ranges */
+        char *accepter_net_net_ids_str;
+	char **accepter_net_net_ids; /* | array string | array string | accepter_net_net_ids */
+        char *net_peering_ids_str;
+	char **net_peering_ids; /* | array string | array string | net_peering_ids */
+        char *source_net_account_ids_str;
+	char **source_net_account_ids; /* | array string | array string | source_net_account_ids */
+        char *source_net_ip_ranges_str;
+	char **source_net_ip_ranges; /* | array string | array string | source_net_ip_ranges */
+        char *source_net_net_ids_str;
+	char **source_net_net_ids; /* | array string | array string | source_net_net_ids */
+        char *state_messages_str;
+	char **state_messages; /* | array string | array string | state_messages */
+        char *state_names_str;
+	char **state_names; /* | array string | array string | state_names */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_nic {
-/* type 2 array */
-	char *descriptions; /* | array | array | descriptions */
+        char *descriptions_str;
+	char **descriptions; /* | array string | array string | descriptions */
         int is_set_is_source_dest_check;
 	int is_source_dest_check; /* | bool | bool | is_source_dest_check */
         int is_set_link_nic_delete_on_vm_deletion;
 	int link_nic_delete_on_vm_deletion; /* | bool | bool | link_nic_delete_on_vm_deletion */
-/* type 2 array */
-	char *link_nic_device_numbers; /* | array | array | link_nic_device_numbers */
-/* type 2 array */
-	char *link_nic_link_nic_ids; /* | array | array | link_nic_link_nic_ids */
-/* type 2 array */
-	char *link_nic_states; /* | array | array | link_nic_states */
-/* type 2 array */
-	char *link_nic_vm_account_ids; /* | array | array | link_nic_vm_account_ids */
-/* type 2 array */
-	char *link_nic_vm_ids; /* | array | array | link_nic_vm_ids */
-/* type 2 array */
-	char *link_public_ip_account_ids; /* | array | array | link_public_ip_account_ids */
-/* type 2 array */
-	char *link_public_ip_link_public_ip_ids; /* | array | array | link_public_ip_link_public_ip_ids */
-/* type 2 array */
-	char *link_public_ip_public_ip_ids; /* | array | array | link_public_ip_public_ip_ids */
-/* type 2 array */
-	char *link_public_ip_public_ips; /* | array | array | link_public_ip_public_ips */
-/* type 2 array */
-	char *mac_addresses; /* | array | array | mac_addresses */
-/* type 2 array */
-	char *net_ids; /* | array | array | net_ids */
-/* type 2 array */
-	char *nic_ids; /* | array | array | nic_ids */
-/* type 2 array */
-	char *private_dns_names; /* | array | array | private_dns_names */
-/* type 2 array */
-	char *private_ips_link_public_ip_account_ids; /* | array | array | private_ips_link_public_ip_account_ids */
-/* type 2 array */
-	char *private_ips_link_public_ip_public_ips; /* | array | array | private_ips_link_public_ip_public_ips */
+        char *link_nic_device_numbers_str;
+	int *link_nic_device_numbers; /* | array integer | array integer | link_nic_device_numbers */
+        char *link_nic_link_nic_ids_str;
+	char **link_nic_link_nic_ids; /* | array string | array string | link_nic_link_nic_ids */
+        char *link_nic_states_str;
+	char **link_nic_states; /* | array string | array string | link_nic_states */
+        char *link_nic_vm_account_ids_str;
+	char **link_nic_vm_account_ids; /* | array string | array string | link_nic_vm_account_ids */
+        char *link_nic_vm_ids_str;
+	char **link_nic_vm_ids; /* | array string | array string | link_nic_vm_ids */
+        char *link_public_ip_account_ids_str;
+	char **link_public_ip_account_ids; /* | array string | array string | link_public_ip_account_ids */
+        char *link_public_ip_link_public_ip_ids_str;
+	char **link_public_ip_link_public_ip_ids; /* | array string | array string | link_public_ip_link_public_ip_ids */
+        char *link_public_ip_public_ip_ids_str;
+	char **link_public_ip_public_ip_ids; /* | array string | array string | link_public_ip_public_ip_ids */
+        char *link_public_ip_public_ips_str;
+	char **link_public_ip_public_ips; /* | array string | array string | link_public_ip_public_ips */
+        char *mac_addresses_str;
+	char **mac_addresses; /* | array string | array string | mac_addresses */
+        char *net_ids_str;
+	char **net_ids; /* | array string | array string | net_ids */
+        char *nic_ids_str;
+	char **nic_ids; /* | array string | array string | nic_ids */
+        char *private_dns_names_str;
+	char **private_dns_names; /* | array string | array string | private_dns_names */
+        char *private_ips_link_public_ip_account_ids_str;
+	char **private_ips_link_public_ip_account_ids; /* | array string | array string | private_ips_link_public_ip_account_ids */
+        char *private_ips_link_public_ip_public_ips_str;
+	char **private_ips_link_public_ip_public_ips; /* | array string | array string | private_ips_link_public_ip_public_ips */
         int is_set_private_ips_primary_ip;
 	int private_ips_primary_ip; /* | bool | bool | private_ips_primary_ip */
-/* type 2 array */
-	char *private_ips_private_ips; /* | array | array | private_ips_private_ips */
-/* type 2 array */
-	char *security_group_ids; /* | array | array | security_group_ids */
-/* type 2 array */
-	char *security_group_names; /* | array | array | security_group_names */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *subnet_ids; /* | array | array | subnet_ids */
-/* type 2 array */
-	char *subregion_names; /* | array | array | subregion_names */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *private_ips_private_ips_str;
+	char **private_ips_private_ips; /* | array string | array string | private_ips_private_ips */
+        char *security_group_ids_str;
+	char **security_group_ids; /* | array string | array string | security_group_ids */
+        char *security_group_names_str;
+	char **security_group_names; /* | array string | array string | security_group_names */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *subnet_ids_str;
+	char **subnet_ids; /* | array string | array string | subnet_ids */
+        char *subregion_names_str;
+	char **subregion_names; /* | array string | array string | subregion_names */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_product_type {
-/* type 2 array */
-	char *product_type_ids; /* | array | array | product_type_ids */
+        char *product_type_ids_str;
+	char **product_type_ids; /* | array string | array string | product_type_ids */
 };
 
 struct filters_public_ip {
-/* type 2 array */
-	char *link_public_ip_ids; /* | array | array | link_public_ip_ids */
-/* type 2 array */
-	char *nic_account_ids; /* | array | array | nic_account_ids */
-/* type 2 array */
-	char *nic_ids; /* | array | array | nic_ids */
-/* type 2 array */
-	char *placements; /* | array | array | placements */
-/* type 2 array */
-	char *private_ips; /* | array | array | private_ips */
-/* type 2 array */
-	char *public_ip_ids; /* | array | array | public_ip_ids */
-/* type 2 array */
-	char *public_ips; /* | array | array | public_ips */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
-/* type 2 array */
-	char *vm_ids; /* | array | array | vm_ids */
+        char *link_public_ip_ids_str;
+	char **link_public_ip_ids; /* | array string | array string | link_public_ip_ids */
+        char *nic_account_ids_str;
+	char **nic_account_ids; /* | array string | array string | nic_account_ids */
+        char *nic_ids_str;
+	char **nic_ids; /* | array string | array string | nic_ids */
+        char *placements_str;
+	char **placements; /* | array string | array string | placements */
+        char *private_ips_str;
+	char **private_ips; /* | array string | array string | private_ips */
+        char *public_ip_ids_str;
+	char **public_ip_ids; /* | array string | array string | public_ip_ids */
+        char *public_ips_str;
+	char **public_ips; /* | array string | array string | public_ips */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
+        char *vm_ids_str;
+	char **vm_ids; /* | array string | array string | vm_ids */
 };
 
 struct filters_quota {
-/* type 2 array */
-	char *collections; /* | array | array | collections */
-/* type 2 array */
-	char *quota_names; /* | array | array | quota_names */
-/* type 2 array */
-	char *quota_types; /* | array | array | quota_types */
-/* type 2 array */
-	char *short_descriptions; /* | array | array | short_descriptions */
+        char *collections_str;
+	char **collections; /* | array string | array string | collections */
+        char *quota_names_str;
+	char **quota_names; /* | array string | array string | quota_names */
+        char *quota_types_str;
+	char **quota_types; /* | array string | array string | quota_types */
+        char *short_descriptions_str;
+	char **short_descriptions; /* | array string | array string | short_descriptions */
 };
 
 struct filters_route_table {
-/* type 2 array */
-	char *link_route_table_ids; /* | array | array | link_route_table_ids */
-/* type 2 array */
-	char *link_route_table_link_route_table_ids; /* | array | array | link_route_table_link_route_table_ids */
+        char *link_route_table_ids_str;
+	char **link_route_table_ids; /* | array string | array string | link_route_table_ids */
+        char *link_route_table_link_route_table_ids_str;
+	char **link_route_table_link_route_table_ids; /* | array string | array string | link_route_table_link_route_table_ids */
         int is_set_link_route_table_main;
 	int link_route_table_main; /* | bool | bool | link_route_table_main */
-/* type 2 array */
-	char *link_subnet_ids; /* | array | array | link_subnet_ids */
-/* type 2 array */
-	char *net_ids; /* | array | array | net_ids */
-/* type 2 array */
-	char *route_creation_methods; /* | array | array | route_creation_methods */
-/* type 2 array */
-	char *route_destination_ip_ranges; /* | array | array | route_destination_ip_ranges */
-/* type 2 array */
-	char *route_destination_service_ids; /* | array | array | route_destination_service_ids */
-/* type 2 array */
-	char *route_gateway_ids; /* | array | array | route_gateway_ids */
-/* type 2 array */
-	char *route_nat_service_ids; /* | array | array | route_nat_service_ids */
-/* type 2 array */
-	char *route_net_peering_ids; /* | array | array | route_net_peering_ids */
-/* type 2 array */
-	char *route_states; /* | array | array | route_states */
-/* type 2 array */
-	char *route_table_ids; /* | array | array | route_table_ids */
-/* type 2 array */
-	char *route_vm_ids; /* | array | array | route_vm_ids */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *link_subnet_ids_str;
+	char **link_subnet_ids; /* | array string | array string | link_subnet_ids */
+        char *net_ids_str;
+	char **net_ids; /* | array string | array string | net_ids */
+        char *route_creation_methods_str;
+	char **route_creation_methods; /* | array string | array string | route_creation_methods */
+        char *route_destination_ip_ranges_str;
+	char **route_destination_ip_ranges; /* | array string | array string | route_destination_ip_ranges */
+        char *route_destination_service_ids_str;
+	char **route_destination_service_ids; /* | array string | array string | route_destination_service_ids */
+        char *route_gateway_ids_str;
+	char **route_gateway_ids; /* | array string | array string | route_gateway_ids */
+        char *route_nat_service_ids_str;
+	char **route_nat_service_ids; /* | array string | array string | route_nat_service_ids */
+        char *route_net_peering_ids_str;
+	char **route_net_peering_ids; /* | array string | array string | route_net_peering_ids */
+        char *route_states_str;
+	char **route_states; /* | array string | array string | route_states */
+        char *route_table_ids_str;
+	char **route_table_ids; /* | array string | array string | route_table_ids */
+        char *route_vm_ids_str;
+	char **route_vm_ids; /* | array string | array string | route_vm_ids */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_security_group {
-/* type 2 array */
-	char *account_ids; /* | array | array | account_ids */
-/* type 2 array */
-	char *descriptions; /* | array | array | descriptions */
-/* type 2 array */
-	char *inbound_rule_account_ids; /* | array | array | inbound_rule_account_ids */
-/* type 2 array */
-	char *inbound_rule_from_port_ranges; /* | array | array | inbound_rule_from_port_ranges */
-/* type 2 array */
-	char *inbound_rule_ip_ranges; /* | array | array | inbound_rule_ip_ranges */
-/* type 2 array */
-	char *inbound_rule_protocols; /* | array | array | inbound_rule_protocols */
-/* type 2 array */
-	char *inbound_rule_security_group_ids; /* | array | array | inbound_rule_security_group_ids */
-/* type 2 array */
-	char *inbound_rule_security_group_names; /* | array | array | inbound_rule_security_group_names */
-/* type 2 array */
-	char *inbound_rule_to_port_ranges; /* | array | array | inbound_rule_to_port_ranges */
-/* type 2 array */
-	char *net_ids; /* | array | array | net_ids */
-/* type 2 array */
-	char *outbound_rule_account_ids; /* | array | array | outbound_rule_account_ids */
-/* type 2 array */
-	char *outbound_rule_from_port_ranges; /* | array | array | outbound_rule_from_port_ranges */
-/* type 2 array */
-	char *outbound_rule_ip_ranges; /* | array | array | outbound_rule_ip_ranges */
-/* type 2 array */
-	char *outbound_rule_protocols; /* | array | array | outbound_rule_protocols */
-/* type 2 array */
-	char *outbound_rule_security_group_ids; /* | array | array | outbound_rule_security_group_ids */
-/* type 2 array */
-	char *outbound_rule_security_group_names; /* | array | array | outbound_rule_security_group_names */
-/* type 2 array */
-	char *outbound_rule_to_port_ranges; /* | array | array | outbound_rule_to_port_ranges */
-/* type 2 array */
-	char *security_group_ids; /* | array | array | security_group_ids */
-/* type 2 array */
-	char *security_group_names; /* | array | array | security_group_names */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *account_ids_str;
+	char **account_ids; /* | array string | array string | account_ids */
+        char *descriptions_str;
+	char **descriptions; /* | array string | array string | descriptions */
+        char *inbound_rule_account_ids_str;
+	char **inbound_rule_account_ids; /* | array string | array string | inbound_rule_account_ids */
+        char *inbound_rule_from_port_ranges_str;
+	int *inbound_rule_from_port_ranges; /* | array integer | array integer | inbound_rule_from_port_ranges */
+        char *inbound_rule_ip_ranges_str;
+	char **inbound_rule_ip_ranges; /* | array string | array string | inbound_rule_ip_ranges */
+        char *inbound_rule_protocols_str;
+	char **inbound_rule_protocols; /* | array string | array string | inbound_rule_protocols */
+        char *inbound_rule_security_group_ids_str;
+	char **inbound_rule_security_group_ids; /* | array string | array string | inbound_rule_security_group_ids */
+        char *inbound_rule_security_group_names_str;
+	char **inbound_rule_security_group_names; /* | array string | array string | inbound_rule_security_group_names */
+        char *inbound_rule_to_port_ranges_str;
+	int *inbound_rule_to_port_ranges; /* | array integer | array integer | inbound_rule_to_port_ranges */
+        char *net_ids_str;
+	char **net_ids; /* | array string | array string | net_ids */
+        char *outbound_rule_account_ids_str;
+	char **outbound_rule_account_ids; /* | array string | array string | outbound_rule_account_ids */
+        char *outbound_rule_from_port_ranges_str;
+	int *outbound_rule_from_port_ranges; /* | array integer | array integer | outbound_rule_from_port_ranges */
+        char *outbound_rule_ip_ranges_str;
+	char **outbound_rule_ip_ranges; /* | array string | array string | outbound_rule_ip_ranges */
+        char *outbound_rule_protocols_str;
+	char **outbound_rule_protocols; /* | array string | array string | outbound_rule_protocols */
+        char *outbound_rule_security_group_ids_str;
+	char **outbound_rule_security_group_ids; /* | array string | array string | outbound_rule_security_group_ids */
+        char *outbound_rule_security_group_names_str;
+	char **outbound_rule_security_group_names; /* | array string | array string | outbound_rule_security_group_names */
+        char *outbound_rule_to_port_ranges_str;
+	int *outbound_rule_to_port_ranges; /* | array integer | array integer | outbound_rule_to_port_ranges */
+        char *security_group_ids_str;
+	char **security_group_ids; /* | array string | array string | security_group_ids */
+        char *security_group_names_str;
+	char **security_group_names; /* | array string | array string | security_group_names */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_server_certificate {
-/* type 2 array */
-	char *paths; /* | array | array | paths */
+        char *paths_str;
+	char **paths; /* | array string | array string | paths */
 };
 
 struct filters_service {
-/* type 2 array */
-	char *service_ids; /* | array | array | service_ids */
-/* type 2 array */
-	char *service_names; /* | array | array | service_names */
+        char *service_ids_str;
+	char **service_ids; /* | array string | array string | service_ids */
+        char *service_names_str;
+	char **service_names; /* | array string | array string | service_names */
 };
 
 struct filters_snapshot {
-/* type 2 array */
-	char *account_aliases; /* | array | array | account_aliases */
-/* type 2 array */
-	char *account_ids; /* | array | array | account_ids */
-/* type 2 array */
-	char *descriptions; /* | array | array | descriptions */
-/* type 2 array */
-	char *permissions_to_create_volume_account_ids; /* | array | array | permissions_to_create_volume_account_ids */
+        char *account_aliases_str;
+	char **account_aliases; /* | array string | array string | account_aliases */
+        char *account_ids_str;
+	char **account_ids; /* | array string | array string | account_ids */
+        char *descriptions_str;
+	char **descriptions; /* | array string | array string | descriptions */
+        char *permissions_to_create_volume_account_ids_str;
+	char **permissions_to_create_volume_account_ids; /* | array string | array string | permissions_to_create_volume_account_ids */
         int is_set_permissions_to_create_volume_global_permission;
 	int permissions_to_create_volume_global_permission; /* | bool | bool | permissions_to_create_volume_global_permission */
-/* type 2 array */
-	char *progresses; /* | array | array | progresses */
-/* type 2 array */
-	char *snapshot_ids; /* | array | array | snapshot_ids */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
-/* type 2 array */
-	char *volume_ids; /* | array | array | volume_ids */
-/* type 2 array */
-	char *volume_sizes; /* | array | array | volume_sizes */
+        char *progresses_str;
+	int *progresses; /* | array integer | array integer | progresses */
+        char *snapshot_ids_str;
+	char **snapshot_ids; /* | array string | array string | snapshot_ids */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
+        char *volume_ids_str;
+	char **volume_ids; /* | array string | array string | volume_ids */
+        char *volume_sizes_str;
+	int *volume_sizes; /* | array integer | array integer | volume_sizes */
 };
 
 struct filters_subnet {
-/* type 2 array */
-	char *available_ips_counts; /* | array | array | available_ips_counts */
-/* type 2 array */
-	char *ip_ranges; /* | array | array | ip_ranges */
-/* type 2 array */
-	char *net_ids; /* | array | array | net_ids */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *subnet_ids; /* | array | array | subnet_ids */
-/* type 2 array */
-	char *subregion_names; /* | array | array | subregion_names */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
+        char *available_ips_counts_str;
+	int *available_ips_counts; /* | array integer | array integer | available_ips_counts */
+        char *ip_ranges_str;
+	char **ip_ranges; /* | array string | array string | ip_ranges */
+        char *net_ids_str;
+	char **net_ids; /* | array string | array string | net_ids */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *subnet_ids_str;
+	char **subnet_ids; /* | array string | array string | subnet_ids */
+        char *subregion_names_str;
+	char **subregion_names; /* | array string | array string | subregion_names */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
 };
 
 struct filters_subregion {
-/* type 2 array */
-	char *subregion_names; /* | array | array | subregion_names */
+        char *subregion_names_str;
+	char **subregion_names; /* | array string | array string | subregion_names */
 };
 
 struct filters_tag {
-/* type 2 array */
-	char *keys; /* | array | array | keys */
-/* type 2 array */
-	char *resource_ids; /* | array | array | resource_ids */
-/* type 2 array */
-	char *resource_types; /* | array | array | resource_types */
-/* type 2 array */
-	char *values; /* | array | array | values */
+        char *keys_str;
+	char **keys; /* | array string | array string | keys */
+        char *resource_ids_str;
+	char **resource_ids; /* | array string | array string | resource_ids */
+        char *resource_types_str;
+	char **resource_types; /* | array string | array string | resource_types */
+        char *values_str;
+	char **values; /* | array string | array string | values */
 };
 
 struct filters_virtual_gateway {
-/* type 2 array */
-	char *connection_types; /* | array | array | connection_types */
-/* type 2 array */
-	char *link_net_ids; /* | array | array | link_net_ids */
-/* type 2 array */
-	char *link_states; /* | array | array | link_states */
-/* type 2 array */
-	char *states; /* | array | array | states */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
-/* type 2 array */
-	char *virtual_gateway_ids; /* | array | array | virtual_gateway_ids */
+        char *connection_types_str;
+	char **connection_types; /* | array string | array string | connection_types */
+        char *link_net_ids_str;
+	char **link_net_ids; /* | array string | array string | link_net_ids */
+        char *link_states_str;
+	char **link_states; /* | array string | array string | link_states */
+        char *states_str;
+	char **states; /* | array string | array string | states */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
+        char *virtual_gateway_ids_str;
+	char **virtual_gateway_ids; /* | array string | array string | virtual_gateway_ids */
 };
 
 struct filters_vm {
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
-/* type 2 array */
-	char *vm_ids; /* | array | array | vm_ids */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
+        char *vm_ids_str;
+	char **vm_ids; /* | array string | array string | vm_ids */
 };
 
 struct filters_vm_type {
@@ -885,89 +885,89 @@ struct filters_vm_type {
 	int bsu_optimized; /* | bool | bool | bsu_optimized */
 /* type 2 array */
 	char *memory_sizes; /* | array | array | memory_sizes */
-/* type 2 array */
-	char *vcore_counts; /* | array | array | vcore_counts */
-/* type 2 array */
-	char *vm_type_names; /* | array | array | vm_type_names */
-/* type 2 array */
-	char *volume_counts; /* | array | array | volume_counts */
-/* type 2 array */
-	char *volume_sizes; /* | array | array | volume_sizes */
+        char *vcore_counts_str;
+	int *vcore_counts; /* | array integer | array integer | vcore_counts */
+        char *vm_type_names_str;
+	char **vm_type_names; /* | array string | array string | vm_type_names */
+        char *volume_counts_str;
+	int *volume_counts; /* | array integer | array integer | volume_counts */
+        char *volume_sizes_str;
+	int *volume_sizes; /* | array integer | array integer | volume_sizes */
 };
 
 struct filters_vms_state {
-/* type 2 array */
-	char *maintenance_event_codes; /* | array | array | maintenance_event_codes */
-/* type 2 array */
-	char *maintenance_event_descriptions; /* | array | array | maintenance_event_descriptions */
-/* type 2 array */
-	char *maintenance_events_not_after; /* | array | array | maintenance_events_not_after */
-/* type 2 array */
-	char *maintenance_events_not_before; /* | array | array | maintenance_events_not_before */
-/* type 2 array */
-	char *subregion_names; /* | array | array | subregion_names */
-/* type 2 array */
-	char *vm_ids; /* | array | array | vm_ids */
-/* type 2 array */
-	char *vm_states; /* | array | array | vm_states */
+        char *maintenance_event_codes_str;
+	char **maintenance_event_codes; /* | array string | array string | maintenance_event_codes */
+        char *maintenance_event_descriptions_str;
+	char **maintenance_event_descriptions; /* | array string | array string | maintenance_event_descriptions */
+        char *maintenance_events_not_after_str;
+	char **maintenance_events_not_after; /* | array string | array string | maintenance_events_not_after */
+        char *maintenance_events_not_before_str;
+	char **maintenance_events_not_before; /* | array string | array string | maintenance_events_not_before */
+        char *subregion_names_str;
+	char **subregion_names; /* | array string | array string | subregion_names */
+        char *vm_ids_str;
+	char **vm_ids; /* | array string | array string | vm_ids */
+        char *vm_states_str;
+	char **vm_states; /* | array string | array string | vm_states */
 };
 
 struct filters_volume {
-/* type 2 array */
-	char *creation_dates; /* | array | array | creation_dates */
+        char *creation_dates_str;
+	char **creation_dates; /* | array string | array string | creation_dates */
         int is_set_link_volume_delete_on_vm_deletion;
 	int link_volume_delete_on_vm_deletion; /* | bool | bool | link_volume_delete_on_vm_deletion */
-/* type 2 array */
-	char *link_volume_device_names; /* | array | array | link_volume_device_names */
-/* type 2 array */
-	char *link_volume_link_dates; /* | array | array | link_volume_link_dates */
-/* type 2 array */
-	char *link_volume_link_states; /* | array | array | link_volume_link_states */
-/* type 2 array */
-	char *link_volume_vm_ids; /* | array | array | link_volume_vm_ids */
-/* type 2 array */
-	char *snapshot_ids; /* | array | array | snapshot_ids */
-/* type 2 array */
-	char *subregion_names; /* | array | array | subregion_names */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
-/* type 2 array */
-	char *volume_ids; /* | array | array | volume_ids */
-/* type 2 array */
-	char *volume_sizes; /* | array | array | volume_sizes */
-/* type 2 array */
-	char *volume_states; /* | array | array | volume_states */
-/* type 2 array */
-	char *volume_types; /* | array | array | volume_types */
+        char *link_volume_device_names_str;
+	char **link_volume_device_names; /* | array string | array string | link_volume_device_names */
+        char *link_volume_link_dates_str;
+	char **link_volume_link_dates; /* | array string | array string | link_volume_link_dates */
+        char *link_volume_link_states_str;
+	char **link_volume_link_states; /* | array string | array string | link_volume_link_states */
+        char *link_volume_vm_ids_str;
+	char **link_volume_vm_ids; /* | array string | array string | link_volume_vm_ids */
+        char *snapshot_ids_str;
+	char **snapshot_ids; /* | array string | array string | snapshot_ids */
+        char *subregion_names_str;
+	char **subregion_names; /* | array string | array string | subregion_names */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
+        char *volume_ids_str;
+	char **volume_ids; /* | array string | array string | volume_ids */
+        char *volume_sizes_str;
+	int *volume_sizes; /* | array integer | array integer | volume_sizes */
+        char *volume_states_str;
+	char **volume_states; /* | array string | array string | volume_states */
+        char *volume_types_str;
+	char **volume_types; /* | array string | array string | volume_types */
 };
 
 struct filters_vpn_connection {
-/* type 2 array */
-	char *bgp_asns; /* | array | array | bgp_asns */
-/* type 2 array */
-	char *client_gateway_ids; /* | array | array | client_gateway_ids */
-/* type 2 array */
-	char *connection_types; /* | array | array | connection_types */
-/* type 2 array */
-	char *route_destination_ip_ranges; /* | array | array | route_destination_ip_ranges */
-/* type 2 array */
-	char *states; /* | array | array | states */
+        char *bgp_asns_str;
+	int *bgp_asns; /* | array integer | array integer | bgp_asns */
+        char *client_gateway_ids_str;
+	char **client_gateway_ids; /* | array string | array string | client_gateway_ids */
+        char *connection_types_str;
+	char **connection_types; /* | array string | array string | connection_types */
+        char *route_destination_ip_ranges_str;
+	char **route_destination_ip_ranges; /* | array string | array string | route_destination_ip_ranges */
+        char *states_str;
+	char **states; /* | array string | array string | states */
         int is_set_static_routes_only;
 	int static_routes_only; /* | bool | bool | static_routes_only */
-/* type 2 array */
-	char *tag_keys; /* | array | array | tag_keys */
-/* type 2 array */
-	char *tag_values; /* | array | array | tag_values */
-/* type 2 array */
-	char *tags; /* | array | array | tags */
-/* type 2 array */
-	char *virtual_gateway_ids; /* | array | array | virtual_gateway_ids */
-/* type 2 array */
-	char *vpn_connection_ids; /* | array | array | vpn_connection_ids */
+        char *tag_keys_str;
+	char **tag_keys; /* | array string | array string | tag_keys */
+        char *tag_values_str;
+	char **tag_values; /* | array string | array string | tag_values */
+        char *tags_str;
+	char **tags; /* | array string | array string | tags */
+        char *virtual_gateway_ids_str;
+	char **virtual_gateway_ids; /* | array string | array string | virtual_gateway_ids */
+        char *vpn_connection_ids_str;
+	char **vpn_connection_ids; /* | array string | array string | vpn_connection_ids */
 };
 
 struct flexible_gpu {
@@ -982,8 +982,8 @@ struct flexible_gpu {
 };
 
 struct flexible_gpu_catalog {
-/* type 2 array */
-	char *generations; /* | array | array | generations */
+        char *generations_str;
+	char **generations; /* | array string | array string | generations */
         int is_set_max_cpu;
 	int max_cpu; /* | int | int | max_cpu */
         int is_set_max_ram;
@@ -1021,8 +1021,8 @@ struct image {
 	char *image_name; /* | string | string | image_name */
 	char *image_type; /* | string | string | image_type */
 	char *permissions_to_launch; /* | null | null | permissions_to_launch */
-/* type 2 array */
-	char *product_codes; /* | array | array | product_codes */
+        char *product_codes_str;
+	char **product_codes; /* | array string | array string | product_codes */
 	char *root_device_name; /* | string | string | root_device_name */
 	char *root_device_type; /* | string | string | root_device_type */
 	char *state; /* | string | string | state */
@@ -1126,8 +1126,8 @@ struct listener {
         int is_set_load_balancer_port;
 	int load_balancer_port; /* | int | int | load_balancer_port */
 	char *load_balancer_protocol; /* | string | string | load_balancer_protocol */
-/* type 2 array */
-	char *policy_names; /* | array | array | policy_names */
+        char *policy_names_str;
+	char **policy_names; /* | array string | array string | policy_names */
 	char *server_certificate_id; /* | string | string | server_certificate_id */
 };
 
@@ -1152,8 +1152,8 @@ struct listener_rule {
 	char *path_pattern; /* | string | string | path_pattern */
         int is_set_priority;
 	int priority; /* | int | int | priority */
-/* type 2 array */
-	char *vm_ids; /* | array | array | vm_ids */
+        char *vm_ids_str;
+	char **vm_ids; /* | array string | array string | vm_ids */
 };
 
 struct listener_rule_for_creation {
@@ -1169,10 +1169,10 @@ struct load_balancer {
 	char *access_log; /* | null | null | access_log */
 /* type 2 array */
 	char *application_sticky_cookie_policies; /* | array | array | application_sticky_cookie_policies */
-/* type 2 array */
-	char *backend_ips; /* | array | array | backend_ips */
-/* type 2 array */
-	char *backend_vm_ids; /* | array | array | backend_vm_ids */
+        char *backend_ips_str;
+	char **backend_ips; /* | array string | array string | backend_ips */
+        char *backend_vm_ids_str;
+	char **backend_vm_ids; /* | array string | array string | backend_vm_ids */
 	char *dns_name; /* | string | string | dns_name */
 	char *health_check; /* | null | null | health_check */
 /* type 2 array */
@@ -1185,13 +1185,13 @@ struct load_balancer {
 	char *public_ip; /* | string | string | public_ip */
         int is_set_secured_cookies;
 	int secured_cookies; /* | bool | bool | secured_cookies */
-/* type 2 array */
-	char *security_groups; /* | array | array | security_groups */
+        char *security_groups_str;
+	char **security_groups; /* | array string | array string | security_groups */
 	char *source_security_group; /* | null | null | source_security_group */
-/* type 2 array */
-	char *subnets; /* | array | array | subnets */
-/* type 2 array */
-	char *subregion_names; /* | array | array | subregion_names */
+        char *subnets_str;
+	char **subnets; /* | array string | array string | subnets */
+        char *subregion_names_str;
+	char **subregion_names; /* | array string | array string | subregion_names */
 /* type 2 array */
 	char *tags; /* | array | array | tags */
 };
@@ -1274,8 +1274,8 @@ struct net {
 struct net_access_point {
 	char *net_access_point_id; /* | string | string | net_access_point_id */
 	char *net_id; /* | string | string | net_id */
-/* type 2 array */
-	char *route_table_ids; /* | array | array | route_table_ids */
+        char *route_table_ids_str;
+	char **route_table_ids; /* | array string | array string | route_table_ids */
 	char *service_name; /* | string | string | service_name */
 	char *state; /* | string | string | state */
 /* type 2 array */
@@ -1334,8 +1334,8 @@ struct nic_for_vm_creation {
 	char *private_ips; /* | array | array | private_ips */
         int is_set_secondary_private_ip_count;
 	int secondary_private_ip_count; /* | int | int | secondary_private_ip_count */
-/* type 2 array */
-	char *security_group_ids; /* | array | array | security_group_ids */
+        char *security_group_ids_str;
+	char **security_group_ids; /* | array string | array string | security_group_ids */
 	char *subnet_id; /* | string | string | subnet_id */
 };
 
@@ -1385,8 +1385,8 @@ struct osu_export_to_create {
 };
 
 struct permissions_on_resource {
-/* type 2 array */
-	char *account_ids; /* | array | array | account_ids */
+        char *account_ids_str;
+	char **account_ids; /* | array string | array string | account_ids */
         int is_set_global_permission;
 	int global_permission; /* | bool | bool | global_permission */
 };
@@ -1400,14 +1400,14 @@ struct phase1_options {
 	char *dpd_timeout_action; /* | string | string | dpd_timeout_action */
         int is_set_dpd_timeout_seconds;
 	int dpd_timeout_seconds; /* | int | int | dpd_timeout_seconds */
-/* type 2 array */
-	char *ike_versions; /* | array | array | ike_versions */
-/* type 2 array */
-	char *phase1_dh_group_numbers; /* | array | array | phase1_dh_group_numbers */
-/* type 2 array */
-	char *phase1_encryption_algorithms; /* | array | array | phase1_encryption_algorithms */
-/* type 2 array */
-	char *phase1_integrity_algorithms; /* | array | array | phase1_integrity_algorithms */
+        char *ike_versions_str;
+	char **ike_versions; /* | array string | array string | ike_versions */
+        char *phase1_dh_group_numbers_str;
+	int *phase1_dh_group_numbers; /* | array integer | array integer | phase1_dh_group_numbers */
+        char *phase1_encryption_algorithms_str;
+	char **phase1_encryption_algorithms; /* | array string | array string | phase1_encryption_algorithms */
+        char *phase1_integrity_algorithms_str;
+	char **phase1_integrity_algorithms; /* | array string | array string | phase1_integrity_algorithms */
         int is_set_phase1_lifetime_seconds;
 	int phase1_lifetime_seconds; /* | int | int | phase1_lifetime_seconds */
         int is_set_replay_window_size;
@@ -1416,12 +1416,12 @@ struct phase1_options {
 };
 
 struct phase2_options {
-/* type 2 array */
-	char *phase2_dh_group_numbers; /* | array | array | phase2_dh_group_numbers */
-/* type 2 array */
-	char *phase2_encryption_algorithms; /* | array | array | phase2_encryption_algorithms */
-/* type 2 array */
-	char *phase2_integrity_algorithms; /* | array | array | phase2_integrity_algorithms */
+        char *phase2_dh_group_numbers_str;
+	int *phase2_dh_group_numbers; /* | array integer | array integer | phase2_dh_group_numbers */
+        char *phase2_encryption_algorithms_str;
+	char **phase2_encryption_algorithms; /* | array string | array string | phase2_encryption_algorithms */
+        char *phase2_integrity_algorithms_str;
+	char **phase2_integrity_algorithms; /* | array string | array string | phase2_integrity_algorithms */
         int is_set_phase2_lifetime_seconds;
 	int phase2_lifetime_seconds; /* | int | int | phase2_lifetime_seconds */
 	char *pre_shared_key; /* | string | string | pre_shared_key */
@@ -1569,12 +1569,12 @@ struct security_group_rule {
         int is_set_from_port_range;
 	int from_port_range; /* | int | int | from_port_range */
 	char *ip_protocol; /* | string | string | ip_protocol */
-/* type 2 array */
-	char *ip_ranges; /* | array | array | ip_ranges */
+        char *ip_ranges_str;
+	char **ip_ranges; /* | array string | array string | ip_ranges */
 /* type 2 array */
 	char *security_groups_members; /* | array | array | security_groups_members */
-/* type 2 array */
-	char *service_ids; /* | array | array | service_ids */
+        char *service_ids_str;
+	char **service_ids; /* | array string | array string | service_ids */
         int is_set_to_port_range;
 	int to_port_range; /* | int | int | to_port_range */
 };
@@ -1595,8 +1595,8 @@ struct server_certificate {
 };
 
 struct service {
-/* type 2 array */
-	char *ip_ranges; /* | array | array | ip_ranges */
+        char *ip_ranges_str;
+	char **ip_ranges; /* | array string | array string | ip_ranges */
 	char *service_id; /* | string | string | service_id */
 	char *service_name; /* | string | string | service_name */
 };
@@ -1720,8 +1720,8 @@ struct vm {
 	char *placement; /* | null | null | placement */
 	char *private_dns_name; /* | string | string | private_dns_name */
 	char *private_ip; /* | string | string | private_ip */
-/* type 2 array */
-	char *product_codes; /* | array | array | product_codes */
+        char *product_codes_str;
+	char **product_codes; /* | array string | array string | product_codes */
 	char *public_dns_name; /* | string | string | public_dns_name */
 	char *public_ip; /* | string | string | public_ip */
 	char *reservation_id; /* | string | string | reservation_id */
