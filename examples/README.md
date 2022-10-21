@@ -20,6 +20,8 @@ Usage: ./example2 VM_NAME_FILTER [ACTION]
 small program do some action on all Vms that match a vm tag name filter.
 It can either, list all `vm-id`, print full json info, stop or start the VMs matching hte filter.
 
+It's in GNU C 99 too.
+
 ## LICENSE
 
 exemples are dual-license under BSD-3 and Beer-ware
