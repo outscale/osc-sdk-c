@@ -11,6 +11,14 @@ it's in C89
 call osc_read_images with *Arch* image_names as filter, and pretty print the result using json-c.
 it's in GNU C 99
 
+## exanple 2
+
+```
+Usage: ./example2 VM_NAME_FILTER [ACTION] 
+```
+
+small program do some action on all Vms that match a vm tag name filter.
+It can either, list all `vm-id`, print full json info, stop or start the VMs matching hte filter.
 
 ## LICENSE
 
