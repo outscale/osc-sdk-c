@@ -711,6 +711,152 @@ void osc_deinit_str(struct osc_str *r)
 	osc_init_str(r);
 }
 
+static int accepter_net_setter(struct accepter_net *args, struct osc_str *data);
+static int access_key_setter(struct access_key *args, struct osc_str *data);
+static int access_key_secret_key_setter(struct access_key_secret_key *args, struct osc_str *data);
+static int access_log_setter(struct access_log *args, struct osc_str *data);
+static int account_setter(struct account *args, struct osc_str *data);
+static int api_access_policy_setter(struct api_access_policy *args, struct osc_str *data);
+static int api_access_rule_setter(struct api_access_rule *args, struct osc_str *data);
+static int application_sticky_cookie_policy_setter(struct application_sticky_cookie_policy *args, struct osc_str *data);
+static int backend_vm_health_setter(struct backend_vm_health *args, struct osc_str *data);
+static int block_device_mapping_created_setter(struct block_device_mapping_created *args, struct osc_str *data);
+static int block_device_mapping_image_setter(struct block_device_mapping_image *args, struct osc_str *data);
+static int block_device_mapping_vm_creation_setter(struct block_device_mapping_vm_creation *args, struct osc_str *data);
+static int block_device_mapping_vm_update_setter(struct block_device_mapping_vm_update *args, struct osc_str *data);
+static int bsu_created_setter(struct bsu_created *args, struct osc_str *data);
+static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data);
+static int bsu_to_update_vm_setter(struct bsu_to_update_vm *args, struct osc_str *data);
+static int ca_setter(struct ca *args, struct osc_str *data);
+static int catalog_setter(struct catalog *args, struct osc_str *data);
+static int catalog_entry_setter(struct catalog_entry *args, struct osc_str *data);
+static int client_gateway_setter(struct client_gateway *args, struct osc_str *data);
+static int consumption_entry_setter(struct consumption_entry *args, struct osc_str *data);
+static int dhcp_options_set_setter(struct dhcp_options_set *args, struct osc_str *data);
+static int direct_link_setter(struct direct_link *args, struct osc_str *data);
+static int direct_link_interface_setter(struct direct_link_interface *args, struct osc_str *data);
+static int direct_link_interfaces_setter(struct direct_link_interfaces *args, struct osc_str *data);
+static int errors_setter(struct errors *args, struct osc_str *data);
+static int filters_access_keys_setter(struct filters_access_keys *args, struct osc_str *data);
+static int filters_api_access_rule_setter(struct filters_api_access_rule *args, struct osc_str *data);
+static int filters_api_log_setter(struct filters_api_log *args, struct osc_str *data);
+static int filters_ca_setter(struct filters_ca *args, struct osc_str *data);
+static int filters_client_gateway_setter(struct filters_client_gateway *args, struct osc_str *data);
+static int filters_dhcp_options_setter(struct filters_dhcp_options *args, struct osc_str *data);
+static int filters_direct_link_setter(struct filters_direct_link *args, struct osc_str *data);
+static int filters_direct_link_interface_setter(struct filters_direct_link_interface *args, struct osc_str *data);
+static int filters_export_task_setter(struct filters_export_task *args, struct osc_str *data);
+static int filters_flexible_gpu_setter(struct filters_flexible_gpu *args, struct osc_str *data);
+static int filters_image_setter(struct filters_image *args, struct osc_str *data);
+static int filters_internet_service_setter(struct filters_internet_service *args, struct osc_str *data);
+static int filters_keypair_setter(struct filters_keypair *args, struct osc_str *data);
+static int filters_listener_rule_setter(struct filters_listener_rule *args, struct osc_str *data);
+static int filters_load_balancer_setter(struct filters_load_balancer *args, struct osc_str *data);
+static int filters_nat_service_setter(struct filters_nat_service *args, struct osc_str *data);
+static int filters_net_setter(struct filters_net *args, struct osc_str *data);
+static int filters_net_access_point_setter(struct filters_net_access_point *args, struct osc_str *data);
+static int filters_net_peering_setter(struct filters_net_peering *args, struct osc_str *data);
+static int filters_nic_setter(struct filters_nic *args, struct osc_str *data);
+static int filters_product_type_setter(struct filters_product_type *args, struct osc_str *data);
+static int filters_public_ip_setter(struct filters_public_ip *args, struct osc_str *data);
+static int filters_quota_setter(struct filters_quota *args, struct osc_str *data);
+static int filters_route_table_setter(struct filters_route_table *args, struct osc_str *data);
+static int filters_security_group_setter(struct filters_security_group *args, struct osc_str *data);
+static int filters_server_certificate_setter(struct filters_server_certificate *args, struct osc_str *data);
+static int filters_service_setter(struct filters_service *args, struct osc_str *data);
+static int filters_snapshot_setter(struct filters_snapshot *args, struct osc_str *data);
+static int filters_subnet_setter(struct filters_subnet *args, struct osc_str *data);
+static int filters_subregion_setter(struct filters_subregion *args, struct osc_str *data);
+static int filters_tag_setter(struct filters_tag *args, struct osc_str *data);
+static int filters_virtual_gateway_setter(struct filters_virtual_gateway *args, struct osc_str *data);
+static int filters_vm_setter(struct filters_vm *args, struct osc_str *data);
+static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *data);
+static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data);
+static int filters_volume_setter(struct filters_volume *args, struct osc_str *data);
+static int filters_vpn_connection_setter(struct filters_vpn_connection *args, struct osc_str *data);
+static int flexible_gpu_setter(struct flexible_gpu *args, struct osc_str *data);
+static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct osc_str *data);
+static int health_check_setter(struct health_check *args, struct osc_str *data);
+static int image_setter(struct image *args, struct osc_str *data);
+static int image_export_task_setter(struct image_export_task *args, struct osc_str *data);
+static int internet_service_setter(struct internet_service *args, struct osc_str *data);
+static int keypair_setter(struct keypair *args, struct osc_str *data);
+static int keypair_created_setter(struct keypair_created *args, struct osc_str *data);
+static int link_nic_setter(struct link_nic *args, struct osc_str *data);
+static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *data);
+static int link_nic_to_update_setter(struct link_nic_to_update *args, struct osc_str *data);
+static int link_public_ip_setter(struct link_public_ip *args, struct osc_str *data);
+static int link_public_ip_light_for_vm_setter(struct link_public_ip_light_for_vm *args, struct osc_str *data);
+static int link_route_table_setter(struct link_route_table *args, struct osc_str *data);
+static int linked_volume_setter(struct linked_volume *args, struct osc_str *data);
+static int listener_setter(struct listener *args, struct osc_str *data);
+static int listener_for_creation_setter(struct listener_for_creation *args, struct osc_str *data);
+static int listener_rule_setter(struct listener_rule *args, struct osc_str *data);
+static int listener_rule_for_creation_setter(struct listener_rule_for_creation *args, struct osc_str *data);
+static int load_balancer_setter(struct load_balancer *args, struct osc_str *data);
+static int load_balancer_light_setter(struct load_balancer_light *args, struct osc_str *data);
+static int load_balancer_sticky_cookie_policy_setter(struct load_balancer_sticky_cookie_policy *args, struct osc_str *data);
+static int load_balancer_tag_setter(struct load_balancer_tag *args, struct osc_str *data);
+static int location_setter(struct location *args, struct osc_str *data);
+static int log_setter(struct log *args, struct osc_str *data);
+static int maintenance_event_setter(struct maintenance_event *args, struct osc_str *data);
+static int nat_service_setter(struct nat_service *args, struct osc_str *data);
+static int net_setter(struct net *args, struct osc_str *data);
+static int net_access_point_setter(struct net_access_point *args, struct osc_str *data);
+static int net_peering_setter(struct net_peering *args, struct osc_str *data);
+static int net_peering_state_setter(struct net_peering_state *args, struct osc_str *data);
+static int net_to_virtual_gateway_link_setter(struct net_to_virtual_gateway_link *args, struct osc_str *data);
+static int nic_setter(struct nic *args, struct osc_str *data);
+static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct osc_str *data);
+static int nic_light_setter(struct nic_light *args, struct osc_str *data);
+static int osu_api_key_setter(struct osu_api_key *args, struct osc_str *data);
+static int osu_export_image_export_task_setter(struct osu_export_image_export_task *args, struct osc_str *data);
+static int osu_export_snapshot_export_task_setter(struct osu_export_snapshot_export_task *args, struct osc_str *data);
+static int osu_export_to_create_setter(struct osu_export_to_create *args, struct osc_str *data);
+static int permissions_on_resource_setter(struct permissions_on_resource *args, struct osc_str *data);
+static int permissions_on_resource_creation_setter(struct permissions_on_resource_creation *args, struct osc_str *data);
+static int phase1_options_setter(struct phase1_options *args, struct osc_str *data);
+static int phase2_options_setter(struct phase2_options *args, struct osc_str *data);
+static int placement_setter(struct placement *args, struct osc_str *data);
+static int private_ip_setter(struct private_ip *args, struct osc_str *data);
+static int private_ip_light_setter(struct private_ip_light *args, struct osc_str *data);
+static int private_ip_light_for_vm_setter(struct private_ip_light_for_vm *args, struct osc_str *data);
+static int product_type_setter(struct product_type *args, struct osc_str *data);
+static int public_ip_setter(struct public_ip *args, struct osc_str *data);
+static int public_ip_light_setter(struct public_ip_light *args, struct osc_str *data);
+static int quota_setter(struct quota *args, struct osc_str *data);
+static int quota_types_setter(struct quota_types *args, struct osc_str *data);
+static int region_setter(struct region *args, struct osc_str *data);
+static int resource_load_balancer_tag_setter(struct resource_load_balancer_tag *args, struct osc_str *data);
+static int resource_tag_setter(struct resource_tag *args, struct osc_str *data);
+static int route_setter(struct route *args, struct osc_str *data);
+static int route_light_setter(struct route_light *args, struct osc_str *data);
+static int route_propagating_virtual_gateway_setter(struct route_propagating_virtual_gateway *args, struct osc_str *data);
+static int route_table_setter(struct route_table *args, struct osc_str *data);
+static int security_group_setter(struct security_group *args, struct osc_str *data);
+static int security_group_light_setter(struct security_group_light *args, struct osc_str *data);
+static int security_group_rule_setter(struct security_group_rule *args, struct osc_str *data);
+static int security_groups_member_setter(struct security_groups_member *args, struct osc_str *data);
+static int server_certificate_setter(struct server_certificate *args, struct osc_str *data);
+static int service_setter(struct service *args, struct osc_str *data);
+static int snapshot_setter(struct snapshot *args, struct osc_str *data);
+static int snapshot_export_task_setter(struct snapshot_export_task *args, struct osc_str *data);
+static int source_net_setter(struct source_net *args, struct osc_str *data);
+static int source_security_group_setter(struct source_security_group *args, struct osc_str *data);
+static int state_comment_setter(struct state_comment *args, struct osc_str *data);
+static int subnet_setter(struct subnet *args, struct osc_str *data);
+static int subregion_setter(struct subregion *args, struct osc_str *data);
+static int tag_setter(struct tag *args, struct osc_str *data);
+static int vgw_telemetry_setter(struct vgw_telemetry *args, struct osc_str *data);
+static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *data);
+static int vm_setter(struct vm *args, struct osc_str *data);
+static int vm_state_setter(struct vm_state *args, struct osc_str *data);
+static int vm_states_setter(struct vm_states *args, struct osc_str *data);
+static int vm_type_setter(struct vm_type *args, struct osc_str *data);
+static int volume_setter(struct volume *args, struct osc_str *data);
+static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *data);
+static int vpn_options_setter(struct vpn_options *args, struct osc_str *data);
+static int with_setter(struct with *args, struct osc_str *data);
 static int accepter_net_setter(struct accepter_net *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
@@ -1729,13 +1875,35 @@ static int ca_setter(struct ca *args, struct osc_str *data) {
 static int catalog_setter(struct catalog *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->entries) {
+        if (args->entries) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Entries\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_entries; ++i) {
+	       	    struct catalog_entry *p = &args->entries[i];
+		    if (p != args->entries)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (catalog_entry_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->entries_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Entries\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->entries))
+                if (osc_str_append_string(data, args->entries_str))
 			return -1;
 		ret += 1;
 	}
@@ -1901,13 +2069,35 @@ static int client_gateway_setter(struct client_gateway *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -2181,13 +2371,35 @@ static int dhcp_options_set_setter(struct dhcp_options_set *args, struct osc_str
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -11528,13 +11740,35 @@ static int image_setter(struct image *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->block_device_mappings) {
+        if (args->block_device_mappings) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappings\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_block_device_mappings; ++i) {
+	       	    struct block_device_mapping_image *p = &args->block_device_mappings[i];
+		    if (p != args->block_device_mappings)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (block_device_mapping_image_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->block_device_mappings_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappings\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mappings))
+                if (osc_str_append_string(data, args->block_device_mappings_str))
 			return -1;
 		ret += 1;
 	}
@@ -11698,13 +11932,35 @@ static int image_setter(struct image *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -11769,13 +12025,35 @@ static int image_export_task_setter(struct image_export_task *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -11832,13 +12110,35 @@ static int internet_service_setter(struct internet_service *args, struct osc_str
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -12628,13 +12928,35 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	if (args->application_sticky_cookie_policies) {
+        if (args->application_sticky_cookie_policies) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"ApplicationStickyCookiePolicies\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_application_sticky_cookie_policies; ++i) {
+	       	    struct application_sticky_cookie_policy *p = &args->application_sticky_cookie_policies[i];
+		    if (p != args->application_sticky_cookie_policies)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (application_sticky_cookie_policy_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->application_sticky_cookie_policies_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"ApplicationStickyCookiePolicies\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->application_sticky_cookie_policies))
+                if (osc_str_append_string(data, args->application_sticky_cookie_policies_str))
 			return -1;
 		ret += 1;
 	}
@@ -12724,13 +13046,35 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	if (args->listeners) {
+        if (args->listeners) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Listeners\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_listeners; ++i) {
+	       	    struct listener *p = &args->listeners[i];
+		    if (p != args->listeners)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (listener_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->listeners_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Listeners\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->listeners))
+                if (osc_str_append_string(data, args->listeners_str))
 			return -1;
 		ret += 1;
 	}
@@ -12746,13 +13090,35 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	if (args->load_balancer_sticky_cookie_policies) {
+        if (args->load_balancer_sticky_cookie_policies) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LoadBalancerStickyCookiePolicies\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_load_balancer_sticky_cookie_policies; ++i) {
+	       	    struct load_balancer_sticky_cookie_policy *p = &args->load_balancer_sticky_cookie_policies[i];
+		    if (p != args->load_balancer_sticky_cookie_policies)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (load_balancer_sticky_cookie_policy_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->load_balancer_sticky_cookie_policies_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LoadBalancerStickyCookiePolicies\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->load_balancer_sticky_cookie_policies))
+                if (osc_str_append_string(data, args->load_balancer_sticky_cookie_policies_str))
 			return -1;
 		ret += 1;
 	}
@@ -12908,13 +13274,35 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -13311,13 +13699,35 @@ static int nat_service_setter(struct nat_service *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->public_ips) {
+        if (args->public_ips) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PublicIps\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_public_ips; ++i) {
+	       	    struct public_ip_light *p = &args->public_ips[i];
+		    if (p != args->public_ips)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (public_ip_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->public_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PublicIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->public_ips))
+                if (osc_str_append_string(data, args->public_ips_str))
 			return -1;
 		ret += 1;
 	}
@@ -13345,13 +13755,35 @@ static int nat_service_setter(struct nat_service *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -13408,13 +13840,35 @@ static int net_setter(struct net *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -13515,13 +13969,35 @@ static int net_access_point_setter(struct net_access_point *args, struct osc_str
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -13572,13 +14048,35 @@ static int net_peering_setter(struct net_peering *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -13747,23 +14245,67 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->private_ips) {
+        if (args->private_ips) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_private_ips; ++i) {
+	       	    struct private_ip *p = &args->private_ips[i];
+		    if (p != args->private_ips)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (private_ip_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
-	if (args->security_groups) {
+        if (args->security_groups) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroups\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_security_groups; ++i) {
+	       	    struct security_group_light *p = &args->security_groups[i];
+		    if (p != args->security_groups)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_group_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->security_groups_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroups\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups))
+                if (osc_str_append_string(data, args->security_groups_str))
 			return -1;
 		ret += 1;
 	}
@@ -13803,13 +14345,35 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -13862,13 +14426,35 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 			return -1;
 	   	ret += 1;
 	}
-	if (args->private_ips) {
+        if (args->private_ips) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_private_ips; ++i) {
+	       	    struct private_ip_light *p = &args->private_ips[i];
+		    if (p != args->private_ips)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (private_ip_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
@@ -14033,23 +14619,67 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->private_ips) {
+        if (args->private_ips) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_private_ips; ++i) {
+	       	    struct private_ip_light_for_vm *p = &args->private_ips[i];
+		    if (p != args->private_ips)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (private_ip_light_for_vm_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
-	if (args->security_groups) {
+        if (args->security_groups) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroups\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_security_groups; ++i) {
+	       	    struct security_group_light *p = &args->security_groups[i];
+		    if (p != args->security_groups)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_group_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->security_groups_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroups\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups))
+                if (osc_str_append_string(data, args->security_groups_str))
 			return -1;
 		ret += 1;
 	}
@@ -14909,13 +15539,35 @@ static int public_ip_setter(struct public_ip *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -15062,13 +15714,35 @@ static int quota_types_setter(struct quota_types *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->quotas) {
+        if (args->quotas) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Quotas\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_quotas; ++i) {
+	       	    struct quota *p = &args->quotas[i];
+		    if (p != args->quotas)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (quota_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->quotas_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Quotas\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->quotas))
+                if (osc_str_append_string(data, args->quotas_str))
 			return -1;
 		ret += 1;
 	}
@@ -15347,13 +16021,35 @@ static int route_propagating_virtual_gateway_setter(struct route_propagating_vir
 static int route_table_setter(struct route_table *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->link_route_tables) {
+        if (args->link_route_tables) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkRouteTables\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_link_route_tables; ++i) {
+	       	    struct link_route_table *p = &args->link_route_tables[i];
+		    if (p != args->link_route_tables)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (link_route_table_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->link_route_tables_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkRouteTables\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->link_route_tables))
+                if (osc_str_append_string(data, args->link_route_tables_str))
 			return -1;
 		ret += 1;
 	}
@@ -15369,13 +16065,35 @@ static int route_table_setter(struct route_table *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->route_propagating_virtual_gateways) {
+        if (args->route_propagating_virtual_gateways) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"RoutePropagatingVirtualGateways\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_route_propagating_virtual_gateways; ++i) {
+	       	    struct route_propagating_virtual_gateway *p = &args->route_propagating_virtual_gateways[i];
+		    if (p != args->route_propagating_virtual_gateways)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (route_propagating_virtual_gateway_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->route_propagating_virtual_gateways_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"RoutePropagatingVirtualGateways\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->route_propagating_virtual_gateways))
+                if (osc_str_append_string(data, args->route_propagating_virtual_gateways_str))
 			return -1;
 		ret += 1;
 	}
@@ -15391,23 +16109,67 @@ static int route_table_setter(struct route_table *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->routes) {
+        if (args->routes) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Routes\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_routes; ++i) {
+	       	    struct route *p = &args->routes[i];
+		    if (p != args->routes)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (route_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->routes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Routes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->routes))
+                if (osc_str_append_string(data, args->routes_str))
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -15440,13 +16202,35 @@ static int security_group_setter(struct security_group *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->inbound_rules) {
+        if (args->inbound_rules) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"InboundRules\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_inbound_rules; ++i) {
+	       	    struct security_group_rule *p = &args->inbound_rules[i];
+		    if (p != args->inbound_rules)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_group_rule_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->inbound_rules_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"InboundRules\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->inbound_rules))
+                if (osc_str_append_string(data, args->inbound_rules_str))
 			return -1;
 		ret += 1;
 	}
@@ -15462,13 +16246,35 @@ static int security_group_setter(struct security_group *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->outbound_rules) {
+        if (args->outbound_rules) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"OutboundRules\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_outbound_rules; ++i) {
+	       	    struct security_group_rule *p = &args->outbound_rules[i];
+		    if (p != args->outbound_rules)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_group_rule_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->outbound_rules_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"OutboundRules\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->outbound_rules))
+                if (osc_str_append_string(data, args->outbound_rules_str))
 			return -1;
 		ret += 1;
 	}
@@ -15496,13 +16302,35 @@ static int security_group_setter(struct security_group *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -15594,13 +16422,35 @@ static int security_group_rule_setter(struct security_group_rule *args, struct o
 			return -1;
 		ret += 1;
 	}
-	if (args->security_groups_members) {
+        if (args->security_groups_members) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroupsMembers\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_security_groups_members; ++i) {
+	       	    struct security_groups_member *p = &args->security_groups_members[i];
+		    if (p != args->security_groups_members)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_groups_member_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->security_groups_members_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroupsMembers\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups_members))
+                if (osc_str_append_string(data, args->security_groups_members_str))
 			return -1;
 		ret += 1;
 	}
@@ -15922,13 +16772,35 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -16015,13 +16887,35 @@ static int snapshot_export_task_setter(struct snapshot_export_task *args, struct
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -16221,13 +17115,35 @@ static int subnet_setter(struct subnet *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -16417,13 +17333,35 @@ static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *
 			return -1;
 	   	ret += 1;
 	}
-	if (args->net_to_virtual_gateway_links) {
+        if (args->net_to_virtual_gateway_links) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"NetToVirtualGatewayLinks\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_net_to_virtual_gateway_links; ++i) {
+	       	    struct net_to_virtual_gateway_link *p = &args->net_to_virtual_gateway_links[i];
+		    if (p != args->net_to_virtual_gateway_links)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (net_to_virtual_gateway_link_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->net_to_virtual_gateway_links_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"NetToVirtualGatewayLinks\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->net_to_virtual_gateway_links))
+                if (osc_str_append_string(data, args->net_to_virtual_gateway_links_str))
 			return -1;
 		ret += 1;
 	}
@@ -16439,13 +17377,35 @@ static int virtual_gateway_setter(struct virtual_gateway *args, struct osc_str *
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -16478,13 +17438,35 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->block_device_mappings) {
+        if (args->block_device_mappings) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappings\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_block_device_mappings; ++i) {
+	       	    struct block_device_mapping_created *p = &args->block_device_mappings[i];
+		    if (p != args->block_device_mappings)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (block_device_mapping_created_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->block_device_mappings_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappings\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mappings))
+                if (osc_str_append_string(data, args->block_device_mappings_str))
 			return -1;
 		ret += 1;
 	}
@@ -16610,13 +17592,35 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->nics) {
+        if (args->nics) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Nics\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_nics; ++i) {
+	       	    struct nic_light *p = &args->nics[i];
+		    if (p != args->nics)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (nic_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->nics_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Nics\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->nics))
+                if (osc_str_append_string(data, args->nics_str))
 			return -1;
 		ret += 1;
 	}
@@ -16770,13 +17774,35 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->security_groups) {
+        if (args->security_groups) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"SecurityGroups\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_security_groups; ++i) {
+	       	    struct security_group_light *p = &args->security_groups[i];
+		    if (p != args->security_groups)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_group_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->security_groups_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"SecurityGroups\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->security_groups))
+                if (osc_str_append_string(data, args->security_groups_str))
 			return -1;
 		ret += 1;
 	}
@@ -16816,13 +17842,35 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -16920,13 +17968,35 @@ static int vm_state_setter(struct vm_state *args, struct osc_str *data) {
 static int vm_states_setter(struct vm_states *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->maintenance_events) {
+        if (args->maintenance_events) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"MaintenanceEvents\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_maintenance_events; ++i) {
+	       	    struct maintenance_event *p = &args->maintenance_events[i];
+		    if (p != args->maintenance_events)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (maintenance_event_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->maintenance_events_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MaintenanceEvents\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->maintenance_events))
+                if (osc_str_append_string(data, args->maintenance_events_str))
 			return -1;
 		ret += 1;
 	}
@@ -17070,13 +18140,35 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->linked_volumes) {
+        if (args->linked_volumes) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"LinkedVolumes\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_linked_volumes; ++i) {
+	       	    struct linked_volume *p = &args->linked_volumes[i];
+		    if (p != args->linked_volumes)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (linked_volume_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->linked_volumes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"LinkedVolumes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->linked_volumes))
+                if (osc_str_append_string(data, args->linked_volumes_str))
 			return -1;
 		ret += 1;
 	}
@@ -17126,13 +18218,35 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -17201,13 +18315,35 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->routes) {
+        if (args->routes) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Routes\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_routes; ++i) {
+	       	    struct route_light *p = &args->routes[i];
+		    if (p != args->routes)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (route_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->routes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Routes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->routes))
+                if (osc_str_append_string(data, args->routes_str))
 			return -1;
 		ret += 1;
 	}
@@ -17233,23 +18369,67 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
-	if (args->vgw_telemetries) {
+        if (args->vgw_telemetries) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"VgwTelemetries\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_vgw_telemetries; ++i) {
+	       	    struct vgw_telemetry *p = &args->vgw_telemetries[i];
+		    if (p != args->vgw_telemetries)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (vgw_telemetry_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->vgw_telemetries_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"VgwTelemetries\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->vgw_telemetries))
+                if (osc_str_append_string(data, args->vgw_telemetries_str))
 			return -1;
 		ret += 1;
 	}
@@ -17694,13 +18874,35 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 	if (!args)
 		return 0;
 	osc_str_append_string(data, "{");
-	if (args->block_device_mappings) {
+        if (args->block_device_mappings) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappings\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_block_device_mappings; ++i) {
+	       	    struct block_device_mapping_vm_update *p = &args->block_device_mappings[i];
+		    if (p != args->block_device_mappings)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (block_device_mapping_vm_update_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->block_device_mappings_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappings\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mappings))
+                if (osc_str_append_string(data, args->block_device_mappings_str))
 			return -1;
 		ret += 1;
 	}
@@ -25648,13 +26850,35 @@ static  int delete_tags_data(struct osc_delete_tags_arg *args, struct osc_str *d
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -25932,13 +27156,35 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 			return -1;
 	   	ret += 1;
 	}
-	if (args->rules) {
+        if (args->rules) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Rules\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_rules; ++i) {
+	       	    struct security_group_rule *p = &args->rules[i];
+		    if (p != args->rules)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_group_rule_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->rules_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Rules\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->rules))
+                if (osc_str_append_string(data, args->rules_str))
 			return -1;
 		ret += 1;
 	}
@@ -26644,13 +27890,35 @@ static  int delete_load_balancer_tags_data(struct osc_delete_load_balancer_tags_
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_load_balancer_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_load_balancer_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -27962,13 +29230,35 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 	if (!args)
 		return 0;
 	osc_str_append_string(data, "{");
-	if (args->block_device_mappings) {
+        if (args->block_device_mappings) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappings\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_block_device_mappings; ++i) {
+	       	    struct block_device_mapping_vm_creation *p = &args->block_device_mappings[i];
+		    if (p != args->block_device_mappings)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (block_device_mapping_vm_creation_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->block_device_mappings_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappings\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mappings))
+                if (osc_str_append_string(data, args->block_device_mappings_str))
 			return -1;
 		ret += 1;
 	}
@@ -28078,13 +29368,35 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 			return -1;
 	   	ret += 1;
 	}
-	if (args->nics) {
+        if (args->nics) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Nics\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_nics; ++i) {
+	       	    struct nic_for_vm_creation *p = &args->nics[i];
+		    if (p != args->nics)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (nic_for_vm_creation_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->nics_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Nics\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->nics))
+                if (osc_str_append_string(data, args->nics_str))
 			return -1;
 		ret += 1;
 	}
@@ -28402,13 +29714,35 @@ static  int create_tags_data(struct osc_create_tags_arg *args, struct osc_str *d
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -28894,13 +30228,35 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 			return -1;
 	   	ret += 1;
 	}
-	if (args->rules) {
+        if (args->rules) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Rules\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_rules; ++i) {
+	       	    struct security_group_rule *p = &args->rules[i];
+		    if (p != args->rules)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (security_group_rule_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->rules_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Rules\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->rules))
+                if (osc_str_append_string(data, args->rules_str))
 			return -1;
 		ret += 1;
 	}
@@ -29334,13 +30690,35 @@ static  int create_nic_data(struct osc_create_nic_arg *args, struct osc_str *dat
 			return -1;
 	   	ret += 1;
 	}
-	if (args->private_ips) {
+        if (args->private_ips) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"PrivateIps\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_private_ips; ++i) {
+	       	    struct private_ip_light *p = &args->private_ips[i];
+		    if (p != args->private_ips)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (private_ip_light_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->private_ips_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"PrivateIps\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->private_ips))
+                if (osc_str_append_string(data, args->private_ips_str))
 			return -1;
 		ret += 1;
 	}
@@ -29788,13 +31166,35 @@ static  int create_load_balancer_tags_data(struct osc_create_load_balancer_tags_
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -29952,13 +31352,35 @@ static  int create_load_balancer_listeners_data(struct osc_create_load_balancer_
 			return -1;
 	   	ret += 1;
 	}
-	if (args->listeners) {
+        if (args->listeners) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Listeners\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_listeners; ++i) {
+	       	    struct listener_for_creation *p = &args->listeners[i];
+		    if (p != args->listeners)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (listener_for_creation_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->listeners_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Listeners\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->listeners))
+                if (osc_str_append_string(data, args->listeners_str))
 			return -1;
 		ret += 1;
 	}
@@ -30022,13 +31444,35 @@ static  int create_load_balancer_data(struct osc_create_load_balancer_arg *args,
 			return -1;
 	   	ret += 1;
 	}
-	if (args->listeners) {
+        if (args->listeners) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Listeners\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_listeners; ++i) {
+	       	    struct listener_for_creation *p = &args->listeners[i];
+		    if (p != args->listeners)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (listener_for_creation_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->listeners_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Listeners\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->listeners))
+                if (osc_str_append_string(data, args->listeners_str))
 			return -1;
 		ret += 1;
 	}
@@ -30164,13 +31608,35 @@ static  int create_load_balancer_data(struct osc_create_load_balancer_arg *args,
 			return -1;
 		ret += 1;
 	}
-	if (args->tags) {
+        if (args->tags) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"Tags\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_tags; ++i) {
+	       	    struct resource_tag *p = &args->tags[i];
+		    if (p != args->tags)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (resource_tag_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->tags_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Tags\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->tags))
+                if (osc_str_append_string(data, args->tags_str))
 			return -1;
 		ret += 1;
 	}
@@ -30538,13 +32004,35 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 			return -1;
 	   	ret += 1;
 	}
-	if (args->block_device_mappings) {
+        if (args->block_device_mappings) {
+	       	if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"BlockDeviceMappings\":[" ))
+			return -1;
+		for (int i = 0; i < args->nb_block_device_mappings; ++i) {
+	       	    struct block_device_mapping_image *p = &args->block_device_mappings[i];
+		    if (p != args->block_device_mappings)
+		        if (osc_str_append_string(data, "," ))
+			     return -1;
+		    if (osc_str_append_string(data, "{ " ))
+			return -1;
+	       	    if (block_device_mapping_image_setter(p, data) < 0)
+	       	  	return -1;
+	       	    if (osc_str_append_string(data, "}" ))
+			return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else
+	if (args->block_device_mappings_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"BlockDeviceMappings\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->block_device_mappings))
+                if (osc_str_append_string(data, args->block_device_mappings_str))
 			return -1;
 		ret += 1;
 	}
