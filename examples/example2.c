@@ -14,6 +14,7 @@ int main(int ac, char **av)
 {
 	char *vm_ids[1024];
 	int action_type = 0;
+	char filer_buf[1024];
 
 	if (ac < 2) {
 		printf("Usage: %s VM_NAME_FILTER [ACTION]\n", av[0]);
@@ -48,12 +49,13 @@ int main(int ac, char **av)
 		return 1;
         osc_init_str(&r);
 
+	sprintf(filer_buf, "*%s*", av[1]);
 	/* ./cognac ReadVms --Filters.TagKeys '["Name"]' --Filters.TagValues '["*buntu*"]' */
         if (osc_read_vms(&e, &r, &(struct osc_read_vms_arg)
 				{.filters=(struct filters_vm) {
 						.tag_keys_str = "[\"Name\"]",
 						.tag_values = (char *[2]) {
-							av[1],
+							filer_buf,
 							NULL
 						}
 					},
@@ -64,6 +66,10 @@ int main(int ac, char **av)
 	/* this is for json pretty print */
 	jobj = json_tokener_parse(r.buf);
 	vms = json_object_object_get(jobj, "Vms");
+	if (!vms) {
+		fprintf(stderr, "can't get Vms, ret:\n%s\n",
+			r.buf);
+	}
 	if (action_type == READ) {
 		puts(json_object_to_json_string_ext(vms,
 						    JSON_C_TO_STRING_PRETTY |
