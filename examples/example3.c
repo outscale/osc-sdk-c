@@ -124,5 +124,5 @@ int main(int ac, char **av)
 			},
 			.nb_tags=1
 		});
-	printf("DONE Create Vm '%s', make tag now\n", vm_id);
+	printf("DONE Create Vm '%s', tag '%s' creation ret: '%s'\n", vm_id, name, out.buf);
 }

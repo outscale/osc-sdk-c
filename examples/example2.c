@@ -7,7 +7,8 @@ enum ACTION {
 	READ,
 	READ_ID,
 	STOP_VM,
-	START_VM
+	START_VM,
+	TERMINATE_VM
 };
 
 int main(int ac, char **av)
@@ -33,6 +34,8 @@ int main(int ac, char **av)
 			action_type = STOP_VM;
 		else if (!strcmp(av[2], "START_VM"))
 			action_type = START_VM;
+		else if (!strcmp(av[2], "TERMINATE_VM"))
+			action_type = TERMINATE_VM;
 		else if (strcmp(av[2], "READ")) {
 			fprintf(stderr,
 				"ACTION must be READ_ID, STOP_VM or READ\n");
@@ -75,15 +78,20 @@ int main(int ac, char **av)
 						    JSON_C_TO_STRING_PRETTY |
 						    JSON_C_TO_STRING_NOSLASHESCAPE));
 	} else if (action_type == READ_ID ||
-		   action_type == STOP_VM || action_type == START_VM) {
+		   action_type == STOP_VM || action_type == START_VM ||
+		   action_type == TERMINATE_VM) {
 		for (int i = 0; i < json_object_array_length(vms); ++i) {
 			json_object *vm = json_object_array_get_idx(vms, i);
 			json_object *vm_id = json_object_object_get(vm, "VmId");
 
-			if (action_type == STOP_VM || action_type == START_VM) {
+			if (action_type == STOP_VM || action_type == START_VM ||
+			    action_type == TERMINATE_VM) {
 				vm_ids[i] = (char *)json_object_get_string(vm_id);
 				vm_ids[i + 1] = NULL;
-			} else {
+			}
+
+			if (action_type == READ_ID ||
+			    action_type == TERMINATE_VM) {
 				puts(json_object_to_json_string_ext(vm_id, 0));
 			}
 		}
@@ -100,6 +108,21 @@ int main(int ac, char **av)
 				.vm_ids=vm_ids
 			});
 		printf("%s\n", r.buf);
+	} else if (action_type == TERMINATE_VM) {
+		char answer[4];
+
+		printf("Will be TERMINATED (it mean die (it mean destroy))\n");
+		printf("ARE YOU SURE ? (yes/No)\n");
+		scanf("%3s", answer);
+		answer[3] = 0;
+
+		if (!strcmp("yes", answer)) {
+			osc_deinit_str(&r);
+			osc_delete_vms(&e, &r, &(struct osc_delete_vms_arg) {
+					.vm_ids=vm_ids
+				});
+			printf("%s\n", r.buf);
+		}
 	}
 
 
