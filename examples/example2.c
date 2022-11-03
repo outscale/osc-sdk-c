@@ -16,6 +16,7 @@ int main(int ac, char **av)
 	char *vm_ids[1024];
 	int action_type = 0;
 	char filer_buf[1024];
+	_Bool terminate_no_ask = 0;
 
 	if (ac < 2) {
 		printf("Usage: %s VM_NAME_FILTER [ACTION]\n", av[0]);
@@ -27,7 +28,7 @@ int main(int ac, char **av)
 		return 1;
 	}
 
-	if (ac == 3) {
+	if (ac >= 3) {
 		if (!strcmp(av[2], "READ_ID"))
 			action_type = READ_ID;
 		else if (!strcmp(av[2], "STOP_VM"))
@@ -41,6 +42,8 @@ int main(int ac, char **av)
 				"ACTION must be READ_ID, STOP_VM or READ\n");
 			return 1;
 		}
+		if (ac > 3 && !strcmp(av[3], "Fire ! Fire ! Fire !"))
+			terminate_no_ask = 1;
 	}
 
         auto_osc_env struct osc_env e;
@@ -112,11 +115,14 @@ int main(int ac, char **av)
 		char answer[4];
 
 		printf("Will be TERMINATED (it mean die (it mean destroy))\n");
-		printf("ARE YOU SURE ? (yes/No)\n");
-		scanf("%3s", answer);
-		answer[3] = 0;
+		if (!terminate_no_ask) {
+			printf("ARE YOU SURE ? (yes/No)\n");
+			scanf("%3s", answer);
+			answer[3] = 0;
+		}
 
-		if (!strcmp("yes", answer)) {
+		if (terminate_no_ask ||
+		    !strcmp("yes", answer)) {
 			osc_deinit_str(&r);
 			osc_delete_vms(&e, &r, &(struct osc_delete_vms_arg) {
 					.vm_ids=vm_ids
