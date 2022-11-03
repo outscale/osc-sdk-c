@@ -95,7 +95,14 @@ int main(int ac, char **av)
 
 			if (action_type == READ_ID ||
 			    action_type == TERMINATE_VM) {
-				puts(json_object_to_json_string_ext(vm_id, 0));
+				// get vm["Tags"][0]["Value"]
+				json_object *name = json_object_object_get(vm, "Tags");
+
+				name = name ? json_object_array_get_idx(name, 0) : NULL;
+				name = name ? json_object_object_get(name, "Value") : NULL;
+				printf("%s: %s\n",
+				       name ? json_object_to_json_string_ext(name, 0) : "(nil)",
+				       json_object_to_json_string_ext(vm_id, 0));
 			}
 		}
 	}
