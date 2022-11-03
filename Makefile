@@ -44,4 +44,7 @@ clean_sdk:
 
 clean_all: clean clean_sdk
 
-.PHONY: clean clean_sdk clean_all all
+test: example0 example1 example2 example3
+	./intergration-test.sh
+
+.PHONY: clean clean_sdk clean_all all test
