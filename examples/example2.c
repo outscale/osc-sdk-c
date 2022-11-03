@@ -128,6 +128,9 @@ int main(int ac, char **av)
 					.vm_ids=vm_ids
 				});
 			printf("%s\n", r.buf);
+		} else {
+			printf("Terminate was CANCEL (it mean it wasn't done (So the VM(Virtual Machines)\n"
+			       "Are Alive(not destroy (Your not reading lisp BTW(Nor schme(scheme is a variante of lisp(it's a joke because the is a lot of (parentesis) in lisp))))))) !!!\n");
 		}
 	}
 
