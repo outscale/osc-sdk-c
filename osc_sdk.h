@@ -303,81 +303,6 @@ struct backend_vm_health {
 	char *vm_id; /* string */
 };
 
-struct block_device_mapping_created {
-        /*
-         * null
-         */
-	char *bsu; /* null */
-        /*
-         * The name of the device.
-         */
-	char *device_name; /* string */
-};
-
-struct block_device_mapping_image {
-        /*
-         * null
-         */
-	char *bsu; /* null */
-        /*
-         * The device name for the volume. For a root device, you must use 
-         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
-         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
-         * `z` and where `Y` is a letter between `a` and `z`).
-         */
-	char *device_name; /* string */
-        /*
-         * The name of the virtual device (`ephemeralN`).
-         */
-	char *virtual_device_name; /* string */
-};
-
-struct block_device_mapping_vm_creation {
-        /*
-         * null
-         */
-	char *bsu; /* null */
-        /*
-         * The device name for the volume. For a root device, you must use 
-         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
-         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
-         * `z` and where `Y` is a letter between `a` and `z`).
-         */
-	char *device_name; /* string */
-        /*
-         * Removes the device which is included in the block device mapping of 
-         * the OMI.
-         */
-	char *no_device; /* string */
-        /*
-         * The name of the virtual device (`ephemeralN`).
-         */
-	char *virtual_device_name; /* string */
-};
-
-struct block_device_mapping_vm_update {
-        /*
-         * null
-         */
-	char *bsu; /* null */
-        /*
-         * The device name for the volume. For a root device, you must use 
-         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
-         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
-         * `z` and where `Y` is a letter between `a` and `z`).
-         */
-	char *device_name; /* string */
-        /*
-         * Removes the device which is included in the block device mapping of 
-         * the OMI.
-         */
-	char *no_device; /* string */
-        /*
-         * The name of the virtual device (`ephemeralN`).
-         */
-	char *virtual_device_name; /* string */
-};
-
 struct bsu_created {
         /*
          * If true, the volume is deleted when terminating the VM. If false, the 
@@ -397,6 +322,19 @@ struct bsu_created {
          * The ID of the volume.
          */
 	char *volume_id; /* string */
+};
+
+struct block_device_mapping_created {
+        /*
+         * null
+         */
+        char *bsu_str;
+        int is_set_bsu;
+	struct bsu_created bsu; /* ref BsuCreated */
+        /*
+         * The name of the device.
+         */
+	char *device_name; /* string */
 };
 
 struct bsu_to_create {
@@ -436,6 +374,51 @@ struct bsu_to_create {
 	char *volume_type; /* string */
 };
 
+struct block_device_mapping_image {
+        /*
+         * null
+         */
+        char *bsu_str;
+        int is_set_bsu;
+	struct bsu_to_create bsu; /* ref BsuToCreate */
+        /*
+         * The device name for the volume. For a root device, you must use 
+         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
+         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
+         * `z` and where `Y` is a letter between `a` and `z`).
+         */
+	char *device_name; /* string */
+        /*
+         * The name of the virtual device (`ephemeralN`).
+         */
+	char *virtual_device_name; /* string */
+};
+
+struct block_device_mapping_vm_creation {
+        /*
+         * null
+         */
+        char *bsu_str;
+        int is_set_bsu;
+	struct bsu_to_create bsu; /* ref BsuToCreate */
+        /*
+         * The device name for the volume. For a root device, you must use 
+         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
+         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
+         * `z` and where `Y` is a letter between `a` and `z`).
+         */
+	char *device_name; /* string */
+        /*
+         * Removes the device which is included in the block device mapping of 
+         * the OMI.
+         */
+	char *no_device; /* string */
+        /*
+         * The name of the virtual device (`ephemeralN`).
+         */
+	char *virtual_device_name; /* string */
+};
+
 struct bsu_to_update_vm {
         /*
          * If set to true, the volume is deleted when terminating the VM. If set 
@@ -447,6 +430,31 @@ struct bsu_to_update_vm {
          * The ID of the volume.
          */
 	char *volume_id; /* string */
+};
+
+struct block_device_mapping_vm_update {
+        /*
+         * null
+         */
+        char *bsu_str;
+        int is_set_bsu;
+	struct bsu_to_update_vm bsu; /* ref BsuToUpdateVm */
+        /*
+         * The device name for the volume. For a root device, you must use 
+         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
+         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
+         * `z` and where `Y` is a letter between `a` and `z`).
+         */
+	char *device_name; /* string */
+        /*
+         * Removes the device which is included in the block device mapping of 
+         * the OMI.
+         */
+	char *no_device; /* string */
+        /*
+         * The name of the virtual device (`ephemeralN`).
+         */
+	char *virtual_device_name; /* string */
 };
 
 struct ca {
@@ -2494,6 +2502,31 @@ struct health_check {
 	int unhealthy_threshold; /* int */
 };
 
+struct permissions_on_resource {
+        /*
+         * The account ID of one or more users who have permissions for the 
+         * resource.
+         */
+        char *account_ids_str;
+	char **account_ids; /* array string */
+        /*
+         * If true, the resource is public. If false, the resource is private.
+         */
+        int is_set_global_permission;
+	int global_permission; /* bool */
+};
+
+struct state_comment {
+        /*
+         * The code of the change of state.
+         */
+	char *state_code; /* string */
+        /*
+         * A message explaining the change of state.
+         */
+	char *state_message; /* string */
+};
+
 struct image {
         /*
          * The account alias of the owner of the OMI.
@@ -2540,7 +2573,9 @@ struct image {
         /*
          * null
          */
-	char *permissions_to_launch; /* null */
+        char *permissions_to_launch_str;
+        int is_set_permissions_to_launch;
+	struct permissions_on_resource permissions_to_launch; /* ref PermissionsOnResource */
         /*
          * The product code associated with the OMI (`0001` Linux/Unix \\| 
          * `0002` Windows \\| `0004` Linux/Oracle \\| `0005` Windows 10).
@@ -2562,13 +2597,34 @@ struct image {
         /*
          * null
          */
-	char *state_comment; /* null */
+        char *state_comment_str;
+        int is_set_state_comment;
+	struct state_comment state_comment; /* ref StateComment */
         /*
          * One or more tags associated with the OMI.
          */
         char *tags_str;
         int nb_tags;
 	struct resource_tag *tags; /* array ref ResourceTag */
+};
+
+struct osu_export_image_export_task {
+        /*
+         * The format of the export disk (`qcow2` \\| `raw`).
+         */
+	char *disk_image_format; /* string */
+        /*
+         * The name of the OOS bucket the OMI is exported to.
+         */
+	char *osu_bucket; /* string */
+        /*
+         * The URL of the manifest file.
+         */
+	char *osu_manifest_url; /* string */
+        /*
+         * The prefix for the key of the OOS object corresponding to the image.
+         */
+	char *osu_prefix; /* string */
 };
 
 struct image_export_task {
@@ -2583,7 +2639,9 @@ struct image_export_task {
         /*
          * null
          */
-	char *osu_export; /* null */
+        char *osu_export_str;
+        int is_set_osu_export;
+	struct osu_export_image_export_task osu_export; /* ref OsuExportImageExportTask */
         /*
          * The progress of the OMI export task, as a percentage.
          */
@@ -2950,11 +3008,24 @@ struct listener_rule_for_creation {
 	int priority; /* int */
 };
 
+struct source_security_group {
+        /*
+         * The account ID of the owner of the security group.
+         */
+	char *security_group_account_id; /* string */
+        /*
+         * The name of the security group.
+         */
+	char *security_group_name; /* string */
+};
+
 struct load_balancer {
         /*
          * null
          */
-	char *access_log; /* null */
+        char *access_log_str;
+        int is_set_access_log;
+	struct access_log access_log; /* ref AccessLog */
         /*
          * The stickiness policies defined for the load balancer.
          */
@@ -2978,7 +3049,9 @@ struct load_balancer {
         /*
          * null
          */
-	char *health_check; /* null */
+        char *health_check_str;
+        int is_set_health_check;
+	struct health_check health_check; /* ref HealthCheck */
         /*
          * The listeners for the load balancer.
          */
@@ -3026,7 +3099,9 @@ struct load_balancer {
         /*
          * null
          */
-	char *source_security_group; /* null */
+        char *source_security_group_str;
+        int is_set_source_security_group;
+	struct source_security_group source_security_group; /* ref SourceSecurityGroup */
         /*
          * The ID of the Subnet in which the load balancer was created.
          */
@@ -3289,29 +3364,20 @@ struct net_access_point {
 	struct resource_tag *tags; /* array ref ResourceTag */
 };
 
-struct net_peering {
+struct source_net {
         /*
-         * null
+         * The account ID of the owner of the source Net.
          */
-	char *accepter_net; /* null */
+	char *account_id; /* string */
         /*
-         * The ID of the Net peering connection.
+         * The IP range for the source Net, in CIDR notation (for example, 
+         * `10.0.0.0/16`).
          */
-	char *net_peering_id; /* string */
+	char *ip_range; /* string */
         /*
-         * null
+         * The ID of the source Net.
          */
-	char *source_net; /* null */
-        /*
-         * null
-         */
-	char *state; /* null */
-        /*
-         * One or more tags associated with the Net peering connection.
-         */
-        char *tags_str;
-        int nb_tags;
-	struct resource_tag *tags; /* array ref ResourceTag */
+	char *net_id; /* string */
 };
 
 struct net_peering_state {
@@ -3324,6 +3390,37 @@ struct net_peering_state {
          * `active` \\| `rejected` \\| `failed` \\| `expired` \\| `deleted`).
          */
 	char *name; /* string */
+};
+
+struct net_peering {
+        /*
+         * null
+         */
+        char *accepter_net_str;
+        int is_set_accepter_net;
+	struct accepter_net accepter_net; /* ref AccepterNet */
+        /*
+         * The ID of the Net peering connection.
+         */
+	char *net_peering_id; /* string */
+        /*
+         * null
+         */
+        char *source_net_str;
+        int is_set_source_net;
+	struct source_net source_net; /* ref SourceNet */
+        /*
+         * null
+         */
+        char *state_str;
+        int is_set_state;
+	struct net_peering_state state; /* ref NetPeeringState */
+        /*
+         * One or more tags associated with the Net peering connection.
+         */
+        char *tags_str;
+        int nb_tags;
+	struct resource_tag *tags; /* array ref ResourceTag */
 };
 
 struct net_to_virtual_gateway_link {
@@ -3357,11 +3454,15 @@ struct nic {
         /*
          * null
          */
-	char *link_nic; /* null */
+        char *link_nic_str;
+        int is_set_link_nic;
+	struct link_nic link_nic; /* ref LinkNic */
         /*
          * null
          */
-	char *link_public_ip; /* null */
+        char *link_public_ip_str;
+        int is_set_link_public_ip;
+	struct link_public_ip link_public_ip; /* ref LinkPublicIp */
         /*
          * The Media Access Control (MAC) address of the NIC.
          */
@@ -3483,11 +3584,15 @@ struct nic_light {
         /*
          * null
          */
-	char *link_nic; /* null */
+        char *link_nic_str;
+        int is_set_link_nic;
+	struct link_nic_light link_nic; /* ref LinkNicLight */
         /*
          * null
          */
-	char *link_public_ip; /* null */
+        char *link_public_ip_str;
+        int is_set_link_public_ip;
+	struct link_public_ip_light_for_vm link_public_ip; /* ref LinkPublicIpLightForVm */
         /*
          * The Media Access Control (MAC) address of the NIC.
          */
@@ -3539,25 +3644,6 @@ struct osu_api_key {
 	char *secret_key; /* string */
 };
 
-struct osu_export_image_export_task {
-        /*
-         * The format of the export disk (`qcow2` \\| `raw`).
-         */
-	char *disk_image_format; /* string */
-        /*
-         * The name of the OOS bucket the OMI is exported to.
-         */
-	char *osu_bucket; /* string */
-        /*
-         * The URL of the manifest file.
-         */
-	char *osu_manifest_url; /* string */
-        /*
-         * The prefix for the key of the OOS object corresponding to the image.
-         */
-	char *osu_prefix; /* string */
-};
-
 struct osu_export_snapshot_export_task {
         /*
          * The format of the export disk (`qcow2` \\| `raw`).
@@ -3582,7 +3668,9 @@ struct osu_export_to_create {
         /*
          * null
          */
-	char *osu_api_key; /* null */
+        char *osu_api_key_str;
+        int is_set_osu_api_key;
+	struct osu_api_key osu_api_key; /* ref OsuApiKey */
         /*
          * The name of the OOS bucket where you want to export the object.
          */
@@ -3597,29 +3685,19 @@ struct osu_export_to_create {
 	char *osu_prefix; /* string */
 };
 
-struct permissions_on_resource {
-        /*
-         * The account ID of one or more users who have permissions for the 
-         * resource.
-         */
-        char *account_ids_str;
-	char **account_ids; /* array string */
-        /*
-         * If true, the resource is public. If false, the resource is private.
-         */
-        int is_set_global_permission;
-	int global_permission; /* bool */
-};
-
 struct permissions_on_resource_creation {
         /*
          * null
          */
-	char *additions; /* null */
+        char *additions_str;
+        int is_set_additions;
+	struct permissions_on_resource additions; /* ref PermissionsOnResource */
         /*
          * null
          */
-	char *removals; /* null */
+        char *removals_str;
+        int is_set_removals;
+	struct permissions_on_resource removals; /* ref PermissionsOnResource */
 };
 
 struct phase1_options {
@@ -3724,7 +3802,9 @@ struct private_ip {
         /*
          * null
          */
-	char *link_public_ip; /* null */
+        char *link_public_ip_str;
+        int is_set_link_public_ip;
+	struct link_public_ip link_public_ip; /* ref LinkPublicIp */
         /*
          * The name of the private DNS.
          */
@@ -3756,7 +3836,9 @@ struct private_ip_light_for_vm {
         /*
          * null
          */
-	char *link_public_ip; /* null */
+        char *link_public_ip_str;
+        int is_set_link_public_ip;
+	struct link_public_ip_light_for_vm link_public_ip; /* ref LinkPublicIpLightForVm */
         /*
          * The name of the private DNS.
          */
@@ -4190,7 +4272,9 @@ struct snapshot {
         /*
          * null
          */
-	char *permissions_to_create_volume; /* null */
+        char *permissions_to_create_volume_str;
+        int is_set_permissions_to_create_volume;
+	struct permissions_on_resource permissions_to_create_volume; /* ref PermissionsOnResource */
         /*
          * The progress of the snapshot, as a percentage.
          */
@@ -4230,7 +4314,9 @@ struct snapshot_export_task {
         /*
          * null
          */
-	char *osu_export; /* null */
+        char *osu_export_str;
+        int is_set_osu_export;
+	struct osu_export_snapshot_export_task osu_export; /* ref OsuExportSnapshotExportTask */
         /*
          * The progress of the snapshot export task, as a percentage.
          */
@@ -4255,44 +4341,6 @@ struct snapshot_export_task {
          * The ID of the snapshot export task.
          */
 	char *task_id; /* string */
-};
-
-struct source_net {
-        /*
-         * The account ID of the owner of the source Net.
-         */
-	char *account_id; /* string */
-        /*
-         * The IP range for the source Net, in CIDR notation (for example, 
-         * `10.0.0.0/16`).
-         */
-	char *ip_range; /* string */
-        /*
-         * The ID of the source Net.
-         */
-	char *net_id; /* string */
-};
-
-struct source_security_group {
-        /*
-         * The account ID of the owner of the security group.
-         */
-	char *security_group_account_id; /* string */
-        /*
-         * The name of the security group.
-         */
-	char *security_group_name; /* string */
-};
-
-struct state_comment {
-        /*
-         * The code of the change of state.
-         */
-	char *state_code; /* string */
-        /*
-         * A message explaining the change of state.
-         */
-	char *state_message; /* string */
 };
 
 struct subnet {
@@ -4511,7 +4559,9 @@ struct vm {
         /*
          * null
          */
-	char *placement; /* null */
+        char *placement_str;
+        int is_set_placement;
+	struct placement placement; /* ref Placement */
         /*
          * The name of the private DNS.
          */
@@ -4721,6 +4771,26 @@ struct volume {
 	char *volume_type; /* string */
 };
 
+struct vpn_options {
+        /*
+         * null
+         */
+        char *phase1_options_str;
+        int is_set_phase1_options;
+	struct phase1_options phase1_options; /* ref Phase1Options */
+        /*
+         * null
+         */
+        char *phase2_options_str;
+        int is_set_phase2_options;
+	struct phase2_options phase2_options; /* ref Phase2Options */
+        /*
+         * The range of inside IPs for the tunnel. This must be a /30 CIDR block 
+         * from the 169.254.254.0/24 range.
+         */
+	char *tunnel_inside_ip_range; /* string */
+};
+
 struct vpn_connection {
         /*
          * Example configuration for the client gateway.
@@ -4779,23 +4849,9 @@ struct vpn_connection {
         /*
          * null
          */
-	char *vpn_options; /* null */
-};
-
-struct vpn_options {
-        /*
-         * null
-         */
-	char *phase1_options; /* null */
-        /*
-         * null
-         */
-	char *phase2_options; /* null */
-        /*
-         * The range of inside IPs for the tunnel. This must be a /30 CIDR block 
-         * from the 169.254.254.0/24 range.
-         */
-	char *tunnel_inside_ip_range; /* string */
+        char *vpn_options_str;
+        int is_set_vpn_options;
+	struct vpn_options vpn_options; /* ref VpnOptions */
 };
 
 struct with {
