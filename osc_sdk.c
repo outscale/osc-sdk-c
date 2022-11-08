@@ -1539,6 +1539,9 @@ static int block_device_mapping_created_setter(struct block_device_mapping_creat
 			return -1;
 		ret += 1;
 	} else if (args->is_set_bsu) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Bsu\": { " ))
 			return -1;
 	       if (bsu_created_setter(&args->bsu, data) < 0)
@@ -1574,6 +1577,9 @@ static int block_device_mapping_image_setter(struct block_device_mapping_image *
 			return -1;
 		ret += 1;
 	} else if (args->is_set_bsu) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Bsu\": { " ))
 			return -1;
 	       if (bsu_to_create_setter(&args->bsu, data) < 0)
@@ -1621,6 +1627,9 @@ static int block_device_mapping_vm_creation_setter(struct block_device_mapping_v
 			return -1;
 		ret += 1;
 	} else if (args->is_set_bsu) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Bsu\": { " ))
 			return -1;
 	       if (bsu_to_create_setter(&args->bsu, data) < 0)
@@ -1680,6 +1689,9 @@ static int block_device_mapping_vm_update_setter(struct block_device_mapping_vm_
 			return -1;
 		ret += 1;
 	} else if (args->is_set_bsu) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Bsu\": { " ))
 			return -1;
 	       if (bsu_to_update_vm_setter(&args->bsu, data) < 0)
@@ -11886,6 +11898,9 @@ static int image_setter(struct image *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_permissions_to_launch) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"PermissionsToLaunch\": { " ))
 			return -1;
 	       if (permissions_on_resource_setter(&args->permissions_to_launch, data) < 0)
@@ -11972,6 +11987,9 @@ static int image_setter(struct image *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_state_comment) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"StateComment\": { " ))
 			return -1;
 	       if (state_comment_setter(&args->state_comment, data) < 0)
@@ -12051,6 +12069,9 @@ static int image_export_task_setter(struct image_export_task *args, struct osc_s
 			return -1;
 		ret += 1;
 	} else if (args->is_set_osu_export) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"OsuExport\": { " ))
 			return -1;
 	       if (osu_export_image_export_task_setter(&args->osu_export, data) < 0)
@@ -12984,6 +13005,9 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	} else if (args->is_set_access_log) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"AccessLog\": { " ))
 			return -1;
 	       if (access_log_setter(&args->access_log, data) < 0)
@@ -13110,6 +13134,9 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	} else if (args->is_set_health_check) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"HealthCheck\": { " ))
 			return -1;
 	       if (health_check_setter(&args->health_check, data) < 0)
@@ -13282,6 +13309,9 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 			return -1;
 		ret += 1;
 	} else if (args->is_set_source_security_group) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"SourceSecurityGroup\": { " ))
 			return -1;
 	       if (source_security_group_setter(&args->source_security_group, data) < 0)
@@ -14096,6 +14126,9 @@ static int net_peering_setter(struct net_peering *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_accepter_net) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"AccepterNet\": { " ))
 			return -1;
 	       if (accepter_net_setter(&args->accepter_net, data) < 0)
@@ -14126,6 +14159,9 @@ static int net_peering_setter(struct net_peering *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_source_net) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"SourceNet\": { " ))
 			return -1;
 	       if (source_net_setter(&args->source_net, data) < 0)
@@ -14144,6 +14180,9 @@ static int net_peering_setter(struct net_peering *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_state) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"State\": { " ))
 			return -1;
 	       if (net_peering_state_setter(&args->state, data) < 0)
@@ -14291,6 +14330,9 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_link_nic) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"LinkNic\": { " ))
 			return -1;
 	       if (link_nic_setter(&args->link_nic, data) < 0)
@@ -14309,6 +14351,9 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_link_public_ip) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"LinkPublicIp\": { " ))
 			return -1;
 	       if (link_public_ip_setter(&args->link_public_ip, data) < 0)
@@ -14681,6 +14726,9 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_link_nic) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"LinkNic\": { " ))
 			return -1;
 	       if (link_nic_light_setter(&args->link_nic, data) < 0)
@@ -14699,6 +14747,9 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_link_public_ip) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"LinkPublicIp\": { " ))
 			return -1;
 	       if (link_public_ip_light_for_vm_setter(&args->link_public_ip, data) < 0)
@@ -14993,6 +15044,9 @@ static int osu_export_to_create_setter(struct osu_export_to_create *args, struct
 			return -1;
 		ret += 1;
 	} else if (args->is_set_osu_api_key) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"OsuApiKey\": { " ))
 			return -1;
 	       if (osu_api_key_setter(&args->osu_api_key, data) < 0)
@@ -15099,6 +15153,9 @@ static int permissions_on_resource_creation_setter(struct permissions_on_resourc
 			return -1;
 		ret += 1;
 	} else if (args->is_set_additions) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Additions\": { " ))
 			return -1;
 	       if (permissions_on_resource_setter(&args->additions, data) < 0)
@@ -15117,6 +15174,9 @@ static int permissions_on_resource_creation_setter(struct permissions_on_resourc
 			return -1;
 		ret += 1;
 	} else if (args->is_set_removals) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Removals\": { " ))
 			return -1;
 	       if (permissions_on_resource_setter(&args->removals, data) < 0)
@@ -15481,6 +15541,9 @@ static int private_ip_setter(struct private_ip *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_link_public_ip) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"LinkPublicIp\": { " ))
 			return -1;
 	       if (link_public_ip_setter(&args->link_public_ip, data) < 0)
@@ -15565,6 +15628,9 @@ static int private_ip_light_for_vm_setter(struct private_ip_light_for_vm *args, 
 			return -1;
 		ret += 1;
 	} else if (args->is_set_link_public_ip) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"LinkPublicIp\": { " ))
 			return -1;
 	       if (link_public_ip_light_for_vm_setter(&args->link_public_ip, data) < 0)
@@ -16914,6 +16980,9 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_permissions_to_create_volume) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"PermissionsToCreateVolume\": { " ))
 			return -1;
 	       if (permissions_on_resource_setter(&args->permissions_to_create_volume, data) < 0)
@@ -17037,6 +17106,9 @@ static int snapshot_export_task_setter(struct snapshot_export_task *args, struct
 			return -1;
 		ret += 1;
 	} else if (args->is_set_osu_export) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"OsuExport\": { " ))
 			return -1;
 	       if (osu_export_snapshot_export_task_setter(&args->osu_export, data) < 0)
@@ -17850,6 +17922,9 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_placement) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Placement\": { " ))
 			return -1;
 	       if (placement_setter(&args->placement, data) < 0)
@@ -18667,6 +18742,9 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	} else if (args->is_set_vpn_options) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"VpnOptions\": { " ))
 			return -1;
 	       if (vpn_options_setter(&args->vpn_options, data) < 0)
@@ -18690,6 +18768,9 @@ static int vpn_options_setter(struct vpn_options *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_phase1_options) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Phase1Options\": { " ))
 			return -1;
 	       if (phase1_options_setter(&args->phase1_options, data) < 0)
@@ -18708,6 +18789,9 @@ static int vpn_options_setter(struct vpn_options *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	} else if (args->is_set_phase2_options) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Phase2Options\": { " ))
 			return -1;
 	       if (phase2_options_setter(&args->phase2_options, data) < 0)
@@ -18960,6 +19044,9 @@ static  int update_vpn_connection_data(struct osc_update_vpn_connection_arg *arg
 			return -1;
 		ret += 1;
 	} else if (args->is_set_vpn_options) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"VpnOptions\": { " ))
 			return -1;
 	       if (vpn_options_setter(&args->vpn_options, data) < 0)
@@ -19412,6 +19499,9 @@ static  int update_snapshot_data(struct osc_update_snapshot_arg *args, struct os
 			return -1;
 		ret += 1;
 	} else if (args->is_set_permissions_to_create_volume) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"PermissionsToCreateVolume\": { " ))
 			return -1;
 	       if (permissions_on_resource_creation_setter(&args->permissions_to_create_volume, data) < 0)
@@ -19800,6 +19890,9 @@ static  int update_nic_data(struct osc_update_nic_arg *args, struct osc_str *dat
 			return -1;
 		ret += 1;
 	} else if (args->is_set_link_nic) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"LinkNic\": { " ))
 			return -1;
 	       if (link_nic_to_update_setter(&args->link_nic, data) < 0)
@@ -20096,6 +20189,9 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 			return -1;
 		ret += 1;
 	} else if (args->is_set_access_log) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"AccessLog\": { " ))
 			return -1;
 	       if (access_log_setter(&args->access_log, data) < 0)
@@ -20124,6 +20220,9 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 			return -1;
 		ret += 1;
 	} else if (args->is_set_health_check) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"HealthCheck\": { " ))
 			return -1;
 	       if (health_check_setter(&args->health_check, data) < 0)
@@ -20406,6 +20505,9 @@ static  int update_image_data(struct osc_update_image_arg *args, struct osc_str 
 			return -1;
 		ret += 1;
 	} else if (args->is_set_permissions_to_launch) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"PermissionsToLaunch\": { " ))
 			return -1;
 	       if (permissions_on_resource_creation_setter(&args->permissions_to_launch, data) < 0)
@@ -22444,6 +22546,9 @@ static  int read_vpn_connections_data(struct osc_read_vpn_connections_arg *args,
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_vpn_connection_setter(&args->filters, data) < 0)
@@ -22510,6 +22615,9 @@ static  int read_volumes_data(struct osc_read_volumes_arg *args, struct osc_str 
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_volume_setter(&args->filters, data) < 0)
@@ -22586,6 +22694,9 @@ static  int read_vms_state_data(struct osc_read_vms_state_arg *args, struct osc_
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_vms_state_setter(&args->filters, data) < 0)
@@ -22744,6 +22855,9 @@ static  int read_vms_data(struct osc_read_vms_arg *args, struct osc_str *data)
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_vm_setter(&args->filters, data) < 0)
@@ -22810,6 +22924,9 @@ static  int read_vm_types_data(struct osc_read_vm_types_arg *args, struct osc_st
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_vm_type_setter(&args->filters, data) < 0)
@@ -22876,6 +22993,9 @@ static  int read_virtual_gateways_data(struct osc_read_virtual_gateways_arg *arg
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_virtual_gateway_setter(&args->filters, data) < 0)
@@ -22942,6 +23062,9 @@ static  int read_tags_data(struct osc_read_tags_arg *args, struct osc_str *data)
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_tag_setter(&args->filters, data) < 0)
@@ -23008,6 +23131,9 @@ static  int read_subregions_data(struct osc_read_subregions_arg *args, struct os
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_subregion_setter(&args->filters, data) < 0)
@@ -23074,6 +23200,9 @@ static  int read_subnets_data(struct osc_read_subnets_arg *args, struct osc_str 
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_subnet_setter(&args->filters, data) < 0)
@@ -23140,6 +23269,9 @@ static  int read_snapshots_data(struct osc_read_snapshots_arg *args, struct osc_
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_snapshot_setter(&args->filters, data) < 0)
@@ -23206,6 +23338,9 @@ static  int read_snapshot_export_tasks_data(struct osc_read_snapshot_export_task
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_export_task_setter(&args->filters, data) < 0)
@@ -23272,6 +23407,9 @@ static  int read_server_certificates_data(struct osc_read_server_certificates_ar
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_server_certificate_setter(&args->filters, data) < 0)
@@ -23338,6 +23476,9 @@ static  int read_security_groups_data(struct osc_read_security_groups_arg *args,
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_security_group_setter(&args->filters, data) < 0)
@@ -23464,6 +23605,9 @@ static  int read_route_tables_data(struct osc_read_route_tables_arg *args, struc
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_route_table_setter(&args->filters, data) < 0)
@@ -23578,6 +23722,9 @@ static  int read_quotas_data(struct osc_read_quotas_arg *args, struct osc_str *d
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_quota_setter(&args->filters, data) < 0)
@@ -23644,6 +23791,9 @@ static  int read_public_ips_data(struct osc_read_public_ips_arg *args, struct os
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_public_ip_setter(&args->filters, data) < 0)
@@ -23806,6 +23956,9 @@ static  int read_product_types_data(struct osc_read_product_types_arg *args, str
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_product_type_setter(&args->filters, data) < 0)
@@ -23872,6 +24025,9 @@ static  int read_nics_data(struct osc_read_nics_arg *args, struct osc_str *data)
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_nic_setter(&args->filters, data) < 0)
@@ -23938,6 +24094,9 @@ static  int read_nets_data(struct osc_read_nets_arg *args, struct osc_str *data)
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_net_setter(&args->filters, data) < 0)
@@ -24004,6 +24163,9 @@ static  int read_net_peerings_data(struct osc_read_net_peerings_arg *args, struc
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_net_peering_setter(&args->filters, data) < 0)
@@ -24070,6 +24232,9 @@ static  int read_net_access_points_data(struct osc_read_net_access_points_arg *a
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_net_access_point_setter(&args->filters, data) < 0)
@@ -24136,6 +24301,9 @@ static  int read_net_access_point_services_data(struct osc_read_net_access_point
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_service_setter(&args->filters, data) < 0)
@@ -24202,6 +24370,9 @@ static  int read_nat_services_data(struct osc_read_nat_services_arg *args, struc
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_nat_service_setter(&args->filters, data) < 0)
@@ -24316,6 +24487,9 @@ static  int read_load_balancers_data(struct osc_read_load_balancers_arg *args, s
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_load_balancer_setter(&args->filters, data) < 0)
@@ -24462,6 +24636,9 @@ static  int read_listener_rules_data(struct osc_read_listener_rules_arg *args, s
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_listener_rule_setter(&args->filters, data) < 0)
@@ -24528,6 +24705,9 @@ static  int read_keypairs_data(struct osc_read_keypairs_arg *args, struct osc_st
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_keypair_setter(&args->filters, data) < 0)
@@ -24594,6 +24774,9 @@ static  int read_internet_services_data(struct osc_read_internet_services_arg *a
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_internet_service_setter(&args->filters, data) < 0)
@@ -24660,6 +24843,9 @@ static  int read_images_data(struct osc_read_images_arg *args, struct osc_str *d
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_image_setter(&args->filters, data) < 0)
@@ -24726,6 +24912,9 @@ static  int read_image_export_tasks_data(struct osc_read_image_export_tasks_arg 
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_export_task_setter(&args->filters, data) < 0)
@@ -24792,6 +24981,9 @@ static  int read_flexible_gpus_data(struct osc_read_flexible_gpus_arg *args, str
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_flexible_gpu_setter(&args->filters, data) < 0)
@@ -24906,6 +25098,9 @@ static  int read_direct_links_data(struct osc_read_direct_links_arg *args, struc
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_direct_link_setter(&args->filters, data) < 0)
@@ -24972,6 +25167,9 @@ static  int read_direct_link_interfaces_data(struct osc_read_direct_link_interfa
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_direct_link_interface_setter(&args->filters, data) < 0)
@@ -25038,6 +25236,9 @@ static  int read_dhcp_options_data(struct osc_read_dhcp_options_arg *args, struc
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_dhcp_options_setter(&args->filters, data) < 0)
@@ -25246,6 +25447,9 @@ static  int read_client_gateways_data(struct osc_read_client_gateways_arg *args,
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_client_gateway_setter(&args->filters, data) < 0)
@@ -25360,6 +25564,9 @@ static  int read_cas_data(struct osc_read_cas_arg *args, struct osc_str *data)
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_ca_setter(&args->filters, data) < 0)
@@ -25426,6 +25633,9 @@ static  int read_api_logs_data(struct osc_read_api_logs_arg *args, struct osc_st
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_api_log_setter(&args->filters, data) < 0)
@@ -25466,6 +25676,9 @@ static  int read_api_logs_data(struct osc_read_api_logs_arg *args, struct osc_st
 			return -1;
 		ret += 1;
 	} else if (args->is_set_with) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"With\": { " ))
 			return -1;
 	       if (with_setter(&args->with, data) < 0)
@@ -25532,6 +25745,9 @@ static  int read_api_access_rules_data(struct osc_read_api_access_rules_arg *arg
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_api_access_rule_setter(&args->filters, data) < 0)
@@ -25754,6 +25970,9 @@ static  int read_access_keys_data(struct osc_read_access_keys_arg *args, struct 
 			return -1;
 		ret += 1;
 	} else if (args->is_set_filters) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Filters\": { " ))
 			return -1;
 	       if (filters_access_keys_setter(&args->filters, data) < 0)
@@ -29646,6 +29865,9 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 			return -1;
 		ret += 1;
 	} else if (args->is_set_placement) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Placement\": { " ))
 			return -1;
 	       if (placement_setter(&args->placement, data) < 0)
@@ -30112,6 +30334,9 @@ static  int create_snapshot_export_task_data(struct osc_create_snapshot_export_t
 			return -1;
 		ret += 1;
 	} else if (args->is_set_osu_export) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"OsuExport\": { " ))
 			return -1;
 	       if (osu_export_to_create_setter(&args->osu_export, data) < 0)
@@ -31922,6 +32147,9 @@ static  int create_listener_rule_data(struct osc_create_listener_rule_arg *args,
 			return -1;
 		ret += 1;
 	} else if (args->is_set_listener) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"Listener\": { " ))
 			return -1;
 	       if (load_balancer_light_setter(&args->listener, data) < 0)
@@ -31940,6 +32168,9 @@ static  int create_listener_rule_data(struct osc_create_listener_rule_arg *args,
 			return -1;
 		ret += 1;
 	} else if (args->is_set_listener_rule) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"ListenerRule\": { " ))
 			return -1;
 	       if (listener_rule_for_creation_setter(&args->listener_rule, data) < 0)
@@ -32170,6 +32401,9 @@ static  int create_image_export_task_data(struct osc_create_image_export_task_ar
 			return -1;
 		ret += 1;
 	} else if (args->is_set_osu_export) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"OsuExport\": { " ))
 			return -1;
 	       if (osu_export_to_create_setter(&args->osu_export, data) < 0)
@@ -32518,6 +32752,9 @@ static  int create_direct_link_interface_data(struct osc_create_direct_link_inte
 			return -1;
 		ret += 1;
 	} else if (args->is_set_direct_link_interface) {
+	       if (count_args++ > 0)
+		       if (osc_str_append_string(data, "," ))
+			       return -1;
 	       if (osc_str_append_string(data, "\"DirectLinkInterface\": { " ))
 			return -1;
 	       if (direct_link_interface_setter(&args->direct_link_interface, data) < 0)

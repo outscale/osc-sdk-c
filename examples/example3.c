@@ -77,9 +77,11 @@ int main(int ac, char **av)
 				.image_id=image_id,
 				.block_device_mappings=(struct block_device_mapping_vm_creation[]) {
 					{
-						.bsu_str="{"
-						"\"VolumeSize\":100"
-						"}",
+						.is_set_bsu = 1,
+						.bsu=(struct bsu_to_create){
+							.is_set_volume_size=1,
+							.volume_size=100
+						},
 						.device_name="/dev/sda1"
 					}
 				},
