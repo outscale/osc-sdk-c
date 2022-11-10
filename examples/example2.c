@@ -39,7 +39,8 @@ int main(int ac, char **av)
 			action_type = TERMINATE_VM;
 		else if (strcmp(av[2], "READ")) {
 			fprintf(stderr,
-				"ACTION must be READ_ID, STOP_VM or READ\n");
+				"ACTION must be READ_ID, STOP_VM, START_VM,"
+				"TERMINATE_VM or READ\n");
 			return 1;
 		}
 		if (ac > 3 && !strcmp(av[3], "Fire ! Fire ! Fire !"))

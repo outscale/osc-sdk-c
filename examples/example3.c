@@ -80,19 +80,13 @@ int main(int ac, char **av)
 						.is_set_bsu = 1,
 						.bsu=(struct bsu_to_create){
 							.is_set_volume_size=1,
-							.volume_size=100
+							.volume_size=size
 						},
 						.device_name="/dev/sda1"
 					}
 				},
 				.nb_block_device_mappings=1
 			}) < 0) {
-		/* osc_deinit_str(&out); */
-
-		/*  /\* try to destroy volume *\/ */
-		/* osc_delete_volume(&e, &out, &(struct osc_delete_volume_arg) { */
-		/* 		.volume_id=volume_id */
-		/* 	}); */
 		fprintf(stderr, "ouin ouin, can't make VMs\n");
 		return 1;
 	}
