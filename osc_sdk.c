@@ -44,6 +44,8 @@
 #define AK_SIZE 20
 #define SK_SIZE 40
 
+#ifdef WITH_DESCRIPTION
+
 static const char *calls_name[] = {
 	"UpdateVpnConnection",
 	"UpdateVolume",
@@ -224,355 +226,2124 @@ static const char *calls_name[] = {
 };
 
 static const char *calls_descriptions[] = {
-	"Modifies the specified attributes of a VPN connection."
+	"Usage: oapi-cli UpdateVpnConnection [options]\n" "Modifies the specified attributes of a VPN connection.\n" "\nRequired Argument: VpnConnectionId \n"
 ,
-	"Modifies the specified attributes of a volume. Cold volumes are volumes that are attached to stopped VMs or that are detached. Hot volumes are volumes that are attached to running VMs.\n\n**[NOTE]**\nWhen the modification is not instantaneous, the response displays the previous value. You can use the [ReadVolumes](#readvolumes) method to see the new value."
+	"Usage: oapi-cli UpdateVolume [options]\n" "Modifies the specified attributes of a volume. Cold volumes are volumes that \n" "are attached to stopped VMs or that are detached. Hot volumes are volumes that \n" "are attached to running VMs.\n\n**[NOTE]**\nWhen the modification is not \n" "instantaneous, the response displays the previous value. You can use the \n" "[ReadVolumes](#readvolumes) method to see the new value.\n" "\nRequired Argument: VolumeId \n"
 ,
-	"Modifies the specified attributes of a virtual machine (VM).\nYou must stop the VM before modifying the following attributes:\n* `NestedVirtualization`\n* `Performance`\n* `UserData`\n* `VmType`"
+	"Usage: oapi-cli UpdateVm [options]\n" "Modifies the specified attributes of a virtual machine (VM).\nYou must stop the \n" "VM before modifying the following attributes:\n* `NestedVirtualization`\n* \n" "`Performance`\n* `UserData`\n* `VmType`\n" "\nRequired Argument: VmId \n"
 ,
-	"Modifies the specified attribute of a Subnet."
+	"Usage: oapi-cli UpdateSubnet [options]\n" "Modifies the specified attribute of a Subnet.\n" "\nRequired Argument: SubnetId, MapPublicIpOnLaunch \n"
 ,
-	"Modifies the permissions for a specified snapshot.\nYou can add or remove permissions for specified account IDs or groups. You can share a snapshot with a user that is in the same Region. The user can create a copy of the snapshot you shared, obtaining all the rights for the copy of the snapshot."
+	"Usage: oapi-cli UpdateSnapshot [options]\n" "Modifies the permissions for a specified snapshot.\nYou can add or remove \n" "permissions for specified account IDs or groups. You can share a snapshot with \n" "a user that is in the same Region. The user can create a copy of the snapshot \n" "you shared, obtaining all the rights for the copy of the snapshot.\n" "\nRequired Argument: SnapshotId, PermissionsToCreateVolume \n"
 ,
-	"Modifies the name and/or the path of a specified server certificate."
+	"Usage: oapi-cli UpdateServerCertificate [options]\n" "Modifies the name and/or the path of a specified server certificate.\n" "\nRequired Argument: Name \n"
 ,
-	"Configures the propagation of routes to a specified route table of a Net by a virtual gateway."
+	"Usage: oapi-cli UpdateRoutePropagation [options]\n" "Configures the propagation of routes to a specified route table of a Net by a \n" "virtual gateway.\n" "\nRequired Argument: Enable, RouteTableId, VirtualGatewayId \n"
 ,
-	"Replaces an existing route within a route table in a Net.\nYou must specify one of the following elements as the target:\n\n* Net peering connection\n* NAT virtual machine (VM)\n* Internet service\n* Virtual gateway\n* NAT service\n* Network interface card (NIC)\n\nThe routing algorithm is based on the most specific match."
+	"Usage: oapi-cli UpdateRoute [options]\n" "Replaces an existing route within a route table in a Net.\nYou must specify one \n" "of the following elements as the target:\n\n* Net peering connection\n* NAT \n" "virtual machine (VM)\n* Internet service\n* Virtual gateway\n* NAT service\n* \n" "Network interface card (NIC)\n\nThe routing algorithm is based on the most \n" "specific match.\n" "\nRequired Argument: RouteTableId, DestinationIpRange \n"
 ,
-	"Modifies the specified network interface card (NIC). You can specify only one attribute at a time."
+	"Usage: oapi-cli UpdateNic [options]\n" "Modifies the specified network interface card (NIC). You can specify only one \n" "attribute at a time.\n" "\nRequired Argument: NicId \n"
 ,
-	"Modifies the attributes of a Net access point.\nThis action enables you to add or remove route tables associated with the specified Net access point."
+	"Usage: oapi-cli UpdateNetAccessPoint [options]\n" "Modifies the attributes of a Net access point.\nThis action enables you to add \n" "or remove route tables associated with the specified Net access point.\n" "\nRequired Argument: NetAccessPointId \n"
 ,
-	"Associates a DHCP options set with a specified Net."
+	"Usage: oapi-cli UpdateNet [options]\n" "Associates a DHCP options set with a specified Net.\n" "\nRequired Argument: DhcpOptionsSetId, NetId \n"
 ,
-	"Modifies the specified attribute of a load balancer. You can specify only one attribute at a time.\n\nYou can set a new SSL certificate to an SSL or HTTPS listener of a load balancer.\nThis certificate replaces any certificate used on the same load balancer and port.\n\nYou can also replace the currently enabled policy for the load balancer with another one.\nIf the `PolicyNames` parameter is empty, the currently enabled policy is disabled."
+	"Usage: oapi-cli UpdateLoadBalancer [options]\n" "Modifies the specified attribute of a load balancer. You can specify only one \n" "attribute at a time.\n\nYou can set a new SSL certificate to an SSL or HTTPS \n" "listener of a load balancer.\nThis certificate replaces any certificate used on \n" "the same load balancer and port.\n\nYou can also replace the currently enabled \n" "policy for the load balancer with another one.\nIf the `PolicyNames` parameter \n" "is empty, the currently enabled policy is disabled.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Updates the pattern of the listener rule.\nThis call updates the pattern matching algorithm for incoming traffic."
+	"Usage: oapi-cli UpdateListenerRule [options]\n" "Updates the pattern of the listener rule.\nThis call updates the pattern \n" "matching algorithm for incoming traffic.\n" "\nRequired Argument: ListenerRuleName \n"
 ,
-	"Modifies the specified attribute of an OUTSCALE machine image (OMI).\nYou can specify only one attribute at a time. You can modify the permissions to access the OMI by adding or removing account IDs or groups. You can share an OMI with a user that is in the same Region. The user can create a copy of the OMI you shared, obtaining all the rights for the copy of the OMI. For more information, see [CreateImage](#createimage)."
+	"Usage: oapi-cli UpdateImage [options]\n" "Modifies the specified attribute of an OUTSCALE machine image (OMI).\nYou can \n" "specify only one attribute at a time. You can modify the permissions to access \n" "the OMI by adding or removing account IDs or groups. You can share an OMI with \n" "a user that is in the same Region. The user can create a copy of the OMI you \n" "shared, obtaining all the rights for the copy of the OMI. For more information, \n" "see [CreateImage](#createimage).\n" "\nRequired Argument: ImageId, PermissionsToLaunch \n"
 ,
-	"Modifies a flexible GPU (fGPU) behavior."
+	"Usage: oapi-cli UpdateFlexibleGpu [options]\n" "Modifies a flexible GPU (fGPU) behavior.\n" "\nRequired Argument: FlexibleGpuId \n"
 ,
-	"Modifies the maximum transmission unit (MTU) of a DirectLink interface."
+	"Usage: oapi-cli UpdateDirectLinkInterface [options]\n" "Modifies the maximum transmission unit (MTU) of a DirectLink interface.\n" "\nRequired Argument: DirectLinkInterfaceId, Mtu \n"
 ,
-	"Modifies the specified attribute of a Client Certificate Authority (CA)."
+	"Usage: oapi-cli UpdateCa [options]\n" "Modifies the specified attribute of a Client Certificate Authority (CA).\n" "\nRequired Argument: CaId \n"
 ,
-	"Modifies a specified API access rule.\n\n**[NOTE]** \nThe new rule you specify fully replaces the old rule. Therefore, for a parameter that is not specified, any previously set value is deleted."
+	"Usage: oapi-cli UpdateApiAccessRule [options]\n" "Modifies a specified API access rule.\n\n**[NOTE]** \nThe new rule you specify \n" "fully replaces the old rule. Therefore, for a parameter that is not specified, \n" "any previously set value is deleted.\n" "\nRequired Argument: ApiAccessRuleId \n"
 ,
-	"Updates the API access policy of your account.\n\n**[NOTE]**\nOnly one API access policy can be associated with your account."
+	"Usage: oapi-cli UpdateApiAccessPolicy [options]\n" "Updates the API access policy of your account.\n\n**[NOTE]**\nOnly one API \n" "access policy can be associated with your account.\n" "\nRequired Argument: MaxAccessKeyExpirationSeconds, RequireTrustedEnv \n"
 ,
-	"Updates the account information for the account that sends the request."
+	"Usage: oapi-cli UpdateAccount [options]\n" "Updates the account information for the account that sends the request.\n" "\nRequired Argument: none \n"
 ,
-	"Modifies the attributes of the specified access key of your account.\n\n**[NOTE]**\nTo protect against brute force attacks, the number of requests allowed for this method in a given time period is limited."
+	"Usage: oapi-cli UpdateAccessKey [options]\n" "Modifies the attributes of the specified access key of your \n" "account.\n\n**[NOTE]**\nTo protect against brute force attacks, the number of \n" "requests allowed for this method in a given time period is limited.\n" "\nRequired Argument: AccessKeyId, State \n"
 ,
-	"Detaches a Block Storage Unit (BSU) volume from a virtual machine (VM).\nTo detach the root device of a VM, this VM must be stopped."
+	"Usage: oapi-cli UnlinkVolume [options]\n" "Detaches a Block Storage Unit (BSU) volume from a virtual machine (VM).\nTo \n" "detach the root device of a VM, this VM must be stopped.\n" "\nRequired Argument: VolumeId \n"
 ,
-	"Detaches a virtual gateway from a Net.\nYou must wait until the virtual gateway is in the detached state before you can attach another Net to it or delete the Net it was previously attached to."
+	"Usage: oapi-cli UnlinkVirtualGateway [options]\n" "Detaches a virtual gateway from a Net.\nYou must wait until the virtual gateway \n" "is in the detached state before you can attach another Net to it or delete the \n" "Net it was previously attached to.\n" "\nRequired Argument: NetId, VirtualGatewayId \n"
 ,
-	"Disassociates a Subnet from a route table.\nAfter disassociation, the Subnet can no longer use the routes in this route table, but uses the routes in the main route table of the Net instead."
+	"Usage: oapi-cli UnlinkRouteTable [options]\n" "Disassociates a Subnet from a route table.\nAfter disassociation, the Subnet \n" "can no longer use the routes in this route table, but uses the routes in the \n" "main route table of the Net instead.\n" "\nRequired Argument: LinkRouteTableId \n"
 ,
-	"Disassociates a public IP from the virtual machine (VM) or network interface card (NIC) it is associated with.\n\n**[NOTE]**\nTo disassociate the public IP from a NAT service, you need to delete the NAT service. For more information, see the [DeleteNatService](#deletenatservice) method."
+	"Usage: oapi-cli UnlinkPublicIp [options]\n" "Disassociates a public IP from the virtual machine (VM) or network interface \n" "card (NIC) it is associated with.\n\n**[NOTE]**\nTo disassociate the public IP \n" "from a NAT service, you need to delete the NAT service. For more information, \n" "see the [DeleteNatService](#deletenatservice) method.\n" "\nRequired Argument: none \n"
 ,
-	"Unassigns one or more secondary private IPs from a network interface card (NIC)."
+	"Usage: oapi-cli UnlinkPrivateIps [options]\n" "Unassigns one or more secondary private IPs from a network interface card (NIC).\n" "\nRequired Argument: NicId, PrivateIps \n"
 ,
-	"Detaches a network interface card (NIC) from a virtual machine (VM).\nThe primary NIC cannot be detached."
+	"Usage: oapi-cli UnlinkNic [options]\n" "Detaches a network interface card (NIC) from a virtual machine (VM).\nThe \n" "primary NIC cannot be detached.\n" "\nRequired Argument: LinkNicId \n"
 ,
-	"Detaches one or more back-end virtual machines (VMs) from a load balancer. You need to specify at least the `BackendIps` or the `BackendVmIds` parameter."
+	"Usage: oapi-cli UnlinkLoadBalancerBackendMachines [options]\n" "Detaches one or more back-end virtual machines (VMs) from a load balancer. You \n" "need to specify at least the `BackendIps` or the `BackendVmIds` parameter.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Detaches an Internet service from a Net.\nThis action disables and detaches an Internet service from a Net. The Net must not contain virtual machines (VMs) using public IPs nor internet-facing load balancers."
+	"Usage: oapi-cli UnlinkInternetService [options]\n" "Detaches an Internet service from a Net.\nThis action disables and detaches an \n" "Internet service from a Net. The Net must not contain virtual machines (VMs) \n" "using public IPs nor internet-facing load balancers.\n" "\nRequired Argument: InternetServiceId, NetId \n"
 ,
-	"Detaches a flexible GPU (fGPU) from a virtual machine (VM).\nThe fGPU is in the `detaching` state until the VM is stopped, after which it becomes available for allocation again."
+	"Usage: oapi-cli UnlinkFlexibleGpu [options]\n" "Detaches a flexible GPU (fGPU) from a virtual machine (VM).\nThe fGPU is in the \n" "`detaching` state until the VM is stopped, after which it becomes available for \n" "allocation again.\n" "\nRequired Argument: FlexibleGpuId \n"
 ,
-	"Stops one or more running virtual machines (VMs).\nYou can stop only VMs that are valid and that belong to you. Data stored in the VM RAM is lost."
+	"Usage: oapi-cli StopVms [options]\n" "Stops one or more running virtual machines (VMs).\nYou can stop only VMs that \n" "are valid and that belong to you. Data stored in the VM RAM is lost.\n" "\nRequired Argument: VmIds \n"
 ,
-	"Start one or more virtual machines (VMs).\nYou can start only VMs that are valid and that belong to you."
+	"Usage: oapi-cli StartVms [options]\n" "Start one or more virtual machines (VMs).\nYou can start only VMs that are \n" "valid and that belong to you.\n" "\nRequired Argument: VmIds \n"
 ,
-	"Sends an email to the email address provided for the account with a token to reset your password.\nYou need to provide this token when updating the account password using the ResetAccountPassword method.\n**[NOTE]**\nTo protect against brute force attacks, the number of requests allowed for this method in a given time period is limited."
+	"Usage: oapi-cli SendResetPasswordEmail [options]\n" "Sends an email to the email address provided for the account with a token to \n" "reset your password.\nYou need to provide this token when updating the account \n" "password using the ResetAccountPassword method.\n**[NOTE]**\nTo protect against \n" "brute force attacks, the number of requests allowed for this method in a given \n" "time period is limited.\n" "\nRequired Argument: Email \n"
 ,
-	"Replaces the account password with the new one you provide.\nYou must also provide the token you received by email when asking for a password reset using the SendResetPasswordEmail method.\nPassword strength is tested through heuristic algorithms. For more information, see the [zxcvbn GitHub](https://github.com/dropbox/zxcvbn).\n**[NOTE]**\nTo protect against brute force attacks, the number of requests allowed for this method in a given time period is limited."
+	"Usage: oapi-cli ResetAccountPassword [options]\n" "Replaces the account password with the new one you provide.\nYou must also \n" "provide the token you received by email when asking for a password reset using \n" "the SendResetPasswordEmail method.\nPassword strength is tested through \n" "heuristic algorithms. For more information, see the [zxcvbn \n" "GitHub](https://github.com/dropbox/zxcvbn).\n**[NOTE]**\nTo protect against \n" "brute force attacks, the number of requests allowed for this method in a given \n" "time period is limited.\n" "\nRequired Argument: Password, Token \n"
 ,
-	"Rejects a Net peering connection request.\nThe Net peering connection must be in the `pending-acceptance` state to be rejected. The rejected Net peering connection is then in the `rejected` state."
+	"Usage: oapi-cli RejectNetPeering [options]\n" "Rejects a Net peering connection request.\nThe Net peering connection must be \n" "in the `pending-acceptance` state to be rejected. The rejected Net peering \n" "connection is then in the `rejected` state.\n" "\nRequired Argument: NetPeeringId \n"
 ,
-	"Registers one or more virtual machines (VMs) with a specified load balancer.\nThe VMs can be in different Subnets and different Subregions than the load balancer, as long as the VMs and load balancers are all in the public Cloud or all in the same Net. It may take a little time for a VM to be registered with the load balancer. Once the VM is registered with a load balancer, it receives traffic and requests from this load balancer and is called a back-end VM."
+	"Usage: oapi-cli RegisterVmsInLoadBalancer [options]\n" "Registers one or more virtual machines (VMs) with a specified load \n" "balancer.\nThe VMs can be in different Subnets and different Subregions than \n" "the load balancer, as long as the VMs and load balancers are all in the public \n" "Cloud or all in the same Net. It may take a little time for a VM to be \n" "registered with the load balancer. Once the VM is registered with a load \n" "balancer, it receives traffic and requests from this load balancer and is \n" "called a back-end VM.\n" "\nRequired Argument: BackendVmIds, LoadBalancerName \n"
 ,
-	"Reboots one or more virtual machines (VMs).\nThis operation sends a reboot request to one or more specified VMs. This is an asynchronous action that queues this reboot request. This action only reboots VMs that are valid and that belong to you."
+	"Usage: oapi-cli RebootVms [options]\n" "Reboots one or more virtual machines (VMs).\nThis operation sends a reboot \n" "request to one or more specified VMs. This is an asynchronous action that \n" "queues this reboot request. This action only reboots VMs that are valid and \n" "that belong to you.\n" "\nRequired Argument: VmIds \n"
 ,
-	"Lists one or more VPN connections.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadVpnConnections [options]\n" "Lists one or more VPN connections.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more specified Block Storage Unit (BSU) volumes.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadVolumes [options]\n" "Lists one or more specified Block Storage Unit (BSU) volumes.\n\n**[NOTE]**\nIf \n" "you exceed the number of identical requests allowed for a configured time \n" "period, the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists the status of one or more virtual machines (VMs).\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadVmsState [options]\n" "Lists the status of one or more virtual machines (VMs).\n\n**[NOTE]**\nIf you \n" "exceed the number of identical requests allowed for a configured time period, \n" "the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists the state of one or more back-end virtual machines (VMs) registered with a specified load balancer.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned."
+	"Usage: oapi-cli ReadVmsHealth [options]\n" "Lists the state of one or more back-end virtual machines (VMs) registered with \n" "a specified load balancer.\n\n**[NOTE]**\nIf you exceed the number of identical \n" "requests allowed for a configured time period, the `Throttling` error message \n" "is returned.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Lists one or more of your virtual machines (VMs).\nIf you provide one or more VM IDs, this action returns a description for all of these VMs. If you do not provide any VM ID, this action returns a description for all of the VMs that belong to you. If you provide an invalid VM ID, an error is returned. If you provide the ID of a VM that does not belong to you, the description of this VM is not included in the response. The refresh interval for data returned by this action is one hour, meaning that a terminated VM may appear in the response.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadVms [options]\n" "Lists one or more of your virtual machines (VMs).\nIf you provide one or more \n" "VM IDs, this action returns a description for all of these VMs. If you do not \n" "provide any VM ID, this action returns a description for all of the VMs that \n" "belong to you. If you provide an invalid VM ID, an error is returned. If you \n" "provide the ID of a VM that does not belong to you, the description of this VM \n" "is not included in the response. The refresh interval for data returned by this \n" "action is one hour, meaning that a terminated VM may appear in the \n" "response.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed \n" "for a configured time period, the `RequestLimitExceeded` error message is \n" "returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more predefined VM types.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadVmTypes [options]\n" "Lists one or more predefined VM types.\n\n**[NOTE]**\nIf you exceed the number \n" "of identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more virtual gateways.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadVirtualGateways [options]\n" "Lists one or more virtual gateways.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more tags for your resources.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadTags [options]\n" "Lists one or more tags for your resources.\n\n**[NOTE]**\nIf you exceed the \n" "number of identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more of the enabled Subregions that you can access in the current Region.\n\n**[NOTE]**\n- If you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned.\n- You can use this command to get information about Subregions only in a Region for which you have an account. Otherwise, the `AuthFailure` error message is returned."
+	"Usage: oapi-cli ReadSubregions [options]\n" "Lists one or more of the enabled Subregions that you can access in the current \n" "Region.\n\n**[NOTE]**\n- If you exceed the number of identical requests allowed \n" "for a configured time period, the `RequestLimitExceeded` error message is \n" "returned.\n- You can use this command to get information about Subregions only \n" "in a Region for which you have an account. Otherwise, the `AuthFailure` error \n" "message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more of your Subnets.\nIf you do not specify any Subnet ID, this action describes all of your Subnets.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadSubnets [options]\n" "Lists one or more of your Subnets.\nIf you do not specify any Subnet ID, this \n" "action describes all of your Subnets.\n\n**[NOTE]**\nIf you exceed the number \n" "of identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more snapshots that are available to you and the permissions to create volumes from them.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadSnapshots [options]\n" "Lists one or more snapshots that are available to you and the permissions to \n" "create volumes from them.\n\n**[NOTE]**\nIf you exceed the number of identical \n" "requests allowed for a configured time period, the `RequestLimitExceeded` error \n" "message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more snapshot export tasks.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadSnapshotExportTasks [options]\n" "Lists one or more snapshot export tasks.\n\n**[NOTE]**\nIf you exceed the \n" "number of identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists your server certificates."
+	"Usage: oapi-cli ReadServerCertificates [options]\n" "Lists your server certificates.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more security groups.\nYou can specify either the name of the security groups or their IDs.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadSecurityGroups [options]\n" "Lists one or more security groups.\nYou can specify either the name of the \n" "security groups or their IDs.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists information about the specified access key of your account, including its secret key."
+	"Usage: oapi-cli ReadSecretAccessKey [options]\n" "Lists information about the specified access key of your account, including its \n" "secret key.\n" "\nRequired Argument: AccessKeyId \n"
 ,
-	"Lists one or more of your route tables.\nIn your Net, each Subnet must be associated with a route table. If a Subnet is not explicitly associated with a route table, it is implicitly associated with the main route table of the Net.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadRouteTables [options]\n" "Lists one or more of your route tables.\nIn your Net, each Subnet must be \n" "associated with a route table. If a Subnet is not explicitly associated with a \n" "route table, it is implicitly associated with the main route table of the \n" "Net.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for \n" "a configured time period, the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more Regions of the OUTSCALE Cloud."
+	"Usage: oapi-cli ReadRegions [options]\n" "Lists one or more Regions of the OUTSCALE Cloud.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more of your quotas.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadQuotas [options]\n" "Lists one or more of your quotas.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more public IPs allocated to your account.\nBy default, this action returns information about all your public IPs: available or associated with a virtual machine (VM), a network interface card (NIC) or a NAT service.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadPublicIps [options]\n" "Lists one or more public IPs allocated to your account.\nBy default, this \n" "action returns information about all your public IPs: available or associated \n" "with a virtual machine (VM), a network interface card (NIC) or a NAT \n" "service.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed \n" "for a configured time period, the `RequestLimitExceeded` error message is \n" "returned.\n" "\nRequired Argument: none \n"
 ,
-	"Gets the public IPv4 addresses in CIDR notation for the Region specified in the endpoint of the request. For more information, see [Regions, Endpoints and Availability Zones Reference](https://docs.outscale.com/en/userguide/Regions-Endpoints-and-Availability-Zones-Reference.html)."
+	"Usage: oapi-cli ReadPublicIpRanges [options]\n" "Gets the public IPv4 addresses in CIDR notation for the Region specified in the \n" "endpoint of the request. For more information, see [Regions, Endpoints and \n" "Availability Zones \n" "Reference](https://docs.outscale.com/en/userguide/Regions-Endpoints-and-Availabi\n" "lity-Zones-Reference.html).\n" "\nRequired Argument: none \n"
 ,
-	"Returns the price list of OUTSCALE products and services for the Region specified in the endpoint of the request. For more information, see [Regions, Endpoints and Availability Zones Reference](https://docs.outscale.com/en/userguide/Regions-Endpoints-and-Availability-Zones-Reference.html)."
+	"Usage: oapi-cli ReadPublicCatalog [options]\n" "Returns the price list of OUTSCALE products and services for the Region \n" "specified in the endpoint of the request. For more information, see [Regions, \n" "Endpoints and Availability Zones \n" "Reference](https://docs.outscale.com/en/userguide/Regions-Endpoints-and-Availabi\n" "lity-Zones-Reference.html).\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more product types.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadProductTypes [options]\n" "Lists one or more product types.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more network interface cards (NICs).\nA NIC is a virtual network interface that you can attach to a virtual machine (VM) in a Net.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadNics [options]\n" "Lists one or more network interface cards (NICs).\nA NIC is a virtual network \n" "interface that you can attach to a virtual machine (VM) in a \n" "Net.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for \n" "a configured time period, the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more Nets.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadNets [options]\n" "Lists one or more Nets.\n\n**[NOTE]**\nIf you exceed the number of identical \n" "requests allowed for a configured time period, the `RequestLimitExceeded` error \n" "message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more peering connections between two Nets.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadNetPeerings [options]\n" "Lists one or more peering connections between two Nets.\n\n**[NOTE]**\nIf you \n" "exceed the number of identical requests allowed for a configured time period, \n" "the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more Net access points.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadNetAccessPoints [options]\n" "Lists one or more Net access points.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists OUTSCALE services available to create Net access points.\nFor more information, see [CreateNetAccessPoint](#createnetaccesspoint).\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadNetAccessPointServices [options]\n" "Lists OUTSCALE services available to create Net access points.\nFor more \n" "information, see \n" "[CreateNetAccessPoint](#createnetaccesspoint).\n\n**[NOTE]**\nIf you exceed the \n" "number of identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more network address translation (NAT) services.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadNatServices [options]\n" "Lists one or more network address translation (NAT) services.\n\n**[NOTE]**\nIf \n" "you exceed the number of identical requests allowed for a configured time \n" "period, the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists the locations, corresponding to datacenters, where you can set up a DirectLink.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned."
+	"Usage: oapi-cli ReadLocations [options]\n" "Lists the locations, corresponding to datacenters, where you can set up a \n" "DirectLink.\n\n**[NOTE]**\nIf you exceed the number of identical requests \n" "allowed for a configured time period, the `Throttling` error message is \n" "returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more load balancers and their attributes.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadLoadBalancers [options]\n" "Lists one or more load balancers and their attributes.\n\n**[NOTE]**\nIf you \n" "exceed the number of identical requests allowed for a configured time period, \n" "the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists the tags associated with one or more specified load balancers.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned."
+	"Usage: oapi-cli ReadLoadBalancerTags [options]\n" "Lists the tags associated with one or more specified load \n" "balancers.\n\n**[NOTE]**\nIf you exceed the number of identical requests \n" "allowed for a configured time period, the `Throttling` error message is \n" "returned.\n" "\nRequired Argument: LoadBalancerNames \n"
 ,
-	"Lists one or more listener rules. By default, this action returns the full list of listener rules for the account."
+	"Usage: oapi-cli ReadListenerRules [options]\n" "Lists one or more listener rules. By default, this action returns the full list \n" "of listener rules for the account.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more of your keypairs.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadKeypairs [options]\n" "Lists one or more of your keypairs.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more of your Internet services.\nAn Internet service enables your virtual machines (VMs) launched in a Net to connect to the Internet. By default, a Net includes an Internet service, and each Subnet is public. Every VM launched within a default Subnet has a private IP and a public IP.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadInternetServices [options]\n" "Lists one or more of your Internet services.\nAn Internet service enables your \n" "virtual machines (VMs) launched in a Net to connect to the Internet. By \n" "default, a Net includes an Internet service, and each Subnet is public. Every \n" "VM launched within a default Subnet has a private IP and a public \n" "IP.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a \n" "configured time period, the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more OUTSCALE machine images (OMIs) you can use.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadImages [options]\n" "Lists one or more OUTSCALE machine images (OMIs) you can use.\n\n**[NOTE]**\nIf \n" "you exceed the number of identical requests allowed for a configured time \n" "period, the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more image export tasks.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadImageExportTasks [options]\n" "Lists one or more image export tasks.\n\n**[NOTE]**\nIf you exceed the number \n" "of identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more flexible GPUs (fGPUs) allocated to your account.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadFlexibleGpus [options]\n" "Lists one or more flexible GPUs (fGPUs) allocated to your \n" "account.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed \n" "for a configured time period, the `RequestLimitExceeded` error message is \n" "returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists all flexible GPUs available in the public catalog.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadFlexibleGpuCatalog [options]\n" "Lists all flexible GPUs available in the public catalog.\n\n**[NOTE]**\nIf you \n" "exceed the number of identical requests allowed for a configured time period, \n" "the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists all DirectLinks in the Region.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned."
+	"Usage: oapi-cli ReadDirectLinks [options]\n" "Lists all DirectLinks in the Region.\n\n**[NOTE]**\nIf you exceed the number of \n" "identical requests allowed for a configured time period, the `Throttling` error \n" "message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more of your DirectLink interfaces.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned."
+	"Usage: oapi-cli ReadDirectLinkInterfaces [options]\n" "Lists one or more of your DirectLink interfaces.\n\n**[NOTE]**\nIf you exceed \n" "the number of identical requests allowed for a configured time period, the \n" "`Throttling` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Gets information about the content of one or more DHCP options sets.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadDhcpOptions [options]\n" "Gets information about the content of one or more DHCP options \n" "sets.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for \n" "a configured time period, the `RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Gets information about the consumption of your account for each billable resource within the specified time period.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned."
+	"Usage: oapi-cli ReadConsumptionAccount [options]\n" "Gets information about the consumption of your account for each billable \n" "resource within the specified time period.\n\n**[NOTE]**\nIf you exceed the \n" "number of identical requests allowed for a configured time period, the \n" "`Throttling` error message is returned.\n" "\nRequired Argument: FromDate, ToDate \n"
 ,
-	"Gets the console output for a virtual machine (VM). This console provides the most recent 64 KiB output.\n\n**[NOTE]**\nOn Windows VMs, the console is handled only on the first boot. It returns no output after the first boot."
+	"Usage: oapi-cli ReadConsoleOutput [options]\n" "Gets the console output for a virtual machine (VM). This console provides the \n" "most recent 64 KiB output.\n\n**[NOTE]**\nOn Windows VMs, the console is \n" "handled only on the first boot. It returns no output after the first boot.\n" "\nRequired Argument: VmId \n"
 ,
-	"Lists one or more of your client gateways.\n\n**[NOTE]**\nIf you exceed the number of identical requests allowed for a configured time period, the `RequestLimitExceeded` error message is returned."
+	"Usage: oapi-cli ReadClientGateways [options]\n" "Lists one or more of your client gateways.\n\n**[NOTE]**\nIf you exceed the \n" "number of identical requests allowed for a configured time period, the \n" "`RequestLimitExceeded` error message is returned.\n" "\nRequired Argument: none \n"
 ,
-	"Returns the price list of OUTSCALE products and services for the current Region."
+	"Usage: oapi-cli ReadCatalog [options]\n" "Returns the price list of OUTSCALE products and services for the current Region.\n" "\nRequired Argument: none \n"
 ,
-	"Gets information about one or more of your Client Certificate Authorities (CAs)."
+	"Usage: oapi-cli ReadCas [options]\n" "Gets information about one or more of your Client Certificate Authorities (CAs).\n" "\nRequired Argument: none \n"
 ,
-	"Lists the logs of the API calls you have performed with this account. For more information, see [About OUTSCALE Monitoring Services (OMS)](https://docs.outscale.com/en/userguide/About-OUTSCALE-Monitoring-Services-(OMS).html).\n\n**[NOTE]**\nPast logs are accessible for up to 32 days.\nBy default, the retrieved interval is 48 hours. If neither of the `QueryDateBefore` nor `QueryDateAfter` parameters are specified, logs from the past 48 hours are retrieved. If you only specify one of two, logs are retrieved from a 2-day interval based on the date you provided. To retrieve logs beyond a 2-day interval, specify both parameters."
+	"Usage: oapi-cli ReadApiLogs [options]\n" "Lists the logs of the API calls you have performed with this account. For more \n" "information, see [About OUTSCALE Monitoring Services \n" "(OMS)](https://docs.outscale.com/en/userguide/About-OUTSCALE-Monitoring-Services\n" "-(OMS).html).\n\n**[NOTE]**\nPast logs are accessible for up to 32 days.\nBy \n" "default, the retrieved interval is 48 hours. If neither of the \n" "`QueryDateBefore` nor `QueryDateAfter` parameters are specified, logs from the \n" "past 48 hours are retrieved. If you only specify one of two, logs are retrieved \n" "from a 2-day interval based on the date you provided. To retrieve logs beyond a \n" "2-day interval, specify both parameters.\n" "\nRequired Argument: none \n"
 ,
-	"Lists one or more API access rules."
+	"Usage: oapi-cli ReadApiAccessRules [options]\n" "Lists one or more API access rules.\n" "\nRequired Argument: none \n"
 ,
-	"Gets information about the API access policy of your account."
+	"Usage: oapi-cli ReadApiAccessPolicy [options]\n" "Gets information about the API access policy of your account.\n" "\nRequired Argument: none \n"
 ,
-	"Gets the administrator password for a Windows running virtual machine (VM).\nThe administrator password is encrypted using the keypair you specified when launching the VM.\n\n**[NOTE]**\nThe administrator password is generated only on the first boot of the Windows VM. It is not returned after the first boot."
+	"Usage: oapi-cli ReadAdminPassword [options]\n" "Gets the administrator password for a Windows running virtual machine \n" "(VM).\nThe administrator password is encrypted using the keypair you specified \n" "when launching the VM.\n\n**[NOTE]**\nThe administrator password is generated \n" "only on the first boot of the Windows VM. It is not returned after the first \n" "boot.\n" "\nRequired Argument: VmId \n"
 ,
-	"Gets information about the account that sent the request."
+	"Usage: oapi-cli ReadAccounts [options]\n" "Gets information about the account that sent the request.\n" "\nRequired Argument: none \n"
 ,
-	"Lists the access key IDs of your account."
+	"Usage: oapi-cli ReadAccessKeys [options]\n" "Lists the access key IDs of your account.\n" "\nRequired Argument: none \n"
 ,
-	"Attaches a Block Storage Unit (BSU) volume to a virtual machine (VM).\nThe volume and the VM must be in the same Subregion. The VM can be running or stopped. The volume is attached to the specified VM device."
+	"Usage: oapi-cli LinkVolume [options]\n" "Attaches a Block Storage Unit (BSU) volume to a virtual machine (VM).\nThe \n" "volume and the VM must be in the same Subregion. The VM can be running or \n" "stopped. The volume is attached to the specified VM device.\n" "\nRequired Argument: DeviceName, VmId, VolumeId \n"
 ,
-	"Attaches a virtual gateway to a Net."
+	"Usage: oapi-cli LinkVirtualGateway [options]\n" "Attaches a virtual gateway to a Net.\n" "\nRequired Argument: NetId, VirtualGatewayId \n"
 ,
-	"Associates a Subnet with a route table.\nThe Subnet and the route table must be in the same Net. The traffic is routed according to the route table defined within this Net. You can associate a route table with several Subnets."
+	"Usage: oapi-cli LinkRouteTable [options]\n" "Associates a Subnet with a route table.\nThe Subnet and the route table must be \n" "in the same Net. The traffic is routed according to the route table defined \n" "within this Net. You can associate a route table with several Subnets.\n" "\nRequired Argument: RouteTableId, SubnetId \n"
 ,
-	"Associates a public IP with a virtual machine (VM) or a network interface card (NIC), in the public Cloud or in a Net. You can associate a public IP with only one VM or network interface at a time.\nTo associate a public IP in a Net, ensure that the Net has an Internet service attached. For more information, see the [LinkInternetService](#linkinternetservice) method.\nBy default, the public IP is disassociated every time you stop and start the VM. For a persistent association, you can add the `osc.fcu.eip.auto-attach` tag to the VM with the public IP as value. For more information, see the [CreateTags](#createtags) method.\n\n**[NOTE]**\nYou can associate a public IP with a network address translation (NAT) service only when creating the NAT service. To modify its public IP, you need to delete the NAT service and re-create it with the new public IP. For more information, see the [CreateNatService](#createnatservice) method."
+	"Usage: oapi-cli LinkPublicIp [options]\n" "Associates a public IP with a virtual machine (VM) or a network interface card \n" "(NIC), in the public Cloud or in a Net. You can associate a public IP with only \n" "one VM or network interface at a time.\nTo associate a public IP in a Net, \n" "ensure that the Net has an Internet service attached. For more information, see \n" "the [LinkInternetService](#linkinternetservice) method.\nBy default, the public \n" "IP is disassociated every time you stop and start the VM. For a persistent \n" "association, you can add the `osc.fcu.eip.auto-attach` tag to the VM with the \n" "public IP as value. For more information, see the [CreateTags](#createtags) \n" "method.\n\n**[NOTE]**\nYou can associate a public IP with a network address \n" "translation (NAT) service only when creating the NAT service. To modify its \n" "public IP, you need to delete the NAT service and re-create it with the new \n" "public IP. For more information, see the [CreateNatService](#createnatservice) \n" "method.\n" "\nRequired Argument: none \n"
 ,
-	"Assigns one or more secondary private IPs to a specified network interface card (NIC). This action is only available in a Net. The private IPs to be assigned can be added individually using the `PrivateIps` parameter, or you can specify the number of private IPs to be automatically chosen within the Subnet range using the `SecondaryPrivateIpCount` parameter. You can specify only one of these two parameters. If none of these parameters are specified, a private IP is chosen within the Subnet range."
+	"Usage: oapi-cli LinkPrivateIps [options]\n" "Assigns one or more secondary private IPs to a specified network interface card \n" "(NIC). This action is only available in a Net. The private IPs to be assigned \n" "can be added individually using the `PrivateIps` parameter, or you can specify \n" "the number of private IPs to be automatically chosen within the Subnet range \n" "using the `SecondaryPrivateIpCount` parameter. You can specify only one of \n" "these two parameters. If none of these parameters are specified, a private IP \n" "is chosen within the Subnet range.\n" "\nRequired Argument: NicId \n"
 ,
-	"Attaches a network interface card (NIC) to a virtual machine (VM).\nThe interface and the VM must be in the same Subregion. The VM can be either `running` or `stopped`. The NIC must be in the `available` state. For more information, see [Attaching an FNI to an Instance](https://docs.outscale.com/en/userguide/Attaching-an-FNI-to-an-Instance.html)."
+	"Usage: oapi-cli LinkNic [options]\n" "Attaches a network interface card (NIC) to a virtual machine (VM).\nThe \n" "interface and the VM must be in the same Subregion. The VM can be either \n" "`running` or `stopped`. The NIC must be in the `available` state. For more \n" "information, see [Attaching an FNI to an \n" "Instance](https://docs.outscale.com/en/userguide/Attaching-an-FNI-to-an-Instance\n" ".html).\n" "\nRequired Argument: DeviceNumber, VmId, NicId \n"
 ,
-	"Attaches one or more virtual machines (VMs) to a specified load balancer. You need to specify at least the `BackendIps` or the `BackendVmIds` parameter.\nThe VMs can be in different Subnets and different Subregions than the load balancer, as long as the VMs and load balancers are all in the public Cloud or all in the same Net. It may take a little time for a VM to be registered with the load balancer. Once the VM is registered with a load balancer, it receives traffic and requests from this load balancer and is called a back-end VM."
+	"Usage: oapi-cli LinkLoadBalancerBackendMachines [options]\n" "Attaches one or more virtual machines (VMs) to a specified load balancer. You \n" "need to specify at least the `BackendIps` or the `BackendVmIds` parameter.\nThe \n" "VMs can be in different Subnets and different Subregions than the load \n" "balancer, as long as the VMs and load balancers are all in the public Cloud or \n" "all in the same Net. It may take a little time for a VM to be registered with \n" "the load balancer. Once the VM is registered with a load balancer, it receives \n" "traffic and requests from this load balancer and is called a back-end VM.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Attaches an Internet service to a Net.\nTo enable the connection between the Internet and a Net, you must attach an Internet service to this Net."
+	"Usage: oapi-cli LinkInternetService [options]\n" "Attaches an Internet service to a Net.\nTo enable the connection between the \n" "Internet and a Net, you must attach an Internet service to this Net.\n" "\nRequired Argument: InternetServiceId, NetId \n"
 ,
-	"Attaches one of your allocated flexible GPUs (fGPUs) to one of your virtual machines (VMs).\nThe fGPU is in the `attaching` state until the VM is stopped, after which it becomes `attached`."
+	"Usage: oapi-cli LinkFlexibleGpu [options]\n" "Attaches one of your allocated flexible GPUs (fGPUs) to one of your virtual \n" "machines (VMs).\nThe fGPU is in the `attaching` state until the VM is stopped, \n" "after which it becomes `attached`.\n" "\nRequired Argument: FlexibleGpuId, VmId \n"
 ,
-	"Deregisters a specified virtual machine (VM) from a load balancer."
+	"Usage: oapi-cli DeregisterVmsInLoadBalancer [options]\n" "Deregisters a specified virtual machine (VM) from a load balancer.\n" "\nRequired Argument: BackendVmIds, LoadBalancerName \n"
 ,
-	"Deletes a static route to a VPN connection previously created using the CreateVpnConnectionRoute method."
+	"Usage: oapi-cli DeleteVpnConnectionRoute [options]\n" "Deletes a static route to a VPN connection previously created using the \n" "CreateVpnConnectionRoute method.\n" "\nRequired Argument: DestinationIpRange, VpnConnectionId \n"
 ,
-	"Deletes a specified VPN connection.\nIf you want to delete a Net and all its dependencies, we recommend to detach the virtual gateway from the Net and delete the Net before deleting the VPN connection. This enables you to delete the Net without waiting for the VPN connection to be deleted."
+	"Usage: oapi-cli DeleteVpnConnection [options]\n" "Deletes a specified VPN connection.\nIf you want to delete a Net and all its \n" "dependencies, we recommend to detach the virtual gateway from the Net and \n" "delete the Net before deleting the VPN connection. This enables you to delete \n" "the Net without waiting for the VPN connection to be deleted.\n" "\nRequired Argument: VpnConnectionId \n"
 ,
-	"Deletes a specified Block Storage Unit (BSU) volume.\nYou can delete available volumes only, that is, volumes that are not attached to a virtual machine (VM)."
+	"Usage: oapi-cli DeleteVolume [options]\n" "Deletes a specified Block Storage Unit (BSU) volume.\nYou can delete available \n" "volumes only, that is, volumes that are not attached to a virtual machine (VM).\n" "\nRequired Argument: VolumeId \n"
 ,
-	"Performs a shut down for at least one virtual machine (VM).\nThis operation is idempotent, that means that all calls succeed if you terminate a VM more than once."
+	"Usage: oapi-cli DeleteVms [options]\n" "Performs a shut down for at least one virtual machine (VM).\nThis operation is \n" "idempotent, that means that all calls succeed if you terminate a VM more than \n" "once.\n" "\nRequired Argument: VmIds \n"
 ,
-	"Deletes a specified virtual gateway.\nBefore deleting a virtual gateway, we recommend to detach it from the Net and delete the VPN connection."
+	"Usage: oapi-cli DeleteVirtualGateway [options]\n" "Deletes a specified virtual gateway.\nBefore deleting a virtual gateway, we \n" "recommend to detach it from the Net and delete the VPN connection.\n" "\nRequired Argument: VirtualGatewayId \n"
 ,
-	"Deletes one or more tags from the specified resources."
+	"Usage: oapi-cli DeleteTags [options]\n" "Deletes one or more tags from the specified resources.\n" "\nRequired Argument: ResourceIds, Tags \n"
 ,
-	"Deletes a specified Subnet.\nBefore deleting the Subnet, you need to delete all resources associated with the Subnet:\n\n* Virtual machines (VMs)\n* Network Interface Cards (NICs)\n* Network Address Translation (NAT) gateways\n* Load balancers"
+	"Usage: oapi-cli DeleteSubnet [options]\n" "Deletes a specified Subnet.\nBefore deleting the Subnet, you need to delete all \n" "resources associated with the Subnet:\n\n* Virtual machines (VMs)\n* Network \n" "Interface Cards (NICs)\n* Network Address Translation (NAT) gateways\n* Load \n" "balancers\n" "\nRequired Argument: SubnetId \n"
 ,
-	"Deletes a specified snapshot.\nYou cannot delete a snapshot that is currently used by an OUTSCALE machine image (OMI). To do so, you first need to delete the corresponding OMI. For more information, see the [DeleteImage](#deleteimage) method."
+	"Usage: oapi-cli DeleteSnapshot [options]\n" "Deletes a specified snapshot.\nYou cannot delete a snapshot that is currently \n" "used by an OUTSCALE machine image (OMI). To do so, you first need to delete the \n" "corresponding OMI. For more information, see the [DeleteImage](#deleteimage) \n" "method.\n" "\nRequired Argument: SnapshotId \n"
 ,
-	"Deletes a specified server certificate."
+	"Usage: oapi-cli DeleteServerCertificate [options]\n" "Deletes a specified server certificate.\n" "\nRequired Argument: Name \n"
 ,
-	"Deletes one or more inbound or outbound rules from a security group. For the rule to be deleted, the values specified in the deletion request must exactly match the value of the existing rule.\nIn case of TCP and UDP protocols, you have to indicate the destination port or range of ports. In case of ICMP protocol, you have to specify the ICMP type and code numbers.\nRules (IP permissions) consist of the protocol, IP range or source security group.\nTo remove outbound access to a destination security group, we recommend to use a set of IP permissions. We also recommend to specify the protocol in a set of IP permissions."
+	"Usage: oapi-cli DeleteSecurityGroupRule [options]\n" "Deletes one or more inbound or outbound rules from a security group. For the \n" "rule to be deleted, the values specified in the deletion request must exactly \n" "match the value of the existing rule.\nIn case of TCP and UDP protocols, you \n" "have to indicate the destination port or range of ports. In case of ICMP \n" "protocol, you have to specify the ICMP type and code numbers.\nRules (IP \n" "permissions) consist of the protocol, IP range or source security group.\nTo \n" "remove outbound access to a destination security group, we recommend to use a \n" "set of IP permissions. We also recommend to specify the protocol in a set of IP \n" "permissions.\n" "\nRequired Argument: SecurityGroupId, Flow \n"
 ,
-	"Deletes a specified security group.\nYou can specify either the name of the security group or its ID.\nThis action fails if the specified group is associated with a virtual machine (VM) or referenced by another security group."
+	"Usage: oapi-cli DeleteSecurityGroup [options]\n" "Deletes a specified security group.\nYou can specify either the name of the \n" "security group or its ID.\nThis action fails if the specified group is \n" "associated with a virtual machine (VM) or referenced by another security group.\n" "\nRequired Argument: none \n"
 ,
-	"Deletes a specified route table.\nBefore deleting a route table, you must disassociate it from any Subnet. You cannot delete the main route table."
+	"Usage: oapi-cli DeleteRouteTable [options]\n" "Deletes a specified route table.\nBefore deleting a route table, you must \n" "disassociate it from any Subnet. You cannot delete the main route table.\n" "\nRequired Argument: RouteTableId \n"
 ,
-	"Deletes a route from a specified route table."
+	"Usage: oapi-cli DeleteRoute [options]\n" "Deletes a route from a specified route table.\n" "\nRequired Argument: RouteTableId, DestinationIpRange \n"
 ,
-	"Releases a public IP.\nYou can release a public IP associated with your account. This address is released in the public IP pool and can be used by someone else. Before releasing a public IP, ensure you updated all your resources communicating with this address."
+	"Usage: oapi-cli DeletePublicIp [options]\n" "Releases a public IP.\nYou can release a public IP associated with your \n" "account. This address is released in the public IP pool and can be used by \n" "someone else. Before releasing a public IP, ensure you updated all your \n" "resources communicating with this address.\n" "\nRequired Argument: none \n"
 ,
-	"Deletes the specified network interface card (NIC).\nThe network interface must not be attached to any virtual machine (VM)."
+	"Usage: oapi-cli DeleteNic [options]\n" "Deletes the specified network interface card (NIC).\nThe network interface must \n" "not be attached to any virtual machine (VM).\n" "\nRequired Argument: NicId \n"
 ,
-	"Deletes a Net peering connection.\nIf the Net peering connection is in the `active` state, it can be deleted either by the owner of the requester Net or the owner of the peer Net.\nIf it is in the `pending-acceptance` state, it can be deleted only by the owner of the requester Net.\nIf it is in the `rejected`, `failed`, or `expired` states, it cannot be deleted."
+	"Usage: oapi-cli DeleteNetPeering [options]\n" "Deletes a Net peering connection.\nIf the Net peering connection is in the \n" "`active` state, it can be deleted either by the owner of the requester Net or \n" "the owner of the peer Net.\nIf it is in the `pending-acceptance` state, it can \n" "be deleted only by the owner of the requester Net.\nIf it is in the `rejected`, \n" "`failed`, or `expired` states, it cannot be deleted.\n" "\nRequired Argument: NetPeeringId \n"
 ,
-	"Deletes one or more Net access point.\nThis action also deletes the corresponding routes added to the route tables you specified for the Net access point."
+	"Usage: oapi-cli DeleteNetAccessPoint [options]\n" "Deletes one or more Net access point.\nThis action also deletes the \n" "corresponding routes added to the route tables you specified for the Net access \n" "point.\n" "\nRequired Argument: NetAccessPointId \n"
 ,
-	"Deletes a specified Net.\nBefore deleting the Net, you need to delete or detach all the resources associated with the Net:\n\n* Virtual machines (VMs)\n* Net peering connections\n* Custom route tables\n* Public IPs allocated to resources in the Net\n* Network Interface Cards (NICs) created in the Subnets\n* Virtual gateways, Internet services and NAT services\n* Load balancers\n* Security groups\n* Subnets"
+	"Usage: oapi-cli DeleteNet [options]\n" "Deletes a specified Net.\nBefore deleting the Net, you need to delete or detach \n" "all the resources associated with the Net:\n\n* Virtual machines (VMs)\n* Net \n" "peering connections\n* Custom route tables\n* Public IPs allocated to resources \n" "in the Net\n* Network Interface Cards (NICs) created in the Subnets\n* Virtual \n" "gateways, Internet services and NAT services\n* Load balancers\n* Security \n" "groups\n* Subnets\n" "\nRequired Argument: NetId \n"
 ,
-	"Deletes a specified network address translation (NAT) service.\nThis action disassociates the public IP from the NAT service, but does not release this public IP from your account. However, it does not delete any NAT service routes in your route tables."
+	"Usage: oapi-cli DeleteNatService [options]\n" "Deletes a specified network address translation (NAT) service.\nThis action \n" "disassociates the public IP from the NAT service, but does not release this \n" "public IP from your account. However, it does not delete any NAT service routes \n" "in your route tables.\n" "\nRequired Argument: NatServiceId \n"
 ,
-	"Deletes one or more tags from the specified load balancers."
+	"Usage: oapi-cli DeleteLoadBalancerTags [options]\n" "Deletes one or more tags from the specified load balancers.\n" "\nRequired Argument: LoadBalancerNames, Tags \n"
 ,
-	"Deletes a specified policy from a load balancer.\nIn order to be deleted, the policy must not be enabled for any listener."
+	"Usage: oapi-cli DeleteLoadBalancerPolicy [options]\n" "Deletes a specified policy from a load balancer.\nIn order to be deleted, the \n" "policy must not be enabled for any listener.\n" "\nRequired Argument: LoadBalancerName, PolicyName \n"
 ,
-	"Deletes listeners of a specified load balancer."
+	"Usage: oapi-cli DeleteLoadBalancerListeners [options]\n" "Deletes listeners of a specified load balancer.\n" "\nRequired Argument: LoadBalancerName, LoadBalancerPorts \n"
 ,
-	"Deletes a specified load balancer."
+	"Usage: oapi-cli DeleteLoadBalancer [options]\n" "Deletes a specified load balancer.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Deletes a listener rule.\nThe previously active rule is disabled after deletion."
+	"Usage: oapi-cli DeleteListenerRule [options]\n" "Deletes a listener rule.\nThe previously active rule is disabled after deletion.\n" "\nRequired Argument: ListenerRuleName \n"
 ,
-	"Deletes the specified keypair.\nThis action deletes the public key stored by 3DS OUTSCALE, thus deleting the keypair."
+	"Usage: oapi-cli DeleteKeypair [options]\n" "Deletes the specified keypair.\nThis action deletes the public key stored by \n" "3DS OUTSCALE, thus deleting the keypair.\n" "\nRequired Argument: KeypairName \n"
 ,
-	"Deletes an Internet service.\nBefore deleting an Internet service, you must detach it from any Net it is attached to."
+	"Usage: oapi-cli DeleteInternetService [options]\n" "Deletes an Internet service.\nBefore deleting an Internet service, you must \n" "detach it from any Net it is attached to.\n" "\nRequired Argument: InternetServiceId \n"
 ,
-	"Deletes an OUTSCALE machine image (OMI) so that you cannot use it anymore to launch virtual machines (VMs). However, you can still use VMs already launched from this OMI."
+	"Usage: oapi-cli DeleteImage [options]\n" "Deletes an OUTSCALE machine image (OMI) so that you cannot use it anymore to \n" "launch virtual machines (VMs). However, you can still use VMs already launched \n" "from this OMI.\n" "\nRequired Argument: ImageId \n"
 ,
-	"Releases a flexible GPU (fGPU) from your account.\nThe fGPU becomes free to be used by someone else."
+	"Usage: oapi-cli DeleteFlexibleGpu [options]\n" "Releases a flexible GPU (fGPU) from your account.\nThe fGPU becomes free to be \n" "used by someone else.\n" "\nRequired Argument: FlexibleGpuId \n"
 ,
-	"Deletes an export task.\nIf the export task is not running, the command fails and an error is returned."
+	"Usage: oapi-cli DeleteExportTask [options]\n" "Deletes an export task.\nIf the export task is not running, the command fails \n" "and an error is returned.\n" "\nRequired Argument: ExportTaskId \n"
 ,
-	"Deletes a specified DirectLink interface."
+	"Usage: oapi-cli DeleteDirectLinkInterface [options]\n" "Deletes a specified DirectLink interface.\n" "\nRequired Argument: DirectLinkInterfaceId \n"
 ,
-	"Deletes a specified DirectLink.\nBefore deleting a DirectLink, ensure that all your DirectLink interfaces related to this DirectLink are deleted."
+	"Usage: oapi-cli DeleteDirectLink [options]\n" "Deletes a specified DirectLink.\nBefore deleting a DirectLink, ensure that all \n" "your DirectLink interfaces related to this DirectLink are deleted.\n" "\nRequired Argument: DirectLinkId \n"
 ,
-	"Deletes a specified DHCP options set.\nBefore deleting a DHCP options set, you must disassociate it from the Nets you associated it with. To do so, you need to associate with each Net a new set of DHCP options, or the `default` one if you do not want to associate any DHCP options with the Net.\n\n**[NOTE]**\nYou cannot delete the `default` set."
+	"Usage: oapi-cli DeleteDhcpOptions [options]\n" "Deletes a specified DHCP options set.\nBefore deleting a DHCP options set, you \n" "must disassociate it from the Nets you associated it with. To do so, you need \n" "to associate with each Net a new set of DHCP options, or the `default` one if \n" "you do not want to associate any DHCP options with the Net.\n\n**[NOTE]**\nYou \n" "cannot delete the `default` set.\n" "\nRequired Argument: DhcpOptionsSetId \n"
 ,
-	"Deletes a client gateway.\nYou must delete the VPN connection before deleting the client gateway."
+	"Usage: oapi-cli DeleteClientGateway [options]\n" "Deletes a client gateway.\nYou must delete the VPN connection before deleting \n" "the client gateway.\n" "\nRequired Argument: ClientGatewayId \n"
 ,
-	"Deletes a specified Client Certificate Authority (CA)."
+	"Usage: oapi-cli DeleteCa [options]\n" "Deletes a specified Client Certificate Authority (CA).\n" "\nRequired Argument: CaId \n"
 ,
-	"Deletes a specified API access rule.\n\n**[NOTE]** \nYou cannot delete the last remaining API access rule. However, if you delete all the API access rules that allow you to access the API, you need to contact the Support team to regain access. For more information, see [Technical Support](https://docs.outscale.com/en/userguide/Technical-Support.html)."
+	"Usage: oapi-cli DeleteApiAccessRule [options]\n" "Deletes a specified API access rule.\n\n**[NOTE]** \nYou cannot delete the last \n" "remaining API access rule. However, if you delete all the API access rules that \n" "allow you to access the API, you need to contact the Support team to regain \n" "access. For more information, see [Technical \n" "Support](https://docs.outscale.com/en/userguide/Technical-Support.html).\n" "\nRequired Argument: ApiAccessRuleId \n"
 ,
-	"Deletes the specified access key of your account.\n\n**[NOTE]**\nTo protect against brute force attacks, the number of requests allowed for this method in a given time period is limited."
+	"Usage: oapi-cli DeleteAccessKey [options]\n" "Deletes the specified access key of your account.\n\n**[NOTE]**\nTo protect \n" "against brute force attacks, the number of requests allowed for this method in \n" "a given time period is limited.\n" "\nRequired Argument: AccessKeyId \n"
 ,
-	"Creates a static route to a VPN connection.\nThis enables you to select the network flows sent by the virtual gateway to the target VPN connection."
+	"Usage: oapi-cli CreateVpnConnectionRoute [options]\n" "Creates a static route to a VPN connection.\nThis enables you to select the \n" "network flows sent by the virtual gateway to the target VPN connection.\n" "\nRequired Argument: DestinationIpRange, VpnConnectionId \n"
 ,
-	"Creates a VPN connection between a specified virtual gateway and a specified client gateway.\nYou can create only one VPN connection between a virtual gateway and a client gateway."
+	"Usage: oapi-cli CreateVpnConnection [options]\n" "Creates a VPN connection between a specified virtual gateway and a specified \n" "client gateway.\nYou can create only one VPN connection between a virtual \n" "gateway and a client gateway.\n" "\nRequired Argument: ClientGatewayId, ConnectionType, VirtualGatewayId \n"
 ,
-	"Creates a Block Storage Unit (BSU) volume in a specified Region.\nBSU volumes can be attached to a virtual machine (VM) in the same Subregion. You can create an empty volume or restore a volume from an existing snapshot.\nYou can create the following volume types: Enterprise (`io1`) for provisioned IOPS SSD volumes, Performance (`gp2`) for general purpose SSD volumes, or Magnetic (`standard`) volumes."
+	"Usage: oapi-cli CreateVolume [options]\n" "Creates a Block Storage Unit (BSU) volume in a specified Region.\nBSU volumes \n" "can be attached to a virtual machine (VM) in the same Subregion. You can create \n" "an empty volume or restore a volume from an existing snapshot.\nYou can create \n" "the following volume types: Enterprise (`io1`) for provisioned IOPS SSD \n" "volumes, Performance (`gp2`) for general purpose SSD volumes, or Magnetic \n" "(`standard`) volumes.\n" "\nRequired Argument: SubregionName \n"
 ,
-	"Creates virtual machines (VMs), and then launches them.\nThis action enables you to create a specified number of VMs using an OUTSCALE machine image (OMI) that you are allowed to use, and then to automatically launch them.\nThe VMs remain in the `pending` state until they are created and ready to be used. Once automatically launched, they are in the `running` state.\nTo check the state of your VMs, call the [ReadVms](#readvms) method.\nIf not specified, the security group used by the service is the default one.\nThe metadata server enables you to get the public key provided when the VM is launched. Official OMIs contain a script to get this public key and put it inside the VM to provide secure access without password."
+	"Usage: oapi-cli CreateVms [options]\n" "Creates virtual machines (VMs), and then launches them.\nThis action enables \n" "you to create a specified number of VMs using an OUTSCALE machine image (OMI) \n" "that you are allowed to use, and then to automatically launch them.\nThe VMs \n" "remain in the `pending` state until they are created and ready to be used. Once \n" "automatically launched, they are in the `running` state.\nTo check the state of \n" "your VMs, call the [ReadVms](#readvms) method.\nIf not specified, the security \n" "group used by the service is the default one.\nThe metadata server enables you \n" "to get the public key provided when the VM is launched. Official OMIs contain a \n" "script to get this public key and put it inside the VM to provide secure access \n" "without password.\n" "\nRequired Argument: ImageId \n"
 ,
-	"Creates a virtual gateway.\nA virtual gateway is the access point on the Net side of a VPN connection."
+	"Usage: oapi-cli CreateVirtualGateway [options]\n" "Creates a virtual gateway.\nA virtual gateway is the access point on the Net \n" "side of a VPN connection.\n" "\nRequired Argument: ConnectionType \n"
 ,
-	"Adds one or more tags to the specified resources.\nIf a tag with the same key already exists for the resource, the tag value is replaced.\nYou can tag the following resources using their IDs:\n\n* Virtual machines (VMs) (i-xxxxxxxx)\n* OMIs (ami-xxxxxxxx)\n* Volumes (vol-xxxxxxxx)\n* Snapshots (snap-xxxxxxxx)\n* Public IPs (eipalloc-xxxxxxxx)\n* Security groups (sg-xxxxxxxx)\n* Route tables (rtb-xxxxxxxx)\n* Network interface cards (NIC) (eni-xxxxxxxx)\n* Nets (vpc-xxxxxxxx)\n* Subnets (subnet-xxxxxxxx)\n* Net peering connections (vpcx-xxxxxxxx)\n* Net endpoints (vpce-xxxxxxxx)\n* NAT services (nat-xxxxxxxx)\n* Internet services (igw-xxxxxxxx)\n* Client gateways (cgw-xxxxxxxx)\n* Virtual gateways (vgw-xxxxxxxx)\n* VPN connections (vpn-xxxxxxxx)\n* DHCP options (dopt-xxxxxxxx)\n* OMI export tasks (image-export-xxxxxxxx)\n* Snapshot export tasks (snap-export-xxxxxxxx)"
+	"Usage: oapi-cli CreateTags [options]\n" "Adds one or more tags to the specified resources.\nIf a tag with the same key \n" "already exists for the resource, the tag value is replaced.\nYou can tag the \n" "following resources using their IDs:\n\n* Virtual machines (VMs) \n" "(i-xxxxxxxx)\n* OMIs (ami-xxxxxxxx)\n* Volumes (vol-xxxxxxxx)\n* Snapshots \n" "(snap-xxxxxxxx)\n* Public IPs (eipalloc-xxxxxxxx)\n* Security groups \n" "(sg-xxxxxxxx)\n* Route tables (rtb-xxxxxxxx)\n* Network interface cards (NIC) \n" "(eni-xxxxxxxx)\n* Nets (vpc-xxxxxxxx)\n* Subnets (subnet-xxxxxxxx)\n* Net \n" "peering connections (vpcx-xxxxxxxx)\n* Net endpoints (vpce-xxxxxxxx)\n* NAT \n" "services (nat-xxxxxxxx)\n* Internet services (igw-xxxxxxxx)\n* Client gateways \n" "(cgw-xxxxxxxx)\n* Virtual gateways (vgw-xxxxxxxx)\n* VPN connections \n" "(vpn-xxxxxxxx)\n* DHCP options (dopt-xxxxxxxx)\n* OMI export tasks \n" "(image-export-xxxxxxxx)\n* Snapshot export tasks (snap-export-xxxxxxxx)\n" "\nRequired Argument: ResourceIds, Tags \n"
 ,
-	"Creates a Subnet in an existing Net.\nTo create a Subnet in a Net, you have to provide the ID of the Net and the IP range for the Subnet (its network range). Once the Subnet is created, you cannot modify its IP range."
+	"Usage: oapi-cli CreateSubnet [options]\n" "Creates a Subnet in an existing Net.\nTo create a Subnet in a Net, you have to \n" "provide the ID of the Net and the IP range for the Subnet (its network range). \n" "Once the Subnet is created, you cannot modify its IP range.\n" "\nRequired Argument: IpRange, NetId \n"
 ,
-	"Exports a snapshot to an OUTSCALE Object Storage (OOS) bucket.\nThis action enables you to create a backup of your snapshot or to copy it to another account. You, or other users you send a pre-signed URL to, can then download this snapshot from the bucket using the [CreateSnapshot](#createsnapshot) method.\nThis procedure enables you to copy a snapshot between accounts within the same Region or in different Regions. To copy a snapshot within the same Region, you can also use the [CreateSnapshot](#createsnapshot) direct method. The copy of the source snapshot is independent and belongs to you."
+	"Usage: oapi-cli CreateSnapshotExportTask [options]\n" "Exports a snapshot to an OUTSCALE Object Storage (OOS) bucket.\nThis action \n" "enables you to create a backup of your snapshot or to copy it to another \n" "account. You, or other users you send a pre-signed URL to, can then download \n" "this snapshot from the bucket using the [CreateSnapshot](#createsnapshot) \n" "method.\nThis procedure enables you to copy a snapshot between accounts within \n" "the same Region or in different Regions. To copy a snapshot within the same \n" "Region, you can also use the [CreateSnapshot](#createsnapshot) direct method. \n" "The copy of the source snapshot is independent and belongs to you.\n" "\nRequired Argument: OsuExport, SnapshotId \n"
 ,
-	"Creates a snapshot. Snapshots are point-in-time images of a volume that you can use to back up your data or to create replicas of this volume.\nYou can use this method in three different ways:\n* **Creating**: You create a snapshot from one of your volumes.<br></li>\n* **Copying**: You copy an existing snapshot. The source snapshot can be one of your own snapshots, or a snapshot owned by another account that has granted you permission via the [UpdateSnapshot](#updatesnapshot) method.<br></li>\n* **Importing**: You import a snapshot located in an OUTSCALE Object Storage (OOS) bucket. First, the owner of the source snapshot must export it to the bucket by using the [CreateSnapshotExportTask](#createsnapshotexporttask) method. Then, they must grant you read permission on the bucket via a pre-signed URL or Access Control Lists. For more information, see [Managing Access to Your Buckets and Objects](https://docs.outscale.com/en/userguide/Managing-Access-to-Your-Buckets-and-Objects.html)."
+	"Usage: oapi-cli CreateSnapshot [options]\n" "Creates a snapshot. Snapshots are point-in-time images of a volume that you can \n" "use to back up your data or to create replicas of this volume.\nYou can use \n" "this method in three different ways:\n* **Creating**: You create a snapshot \n" "from one of your volumes.<br></li>\n* **Copying**: You copy an existing \n" "snapshot. The source snapshot can be one of your own snapshots, or a snapshot \n" "owned by another account that has granted you permission via the \n" "[UpdateSnapshot](#updatesnapshot) method.<br></li>\n* **Importing**: You import \n" "a snapshot located in an OUTSCALE Object Storage (OOS) bucket. First, the owner \n" "of the source snapshot must export it to the bucket by using the \n" "[CreateSnapshotExportTask](#createsnapshotexporttask) method. Then, they must \n" "grant you read permission on the bucket via a pre-signed URL or Access Control \n" "Lists. For more information, see [Managing Access to Your Buckets and \n" "Objects](https://docs.outscale.com/en/userguide/Managing-Access-to-Your-Buckets-\n" "and-Objects.html).\n" "\nRequired Argument: none \n"
 ,
-	"Creates a server certificate and its matching private key.\nThese elements can be used with other services (for example, to configure SSL termination on load balancers).\nYou can also specify the chain of intermediate certification authorities if your certificate is not directly signed by a root one. You can specify multiple intermediate certification authorities in the `CertificateChain` parameter. To do so, concatenate all certificates in the correct order (the first certificate must be the authority of your certificate, the second must the the authority of the first one, and so on).\nThe private key must be a RSA key in PKCS1 form. To check this, open the PEM file and ensure its header reads as follows: BEGIN RSA PRIVATE KEY.\n[IMPORTANT]\nThis private key must not be protected by a password or a passphrase."
+	"Usage: oapi-cli CreateServerCertificate [options]\n" "Creates a server certificate and its matching private key.\nThese elements can \n" "be used with other services (for example, to configure SSL termination on load \n" "balancers).\nYou can also specify the chain of intermediate certification \n" "authorities if your certificate is not directly signed by a root one. You can \n" "specify multiple intermediate certification authorities in the \n" "`CertificateChain` parameter. To do so, concatenate all certificates in the \n" "correct order (the first certificate must be the authority of your certificate, \n" "the second must the the authority of the first one, and so on).\nThe private \n" "key must be a RSA key in PKCS1 form. To check this, open the PEM file and \n" "ensure its header reads as follows: BEGIN RSA PRIVATE KEY.\n[IMPORTANT]\nThis \n" "private key must not be protected by a password or a passphrase.\n" "\nRequired Argument: Body, PrivateKey, Name \n"
 ,
-	"Configures the rules for a security group.\nThe modifications are effective at virtual machine (VM) level as quickly as possible, but a small delay may occur.\n\nYou can add one or more egress rules to a security group for use with a Net.\nIt allows VMs to send traffic to either one or more destination IP ranges or destination security groups for the same Net.\nWe recommend using a set of IP permissions to authorize outbound access to a destination security group. We also recommended this method to create a rule with a specific IP protocol and a specific port range. In a set of IP permissions, we recommend to specify the the protocol.\n\nYou can also add one or more ingress rules to a security group.\nIn the public Cloud, this action allows one or more IP ranges to access a security group for your account, or allows one or more security groups (source groups) to access a security group for your own OUTSCALE account or another one.\nIn a Net, this action allows one or more IP ranges to access a security group for your Net, or allows one or more other security groups (source groups) to access a security group for your Net. All the security groups must be for the same Net.\n\n**[NOTE]**\nBy default, traffic between two security groups is allowed through both public and private IPs. To restrict it to private IPs only, contact our Support team: support@outscale.com."
+	"Usage: oapi-cli CreateSecurityGroupRule [options]\n" "Configures the rules for a security group.\nThe modifications are effective at \n" "virtual machine (VM) level as quickly as possible, but a small delay may \n" "occur.\n\nYou can add one or more egress rules to a security group for use with \n" "a Net.\nIt allows VMs to send traffic to either one or more destination IP \n" "ranges or destination security groups for the same Net.\nWe recommend using a \n" "set of IP permissions to authorize outbound access to a destination security \n" "group. We also recommended this method to create a rule with a specific IP \n" "protocol and a specific port range. In a set of IP permissions, we recommend to \n" "specify the the protocol.\n\nYou can also add one or more ingress rules to a \n" "security group.\nIn the public Cloud, this action allows one or more IP ranges \n" "to access a security group for your account, or allows one or more security \n" "groups (source groups) to access a security group for your own OUTSCALE account \n" "or another one.\nIn a Net, this action allows one or more IP ranges to access a \n" "security group for your Net, or allows one or more other security groups \n" "(source groups) to access a security group for your Net. All the security \n" "groups must be for the same Net.\n\n**[NOTE]**\nBy default, traffic between two \n" "security groups is allowed through both public and private IPs. To restrict it \n" "to private IPs only, contact our Support team: support@outscale.com.\n" "\nRequired Argument: SecurityGroupId, Flow \n"
 ,
-	"Creates a security group.\nThis action creates a security group either in the public Cloud or in a specified Net. By default, a default security group for use in the public Cloud and a default security group for use in a Net are created.\nWhen launching a virtual machine (VM), if no security group is explicitly specified, the appropriate default security group is assigned to the VM. Default security groups include a default rule granting VMs network access to each other.\nWhen creating a security group, you specify a name. Two security groups for use in the public Cloud or for use in a Net cannot have the same name.\nYou can have up to 500 security groups in the public Cloud. You can create up to 500 security groups per Net.\nTo add or remove rules, use the [CreateSecurityGroupRule](#createsecuritygrouprule) method."
+	"Usage: oapi-cli CreateSecurityGroup [options]\n" "Creates a security group.\nThis action creates a security group either in the \n" "public Cloud or in a specified Net. By default, a default security group for \n" "use in the public Cloud and a default security group for use in a Net are \n" "created.\nWhen launching a virtual machine (VM), if no security group is \n" "explicitly specified, the appropriate default security group is assigned to the \n" "VM. Default security groups include a default rule granting VMs network access \n" "to each other.\nWhen creating a security group, you specify a name. Two \n" "security groups for use in the public Cloud or for use in a Net cannot have the \n" "same name.\nYou can have up to 500 security groups in the public Cloud. You can \n" "create up to 500 security groups per Net.\nTo add or remove rules, use the \n" "[CreateSecurityGroupRule](#createsecuritygrouprule) method.\n" "\nRequired Argument: Description, SecurityGroupName \n"
 ,
-	"Creates a route table for a specified Net.\nYou can then add routes and associate this route table with a Subnet."
+	"Usage: oapi-cli CreateRouteTable [options]\n" "Creates a route table for a specified Net.\nYou can then add routes and \n" "associate this route table with a Subnet.\n" "\nRequired Argument: NetId \n"
 ,
-	"Creates a route in a specified route table within a specified Net.\nYou must specify one of the following elements as the target:\n\n* Net peering connection\n* NAT VM\n* Internet service\n* Virtual gateway\n* NAT service\n* Network interface card (NIC)\n\nThe routing algorithm is based on the most specific match."
+	"Usage: oapi-cli CreateRoute [options]\n" "Creates a route in a specified route table within a specified Net.\nYou must \n" "specify one of the following elements as the target:\n\n* Net peering \n" "connection\n* NAT VM\n* Internet service\n* Virtual gateway\n* NAT service\n* \n" "Network interface card (NIC)\n\nThe routing algorithm is based on the most \n" "specific match.\n" "\nRequired Argument: DestinationIpRange, RouteTableId \n"
 ,
-	"Acquires a public IP for your account.\nA public IP is a static IP designed for dynamic Cloud computing. It can be associated with a virtual machine (VM) in the public Cloud or in a Net, a network interface card (NIC), a NAT service."
+	"Usage: oapi-cli CreatePublicIp [options]\n" "Acquires a public IP for your account.\nA public IP is a static IP designed for \n" "dynamic Cloud computing. It can be associated with a virtual machine (VM) in \n" "the public Cloud or in a Net, a network interface card (NIC), a NAT service.\n" "\nRequired Argument: none \n"
 ,
-	"Creates a network interface card (NIC) in the specified Subnet."
+	"Usage: oapi-cli CreateNic [options]\n" "Creates a network interface card (NIC) in the specified Subnet.\n" "\nRequired Argument: SubnetId \n"
 ,
-	"Requests a Net peering connection between a Net you own and a peer Net that belongs to you or another account.\nThis action creates a Net peering connection that remains in the `pending-acceptance` state until it is accepted by the owner of the peer Net. If the owner of the peer Net does not accept the request within 7 days, the state of the Net peering connection becomes `expired`. For more information, see [AcceptNetPeering](#acceptnetpeering).\n\n**[NOTE]**\n* The two Nets must not have overlapping IP ranges. Otherwise, the Net peering connection is in the `failed` state.\n* A peering connection between two Nets works both ways. Therefore, you do not need to create a B-to-A connection if an A-to-B connection is created and accepted."
+	"Usage: oapi-cli CreateNetPeering [options]\n" "Requests a Net peering connection between a Net you own and a peer Net that \n" "belongs to you or another account.\nThis action creates a Net peering \n" "connection that remains in the `pending-acceptance` state until it is accepted \n" "by the owner of the peer Net. If the owner of the peer Net does not accept the \n" "request within 7 days, the state of the Net peering connection becomes \n" "`expired`. For more information, see \n" "[AcceptNetPeering](#acceptnetpeering).\n\n**[NOTE]**\n* The two Nets must not \n" "have overlapping IP ranges. Otherwise, the Net peering connection is in the \n" "`failed` state.\n* A peering connection between two Nets works both ways. \n" "Therefore, you do not need to create a B-to-A connection if an A-to-B \n" "connection is created and accepted.\n" "\nRequired Argument: AccepterNetId, SourceNetId \n"
 ,
-	"Creates a Net access point to access an OUTSCALE service from this Net without using the Internet and public IPs.\nYou specify the service using its name. For more information about the available services, see [ReadNetAccessPointServices](#readnetaccesspointservices).\nTo control the routing of traffic between the Net and the specified service, you can specify one or more route tables. Virtual machines placed in Subnets associated with the specified route table thus use the Net access point to access the service. When you specify a route table, a route is automatically added to it with the destination set to the prefix list ID of the service, and the target set to the ID of the access point."
+	"Usage: oapi-cli CreateNetAccessPoint [options]\n" "Creates a Net access point to access an OUTSCALE service from this Net without \n" "using the Internet and public IPs.\nYou specify the service using its name. For \n" "more information about the available services, see \n" "[ReadNetAccessPointServices](#readnetaccesspointservices).\nTo control the \n" "routing of traffic between the Net and the specified service, you can specify \n" "one or more route tables. Virtual machines placed in Subnets associated with \n" "the specified route table thus use the Net access point to access the service. \n" "When you specify a route table, a route is automatically added to it with the \n" "destination set to the prefix list ID of the service, and the target set to the \n" "ID of the access point.\n" "\nRequired Argument: ServiceName, NetId \n"
 ,
-	"Creates a Net with a specified IP range.\nThe IP range (network range) of your Net must be between a /28 netmask (16 IPs) and a /16 netmask (65536 IPs)."
+	"Usage: oapi-cli CreateNet [options]\n" "Creates a Net with a specified IP range.\nThe IP range (network range) of your \n" "Net must be between a /28 netmask (16 IPs) and a /16 netmask (65536 IPs).\n" "\nRequired Argument: IpRange \n"
 ,
-	"Creates a network address translation (NAT) service in the specified public Subnet of a Net.\nA NAT service enables virtual machines (VMs) placed in the private Subnet of this Net to connect to the Internet, without being accessible from the Internet.\nWhen creating a NAT service, you specify the allocation ID of the public IP you want to use as public IP for the NAT service. Once the NAT service is created, you need to create a route in the route table of the private Subnet, with 0.0.0.0/0 as destination and the ID of the NAT service as target. For more information, see [LinkPublicIP](#linkpublicip) and [CreateRoute](#createroute).\nThis action also enables you to create multiple NAT services in the same Net (one per public Subnet).\n\n**[NOTE]**\nYou cannot modify the public IP associated with a NAT service after its creation. To do so, you need to delete the NAT service and create a new one with another public IP."
+	"Usage: oapi-cli CreateNatService [options]\n" "Creates a network address translation (NAT) service in the specified public \n" "Subnet of a Net.\nA NAT service enables virtual machines (VMs) placed in the \n" "private Subnet of this Net to connect to the Internet, without being accessible \n" "from the Internet.\nWhen creating a NAT service, you specify the allocation ID \n" "of the public IP you want to use as public IP for the NAT service. Once the NAT \n" "service is created, you need to create a route in the route table of the \n" "private Subnet, with 0.0.0.0/0 as destination and the ID of the NAT service as \n" "target. For more information, see [LinkPublicIP](#linkpublicip) and \n" "[CreateRoute](#createroute).\nThis action also enables you to create multiple \n" "NAT services in the same Net (one per public Subnet).\n\n**[NOTE]**\nYou cannot \n" "modify the public IP associated with a NAT service after its creation. To do \n" "so, you need to delete the NAT service and create a new one with another public \n" "IP.\n" "\nRequired Argument: PublicIpId, SubnetId \n"
 ,
-	"Adds one or more tags to the specified load balancers.\nIf a tag with the same key already exists for the load balancer, the tag value is replaced."
+	"Usage: oapi-cli CreateLoadBalancerTags [options]\n" "Adds one or more tags to the specified load balancers.\nIf a tag with the same \n" "key already exists for the load balancer, the tag value is replaced.\n" "\nRequired Argument: LoadBalancerNames, Tags \n"
 ,
-	"Creates a stickiness policy with sticky session lifetimes defined by the browser lifetime.\nThe created policy can be used with HTTP or HTTPS listeners only.\nIf this policy is implemented by a load balancer, this load balancer uses this cookie in all incoming requests to direct them to the specified back-end server virtual machine (VM). If this cookie is not present, the load balancer sends the request to any other server according to its load-balancing algorithm.\n\nYou can also create a stickiness policy with sticky session lifetimes following the lifetime of an application-generated cookie.\nUnlike the other type of stickiness policy, the lifetime of the special Load Balancer Unit (LBU) cookie follows the lifetime of the application-generated cookie specified in the policy configuration. The load balancer inserts a new stickiness cookie only when the application response includes a new application cookie.\nThe session stops being sticky if the application cookie is removed or expires, until a new application cookie is issued."
+	"Usage: oapi-cli CreateLoadBalancerPolicy [options]\n" "Creates a stickiness policy with sticky session lifetimes defined by the \n" "browser lifetime.\nThe created policy can be used with HTTP or HTTPS listeners \n" "only.\nIf this policy is implemented by a load balancer, this load balancer \n" "uses this cookie in all incoming requests to direct them to the specified \n" "back-end server virtual machine (VM). If this cookie is not present, the load \n" "balancer sends the request to any other server according to its load-balancing \n" "algorithm.\n\nYou can also create a stickiness policy with sticky session \n" "lifetimes following the lifetime of an application-generated cookie.\nUnlike \n" "the other type of stickiness policy, the lifetime of the special Load Balancer \n" "Unit (LBU) cookie follows the lifetime of the application-generated cookie \n" "specified in the policy configuration. The load balancer inserts a new \n" "stickiness cookie only when the application response includes a new application \n" "cookie.\nThe session stops being sticky if the application cookie is removed or \n" "expires, until a new application cookie is issued.\n" "\nRequired Argument: PolicyType, LoadBalancerName, PolicyName \n"
 ,
-	"Creates one or more listeners for a specified load balancer."
+	"Usage: oapi-cli CreateLoadBalancerListeners [options]\n" "Creates one or more listeners for a specified load balancer.\n" "\nRequired Argument: Listeners, LoadBalancerName \n"
 ,
-	"Creates a load balancer.\nThe load balancer is created with a unique Domain Name Service (DNS) name. It receives the incoming traffic and routes it to its registered virtual machines (VMs).\nBy default, this action creates an Internet-facing load balancer, resolving to public IPs. To create an internal load balancer in a Net, resolving to private IPs, use the `LoadBalancerType` parameter.\nYou must specify either the `Subnets` or the `SubregionNames` parameters."
+	"Usage: oapi-cli CreateLoadBalancer [options]\n" "Creates a load balancer.\nThe load balancer is created with a unique Domain \n" "Name Service (DNS) name. It receives the incoming traffic and routes it to its \n" "registered virtual machines (VMs).\nBy default, this action creates an \n" "Internet-facing load balancer, resolving to public IPs. To create an internal \n" "load balancer in a Net, resolving to private IPs, use the `LoadBalancerType` \n" "parameter.\nYou must specify either the `Subnets` or the `SubregionNames` \n" "parameters.\n" "\nRequired Argument: Listeners, LoadBalancerName \n"
 ,
-	"Creates a rule for traffic redirection for the specified listener. Each rule must have either the `HostNamePattern` or `PathPattern` parameter specified. Rules are treated in priority order, from the highest value to the lowest value.\nOnce the rule is created, you need to register backend VMs with it. For more information, see the [RegisterVmsInLoadBalancer](#registervmsinloadbalancer) method."
+	"Usage: oapi-cli CreateListenerRule [options]\n" "Creates a rule for traffic redirection for the specified listener. Each rule \n" "must have either the `HostNamePattern` or `PathPattern` parameter specified. \n" "Rules are treated in priority order, from the highest value to the lowest \n" "value.\nOnce the rule is created, you need to register backend VMs with it. For \n" "more information, see the \n" "[RegisterVmsInLoadBalancer](#registervmsinloadbalancer) method.\n" "\nRequired Argument: VmIds, Listener, ListenerRule \n"
 ,
-	"Creates a 2048-bit RSA keypair with a specified name.\nThis action returns the private key that you need to save. The public key is stored by 3DS OUTSCALE.\n\nYou can also import a public key. The following types of key can be imported: RSA (minimum 2048 bits, recommended 4096 bits), ECDSA (minimum and recommended 256 bits), and Ed25519. The following formats can be used: PEM, PKCS8, RFC4716, and OpenSSH.\nThis action imports the public key of a keypair created by a third-party tool and uses it to create a keypair. The private key is never provided to 3DS OUTSCALE."
+	"Usage: oapi-cli CreateKeypair [options]\n" "Creates a 2048-bit RSA keypair with a specified name.\nThis action returns the \n" "private key that you need to save. The public key is stored by 3DS \n" "OUTSCALE.\n\nYou can also import a public key. The following types of key can \n" "be imported: RSA (minimum 2048 bits, recommended 4096 bits), ECDSA (minimum and \n" "recommended 256 bits), and Ed25519. The following formats can be used: PEM, \n" "PKCS8, RFC4716, and OpenSSH.\nThis action imports the public key of a keypair \n" "created by a third-party tool and uses it to create a keypair. The private key \n" "is never provided to 3DS OUTSCALE.\n" "\nRequired Argument: KeypairName \n"
 ,
-	"Creates an Internet service you can use with a Net.\nAn Internet service enables your virtual machines (VMs) launched in a Net to connect to the Internet. By default, a Net includes an Internet service, and each Subnet is public. Every VM launched within a default Subnet has a private IP and a public IP."
+	"Usage: oapi-cli CreateInternetService [options]\n" "Creates an Internet service you can use with a Net.\nAn Internet service \n" "enables your virtual machines (VMs) launched in a Net to connect to the \n" "Internet. By default, a Net includes an Internet service, and each Subnet is \n" "public. Every VM launched within a default Subnet has a private IP and a public \n" "IP.\n" "\nRequired Argument: none \n"
 ,
-	"Exports an Outscale machine image (OMI) to an OUTSCALE Object Storage (OOS) bucket.\nThis action enables you to copy an OMI between accounts in different Regions. To copy an OMI in the same Region, you can also use the [CreateImage](#createimage) method.\nThe copy of the OMI belongs to you and is independent from the source OMI.\n\n**[NOTE]**\nYou cannot export a shared or public OMI, as they do not belong to you. To do so, you must first copy it to your account. The copy then belongs to you and you can export it."
+	"Usage: oapi-cli CreateImageExportTask [options]\n" "Exports an Outscale machine image (OMI) to an OUTSCALE Object Storage (OOS) \n" "bucket.\nThis action enables you to copy an OMI between accounts in different \n" "Regions. To copy an OMI in the same Region, you can also use the \n" "[CreateImage](#createimage) method.\nThe copy of the OMI belongs to you and is \n" "independent from the source OMI.\n\n**[NOTE]**\nYou cannot export a shared or \n" "public OMI, as they do not belong to you. To do so, you must first copy it to \n" "your account. The copy then belongs to you and you can export it.\n" "\nRequired Argument: OsuExport, ImageId \n"
 ,
-	"Creates an OUTSCALE machine image (OMI) from an existing virtual machine (VM) which is either running or stopped.\nThis action also creates a snapshot of the root volume of the VM, as well as a snapshot of each Block Storage Unit (BSU) volume attached to the VM. For more information, see [About OMIs](https://docs.outscale.com/en/userguide/About-OMIs.html).\n\nYou can also use this method to copy an OMI to your account, from an account in the same Region. To do so, the owner of the source OMI must share it with your account. For more information about how to share an OMI with another account in the same Region, see [UpdateImage](#updateimage).\nTo copy an OMI between accounts in different Regions, the owner of the source OMI must first export it to an OUTSCALE Object Storage (OOS) bucket using the [CreateImageExportTask](#createimageexporttask) method, and then you need to create a copy of the image in your account.\nThe copy of the source OMI is independent and belongs to you.\n\nYou can also use this method to register an OMI to finalize its creation process.\nYou can register an OMI from a snapshot of a root device to create an OMI based on this snapshot. You can also register an OMI that has been exported to an S3-compatible bucket to create a copy of it in your account. For more information about OMI export to an OOS bucket, see [CreateImageExportTask](#createimageexporttask).\nYou can register an OMI using a pre-signed URL of the manifest file of the OMI. You do not need any permission for this OMI, or the bucket in which it is contained. The manifest file is obsolete seven days after a completed export as it contains pre-signed URLs to the appropriate snapshots (pre-signed URLs are valid for only seven days).\nOnce the OMI is registered, you can launch a VM from this OMI. The copy of the source OMI is independent and belongs to you."
+	"Usage: oapi-cli CreateImage [options]\n" "Creates an OUTSCALE machine image (OMI) from an existing virtual machine (VM) \n" "which is either running or stopped.\nThis action also creates a snapshot of the \n" "root volume of the VM, as well as a snapshot of each Block Storage Unit (BSU) \n" "volume attached to the VM. For more information, see [About \n" "OMIs](https://docs.outscale.com/en/userguide/About-OMIs.html).\n\nYou can also \n" "use this method to copy an OMI to your account, from an account in the same \n" "Region. To do so, the owner of the source OMI must share it with your account. \n" "For more information about how to share an OMI with another account in the same \n" "Region, see [UpdateImage](#updateimage).\nTo copy an OMI between accounts in \n" "different Regions, the owner of the source OMI must first export it to an \n" "OUTSCALE Object Storage (OOS) bucket using the \n" "[CreateImageExportTask](#createimageexporttask) method, and then you need to \n" "create a copy of the image in your account.\nThe copy of the source OMI is \n" "independent and belongs to you.\n\nYou can also use this method to register an \n" "OMI to finalize its creation process.\nYou can register an OMI from a snapshot \n" "of a root device to create an OMI based on this snapshot. You can also register \n" "an OMI that has been exported to an S3-compatible bucket to create a copy of it \n" "in your account. For more information about OMI export to an OOS bucket, see \n" "[CreateImageExportTask](#createimageexporttask).\nYou can register an OMI using \n" "a pre-signed URL of the manifest file of the OMI. You do not need any \n" "permission for this OMI, or the bucket in which it is contained. The manifest \n" "file is obsolete seven days after a completed export as it contains pre-signed \n" "URLs to the appropriate snapshots (pre-signed URLs are valid for only seven \n" "days).\nOnce the OMI is registered, you can launch a VM from this OMI. The copy \n" "of the source OMI is independent and belongs to you.\n" "\nRequired Argument: none \n"
 ,
-	"Allocates a flexible GPU (fGPU) to your account.\nYou can then attach this fGPU to a virtual machine (VM)."
+	"Usage: oapi-cli CreateFlexibleGpu [options]\n" "Allocates a flexible GPU (fGPU) to your account.\nYou can then attach this fGPU \n" "to a virtual machine (VM).\n" "\nRequired Argument: ModelName, SubregionName \n"
 ,
-	"Creates a DirectLink interface.\nDirectLink interfaces enable you to reach one of your Nets through a virtual gateway."
+	"Usage: oapi-cli CreateDirectLinkInterface [options]\n" "Creates a DirectLink interface.\nDirectLink interfaces enable you to reach one \n" "of your Nets through a virtual gateway.\n" "\nRequired Argument: DirectLinkId, DirectLinkInterface \n"
 ,
-	"Creates a DirectLink between a customer network and a specified DirectLink location."
+	"Usage: oapi-cli CreateDirectLink [options]\n" "Creates a DirectLink between a customer network and a specified DirectLink \n" "location.\n" "\nRequired Argument: Bandwidth, DirectLinkName, Location \n"
 ,
-	"Creates a set of DHCP options, that you can then associate with a Net using the [UpdateNet](#updatenet) method."
+	"Usage: oapi-cli CreateDhcpOptions [options]\n" "Creates a set of DHCP options, that you can then associate with a Net using the \n" "[UpdateNet](#updatenet) method.\n" "\nRequired Argument: none \n"
 ,
-	"Provides information about your client gateway.\nThis action registers information to identify the client gateway that you deployed in your network.\nTo open a tunnel to the client gateway, you must provide the communication protocol type, the fixed public IP of the gateway, and an Autonomous System Number (ASN)."
+	"Usage: oapi-cli CreateClientGateway [options]\n" "Provides information about your client gateway.\nThis action registers \n" "information to identify the client gateway that you deployed in your \n" "network.\nTo open a tunnel to the client gateway, you must provide the \n" "communication protocol type, the fixed public IP of the gateway, and an \n" "Autonomous System Number (ASN).\n" "\nRequired Argument: BgpAsn, PublicIp, ConnectionType \n"
 ,
-	"Creates a Client Certificate Authority (CA).\n\n**[NOTE]**\nIf you use OSC CLI, the content of your certificate file must be enclosed in quotes before you pass it into this command. For example:\n`$ cat ca-string.pem`\n`'-----BEGIN CERTIFICATE-----\\nXXXX\\nXXXX\\nXXXX\\n-----END CERTIFICATE-----\\n'`\n`$ osc-cli api CreateCa --CaPem &quot;$(cat ca-string.pem)&quot;`"
+	"Usage: oapi-cli CreateCa [options]\n" "Creates a Client Certificate Authority (CA).\n\n**[NOTE]**\nIf you use OSC CLI, \n" "the content of your certificate file must be enclosed in quotes before you pass \n" "it into this command. For example:\n`$ cat ca-string.pem`\n`'-----BEGIN \n" "CERTIFICATE-----\\nXXXX\\nXXXX\\nXXXX\\n-----END CERTIFICATE-----\\n'`\n`$ \n" "osc-cli api CreateCa --CaPem &quot;$(cat ca-string.pem)&quot;`\n" "\nRequired Argument: CaPem \n"
 ,
-	"Creates a rule to allow access to the API from your account.\nYou need to specify at least the `CaIds` or the `IpRanges` parameter.\n\n**[NOTE]**\nBy default, your account has a set of rules allowing global access that you can delete. For more information, see [About API Access Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html)."
+	"Usage: oapi-cli CreateApiAccessRule [options]\n" "Creates a rule to allow access to the API from your account.\nYou need to \n" "specify at least the `CaIds` or the `IpRanges` parameter.\n\n**[NOTE]**\nBy \n" "default, your account has a set of rules allowing global access that you can \n" "delete. For more information, see [About API Access \n" "Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).\n" "\nRequired Argument: none \n"
 ,
-	"Creates an OUTSCALE account.\n\n**[NOTE]**\n* You need OUTSCALE credentials and the appropriate quotas to create an account via API. To get quotas, you can send an email to sales@outscale.com.\n* If you want to pass a numeral value as a string instead of an integer, you must wrap your string in additional quotes (for example, `'&quot;92000&quot;'`)."
+	"Usage: oapi-cli CreateAccount [options]\n" "Creates an OUTSCALE account.\n\n**[NOTE]**\n* You need OUTSCALE credentials and \n" "the appropriate quotas to create an account via API. To get quotas, you can \n" "send an email to sales@outscale.com.\n* If you want to pass a numeral value as \n" "a string instead of an integer, you must wrap your string in additional quotes \n" "(for example, `'&quot;92000&quot;'`).\n" "\nRequired Argument: City, CompanyName, Country, CustomerId, Email, FirstName, LastName, ZipCode \n"
 ,
-	"Creates an access key for your account. The new key is automatically set to `ACTIVE`."
+	"Usage: oapi-cli CreateAccessKey [options]\n" "Creates an access key for your account. The new key is automatically set to \n" "`ACTIVE`.\n" "\nRequired Argument: none \n"
 ,
-	"Validates the authenticity of the account."
+	"Usage: oapi-cli CheckAuthentication [options]\n" "Validates the authenticity of the account.\n" "\nRequired Argument: Login, Password \n"
 ,
-	"Accepts a Net peering connection request.\nTo accept this request, you must be the owner of the peer Net. If you do not accept the request within 7 days, the state of the Net peering connection becomes `expired`.\n**[NOTE]**\nA peering connection between two Nets works both ways. Therefore, when an A-to-B peering connection is accepted, any pending B-to-A peering connection is automatically rejected as redundant."
+	"Usage: oapi-cli AcceptNetPeering [options]\n" "Accepts a Net peering connection request.\nTo accept this request, you must be \n" "the owner of the peer Net. If you do not accept the request within 7 days, the \n" "state of the Net peering connection becomes `expired`.\n**[NOTE]**\nA peering \n" "connection between two Nets works both ways. Therefore, when an A-to-B peering \n" "connection is accepted, any pending B-to-A peering connection is automatically \n" "rejected as redundant.\n" "\nRequired Argument: NetPeeringId \n"
+,
+	NULL
+};
+
+static const char *calls_args_descriptions[] = {
+	"ClientGatewayId: string\n"
+	"	The ID of the client gateway.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VirtualGatewayId: string\n"
+	"	The ID of the virtual gateway.\n"
+"VpnConnectionId: string\n"
+	"	The ID of the VPN connection you want to modify.\n"
+"VpnOptions: ref VpnOptions\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Iops: int\n"
+	"	The new number of I/O operations per second (IOPS). This parameter \n"
+	"	can be specified only if you update an `io1` volume. The maximum \n"
+	"	number of IOPS allowed for `io1` volumes is `13000`. This \n"
+	"	modification is instantaneous on a cold volume, not on a hot one.\n"
+"Size: int\n"
+	"	(cold volume only) The new size of the volume, in gibibytes (GiB). \n"
+	"	This value must be equal to or greater than the current size of the \n"
+	"	volume. This modification is not instantaneous.\n"
+"VolumeId: string\n"
+	"	The ID of the volume you want to update.\n"
+"VolumeType: string\n"
+	"	(cold volume only) The new type of the volume (`standard` \\| `io1` \n"
+	"	\\| `gp2`). This modification is instantaneous. If you update to an \n"
+	"	`io1` volume, you must also specify the `Iops` parameter.\n"
+,
+	"BlockDeviceMappings: array ref BlockDeviceMappingVmUpdate\n"
+	"	One or more block device mappings of the VM.\n"
+"BsuOptimized: bool\n"
+	"	This parameter is not available. It is present in our API for the \n"
+	"	sake of historical compatibility with AWS.\n"
+"DeletionProtection: bool\n"
+	"	If true, you cannot delete the VM unless you change this parameter \n"
+	"	back to false.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"IsSourceDestChecked: bool\n"
+	"	(Net only) If true, the source/destination check is enabled. If \n"
+	"	false, it is disabled. This value must be false for a NAT VM to \n"
+	"	perform network address translation (NAT) in a Net.\n"
+"KeypairName: string\n"
+	"	The name of the keypair.\nTo complete the replacement, manually \n"
+	"	replace the old public key with the new public key in the \n"
+	"	~/.ssh/authorized_keys file located in the VM. Restart the VM to \n"
+	"	apply the change.\n"
+"NestedVirtualization: bool\n"
+	"	(dedicated tenancy only) If true, nested virtualization is enabled. \n"
+	"	If false, it is disabled.\n"
+"Performance: string\n"
+	"	The performance of the VM (`medium` \\| `high` \\|  `highest`).\n"
+"SecurityGroupIds: array string\n"
+	"	One or more IDs of security groups for the VM.\n"
+"UserData: string\n"
+	"	The Base64-encoded MIME user data, limited to 500 kibibytes (KiB).\n"
+"VmId: string\n"
+	"	The ID of the VM.\n"
+"VmInitiatedShutdownBehavior: string\n"
+	"	The VM behavior when you stop it. If set to `stop`, the VM stops. If \n"
+	"	set to `restart`, the VM stops then automatically restarts. If set to \n"
+	"	`terminate`, the VM stops and is terminated.\n"
+"VmType: string\n"
+	"	The type of VM. For more information, see [Instance \n"
+	"	Types](https://docs.outscale.com/en/userguide/Instance-Types.html).\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"MapPublicIpOnLaunch: bool\n"
+	"	If true, a public IP is assigned to the network interface cards \n"
+	"	(NICs) created in the specified Subnet.\n"
+"SubnetId: string\n"
+	"	The ID of the Subnet.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"PermissionsToCreateVolume: ref PermissionsOnResourceCreation\n"
+	"	null\n"
+"SnapshotId: string\n"
+	"	The ID of the snapshot.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Name: string\n"
+	"	The name of the server certificate you want to modify.\n"
+"NewName: string\n"
+	"	A new name for the server certificate.\n"
+"NewPath: string\n"
+	"	A new path for the server certificate.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Enable: bool\n"
+	"	If true, a virtual gateway can propagate routes to a specified route \n"
+	"	table of a Net. If false, the propagation is disabled.\n"
+"RouteTableId: string\n"
+	"	The ID of the route table.\n"
+"VirtualGatewayId: string\n"
+	"	The ID of the virtual gateway.\n"
+,
+	"DestinationIpRange: string\n"
+	"	The IP range used for the destination match, in CIDR notation (for \n"
+	"	example, `10.0.0.0/24`).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"GatewayId: string\n"
+	"	The ID of an Internet service or virtual gateway attached to your Net.\n"
+"NatServiceId: string\n"
+	"	The ID of a NAT service.\n"
+"NetPeeringId: string\n"
+	"	The ID of a Net peering connection.\n"
+"NicId: string\n"
+	"	The ID of a network interface card (NIC).\n"
+"RouteTableId: string\n"
+	"	The ID of the route table.\n"
+"VmId: string\n"
+	"	The ID of a NAT VM in your Net.\n"
+,
+	"Description: string\n"
+	"	A new description for the NIC.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LinkNic: ref LinkNicToUpdate\n"
+	"	null\n"
+"NicId: string\n"
+	"	The ID of the NIC you want to modify.\n"
+"SecurityGroupIds: array string\n"
+	"	One or more IDs of security groups for the NIC.\nYou must specify at \n"
+	"	least one group, even if you use the default security group in the \n"
+	"	Net.\n"
+,
+	"AddRouteTableIds: array string\n"
+	"	One or more IDs of route tables to associate with the specified Net \n"
+	"	access point.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetAccessPointId: string\n"
+	"	The ID of the Net access point.\n"
+"RemoveRouteTableIds: array string\n"
+	"	One or more IDs of route tables to disassociate from the specified \n"
+	"	Net access point.\n"
+,
+	"DhcpOptionsSetId: string\n"
+	"	The ID of the DHCP options set (or `default` if you want to associate \n"
+	"	the default one).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetId: string\n"
+	"	The ID of the Net.\n"
+,
+	"AccessLog: ref AccessLog\n"
+	"	null\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"HealthCheck: ref HealthCheck\n"
+	"	null\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer.\n"
+"LoadBalancerPort: int\n"
+	"	The port on which the load balancer is listening (between `1` and \n"
+	"	`65535`, both included). This parameter is required if you want to \n"
+	"	update the server certificate.\n"
+"PolicyNames: array string\n"
+	"	The name of the policy you want to enable for the listener.\n"
+"PublicIp: string\n"
+	"	(internet-facing only) The public IP you want to associate with the \n"
+	"	load balancer. The former public IP of the load balancer is then \n"
+	"	disassociated. If you specify an empty string and the former public \n"
+	"	IP belonged to you, it is disassociated and replaced by a public IP \n"
+	"	owned by 3DS OUTSCALE.\n"
+"SecuredCookies: bool\n"
+	"	If true, secure cookies are enabled for the load balancer.\n"
+"SecurityGroups: array string\n"
+	"	(Net only) One or more IDs of security groups you want to assign to \n"
+	"	the load balancer. You need to specify the already assigned security \n"
+	"	groups that you want to keep along with the new ones you are \n"
+	"	assigning. If the list is empty, the default security group of the \n"
+	"	Net is assigned to the load balancer.\n"
+"ServerCertificateId: string\n"
+	"	The Outscale Resource Name (ORN) of the server certificate. For more \n"
+	"	information, see [Resource Identifiers > Outscale Resource Names \n"
+	"	(ORNs)](https://docs.outscale.com/en/userguide/Resource-Identifiers.ht\n"
+	"	ml#_outscale_resource_names_orns). If this parameter is specified, \n"
+	"	you must also specify the `LoadBalancerPort` parameter.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"HostPattern: string\n"
+	"	A host-name pattern for the rule, with a maximum length of 128 \n"
+	"	characters. This host-name pattern supports maximum three wildcards, \n"
+	"	and must not contain any special characters except [-.?].\n"
+"ListenerRuleName: string\n"
+	"	The name of the listener rule.\n"
+"PathPattern: string\n"
+	"	A path pattern for the rule, with a maximum length of 128 characters. \n"
+	"	This path pattern supports maximum three wildcards, and must not \n"
+	"	contain any special characters except [_-.$/~&quot;'@:+?].\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ImageId: string\n"
+	"	The ID of the OMI you want to modify.\n"
+"PermissionsToLaunch: ref PermissionsOnResourceCreation\n"
+	"	null\n"
+,
+	"DeleteOnVmDeletion: bool\n"
+	"	If true, the fGPU is deleted when the VM is terminated.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"FlexibleGpuId: string\n"
+	"	The ID of the fGPU you want to modify.\n"
+,
+	"DirectLinkInterfaceId: string\n"
+	"	The ID of the DirectLink interface you want to update.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Mtu: int\n"
+	"	The maximum transmission unit (MTU) of the DirectLink interface, in \n"
+	"	bytes (either `1500` or `9000`).\n"
+,
+	"CaId: string\n"
+	"	The ID of the CA.\n"
+"Description: string\n"
+	"	The description of the CA.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"ApiAccessRuleId: string\n"
+	"	The ID of the API access rule you want to update.\n"
+"CaIds: array string\n"
+	"	One or more IDs of Client Certificate Authorities (CAs).\n"
+"Cns: array string\n"
+	"	One or more Client Certificate Common Names (CNs).\n"
+"Description: string\n"
+	"	A new description for the API access rule.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"IpRanges: array string\n"
+	"	One or more IP ranges, in CIDR notation (for example, `192.0.2.0/16`).\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"MaxAccessKeyExpirationSeconds: int\n"
+	"	The maximum possible lifetime for your access keys, in seconds \n"
+	"	(between `0` and `3153600000`, both included). If set to `O`, your \n"
+	"	access keys can have unlimited lifetimes, but a trusted session \n"
+	"	cannot be activated. Otherwise, all your access keys must have an \n"
+	"	expiration date. This value must be greater than the remaining \n"
+	"	lifetime of each access key of your account.\n"
+"RequireTrustedEnv: bool\n"
+	"	If true, a trusted session is activated, provided that you specify \n"
+	"	the `MaxAccessKeyExpirationSeconds` parameter with a value greater \n"
+	"	than `0`.\n"
+,
+	"AdditionalEmails: array string\n"
+	"	One or more additional email addresses for the account. These \n"
+	"	addresses are used for notifications only. If you already have a list \n"
+	"	of additional emails registered, you cannot add to it, only replace \n"
+	"	it. To remove all registered additional emails, specify an empty list.\n"
+"City: string\n"
+	"	The new city of the account owner.\n"
+"CompanyName: string\n"
+	"	The new name of the company for the account.\n"
+"Country: string\n"
+	"	The new country of the account owner.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Email: string\n"
+	"	The main email address for the account. This address is used for your \n"
+	"	credentials and notifications.\n"
+"FirstName: string\n"
+	"	The new first name of the account owner.\n"
+"JobTitle: string\n"
+	"	The new job title of the account owner.\n"
+"LastName: string\n"
+	"	The new last name of the account owner.\n"
+"MobileNumber: string\n"
+	"	The new mobile phone number of the account owner.\n"
+"PhoneNumber: string\n"
+	"	The new landline phone number of the account owner.\n"
+"StateProvince: string\n"
+	"	The new state/province of the account owner.\n"
+"VatNumber: string\n"
+	"	The new value added tax (VAT) number for the account.\n"
+"ZipCode: string\n"
+	"	The new ZIP code of the city.\n"
+,
+	"AccessKeyId: string\n"
+	"	The ID of the access key.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ExpirationDate: string\n"
+	"	The date and time at which you want the access key to expire, in ISO \n"
+	"	8601 format (for example, `2017-06-14` or `2017-06-14T00:00:00Z`). If \n"
+	"	not specified, the access key is set to not expire.\n"
+"State: string\n"
+	"	The new state for the access key (`ACTIVE` \\| `INACTIVE`). When set \n"
+	"	to `ACTIVE`, the access key is enabled and can be used to send \n"
+	"	requests. When set to `INACTIVE`, the access key is disabled.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ForceUnlink: bool\n"
+	"	Forces the detachment of the volume in case of previous failure. \n"
+	"	Important: This action may damage your data or file systems.\n"
+"VolumeId: string\n"
+	"	The ID of the volume you want to detach.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetId: string\n"
+	"	The ID of the Net from which you want to detach the virtual gateway.\n"
+"VirtualGatewayId: string\n"
+	"	The ID of the virtual gateway.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LinkRouteTableId: string\n"
+	"	The ID of the association between the route table and the Subnet.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LinkPublicIpId: string\n"
+	"	The ID representing the association of the public IP with the VM or \n"
+	"	the NIC. This parameter is required unless you use the `PublicIp` \n"
+	"	parameter.\n"
+"PublicIp: string\n"
+	"	The public IP. This parameter is required unless you use the \n"
+	"	`LinkPublicIpId` parameter.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NicId: string\n"
+	"	The ID of the NIC.\n"
+"PrivateIps: array string\n"
+	"	One or more secondary private IPs you want to unassign from the NIC.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LinkNicId: string\n"
+	"	The ID of the attachment operation.\n"
+,
+	"BackendIps: array string\n"
+	"	 One or more public IPs of back-end VMs.\n"
+"BackendVmIds: array string\n"
+	"	 One or more IDs of back-end VMs.\n"
+"DryRun: bool\n"
+	"	 If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	 The name of the load balancer.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"InternetServiceId: string\n"
+	"	The ID of the Internet service you want to detach.\n"
+"NetId: string\n"
+	"	The ID of the Net from which you want to detach the Internet service.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"FlexibleGpuId: string\n"
+	"	The ID of the fGPU you want to detach from your VM.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ForceStop: bool\n"
+	"	Forces the VM to stop.\n"
+"VmIds: array string\n"
+	"	One or more IDs of VMs.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VmIds: array string\n"
+	"	One or more IDs of VMs.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Email: string\n"
+	"	The email address provided for the account.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Password: string\n"
+	"	The new password for the account.\n"
+"Token: string\n"
+	"	The token you received at the email address provided for the account.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetPeeringId: string\n"
+	"	The ID of the Net peering connection you want to reject.\n"
+,
+	"BackendVmIds: array string\n"
+	"	One or more IDs of back-end VMs.\nSpecifying the same ID several \n"
+	"	times has no effect as each back-end VM has equal weight.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VmIds: array string\n"
+	"	One or more IDs of the VMs you want to reboot.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersVpnConnection\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersVolume\n"
+	"	null\n"
+,
+	"AllVms: bool\n"
+	"	If true, includes the status of all VMs. By default or if set to \n"
+	"	false, only includes the status of running VMs.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersVmsState\n"
+	"	null\n"
+,
+	"BackendVmIds: array string\n"
+	"	One or more IDs of back-end VMs.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersVm\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersVmType\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersVirtualGateway\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersTag\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersSubregion\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersSubnet\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersSnapshot\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersExportTask\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersServerCertificate\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersSecurityGroup\n"
+	"	null\n"
+,
+	"AccessKeyId: string\n"
+	"	The ID of the access key.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersRouteTable\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersQuota\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersPublicIp\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersProductType\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersNic\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersNet\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersNetPeering\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersNetAccessPoint\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersService\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersNatService\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersLoadBalancer\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerNames: array string\n"
+	"	One or more load balancer names.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersListenerRule\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersKeypair\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersInternetService\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersImage\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersExportTask\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersFlexibleGpu\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersDirectLink\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersDirectLinkInterface\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersDhcpOptions\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"FromDate: string\n"
+	"	The beginning of the time period, in ISO 8601 date-time format (for \n"
+	"	example, `2017-06-14` or `2017-06-14T00:00:00Z`).\n"
+"Overall: bool\n"
+	"	By default or if false, returns only the consumption of the specific \n"
+	"	account that sends this request. If true, returns either the overall \n"
+	"	consumption of your paying account and all linked accounts (if the \n"
+	"	account that sends this request is a paying account) or returns \n"
+	"	nothing (if the account that sends this request is a linked account).\n"
+"ToDate: string\n"
+	"	The end of the time period, in ISO 8601 date-time format (for \n"
+	"	example, `2017-06-30` or `2017-06-30T00:00:00Z`).\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VmId: string\n"
+	"	The ID of the VM.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersClientGateway\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersCa\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersApiLog\n"
+	"	null\n"
+"NextPageToken: string\n"
+	"	The token to request the next page of results.\n"
+"ResultsPerPage: int\n"
+	"	The maximum number of logs returned in a single response (between \n"
+	"	`1`and `1000`, both included). By default, `100`.\n"
+"With: ref With\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersApiAccessRule\n"
+	"	null\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VmId: string\n"
+	"	The ID of the VM.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Filters: ref FiltersAccessKeys\n"
+	"	null\n"
+,
+	"DeviceName: string\n"
+	"	The name of the device. For a root device, you must use `/dev/sda1`. \n"
+	"	For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, `/dev/xvdX`, \n"
+	"	or `/dev/xvdXY` (where `X` is a letter between `b` and `z` and where \n"
+	"	`Y` is a letter between `a` and `z`).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VmId: string\n"
+	"	The ID of the VM you want to attach the volume to.\n"
+"VolumeId: string\n"
+	"	The ID of the volume you want to attach.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetId: string\n"
+	"	The ID of the Net to which you want to attach the virtual gateway.\n"
+"VirtualGatewayId: string\n"
+	"	The ID of the virtual gateway.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"RouteTableId: string\n"
+	"	The ID of the route table.\n"
+"SubnetId: string\n"
+	"	The ID of the Subnet.\n"
+,
+	"AllowRelink: bool\n"
+	"	If true, allows the public IP to be associated with the VM or NIC \n"
+	"	that you specify even if it is already associated with another VM or \n"
+	"	NIC. If false, prevents the EIP from being associated with the VM or \n"
+	"	NIC that you specify if it is already associated with another VM or \n"
+	"	NIC. (By default, true in the public Cloud, false in a Net.)\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NicId: string\n"
+	"	(Net only) The ID of the NIC. This parameter is required if the VM \n"
+	"	has more than one NIC attached. Otherwise, you need to specify the \n"
+	"	`VmId` parameter instead. You cannot specify both parameters at the \n"
+	"	same time.\n"
+"PrivateIp: string\n"
+	"	(Net only) The primary or secondary private IP of the specified NIC. \n"
+	"	By default, the primary private IP.\n"
+"PublicIp: string\n"
+	"	The public IP. This parameter is required unless you use the \n"
+	"	`PublicIpId` parameter.\n"
+"PublicIpId: string\n"
+	"	The allocation ID of the public IP. This parameter is required unless \n"
+	"	you use the `PublicIp` parameter.\n"
+"VmId: string\n"
+	"	The ID of the VM.\n- In the public Cloud, this parameter is \n"
+	"	required.\n- In a Net, this parameter is required if the VM has only \n"
+	"	one NIC. Otherwise, you need to specify the `NicId` parameter \n"
+	"	instead. You cannot specify both parameters at the same time.\n"
+,
+	"AllowRelink: bool\n"
+	"	If true, allows an IP that is already assigned to another NIC in the \n"
+	"	same Subnet to be assigned to the NIC you specified.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NicId: string\n"
+	"	The ID of the NIC.\n"
+"PrivateIps: array string\n"
+	"	The secondary private IP or IPs you want to assign to the NIC within \n"
+	"	the IP range of the Subnet.\n"
+"SecondaryPrivateIpCount: int\n"
+	"	The number of secondary private IPs to assign to the NIC.\n"
+,
+	"DeviceNumber: int\n"
+	"	The index of the VM device for the NIC attachment (between `1` and \n"
+	"	`7`, both included).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NicId: string\n"
+	"	The ID of the NIC you want to attach.\n"
+"VmId: string\n"
+	"	The ID of the VM to which you want to attach the NIC.\n"
+,
+	"BackendIps: array string\n"
+	"	 One or more public IPs of back-end VMs.\n"
+"BackendVmIds: array string\n"
+	"	 One or more IDs of back-end VMs.\n"
+"DryRun: bool\n"
+	"	 If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	 The name of the load balancer. \n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"InternetServiceId: string\n"
+	"	The ID of the Internet service you want to attach.\n"
+"NetId: string\n"
+	"	The ID of the Net to which you want to attach the Internet service.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"FlexibleGpuId: string\n"
+	"	The ID of the fGPU you want to attach.\n"
+"VmId: string\n"
+	"	The ID of the VM you want to attach the fGPU to.\n"
+,
+	"BackendVmIds: array string\n"
+	"	One or more IDs of back-end VMs.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer.\n"
+,
+	"DestinationIpRange: string\n"
+	"	The network prefix of the route to delete, in CIDR notation (for \n"
+	"	example, `10.12.0.0/16`).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VpnConnectionId: string\n"
+	"	The ID of the target VPN connection of the static route to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VpnConnectionId: string\n"
+	"	The ID of the VPN connection you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VolumeId: string\n"
+	"	The ID of the volume you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VmIds: array string\n"
+	"	One or more IDs of VMs.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VirtualGatewayId: string\n"
+	"	The ID of the virtual gateway you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ResourceIds: array string\n"
+	"	One or more resource IDs.\n"
+"Tags: array ref ResourceTag\n"
+	"	One or more tags to delete (if you set a tag value, only the tags \n"
+	"	matching exactly this value are deleted).\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"SubnetId: string\n"
+	"	The ID of the Subnet you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"SnapshotId: string\n"
+	"	The ID of the snapshot you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Name: string\n"
+	"	The name of the server certificate you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Flow: string\n"
+	"	The direction of the flow: `Inbound` or `Outbound`. You can specify \n"
+	"	`Outbound` for Nets only.\n"
+"FromPortRange: int\n"
+	"	The beginning of the port range for the TCP and UDP protocols, or an \n"
+	"	ICMP type number.\n"
+"IpProtocol: string\n"
+	"	The IP protocol name (`tcp`, `udp`, `icmp`, or `-1` for all \n"
+	"	protocols). By default, `-1`. In a Net, this can also be an IP \n"
+	"	protocol number. For more information, see the [IANA.org \n"
+	"	website](https://www.iana.org/assignments/protocol-numbers/protocol-nu\n"
+	"	mbers.xhtml).\n"
+"IpRange: string\n"
+	"	The IP range for the security group rule, in CIDR notation (for \n"
+	"	example, `10.0.0.0/16`).\n"
+"Rules: array ref SecurityGroupRule\n"
+	"	One or more rules you want to delete from the security group.\n"
+"SecurityGroupAccountIdToUnlink: string\n"
+	"	The account ID of the owner of the security group you want to delete \n"
+	"	a rule from.\n"
+"SecurityGroupId: string\n"
+	"	The ID of the security group you want to delete a rule from.\n"
+"SecurityGroupNameToUnlink: string\n"
+	"	The ID of the source security group. If you are in the Public Cloud, \n"
+	"	you can also specify the name of the source security group.\n"
+"ToPortRange: int\n"
+	"	The end of the port range for the TCP and UDP protocols, or an ICMP \n"
+	"	code number.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"SecurityGroupId: string\n"
+	"	The ID of the security group you want to delete.\n"
+"SecurityGroupName: string\n"
+	"	The name of the security group.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"RouteTableId: string\n"
+	"	The ID of the route table you want to delete.\n"
+,
+	"DestinationIpRange: string\n"
+	"	The exact IP range for the route.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"RouteTableId: string\n"
+	"	The ID of the route table from which you want to delete a route.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"PublicIp: string\n"
+	"	The public IP. In the public Cloud, this parameter is required.\n"
+"PublicIpId: string\n"
+	"	The ID representing the association of the public IP with the VM or \n"
+	"	the NIC. In a Net, this parameter is required.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NicId: string\n"
+	"	The ID of the NIC you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetPeeringId: string\n"
+	"	The ID of the Net peering connection you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetAccessPointId: string\n"
+	"	The ID of the Net access point.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetId: string\n"
+	"	The ID of the Net you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NatServiceId: string\n"
+	"	The ID of the NAT service you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerNames: array string\n"
+	"	One or more load balancer names.\n"
+"Tags: array ref ResourceLoadBalancerTag\n"
+	"	One or more tags to delete from the load balancers.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer for which you want to delete a policy.\n"
+"PolicyName: string\n"
+	"	The name of the policy you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer for which you want to delete listeners.\n"
+"LoadBalancerPorts: array integer\n"
+	"	One or more port numbers of the listeners you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ListenerRuleName: string\n"
+	"	The name of the rule you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"KeypairName: string\n"
+	"	The name of the keypair you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"InternetServiceId: string\n"
+	"	The ID of the Internet service you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ImageId: string\n"
+	"	The ID of the OMI you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"FlexibleGpuId: string\n"
+	"	The ID of the fGPU you want to delete.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ExportTaskId: string\n"
+	"	The ID of the export task to delete.\n"
+,
+	"DirectLinkInterfaceId: string\n"
+	"	The ID of the DirectLink interface you want to delete.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DirectLinkId: string\n"
+	"	The ID of the DirectLink you want to delete.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DhcpOptionsSetId: string\n"
+	"	The ID of the DHCP options set you want to delete.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"ClientGatewayId: string\n"
+	"	The ID of the client gateway you want to delete.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"CaId: string\n"
+	"	The ID of the CA you want to delete.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"ApiAccessRuleId: string\n"
+	"	The ID of the API access rule you want to delete.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"AccessKeyId: string\n"
+	"	The ID of the access key you want to delete.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DestinationIpRange: string\n"
+	"	The network prefix of the route, in CIDR notation (for example, \n"
+	"	`10.12.0.0/16`).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"VpnConnectionId: string\n"
+	"	The ID of the target VPN connection of the static route.\n"
+,
+	"ClientGatewayId: string\n"
+	"	The ID of the client gateway.\n"
+"ConnectionType: string\n"
+	"	The type of VPN connection (only `ipsec.1` is supported).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"StaticRoutesOnly: bool\n"
+	"	If false, the VPN connection uses dynamic routing with Border Gateway \n"
+	"	Protocol (BGP). If true, routing is controlled using static routes. \n"
+	"	For more information about how to create and delete static routes, \n"
+	"	see [CreateVpnConnectionRoute](#createvpnconnectionroute) and \n"
+	"	[DeleteVpnConnectionRoute](#deletevpnconnectionroute).\n"
+"VirtualGatewayId: string\n"
+	"	The ID of the virtual gateway.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Iops: int\n"
+	"	The number of I/O operations per second (IOPS). This parameter must \n"
+	"	be specified only if you create an `io1` volume. The maximum number \n"
+	"	of IOPS allowed for `io1` volumes is `13000`.\n"
+"Size: int\n"
+	"	The size of the volume, in gibibytes (GiB). The maximum allowed size \n"
+	"	for a volume is 14901 GiB. This parameter is required if the volume \n"
+	"	is not created from a snapshot (`SnapshotId` unspecified). \n"
+"SnapshotId: string\n"
+	"	The ID of the snapshot from which you want to create the volume.\n"
+"SubregionName: string\n"
+	"	The Subregion in which you want to create the volume.\n"
+"VolumeType: string\n"
+	"	The type of volume you want to create (`io1` \\| `gp2` \\| \n"
+	"	`standard`). If not specified, a `standard` volume is created.\nFor \n"
+	"	more information about volume types, see [About Volumes > Volume \n"
+	"	Types and \n"
+	"	IOPS](https://docs.outscale.com/en/userguide/About-Volumes.html#_volum\n"
+	"	e_types_and_iops).\n"
+,
+	"BlockDeviceMappings: array ref BlockDeviceMappingVmCreation\n"
+	"	One or more block device mappings.\n"
+"BootOnCreation: bool\n"
+	"	By default or if true, the VM is started on creation. If false, the \n"
+	"	VM is stopped on creation.\n"
+"BsuOptimized: bool\n"
+	"	This parameter is not available. It is present in our API for the \n"
+	"	sake of historical compatibility with AWS.\n"
+"ClientToken: string\n"
+	"	A unique identifier which enables you to manage the idempotency.\n"
+"DeletionProtection: bool\n"
+	"	If true, you cannot delete the VM unless you change this parameter \n"
+	"	back to false.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ImageId: string\n"
+	"	The ID of the OMI used to create the VM. You can find the list of \n"
+	"	OMIs by calling the [ReadImages](#readimages) method.\n"
+"KeypairName: string\n"
+	"	The name of the keypair.\n"
+"MaxVmsCount: int\n"
+	"	The maximum number of VMs you want to create. If all the VMs cannot \n"
+	"	be created, the largest possible number of VMs above MinVmsCount is \n"
+	"	created.\n"
+"MinVmsCount: int\n"
+	"	The minimum number of VMs you want to create. If this number of VMs \n"
+	"	cannot be created, no VMs are created.\n"
+"NestedVirtualization: bool\n"
+	"	(dedicated tenancy only) If true, nested virtualization is enabled. \n"
+	"	If false, it is disabled.\n"
+"Nics: array ref NicForVmCreation\n"
+	"	One or more NICs. If you specify this parameter, you must not specify \n"
+	"	the `SubnetId` and `SubregionName` parameters. You also must define \n"
+	"	one NIC as the primary network interface of the VM with `0` as its \n"
+	"	device number.\n"
+"Performance: string\n"
+	"	The performance of the VM (`medium` \\| `high` \\|  `highest`). By \n"
+	"	default, `high`. This parameter is ignored if you specify a \n"
+	"	performance flag directly in the `VmType` parameter.\n"
+"Placement: ref Placement\n"
+	"	null\n"
+"PrivateIps: array string\n"
+	"	One or more private IPs of the VM.\n"
+"SecurityGroupIds: array string\n"
+	"	One or more IDs of security group for the VMs.\n"
+"SecurityGroups: array string\n"
+	"	One or more names of security groups for the VMs.\n"
+"SubnetId: string\n"
+	"	The ID of the Subnet in which you want to create the VM. If you \n"
+	"	specify this parameter, you must not specify the `Nics` parameter.\n"
+"UserData: string\n"
+	"	Data or script used to add a specific configuration to the VM. It \n"
+	"	must be Base64-encoded and is limited to 500 kibibytes (KiB).\n"
+"VmInitiatedShutdownBehavior: string\n"
+	"	The VM behavior when you stop it. By default or if set to `stop`, the \n"
+	"	VM stops. If set to `restart`, the VM stops then automatically \n"
+	"	restarts. If set to `terminate`, the VM stops and is terminated.\n"
+"VmType: string\n"
+	"	The type of VM. You can specify a TINA type (in the `tinavW.cXrYpZ` \n"
+	"	or `tinavW.cXrY` format), or an AWS type (for example, `t2.small`, \n"
+	"	which is the default value).\nIf you specify an AWS type, it is \n"
+	"	converted in the background to its corresponding TINA type, but the \n"
+	"	AWS type is still returned. If the specified or converted TINA type \n"
+	"	includes a performance flag, this performance flag is applied \n"
+	"	regardless of the value you may have provided in the `Performance` \n"
+	"	parameter. For more information, see [Instance \n"
+	"	Types](https://docs.outscale.com/en/userguide/Instance-Types.html).\n"
+,
+	"ConnectionType: string\n"
+	"	The type of VPN connection supported by the virtual gateway (only \n"
+	"	`ipsec.1` is supported).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ResourceIds: array string\n"
+	"	One or more resource IDs.\n"
+"Tags: array ref ResourceTag\n"
+	"	One or more tags to add to the specified resources.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"IpRange: string\n"
+	"	The IP range in the Subnet, in CIDR notation (for example, \n"
+	"	`10.0.0.0/16`).\nThe IP range of the Subnet can be either the same as \n"
+	"	the Net one if you create only a single Subnet in this Net, or a \n"
+	"	subset of the Net one. In case of several Subnets in a Net, their IP \n"
+	"	ranges must not overlap. The smallest Subnet you can create uses a \n"
+	"	/29 netmask (eight IPs). For more information, see [About \n"
+	"	VPCs](https://docs.outscale.com/en/userguide/About-VPCs.html).\n"
+"NetId: string\n"
+	"	The ID of the Net for which you want to create a Subnet.\n"
+"SubregionName: string\n"
+	"	The name of the Subregion in which you want to create the Subnet.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"OsuExport: ref OsuExportToCreate\n"
+	"	null\n"
+"SnapshotId: string\n"
+	"	The ID of the snapshot to export.\n"
+,
+	"Description: string\n"
+	"	A description for the snapshot.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"FileLocation: string\n"
+	"	(When importing) The pre-signed URL of the snapshot you want to \n"
+	"	import, or the normal URL of the snapshot if you have permission on \n"
+	"	the OOS bucket. For more information, see [Configuring a Pre-signed \n"
+	"	URL](https://docs.outscale.com/en/userguide/Configuring-a-Pre-signed-U\n"
+	"	RL.html) or [Managing Access to Your Buckets and \n"
+	"	Objects](https://docs.outscale.com/en/userguide/Managing-Access-to-You\n"
+	"	r-Buckets-and-Objects.html).\n"
+"SnapshotSize: int\n"
+	"	(When importing) The size of the snapshot you want to create in your \n"
+	"	account, in bytes. This size must be greater than or equal to the \n"
+	"	size of the original, uncompressed snapshot.\n"
+"SourceRegionName: string\n"
+	"	(When copying) The name of the source Region, which must be the same \n"
+	"	as the Region of your account.\n"
+"SourceSnapshotId: string\n"
+	"	(When copying) The ID of the snapshot you want to copy.\n"
+"VolumeId: string\n"
+	"	(When creating) The ID of the volume you want to create a snapshot of.\n"
+,
+	"Body: string\n"
+	"	The PEM-encoded X509 certificate.\n"
+"Chain: string\n"
+	"	The PEM-encoded intermediate certification authorities.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Name: string\n"
+	"	A unique name for the certificate. Constraints: 1-128 alphanumeric \n"
+	"	characters, pluses (+), equals (=), commas (,), periods (.), at signs \n"
+	"	(@), minuses (-), or underscores (_).\n"
+"Path: string\n"
+	"	The path to the server certificate, set to a slash (/) if not \n"
+	"	specified.\n"
+"PrivateKey: string\n"
+	"	The PEM-encoded private key matching the certificate.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Flow: string\n"
+	"	The direction of the flow: `Inbound` or `Outbound`. You can specify \n"
+	"	`Outbound` for Nets only.\n"
+"FromPortRange: int\n"
+	"	The beginning of the port range for the TCP and UDP protocols, or an \n"
+	"	ICMP type number. If you specify this parameter, you cannot specify \n"
+	"	the `Rules` parameter and its subparameters.\n"
+"IpProtocol: string\n"
+	"	The IP protocol name (`tcp`, `udp`, `icmp`, or `-1` for all \n"
+	"	protocols). By default, `-1`. In a Net, this can also be an IP \n"
+	"	protocol number. For more information, see the [IANA.org \n"
+	"	website](https://www.iana.org/assignments/protocol-numbers/protocol-nu\n"
+	"	mbers.xhtml). If you specify this parameter, you cannot specify the \n"
+	"	`Rules` parameter and its subparameters.\n"
+"IpRange: string\n"
+	"	The IP range for the security group rule, in CIDR notation (for \n"
+	"	example, 10.0.0.0/16). If you specify this parameter, you cannot \n"
+	"	specify the `Rules` parameter and its subparameters.\n"
+"Rules: array ref SecurityGroupRule\n"
+	"	Information about the security group rule to create. If you specify \n"
+	"	this parent parameter and its subparameters, you cannot specify the \n"
+	"	following parent parameters: `FromPortRange`, `IpProtocol`, \n"
+	"	`IpRange`, and `ToPortRange`.\n"
+"SecurityGroupAccountIdToLink: string\n"
+	"	The account ID of the owner of the security group for which you want \n"
+	"	to create a rule.\n"
+"SecurityGroupId: string\n"
+	"	The ID of the security group for which you want to create a rule.\n"
+"SecurityGroupNameToLink: string\n"
+	"	The ID of the source security group. If you are in the Public Cloud, \n"
+	"	you can also specify the name of the source security group.\n"
+"ToPortRange: int\n"
+	"	The end of the port range for the TCP and UDP protocols, or an ICMP \n"
+	"	code number. If you specify this parameter, you cannot specify the \n"
+	"	`Rules` parameter and its subparameters.\n"
+,
+	"Description: string\n"
+	"	A description for the security group, with a maximum length of 255 \n"
+	"	[ASCII printable \n"
+	"	characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetId: string\n"
+	"	The ID of the Net for the security group.\n"
+"SecurityGroupName: string\n"
+	"	The name of the security group.\nThis name must not start with \n"
+	"	`sg-`.</br>\nThis name must be unique and contain between 1 and 255 \n"
+	"	ASCII characters. Accented letters are not allowed.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetId: string\n"
+	"	The ID of the Net for which you want to create a route table.\n"
+,
+	"DestinationIpRange: string\n"
+	"	The IP range used for the destination match, in CIDR notation (for \n"
+	"	example, `10.0.0.0/24`).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"GatewayId: string\n"
+	"	The ID of an Internet service or virtual gateway attached to your Net.\n"
+"NatServiceId: string\n"
+	"	The ID of a NAT service.\n"
+"NetPeeringId: string\n"
+	"	The ID of a Net peering connection.\n"
+"NicId: string\n"
+	"	The ID of a NIC.\n"
+"RouteTableId: string\n"
+	"	The ID of the route table for which you want to create a route.\n"
+"VmId: string\n"
+	"	The ID of a NAT VM in your Net (attached to exactly one NIC).\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"Description: string\n"
+	"	A description for the NIC.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"PrivateIps: array ref PrivateIpLight\n"
+	"	The primary private IP for the NIC.\nThis IP must be within the IP \n"
+	"	range of the Subnet that you specify with the `SubnetId` \n"
+	"	attribute.\nIf you do not specify this attribute, a random private IP \n"
+	"	is selected within the IP range of the Subnet.\n"
+"SecurityGroupIds: array string\n"
+	"	One or more IDs of security groups for the NIC.\n"
+"SubnetId: string\n"
+	"	The ID of the Subnet in which you want to create the NIC.\n"
+,
+	"AccepterNetId: string\n"
+	"	The ID of the Net you want to connect with.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"SourceNetId: string\n"
+	"	The ID of the Net you send the peering request from.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetId: string\n"
+	"	The ID of the Net.\n"
+"RouteTableIds: array string\n"
+	"	One or more IDs of route tables to use for the connection.\n"
+"ServiceName: string\n"
+	"	The name of the service (in the format `com.outscale.region.service`).\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"IpRange: string\n"
+	"	The IP range for the Net, in CIDR notation (for example, \n"
+	"	`10.0.0.0/16`).\n"
+"Tenancy: string\n"
+	"	The tenancy options for the VMs (`default` if a VM created in a Net \n"
+	"	can be launched with any tenancy, `dedicated` if it can be launched \n"
+	"	with dedicated tenancy VMs running on single-tenant hardware).\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"PublicIpId: string\n"
+	"	The allocation ID of the public IP to associate with the NAT \n"
+	"	service.\nIf the public IP is already associated with another \n"
+	"	resource, you must first disassociate it.\n"
+"SubnetId: string\n"
+	"	The ID of the Subnet in which you want to create the NAT service.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerNames: array string\n"
+	"	One or more load balancer names.\n"
+"Tags: array ref ResourceTag\n"
+	"	One or more tags to add to the specified load balancers.\n"
+,
+	"CookieExpirationPeriod: int\n"
+	"	The lifetime of the cookie, in seconds. If not specified, the default \n"
+	"	value of this parameter is `1`, which means that the sticky session \n"
+	"	lasts for the duration of the browser session.\n"
+"CookieName: string\n"
+	"	The name of the application cookie used for stickiness. This \n"
+	"	parameter is required if you create a stickiness policy based on an \n"
+	"	application-generated cookie.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer for which you want to create a policy.\n"
+"PolicyName: string\n"
+	"	The name of the policy. This name must be unique and consist of \n"
+	"	alphanumeric characters and dashes (-).\n"
+"PolicyType: string\n"
+	"	The type of stickiness policy you want to create: `app` or \n"
+	"	`load_balancer`.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Listeners: array ref ListenerForCreation\n"
+	"	One or more listeners for the load balancer.\n"
+"LoadBalancerName: string\n"
+	"	The name of the load balancer for which you want to create listeners.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Listeners: array ref ListenerForCreation\n"
+	"	One or more listeners to create.\n"
+"LoadBalancerName: string\n"
+	"	The unique name of the load balancer (32 alphanumeric or hyphen \n"
+	"	characters maximum, but cannot start or end with a hyphen).\n"
+"LoadBalancerType: string\n"
+	"	The type of load balancer: `internet-facing` or `internal`. Use this \n"
+	"	parameter only for load balancers in a Net.\n"
+"PublicIp: string\n"
+	"	(internet-facing only) The public IP you want to associate with the \n"
+	"	load balancer. If not specified, a public IP owned by 3DS OUTSCALE is \n"
+	"	associated.\n"
+"SecurityGroups: array string\n"
+	"	(Net only) One or more IDs of security groups you want to assign to \n"
+	"	the load balancer. If not specified, the default security group of \n"
+	"	the Net is assigned to the load balancer.\n"
+"Subnets: array string\n"
+	"	(Net only) The ID of the Subnet in which you want to create the load \n"
+	"	balancer. Regardless of this Subnet, the load balancer can distribute \n"
+	"	traffic to all Subnets. This parameter is required in a Net.\n"
+"SubregionNames: array string\n"
+	"	(public Cloud only) The Subregion in which you want to create the \n"
+	"	load balancer. Regardless of this Subregion, the load balancer can \n"
+	"	distribute traffic to all Subregions. This parameter is required in \n"
+	"	the public Cloud.\n"
+"Tags: array ref ResourceTag\n"
+	"	One or more tags assigned to the load balancer.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Listener: ref LoadBalancerLight\n"
+	"	null\n"
+"ListenerRule: ref ListenerRuleForCreation\n"
+	"	null\n"
+"VmIds: array string\n"
+	"	The IDs of the backend VMs.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"KeypairName: string\n"
+	"	A unique name for the keypair, with a maximum length of 255 [ASCII \n"
+	"	printable \n"
+	"	characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters).\n"
+"PublicKey: string\n"
+	"	The public key. It must be Base64-encoded.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ImageId: string\n"
+	"	The ID of the OMI to export.\n"
+"OsuExport: ref OsuExportToCreate\n"
+	"	null\n"
+,
+	"Architecture: string\n"
+	"	The architecture of the OMI (by default, `i386` if you specified the \n"
+	"	`FileLocation` or `RootDeviceName` parameter).\n"
+"BlockDeviceMappings: array ref BlockDeviceMappingImage\n"
+	"	One or more block device mappings.\n"
+"Description: string\n"
+	"	A description for the new OMI.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"FileLocation: string\n"
+	"	The pre-signed URL of the OMI manifest file, or the full path to the \n"
+	"	OMI stored in a bucket. If you specify this parameter, a copy of the \n"
+	"	OMI is created in your account. You must specify only one of the \n"
+	"	following parameters: `FileLocation`, `RootDeviceName`, \n"
+	"	`SourceImageId` or `VmId`.\n"
+"ImageName: string\n"
+	"	A unique name for the new OMI.\nConstraints: 3-128 alphanumeric \n"
+	"	characters, underscores (_), spaces ( ), parentheses (()), slashes \n"
+	"	(/), periods (.), or dashes (-).\n"
+"NoReboot: bool\n"
+	"	If false, the VM shuts down before creating the OMI and then reboots. \n"
+	"	If true, the VM does not.\n"
+"RootDeviceName: string\n"
+	"	The name of the root device. You must specify only one of the \n"
+	"	following parameters: `FileLocation`, `RootDeviceName`, \n"
+	"	`SourceImageId` or `VmId`.\n"
+"SourceImageId: string\n"
+	"	The ID of the OMI you want to copy. You must specify only one of the \n"
+	"	following parameters: `FileLocation`, `RootDeviceName`, \n"
+	"	`SourceImageId` or `VmId`.\n"
+"SourceRegionName: string\n"
+	"	The name of the source Region, which must be the same as the Region \n"
+	"	of your account.\n"
+"VmId: string\n"
+	"	The ID of the VM from which you want to create the OMI. You must \n"
+	"	specify only one of the following parameters: `FileLocation`, \n"
+	"	`RootDeviceName`, `SourceImageId` or `VmId`.\n"
+,
+	"DeleteOnVmDeletion: bool\n"
+	"	If true, the fGPU is deleted when the VM is terminated.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Generation: string\n"
+	"	The processor generation that the fGPU must be compatible with. If \n"
+	"	not specified, the oldest possible processor generation is selected \n"
+	"	(as provided by [ReadFlexibleGpuCatalog](#readflexiblegpucatalog) for \n"
+	"	the specified model of fGPU).\n"
+"ModelName: string\n"
+	"	The model of fGPU you want to allocate. For more information, see \n"
+	"	[About Flexible \n"
+	"	GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html)\n"
+	"	.\n"
+"SubregionName: string\n"
+	"	The Subregion in which you want to create the fGPU.\n"
+,
+	"DirectLinkId: string\n"
+	"	The ID of the existing DirectLink for which you want to create the \n"
+	"	DirectLink interface.\n"
+"DirectLinkInterface: ref DirectLinkInterface\n"
+	"	null\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"Bandwidth: string\n"
+	"	The bandwidth of the DirectLink (`1Gbps` \\| `10Gbps`).\n"
+"DirectLinkName: string\n"
+	"	The name of the DirectLink.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Location: string\n"
+	"	The code of the requested location for the DirectLink, returned by \n"
+	"	the [ReadLocations](#readlocations) method.\n"
+,
+	"DomainName: string\n"
+	"	Specify a domain name (for example, `MyCompany.com`). You can specify \n"
+	"	only one domain name. You must specify at least one of the following \n"
+	"	parameters: `DomainName`, `DomainNameServers`, `LogServers`, or \n"
+	"	`NtpServers`.\n"
+"DomainNameServers: array string\n"
+	"	The IPs of domain name servers. If no IPs are specified, the \n"
+	"	`OutscaleProvidedDNS` value is set by default. You must specify at \n"
+	"	least one of the following parameters: `DomainName`, \n"
+	"	`DomainNameServers`, `LogServers`, or `NtpServers`.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"LogServers: array string\n"
+	"	The IPs of the log servers. You must specify at least one of the \n"
+	"	following parameters: `DomainName`, `DomainNameServers`, \n"
+	"	`LogServers`, or `NtpServers`.\n"
+"NtpServers: array string\n"
+	"	The IPs of the Network Time Protocol (NTP) servers. You must specify \n"
+	"	at least one of the following parameters: `DomainName`, \n"
+	"	`DomainNameServers`, `LogServers`, or `NtpServers`.\n"
+,
+	"BgpAsn: int\n"
+	"	The Autonomous System Number (ASN) used by the Border Gateway \n"
+	"	Protocol (BGP) to find the path to your client gateway through the \n"
+	"	Internet. This number must be between `1` and `4294967295`.\n"
+"ConnectionType: string\n"
+	"	The communication protocol used to establish tunnel with your client \n"
+	"	gateway (only `ipsec.1` is supported).\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"PublicIp: string\n"
+	"	The public fixed IPv4 address of your client gateway.\n"
+,
+	"CaPem: string\n"
+	"	The CA in PEM format. It must be a single-line string, containing \n"
+	"	literal line breaks (`\\n`).\n"
+"Description: string\n"
+	"	The description of the CA.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+,
+	"CaIds: array string\n"
+	"	 One or more IDs of Client Certificate Authorities (CAs).\n"
+"Cns: array string\n"
+	"	One or more Client Certificate Common Names (CNs). If this parameter \n"
+	"	is specified, you must also specify the `CaIds` parameter.\n"
+"Description: string\n"
+	"	A description for the API access rule.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"IpRanges: array string\n"
+	"	One or more IP ranges, in CIDR notation (for example, `192.0.2.0/16`).\n"
+,
+	"AdditionalEmails: array string\n"
+	"	One or more additional email addresses for the account. These \n"
+	"	addresses are used for notifications only. If you already have a list \n"
+	"	of additional emails registered, you cannot add to it, only replace \n"
+	"	it. To remove all registered additional emails, specify an empty list.\n"
+"City: string\n"
+	"	The city of the account owner.\n"
+"CompanyName: string\n"
+	"	The name of the company for the account.\n"
+"Country: string\n"
+	"	The country of the account owner.\n"
+"CustomerId: string\n"
+	"	The ID of the customer. It must be 8 digits.\n"
+"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Email: string\n"
+	"	The main email address for the account. This address is used for your \n"
+	"	credentials and notifications.\n"
+"FirstName: string\n"
+	"	The first name of the account owner.\n"
+"JobTitle: string\n"
+	"	The job title of the account owner.\n"
+"LastName: string\n"
+	"	The last name of the account owner.\n"
+"MobileNumber: string\n"
+	"	The mobile phone number of the account owner.\n"
+"PhoneNumber: string\n"
+	"	The landline phone number of the account owner.\n"
+"StateProvince: string\n"
+	"	The state/province of the account.\n"
+"VatNumber: string\n"
+	"	The value added tax (VAT) number for the account.\n"
+"ZipCode: string\n"
+	"	The ZIP code of the city.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"ExpirationDate: string\n"
+	"	The date and time at which you want the access key to expire, in ISO \n"
+	"	8601 format (for example, `2017-06-14` or `2017-06-14T00:00:00Z`). To \n"
+	"	remove an existing expiration date, use the method without specifying \n"
+	"	this parameter.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"Login: string\n"
+	"	The email address of the account.\n"
+"Password: string\n"
+	"	The password of the account.\n"
+,
+	"DryRun: bool\n"
+	"	If true, checks whether you have the required permissions to perform \n"
+	"	the action.\n"
+"NetPeeringId: string\n"
+	"	The ID of the Net peering connection you want to accept.\n"
 ,
 	NULL
 };
@@ -589,6 +2360,21 @@ const char *osc_find_description(const char *call_name)
 	}
 	return NULL;
 }
+
+const char *osc_find_args_description(const char *call_name)
+{
+	const char **c;
+	int i = 0;
+
+	for (c = calls_name; c; ++c) {
+		if (!strcmp(*c, call_name))
+			return calls_args_descriptions[i];
+		++i;
+	}
+	return NULL;
+}
+
+#endif  /* WITH_DESCRIPTION */
 
 /* We don't use _Bool as we try to be C89 compatible */
 int osc_str_append_bool(struct osc_str *osc_str, int bool)
@@ -613,6 +2399,19 @@ int osc_str_append_int(struct osc_str *osc_str, int i)
 	if (!osc_str->buf)
 		return -1;
 	osc_str->len = len + snprintf(osc_str->buf + len, 64, "%d", i);
+	osc_str->buf[osc_str->len] = 0;
+	return 0;
+}
+
+int osc_str_append_double(struct osc_str *osc_str, double i)
+{
+	int len = osc_str->len;
+	assert(osc_str);
+
+	osc_str->buf = realloc(osc_str->buf, len + 64);
+	if (!osc_str->buf)
+		return -1;
+	osc_str->len = len + snprintf(osc_str->buf + len, 64, "%f", i);
 	osc_str->buf[osc_str->len] = 0;
 	return 0;
 }
@@ -1077,7 +2876,7 @@ static int access_log_setter(struct access_log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_publication_interval) {
+	if (args->is_set_publication_interval || args->publication_interval) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -1297,7 +3096,7 @@ static int account_setter(struct account *args, struct osc_str *data) {
 static int api_access_policy_setter(struct api_access_policy *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_max_access_key_expiration_seconds) {
+	if (args->is_set_max_access_key_expiration_seconds || args->max_access_key_expiration_seconds) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -1802,7 +3601,7 @@ static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_iops) {
+	if (args->is_set_iops || args->iops) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -1824,7 +3623,7 @@ static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_volume_size) {
+	if (args->is_set_volume_size || args->volume_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -2040,22 +3839,22 @@ static int catalog_entry_setter(struct catalog_entry *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	if (args->unit_price) {
+	if (args->is_set_unit_price || args->unit_price) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"UnitPrice\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->unit_price))
+                if (osc_str_append_double(data, args->unit_price))
 			return -1;
-		ret += 1;
+	   	ret += 1;
 	}
 	return !!ret;
 }
 static int client_gateway_setter(struct client_gateway *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_bgp_asn) {
+	if (args->is_set_bgp_asn || args->bgp_asn) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -2270,15 +4069,15 @@ static int consumption_entry_setter(struct consumption_entry *args, struct osc_s
 			return -1;
 	   	ret += 1;
 	}
-	if (args->value) {
+	if (args->is_set_value || args->value) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"Value\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->value))
+                if (osc_str_append_double(data, args->value))
 			return -1;
-		ret += 1;
+	   	ret += 1;
 	}
 	return !!ret;
 }
@@ -2541,7 +4340,7 @@ static int direct_link_setter(struct direct_link *args, struct osc_str *data) {
 static int direct_link_interface_setter(struct direct_link_interface *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_bgp_asn) {
+	if (args->is_set_bgp_asn || args->bgp_asn) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -2611,7 +4410,7 @@ static int direct_link_interface_setter(struct direct_link_interface *args, stru
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_vlan) {
+	if (args->is_set_vlan || args->vlan) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -2638,7 +4437,7 @@ static int direct_link_interfaces_setter(struct direct_link_interfaces *args, st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_bgp_asn) {
+	if (args->is_set_bgp_asn || args->bgp_asn) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -2732,7 +4531,7 @@ static int direct_link_interfaces_setter(struct direct_link_interfaces *args, st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_mtu) {
+	if (args->is_set_mtu || args->mtu) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -2778,7 +4577,7 @@ static int direct_link_interfaces_setter(struct direct_link_interfaces *args, st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_vlan) {
+	if (args->is_set_vlan || args->vlan) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -10354,12 +12153,30 @@ static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *
 	   	ret += 1;
 	}
 	if (args->memory_sizes) {
+		double *ip;
+
+		if (count_args++ > 0)
+			if (osc_str_append_string(data, "," ))
+				return -1;
+		if (osc_str_append_string(data, "\"MemorySizes\":[" ))
+			return -1;
+		for (ip = args->memory_sizes; *ip > 0; ++ip) {
+			if (ip != args->memory_sizes)
+				if (osc_str_append_string(data, "," ))
+					return -1;
+			if (osc_str_append_double(data, *ip))
+				return -1;
+		}
+		if (osc_str_append_string(data, "]" ))
+			return -1;
+		ret += 1;
+	} else if (args->memory_sizes_str) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MemorySizes\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->memory_sizes))
+                if (osc_str_append_string(data, args->memory_sizes_str))
 			return -1;
 		ret += 1;
 	}
@@ -11622,7 +13439,7 @@ static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct
 			return -1;
 		ret += 1;
 	}
-	if (args->is_set_max_cpu) {
+	if (args->is_set_max_cpu || args->max_cpu) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -11632,7 +13449,7 @@ static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_max_ram) {
+	if (args->is_set_max_ram || args->max_ram) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -11654,7 +13471,7 @@ static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_vram) {
+	if (args->is_set_vram || args->vram) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -11669,7 +13486,7 @@ static int flexible_gpu_catalog_setter(struct flexible_gpu_catalog *args, struct
 static int health_check_setter(struct health_check *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_check_interval) {
+	if (args->is_set_check_interval || args->check_interval) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -11679,7 +13496,7 @@ static int health_check_setter(struct health_check *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_healthy_threshold) {
+	if (args->is_set_healthy_threshold || args->healthy_threshold) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -11701,7 +13518,7 @@ static int health_check_setter(struct health_check *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_port) {
+	if (args->is_set_port || args->port) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -11723,7 +13540,7 @@ static int health_check_setter(struct health_check *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_timeout) {
+	if (args->is_set_timeout || args->timeout) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -11733,7 +13550,7 @@ static int health_check_setter(struct health_check *args, struct osc_str *data) 
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_unhealthy_threshold) {
+	if (args->is_set_unhealthy_threshold || args->unhealthy_threshold) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12080,7 +13897,7 @@ static int image_export_task_setter(struct image_export_task *args, struct osc_s
 			return -1;
 	       ret += 1;
 	}
-	if (args->is_set_progress) {
+	if (args->is_set_progress || args->progress) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12304,7 +14121,7 @@ static int link_nic_setter(struct link_nic *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_device_number) {
+	if (args->is_set_device_number || args->device_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12377,7 +14194,7 @@ static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_device_number) {
+	if (args->is_set_device_number || args->device_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12663,7 +14480,7 @@ static int linked_volume_setter(struct linked_volume *args, struct osc_str *data
 static int listener_setter(struct listener *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_backend_port) {
+	if (args->is_set_backend_port || args->backend_port) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12685,7 +14502,7 @@ static int listener_setter(struct listener *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_load_balancer_port) {
+	if (args->is_set_load_balancer_port || args->load_balancer_port) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12756,7 +14573,7 @@ static int listener_setter(struct listener *args, struct osc_str *data) {
 static int listener_for_creation_setter(struct listener_for_creation *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_backend_port) {
+	if (args->is_set_backend_port || args->backend_port) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12778,7 +14595,7 @@ static int listener_for_creation_setter(struct listener_for_creation *args, stru
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_load_balancer_port) {
+	if (args->is_set_load_balancer_port || args->load_balancer_port) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12841,7 +14658,7 @@ static int listener_rule_setter(struct listener_rule *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_listener_id) {
+	if (args->is_set_listener_id || args->listener_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12851,7 +14668,7 @@ static int listener_rule_setter(struct listener_rule *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_listener_rule_id) {
+	if (args->is_set_listener_rule_id || args->listener_rule_id) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12885,7 +14702,7 @@ static int listener_rule_setter(struct listener_rule *args, struct osc_str *data
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_priority) {
+	if (args->is_set_priority || args->priority) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -12980,7 +14797,7 @@ static int listener_rule_for_creation_setter(struct listener_rule_for_creation *
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_priority) {
+	if (args->is_set_priority || args->priority) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -13433,7 +15250,7 @@ static int load_balancer_light_setter(struct load_balancer_light *args, struct o
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_load_balancer_port) {
+	if (args->is_set_load_balancer_port || args->load_balancer_port) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -13448,7 +15265,7 @@ static int load_balancer_light_setter(struct load_balancer_light *args, struct o
 static int load_balancer_sticky_cookie_policy_setter(struct load_balancer_sticky_cookie_policy *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_cookie_expiration_period) {
+	if (args->is_set_cookie_expiration_period || args->cookie_expiration_period) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -13557,7 +15374,7 @@ static int log_setter(struct log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_call_duration) {
+	if (args->is_set_call_duration || args->call_duration) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -13639,7 +15456,7 @@ static int log_setter(struct log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_query_header_size) {
+	if (args->is_set_query_header_size || args->query_header_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -13673,7 +15490,7 @@ static int log_setter(struct log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_query_payload_size) {
+	if (args->is_set_query_payload_size || args->query_payload_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -13707,7 +15524,7 @@ static int log_setter(struct log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_response_size) {
+	if (args->is_set_response_size || args->response_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -13717,7 +15534,7 @@ static int log_setter(struct log *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_response_status_code) {
+	if (args->is_set_response_status_code || args->response_status_code) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -14569,7 +16386,7 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_device_number) {
+	if (args->is_set_device_number || args->device_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -14623,7 +16440,7 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
 			return -1;
 		ret += 1;
 	}
-	if (args->is_set_secondary_private_ip_count) {
+	if (args->is_set_secondary_private_ip_count || args->secondary_private_ip_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -15202,7 +17019,7 @@ static int phase1_options_setter(struct phase1_options *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_dpd_timeout_seconds) {
+	if (args->is_set_dpd_timeout_seconds || args->dpd_timeout_seconds) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -15336,7 +17153,7 @@ static int phase1_options_setter(struct phase1_options *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	}
-	if (args->is_set_phase1_lifetime_seconds) {
+	if (args->is_set_phase1_lifetime_seconds || args->phase1_lifetime_seconds) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -15346,7 +17163,7 @@ static int phase1_options_setter(struct phase1_options *args, struct osc_str *da
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_replay_window_size) {
+	if (args->is_set_replay_window_size || args->replay_window_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -15465,7 +17282,7 @@ static int phase2_options_setter(struct phase2_options *args, struct osc_str *da
 			return -1;
 		ret += 1;
 	}
-	if (args->is_set_phase2_lifetime_seconds) {
+	if (args->is_set_phase2_lifetime_seconds || args->phase2_lifetime_seconds) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -15883,7 +17700,7 @@ static int quota_setter(struct quota *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_max_value) {
+	if (args->is_set_max_value || args->max_value) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -15929,7 +17746,7 @@ static int quota_setter(struct quota *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_used_value) {
+	if (args->is_set_used_value || args->used_value) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -16610,7 +18427,7 @@ static int security_group_light_setter(struct security_group_light *args, struct
 static int security_group_rule_setter(struct security_group_rule *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_from_port_range) {
+	if (args->is_set_from_port_range || args->from_port_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -16728,7 +18545,7 @@ static int security_group_rule_setter(struct security_group_rule *args, struct o
 			return -1;
 		ret += 1;
 	}
-	if (args->is_set_to_port_range) {
+	if (args->is_set_to_port_range || args->to_port_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -16991,7 +18808,7 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 			return -1;
 	       ret += 1;
 	}
-	if (args->is_set_progress) {
+	if (args->is_set_progress || args->progress) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -17069,7 +18886,7 @@ static int snapshot_setter(struct snapshot *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_volume_size) {
+	if (args->is_set_volume_size || args->volume_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -17117,7 +18934,7 @@ static int snapshot_export_task_setter(struct snapshot_export_task *args, struct
 			return -1;
 	       ret += 1;
 	}
-	if (args->is_set_progress) {
+	if (args->is_set_progress || args->progress) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -17299,7 +19116,7 @@ static int state_comment_setter(struct state_comment *args, struct osc_str *data
 static int subnet_setter(struct subnet *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_available_ips_count) {
+	if (args->is_set_available_ips_count || args->available_ips_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -17522,7 +19339,7 @@ static int tag_setter(struct tag *args, struct osc_str *data) {
 static int vgw_telemetry_setter(struct vgw_telemetry *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
-	if (args->is_set_accepted_route_count) {
+	if (args->is_set_accepted_route_count || args->accepted_route_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -17824,7 +19641,7 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_launch_number) {
+	if (args->is_set_launch_number || args->launch_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -18326,7 +20143,7 @@ static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_max_private_ips) {
+	if (args->is_set_max_private_ips || args->max_private_ips) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -18336,17 +20153,17 @@ static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->memory_size) {
+	if (args->is_set_memory_size || args->memory_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
 		if (osc_str_append_string(data, "\"MemorySize\":" ))
 			return -1;
-                if (osc_str_append_string(data, args->memory_size))
+                if (osc_str_append_double(data, args->memory_size))
 			return -1;
-		ret += 1;
+	   	ret += 1;
 	}
-	if (args->is_set_vcore_count) {
+	if (args->is_set_vcore_count || args->vcore_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -18368,7 +20185,7 @@ static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_volume_count) {
+	if (args->is_set_volume_count || args->volume_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -18378,7 +20195,7 @@ static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_volume_size) {
+	if (args->is_set_volume_size || args->volume_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -18405,7 +20222,7 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_iops) {
+	if (args->is_set_iops || args->iops) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -18447,7 +20264,7 @@ static int volume_setter(struct volume *args, struct osc_str *data) {
 			return -1;
 		ret += 1;
 	}
-	if (args->is_set_size) {
+	if (args->is_set_size || args->size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -19103,7 +20920,7 @@ static  int update_volume_data(struct osc_update_volume_arg *args, struct osc_st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_iops) {
+	if (args->is_set_iops || args->iops) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -19113,7 +20930,7 @@ static  int update_volume_data(struct osc_update_volume_arg *args, struct osc_st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_size) {
+	if (args->is_set_size || args->size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -20243,7 +22060,7 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_load_balancer_port) {
+	if (args->is_set_load_balancer_port || args->load_balancer_port) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -20646,7 +22463,7 @@ static  int update_direct_link_interface_data(struct osc_update_direct_link_inte
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_mtu) {
+	if (args->is_set_mtu || args->mtu) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -20944,7 +22761,7 @@ static  int update_api_access_policy_data(struct osc_update_api_access_policy_ar
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_max_access_key_expiration_seconds) {
+	if (args->is_set_max_access_key_expiration_seconds || args->max_access_key_expiration_seconds) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -25656,7 +27473,7 @@ static  int read_api_logs_data(struct osc_read_api_logs_arg *args, struct osc_st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_results_per_page) {
+	if (args->is_set_results_per_page || args->results_per_page) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -26429,7 +28246,7 @@ static  int link_private_ips_data(struct osc_link_private_ips_arg *args, struct 
 			return -1;
 		ret += 1;
 	}
-	if (args->is_set_secondary_private_ip_count) {
+	if (args->is_set_secondary_private_ip_count || args->secondary_private_ip_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -26477,7 +28294,7 @@ static  int link_nic_data(struct osc_link_nic_arg *args, struct osc_str *data)
 	if (!args)
 		return 0;
 	osc_str_append_string(data, "{");
-	if (args->is_set_device_number) {
+	if (args->is_set_device_number || args->device_number) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -27565,7 +29382,7 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_from_port_range) {
+	if (args->is_set_from_port_range || args->from_port_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -27667,7 +29484,7 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_to_port_range) {
+	if (args->is_set_to_port_range || args->to_port_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -29579,7 +31396,7 @@ static  int create_volume_data(struct osc_create_volume_arg *args, struct osc_st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_iops) {
+	if (args->is_set_iops || args->iops) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -29589,7 +31406,7 @@ static  int create_volume_data(struct osc_create_volume_arg *args, struct osc_st
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_size) {
+	if (args->is_set_size || args->size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -29781,7 +31598,7 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_max_vms_count) {
+	if (args->is_set_max_vms_count || args->max_vms_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -29791,7 +31608,7 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_min_vms_count) {
+	if (args->is_set_min_vms_count || args->min_vms_count) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -30429,7 +32246,7 @@ static  int create_snapshot_data(struct osc_create_snapshot_arg *args, struct os
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_snapshot_size) {
+	if (args->is_set_snapshot_size || args->snapshot_size) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -30643,7 +32460,7 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_from_port_range) {
+	if (args->is_set_from_port_range || args->from_port_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -30745,7 +32562,7 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 			return -1;
 	   	ret += 1;
 	}
-	if (args->is_set_to_port_range) {
+	if (args->is_set_to_port_range || args->to_port_range) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -31685,7 +33502,7 @@ static  int create_load_balancer_policy_data(struct osc_create_load_balancer_pol
 	if (!args)
 		return 0;
 	osc_str_append_string(data, "{");
-	if (args->is_set_cookie_expiration_period) {
+	if (args->is_set_cookie_expiration_period || args->cookie_expiration_period) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;
@@ -33051,7 +34868,7 @@ static  int create_client_gateway_data(struct osc_create_client_gateway_arg *arg
 	if (!args)
 		return 0;
 	osc_str_append_string(data, "{");
-	if (args->is_set_bgp_asn) {
+	if (args->is_set_bgp_asn || args->bgp_asn) {
 		if (count_args++ > 0)
 			if (osc_str_append_string(data, "," ))
 				return -1;

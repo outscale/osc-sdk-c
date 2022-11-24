@@ -517,7 +517,8 @@ struct catalog_entry {
          * The unit price of the catalog entry, in the currency of the catalog 
          * of the Region where the API method was used.
          */
-	char *unit_price; /* number */
+        int is_set_unit_price;
+	double unit_price; /* double */
 };
 
 struct client_gateway {
@@ -603,7 +604,8 @@ struct consumption_entry {
          * The consumed amount for the resource. The unit depends on the 
          * resource type. For more information, see the `Title` element.
          */
-	char *value; /* number */
+        int is_set_value;
+	double value; /* double */
 };
 
 struct dhcp_options_set {
@@ -2187,7 +2189,8 @@ struct filters_vm_type {
         /*
          * The amounts of memory, in gibibytes (GiB).
          */
-	char *memory_sizes; /* array number */
+        char *memory_sizes_str;
+	double *memory_sizes; /* array double */
         /*
          * The numbers of vCores.
          */
@@ -4697,7 +4700,8 @@ struct vm_type {
         /*
          * The amount of memory, in gibibytes.
          */
-	char *memory_size; /* number */
+        int is_set_memory_size;
+	double memory_size; /* double */
         /*
          * The number of vCores.
          */
@@ -8790,7 +8794,13 @@ void osc_init_str(struct osc_str *r);
 void osc_deinit_str(struct osc_str *r);
 int osc_init_sdk(struct osc_env *e, const char *profile, unsigned int flag);
 void osc_deinit_sdk(struct osc_env *e);
+
+#ifdef WITH_DESCRIPTION
+
 const char *osc_find_description(const char *call_name);
+const char *osc_find_args_description(const char *call_name);
+
+#endif /* WITH_DESCRIPTION */
 
 int osc_update_vpn_connection(struct osc_env *e, struct osc_str *out, struct osc_update_vpn_connection_arg *args);
 int osc_update_volume(struct osc_env *e, struct osc_str *out, struct osc_update_volume_arg *args);
