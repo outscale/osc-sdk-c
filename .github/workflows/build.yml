@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    - name: api is for w__p
+    - name: apt is for w__p
       run: |
         wget https://github.com/cosmo-ray/json-search/releases/download/0.2/json-search-x86_64.AppImage
         chmod +x json-search-x86_64.AppImage
