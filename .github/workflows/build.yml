@@ -17,10 +17,12 @@ jobs:
         wget https://github.com/cosmo-ray/json-search/releases/download/0.2/json-search-x86_64.AppImage
         chmod +x json-search-x86_64.AppImage
         sudo cp json-search-x86_64.AppImage /bin/json-search
+        sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
+        sudo chmod +x /usr/bin/yq
     - name: Build release
       run: |
         echo $(cat sdk_version | cut -d '.' -f 1).$(( $( cat sdk_version | cut -d '.' -f 2  ) + 1 )).$(cat sdk_version | cut -d '.' -f 3) > sdk_version
-        make osc_sdk.c osc_sdk.h
+        COGNAC_CONFIG="--yq-go" make osc_sdk.c osc_sdk.h
     - name: push release branch
       run: .github/scripts/release-push.sh
       env:

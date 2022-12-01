@@ -22,7 +22,7 @@ COGNAC/.git:
 	git submodule update --init
 
 COGNAC/config.mk: COGNAC/.git
-	cd COGNAC && ./configure
+	cd COGNAC && ./configure $$COGNAC_CONFIG
 
 COGNAC/osc_sdk.c: COGNAC/config.mk
 	make -C COGNAC osc_sdk.c
