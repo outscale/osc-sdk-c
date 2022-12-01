@@ -12,6 +12,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
+    - name: api is for w__p
+      run: |
+        wget https://github.com/cosmo-ray/json-search/releases/download/0.2/json-search-x86_64.AppImage
+        chmox +x json-search-x86_64.AppImage
+        cp json-search-x86_64.AppImage /bin/json-search
     - name: Build release
       run: |
         echo $(cat sdk_version | cut -d '.' -f 1).$(( $( cat sdk_version | cut -d '.' -f 2  ) + 1 )).$(cat sdk_version | cut -d '.' -f 3) > sdk_version
