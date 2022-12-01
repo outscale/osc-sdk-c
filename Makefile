@@ -18,10 +18,10 @@ example2: osc_sdk.c osc_sdk.h examples/example2.c
 example3: osc_sdk.c osc_sdk.h examples/example3.c
 	$(CC) examples/example3.c ./osc_sdk.c -I./ `pkg-config --cflags json-c` -lcurl -ljson-c -o example3 -Wall -Wno-unused-function -g $(CFLAGS)
 
-COGNAC/:
+COGNAC/.git:
 	git submodule update --init
 
-COGNAC/config.mk: COGNAC/
+COGNAC/config.mk: COGNAC/.git
 	cd COGNAC && ./configure
 
 COGNAC/osc_sdk.c: COGNAC/config.mk
