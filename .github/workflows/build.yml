@@ -1,0 +1,26 @@
+name: osc-sdk-C release build
+on:
+  workflow_dispatch:
+    inputs:
+      api_version:
+        description: 'Outscale API version'
+        required: true
+
+jobs:
+  auto-build:
+    environment: auto-build
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build release
+      run: |
+        echo $(cat sdk_version | cut -d '.' -f 1).$(( $( cat sdk_version | cut -d '.' -f 2  ) + 1 )).$(cat sdk_version | cut -d '.' -f 3) > sdk_version
+        make osc_sdk.c osc_sdk.h
+    - name: push release branch
+      run: .github/scripts/release-push.sh
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: create pull request
+      run: .github/scripts/release-pr.sh ${{ github.event.inputs.api_version }}
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
