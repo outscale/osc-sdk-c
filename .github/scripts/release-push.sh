@@ -6,6 +6,11 @@ if [ -e "$root/.auto-release-abort" ]; then
     echo "previous step triggered stop, abort"
     exit 0
 fi
+
+osc_api_last_release=$(curl -s -H "Authorization: token $GH_TOKEN" $github_url | jq ".[] | select(.prerelease == false) | select(.draft == false) | .tag_name" | sort -r --version-sort | head -n 1 | cut -\
+f 2 -d '"')
+echo "$osc_api_last_release" > $root/api_version
+
 new_sdk_version=$(cat $root/sdk_version)
 branch_name="autobuild-$new_sdk_version"
 git branch -m $branch_name
