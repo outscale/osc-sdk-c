@@ -8,7 +8,7 @@ if [ -e "$root/.auto-release-abort" ]; then
 fi
 new_sdk_version=$(cat $root/sdk_version)
 branch_name="autobuild-$new_sdk_version"
-git branch -m
+git branch -m $branch_name
 git config user.name "Outscale Bot"
 git config user.email "opensource+bot@outscale.com"
 git commit -asm "osc-sdk-c v$new_sdk_version"
