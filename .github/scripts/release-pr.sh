@@ -22,6 +22,6 @@ sion based on Outscale API v$osc_api_version\"}" "https://api.github.com/repos/o
 errors=$(echo $result | jq .errors)
 
 if [ "$errors" != "null" ]; then
-    echo "errors while creating pull request, abort."
+    echo "errors while creating pull request, abort: $errors"
     exit 1
 fi
