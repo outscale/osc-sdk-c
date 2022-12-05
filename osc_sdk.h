@@ -347,7 +347,8 @@ struct bsu_to_create {
         /*
          * The number of I/O operations per second (IOPS). This parameter must 
          * be specified only if you create an `io1` volume. The maximum number 
-         * of IOPS allowed for `io1` volumes is `13000`.
+         * of IOPS allowed for `io1` volumes is `13000` with a maximum 
+         * performance ratio of 300 IOPS per gibibyte.
          */
         int is_set_iops;
 	int iops; /* int */
@@ -383,9 +384,9 @@ struct block_device_mapping_image {
 	struct bsu_to_create bsu; /* ref BsuToCreate */
         /*
          * The device name for the volume. For a root device, you must use 
-         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
-         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
-         * `z` and where `Y` is a letter between `a` and `z`).
+         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXX`, 
+         * `/dev/xvdX`, or `/dev/xvdXX` (where the first `X` is a letter between 
+         * `b` and `z`, and the second `X` is a letter between `a` and `z`).
          */
 	char *device_name; /* string */
         /*
@@ -403,9 +404,9 @@ struct block_device_mapping_vm_creation {
 	struct bsu_to_create bsu; /* ref BsuToCreate */
         /*
          * The device name for the volume. For a root device, you must use 
-         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
-         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
-         * `z` and where `Y` is a letter between `a` and `z`).
+         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXX`, 
+         * `/dev/xvdX`, or `/dev/xvdXX` (where the first `X` is a letter between 
+         * `b` and `z`, and the second `X` is a letter between `a` and `z`).
          */
 	char *device_name; /* string */
         /*
@@ -441,9 +442,9 @@ struct block_device_mapping_vm_update {
 	struct bsu_to_update_vm bsu; /* ref BsuToUpdateVm */
         /*
          * The device name for the volume. For a root device, you must use 
-         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, 
-         * `/dev/xvdX`, or `/dev/xvdXY` (where `X` is a letter between `b` and 
-         * `z` and where `Y` is a letter between `a` and `z`).
+         * `/dev/sda1`. For other volumes, you must use `/dev/sdX`, `/dev/sdXX`, 
+         * `/dev/xvdX`, or `/dev/xvdXX` (where the first `X` is a letter between 
+         * `b` and `z`, and the second `X` is a letter between `a` and `z`).
          */
 	char *device_name; /* string */
         /*
@@ -832,7 +833,7 @@ struct filters_api_access_rule {
         char *descriptions_str;
 	char **descriptions; /* array string */
         /*
-         * One or more IP ranges, in CIDR notation (for example, `192.0.2.0/16`).
+         * One or more IP addresses or CIDR blocks (for example, `192.0.2.0/16`).
          */
         char *ip_ranges_str;
 	char **ip_ranges; /* array string */
@@ -1413,7 +1414,7 @@ struct filters_net_peering {
         char *accepter_net_net_ids_str;
 	char **accepter_net_net_ids; /* array string */
         /*
-         * The IDs of the Net peering connections.
+         * The IDs of the Net peerings.
          */
         char *net_peering_ids_str;
 	char **net_peering_ids; /* array string */
@@ -1433,30 +1434,29 @@ struct filters_net_peering {
         char *source_net_net_ids_str;
 	char **source_net_net_ids; /* array string */
         /*
-         * Additional information about the states of the Net peering 
-         * connections.
+         * Additional information about the states of the Net peerings.
          */
         char *state_messages_str;
 	char **state_messages; /* array string */
         /*
-         * The states of the Net peering connections (`pending-acceptance` \\| 
-         * `active` \\| `rejected` \\| `failed` \\| `expired` \\| `deleted`).
+         * The states of the Net peerings (`pending-acceptance` \\| `active` \\| 
+         * `rejected` \\| `failed` \\| `expired` \\| `deleted`).
          */
         char *state_names_str;
 	char **state_names; /* array string */
         /*
-         * The keys of the tags associated with the Net peering connections.
+         * The keys of the tags associated with the Net peerings.
          */
         char *tag_keys_str;
 	char **tag_keys; /* array string */
         /*
-         * The values of the tags associated with the Net peering connections.
+         * The values of the tags associated with the Net peerings.
          */
         char *tag_values_str;
 	char **tag_values; /* array string */
         /*
-         * The key/value combination of the tags associated with the Net peering 
-         * connections, in the following format: 
+         * The key/value combination of the tags associated with the Net 
+         * peerings, in the following format: 
          * &quot;Filters&quot;:{&quot;Tags&quot;:[&quot;TAGKEY=TAGVALUE&quot;]}.
          */
         char *tags_str;
@@ -1758,8 +1758,7 @@ struct filters_route_table {
         char *route_nat_service_ids_str;
 	char **route_nat_service_ids; /* array string */
         /*
-         * The IDs of the Net peering connections specified in routes in the 
-         * tables.
+         * The IDs of the Net peerings specified in routes in the tables.
          */
         char *route_net_peering_ids_str;
 	char **route_net_peering_ids; /* array string */
@@ -3385,12 +3384,12 @@ struct source_net {
 
 struct net_peering_state {
         /*
-         * Additional information about the state of the Net peering connection.
+         * Additional information about the state of the Net peering.
          */
 	char *message; /* string */
         /*
-         * The state of the Net peering connection (`pending-acceptance` \\| 
-         * `active` \\| `rejected` \\| `failed` \\| `expired` \\| `deleted`).
+         * The state of the Net peering (`pending-acceptance` \\| `active` \\| 
+         * `rejected` \\| `failed` \\| `expired` \\| `deleted`).
          */
 	char *name; /* string */
 };
@@ -3403,7 +3402,7 @@ struct net_peering {
         int is_set_accepter_net;
 	struct accepter_net accepter_net; /* ref AccepterNet */
         /*
-         * The ID of the Net peering connection.
+         * The ID of the Net peering.
          */
 	char *net_peering_id; /* string */
         /*
@@ -3419,7 +3418,7 @@ struct net_peering {
         int is_set_state;
 	struct net_peering_state state; /* ref NetPeeringState */
         /*
-         * One or more tags associated with the Net peering connection.
+         * One or more tags associated with the Net peering.
          */
         char *tags_str;
         int nb_tags;
@@ -4020,7 +4019,7 @@ struct route {
          */
 	char *net_access_point_id; /* string */
         /*
-         * The ID of the Net peering connection.
+         * The ID of the Net peering.
          */
 	char *net_peering_id; /* string */
         /*
@@ -4986,8 +4985,9 @@ struct osc_update_volume_arg  {
         /*
          * The new number of I/O operations per second (IOPS). This parameter 
          * can be specified only if you update an `io1` volume. The maximum 
-         * number of IOPS allowed for `io1` volumes is `13000`. This 
-         * modification is instantaneous on a cold volume, not on a hot one.
+         * number of IOPS allowed for `io1` volumes is `13000` with a maximum 
+         * performance ratio of 300 IOPS per gibibyte. This modification is 
+         * instantaneous on a cold volume, not on a hot one.
          */
         int is_set_iops;
 	int iops; /* int */
@@ -5194,7 +5194,7 @@ struct osc_update_route_arg  {
          */
 	char *nat_service_id; /* string */
         /*
-         * The ID of a Net peering connection.
+         * The ID of a Net peering.
          */
 	char *net_peering_id; /* string */
         /*
@@ -5485,7 +5485,7 @@ struct osc_update_api_access_rule_arg  {
         int is_set_dry_run;
 	int dry_run; /* bool */
         /*
-         * One or more IP ranges, in CIDR notation (for example, `192.0.2.0/16`).
+         * One or more IP addresses or CIDR blocks (for example, `192.0.2.0/16`).
          */
         char *ip_ranges_str;
 	char **ip_ranges; /* array string */
@@ -5849,7 +5849,7 @@ struct osc_reject_net_peering_arg  {
         int is_set_dry_run;
 	int dry_run; /* bool */
         /*
-         * The ID of the Net peering connection you want to reject.
+         * The ID of the Net peering you want to reject.
          */
 	char *net_peering_id; /* string */
 };
@@ -6708,9 +6708,9 @@ struct osc_link_volume_arg  {
         /* Required: device_name, vm_id, volume_id */
         /*
          * The name of the device. For a root device, you must use `/dev/sda1`. 
-         * For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, `/dev/xvdX`, 
-         * or `/dev/xvdXY` (where `X` is a letter between `b` and `z` and where 
-         * `Y` is a letter between `a` and `z`).
+         * For other volumes, you must use `/dev/sdX`, `/dev/sdXX`, `/dev/xvdX`, 
+         * or `/dev/xvdXX` (where the first `X` is a letter between `b` and `z`, 
+         * and the second `X` is a letter between `a` and `z`).
          */
 	char *device_name; /* string */
         /*
@@ -7239,7 +7239,7 @@ struct osc_delete_net_peering_arg  {
         int is_set_dry_run;
 	int dry_run; /* bool */
         /*
-         * The ID of the Net peering connection you want to delete.
+         * The ID of the Net peering you want to delete.
          */
 	char *net_peering_id; /* string */
 };
@@ -7601,7 +7601,8 @@ struct osc_create_volume_arg  {
         /*
          * The number of I/O operations per second (IOPS). This parameter must 
          * be specified only if you create an `io1` volume. The maximum number 
-         * of IOPS allowed for `io1` volumes is `13000`.
+         * of IOPS allowed for `io1` volumes is `13000` with a maximum 
+         * performance ratio of 300 IOPS per gibibyte.
          */
         int is_set_iops;
 	int iops; /* int */
@@ -8051,7 +8052,7 @@ struct osc_create_route_arg  {
          */
 	char *nat_service_id; /* string */
         /*
-         * The ID of a Net peering connection.
+         * The ID of a Net peering.
          */
 	char *net_peering_id; /* string */
         /*
@@ -8660,7 +8661,7 @@ struct osc_create_api_access_rule_arg  {
         int is_set_dry_run;
 	int dry_run; /* bool */
         /*
-         * One or more IP ranges, in CIDR notation (for example, `192.0.2.0/16`).
+         * One or more IP addresses or CIDR blocks (for example, `192.0.2.0/16`).
          */
         char *ip_ranges_str;
 	char **ip_ranges; /* array string */
@@ -8781,7 +8782,7 @@ struct osc_accept_net_peering_arg  {
         int is_set_dry_run;
 	int dry_run; /* bool */
         /*
-         * The ID of the Net peering connection you want to accept.
+         * The ID of the Net peering you want to accept.
          */
 	char *net_peering_id; /* string */
 };
