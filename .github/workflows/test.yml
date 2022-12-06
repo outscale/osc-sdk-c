@@ -1,4 +1,4 @@
-name: osc-sdk-C tests
+]name: osc-sdk-C tests
 on:
   pull_request:
     branches: [ master ]
@@ -13,7 +13,8 @@ jobs:
     - name: install dependancies
       run: |
         sudo apt-get update --fix-missing
-        sudo apt-get install -y -f -o Acquire::Retries=3 jq libjson-c-dev libcurl4-openssl-dev
+        sudo apt-get install -y -f -o Acquire::Retries=3 jq libjson-c-dev libcurl4-openssl-dev pkg-config
     - name: Build and test
       run: |
+        pkg-config --libs json-c
         make test
