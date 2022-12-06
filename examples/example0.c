@@ -6,7 +6,7 @@ int main(void)
 {
 	struct osc_env e;
 	struct osc_str r;
-	struct osc_read_images_arg arg;
+	struct osc_read_images_arg arg = {0};
 	int ret = 1;
 
 	arg.filters_str = "{\"AccountAliases\": [\"Outscale\"]}";
