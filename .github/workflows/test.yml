@@ -2,7 +2,8 @@ name: osc-sdk-C tests
 on:
   pull_request:
     branches: [ master ]
-
+  push:
+    branches: [ master ]
 jobs:
   auto-build:
     environment: auto-build
