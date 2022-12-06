@@ -1,4 +1,4 @@
-]name: osc-sdk-C tests
+name: osc-sdk-C tests
 on:
   pull_request:
     branches: [ master ]
