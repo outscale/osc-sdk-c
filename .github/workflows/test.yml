@@ -12,7 +12,7 @@ jobs:
     - name: install dependancies
       run: |
         sudo apt-get update --fix-missing
-        sudo apt-get install -y -f -o Acquire::Retries=3 jq libjson-c-dev libcurl-dev
+        sudo apt-get install -y -f -o Acquire::Retries=3 jq libjson-c-dev libcurl4-openssl-dev
     - name: Build and test
       run: |
         make test
