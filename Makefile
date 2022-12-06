@@ -30,10 +30,8 @@ COGNAC/osc_sdk.c: COGNAC/config.mk
 COGNAC/osc_sdk.h: COGNAC/config.mk
 	make -C COGNAC osc_sdk.h
 
-osc_sdk.c: COGNAC/osc_sdk.c
+regen: COGNAC/osc_sdk.c COGNAC/osc_sdk.h
 	cp COGNAC/osc_sdk.c .
-
-osc_sdk.h: COGNAC/osc_sdk.h
 	cp COGNAC/osc_sdk.h .
 
 clean:
@@ -47,4 +45,4 @@ clean_all: clean clean_sdk
 test: example0 example1 example2 example3
 	./intergration-test.sh
 
-.PHONY: clean clean_sdk clean_all all test
+.PHONY: clean clean_sdk clean_all all test regen

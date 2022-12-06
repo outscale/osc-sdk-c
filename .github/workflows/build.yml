@@ -24,7 +24,7 @@ jobs:
     - name: Build release
       run: |
         echo $(cat sdk_version | cut -d '.' -f 1).$(( $( cat sdk_version | cut -d '.' -f 2  ) + 1 )).$(cat sdk_version | cut -d '.' -f 3) > sdk_version
-        COGNAC_CONFIG="--yq-go" make osc_sdk.c osc_sdk.h
+        COGNAC_CONFIG="--yq-go" make regen
     - name: push release branch
       run: .github/scripts/release-push.sh
       env:
