@@ -18,3 +18,7 @@ jobs:
       run: |
         pkg-config --libs json-c
         make test
+      env:
+        OSC_ACCESS_KEY: ${{secrets.OSC_ACCESS_KEY}}
+        OSC_SECRET_KEY: ${{secrets.OSC_SECRET_KEY}}
+        OSC_REGION: ${{secrets.OSC_REGION}}
