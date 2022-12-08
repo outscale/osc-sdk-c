@@ -8,7 +8,7 @@ trap "echo [$MSG_BASE 0 FAIL]" ERR
 
 out=$( ./example0 | grep -v '==' | jq )
 
-[ $( jq -r .Images[0].AccountAlias <<< $out | grep -v null ) == "Outscale" ]
+[ $( echo "$out" | jq -r .Images[0].AccountAlias | grep -v null ) == "Outscale" ]
 
 echo "[$MSG_BASE 0 OK]"
 

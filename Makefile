@@ -1,4 +1,4 @@
-all: example0 example1 example2 example3
+all: example1 example2 example3 example0
 
 osc_sdk.o:
 	gcc -c osc_sdk.c `pkg-config --cflags json-c` $(CFLAGS)
@@ -7,7 +7,7 @@ osc_sdk.a: osc_sdk.o
 	ar -crs osc_sdk.a osc_sdk.o
 
 example0: osc_sdk.a osc_sdk.h examples/example0.c
-	$(CC) examples/example0.c -I./ -o example0 -Wall -Wno-unused-function -g -std=c89 $(CFLAGS) $(LDFLAGS) -lcurl `pkg-config --libs json-c` ./osc_sdk.a
+	$(CC) examples/example0.c -I./ -o example0 -Wall -Wno-unused-function -g -std=c89 $(CFLAGS) ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c`
 
 example1: osc_sdk.c osc_sdk.h examples/example1.c
 	$(CC) examples/example1.c ./osc_sdk.c -I./ `pkg-config --cflags json-c`  -o example1 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
