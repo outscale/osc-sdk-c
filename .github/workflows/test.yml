@@ -17,7 +17,7 @@ jobs:
     - name: Build and test
       run: |
         pkg-config --libs json-c
-        make test
+        CFLAGS="-fsanitize=address -O0" make test
       env:
         OSC_ACCESS_KEY: ${{secrets.OSC_ACCESS_KEY}}
         OSC_SECRET_KEY: ${{secrets.OSC_SECRET_KEY}}
