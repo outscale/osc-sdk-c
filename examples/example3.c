@@ -39,6 +39,7 @@ int main(int ac, char **av)
 	auto_osc_str struct osc_str out = {};
 	char *vm_id = NULL;
 	json_object *jobj;
+	int ret = 1;
 
 	srand(time(0));
 	name = random_vm_name[rand() % NB_RANDOM_VM_NAME];
@@ -106,7 +107,7 @@ int main(int ac, char **av)
 	if (!vm_id) {
 		fprintf(stderr, "ouin ouin, can't retrive VM ID\n%s\n",
 			out.buf);
-		return 1;
+		goto out;
 	}
 
 	osc_deinit_str(&out);
@@ -121,4 +122,8 @@ int main(int ac, char **av)
 			.nb_tags=1
 		});
 	printf("DONE Create Vm '%s', tag '%s' creation ret: '%s'\n", vm_id, name, out.buf);
+	ret = 0;
+out:
+	json_object_put(jobj);
+	return ret;
 }

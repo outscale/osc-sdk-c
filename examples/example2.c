@@ -142,8 +142,6 @@ int main(int ac, char **av)
 		}
 	}
 
-
-	/*  */
 	json_object_put(jobj);
 	/* C99 return 0 by default in main */
 }
