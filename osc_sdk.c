@@ -240,7 +240,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli UpdateRoutePropagation [options]\n" "Configures the propagation of routes to a specified route table of a Net by a \n" "virtual gateway.\n" "\nRequired Argument: Enable, RouteTableId, VirtualGatewayId \n"
 ,
-	"Usage: oapi-cli UpdateRoute [options]\n" "Replaces an existing route within a route table in a Net.\nYou must specify one \n" "of the following elements as the target:\n\n* Net peering connection\n* NAT \n" "virtual machine (VM)\n* Internet service\n* Virtual gateway\n* NAT service\n* \n" "Network interface card (NIC)\n\nThe routing algorithm is based on the most \n" "specific match.\n" "\nRequired Argument: RouteTableId, DestinationIpRange \n"
+	"Usage: oapi-cli UpdateRoute [options]\n" "Replaces an existing route within a route table in a Net.\nYou must specify one \n" "of the following elements as the target:\n\n* Net peering\n* NAT virtual \n" "machine (VM)\n* Internet service\n* Virtual gateway\n* NAT service\n* Network \n" "interface card (NIC)\n\nThe routing algorithm is based on the most specific \n" "match.\n" "\nRequired Argument: RouteTableId, DestinationIpRange \n"
 ,
 	"Usage: oapi-cli UpdateNic [options]\n" "Modifies the specified network interface card (NIC). You can specify only one \n" "attribute at a time.\n" "\nRequired Argument: NicId \n"
 ,
@@ -294,7 +294,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli ResetAccountPassword [options]\n" "Replaces the account password with the new one you provide.\nYou must also \n" "provide the token you received by email when asking for a password reset using \n" "the SendResetPasswordEmail method.\nPassword strength is tested through \n" "heuristic algorithms. For more information, see the [zxcvbn \n" "GitHub](https://github.com/dropbox/zxcvbn).\n**[NOTE]**\nTo protect against \n" "brute force attacks, the number of requests allowed for this method in a given \n" "time period is limited.\n" "\nRequired Argument: Password, Token \n"
 ,
-	"Usage: oapi-cli RejectNetPeering [options]\n" "Rejects a Net peering connection request.\nThe Net peering connection must be \n" "in the `pending-acceptance` state to be rejected. The rejected Net peering \n" "connection is then in the `rejected` state.\n" "\nRequired Argument: NetPeeringId \n"
+	"Usage: oapi-cli RejectNetPeering [options]\n" "Rejects a Net peering request.\nThe Net peering must be in the \n" "`pending-acceptance` state to be rejected. The rejected Net peering is then in \n" "the `rejected` state.\n" "\nRequired Argument: NetPeeringId \n"
 ,
 	"Usage: oapi-cli RegisterVmsInLoadBalancer [options]\n" "Registers one or more virtual machines (VMs) with a specified load \n" "balancer.\nThe VMs can be in different Subnets and different Subregions than \n" "the load balancer, as long as the VMs and load balancers are all in the public \n" "Cloud or all in the same Net. It may take a little time for a VM to be \n" "registered with the load balancer. Once the VM is registered with a load \n" "balancer, it receives traffic and requests from this load balancer and is \n" "called a back-end VM.\n" "\nRequired Argument: BackendVmIds, LoadBalancerName \n"
 ,
@@ -454,11 +454,11 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeleteNic [options]\n" "Deletes the specified network interface card (NIC).\nThe network interface must \n" "not be attached to any virtual machine (VM).\n" "\nRequired Argument: NicId \n"
 ,
-	"Usage: oapi-cli DeleteNetPeering [options]\n" "Deletes a Net peering connection.\nIf the Net peering connection is in the \n" "`active` state, it can be deleted either by the owner of the requester Net or \n" "the owner of the peer Net.\nIf it is in the `pending-acceptance` state, it can \n" "be deleted only by the owner of the requester Net.\nIf it is in the `rejected`, \n" "`failed`, or `expired` states, it cannot be deleted.\n" "\nRequired Argument: NetPeeringId \n"
+	"Usage: oapi-cli DeleteNetPeering [options]\n" "Deletes a Net peering.\nIf the Net peering is in the `active` state, it can be \n" "deleted either by the owner of the requester Net or the owner of the peer \n" "Net.\nIf it is in the `pending-acceptance` state, it can be deleted only by the \n" "owner of the requester Net.\nIf it is in the `rejected`, `failed`, or `expired` \n" "states, it cannot be deleted.\n" "\nRequired Argument: NetPeeringId \n"
 ,
 	"Usage: oapi-cli DeleteNetAccessPoint [options]\n" "Deletes one or more Net access point.\nThis action also deletes the \n" "corresponding routes added to the route tables you specified for the Net access \n" "point.\n" "\nRequired Argument: NetAccessPointId \n"
 ,
-	"Usage: oapi-cli DeleteNet [options]\n" "Deletes a specified Net.\nBefore deleting the Net, you need to delete or detach \n" "all the resources associated with the Net:\n\n* Virtual machines (VMs)\n* Net \n" "peering connections\n* Custom route tables\n* Public IPs allocated to resources \n" "in the Net\n* Network Interface Cards (NICs) created in the Subnets\n* Virtual \n" "gateways, Internet services and NAT services\n* Load balancers\n* Security \n" "groups\n* Subnets\n" "\nRequired Argument: NetId \n"
+	"Usage: oapi-cli DeleteNet [options]\n" "Deletes a specified Net.\nBefore deleting the Net, you need to delete or detach \n" "all the resources associated with the Net:\n\n* Virtual machines (VMs)\n* Net \n" "peerings\n* Custom route tables\n* Public IPs allocated to resources in the \n" "Net\n* Network Interface Cards (NICs) created in the Subnets\n* Virtual \n" "gateways, Internet services and NAT services\n* Load balancers\n* Security \n" "groups\n* Subnets\n" "\nRequired Argument: NetId \n"
 ,
 	"Usage: oapi-cli DeleteNatService [options]\n" "Deletes a specified network address translation (NAT) service.\nThis action \n" "disassociates the public IP from the NAT service, but does not release this \n" "public IP from your account. However, it does not delete any NAT service routes \n" "in your route tables.\n" "\nRequired Argument: NatServiceId \n"
 ,
@@ -506,7 +506,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli CreateVirtualGateway [options]\n" "Creates a virtual gateway.\nA virtual gateway is the access point on the Net \n" "side of a VPN connection.\n" "\nRequired Argument: ConnectionType \n"
 ,
-	"Usage: oapi-cli CreateTags [options]\n" "Adds one or more tags to the specified resources.\nIf a tag with the same key \n" "already exists for the resource, the tag value is replaced.\nYou can tag the \n" "following resources using their IDs:\n\n* Virtual machines (VMs) \n" "(i-xxxxxxxx)\n* OMIs (ami-xxxxxxxx)\n* Volumes (vol-xxxxxxxx)\n* Snapshots \n" "(snap-xxxxxxxx)\n* Public IPs (eipalloc-xxxxxxxx)\n* Security groups \n" "(sg-xxxxxxxx)\n* Route tables (rtb-xxxxxxxx)\n* Network interface cards (NIC) \n" "(eni-xxxxxxxx)\n* Nets (vpc-xxxxxxxx)\n* Subnets (subnet-xxxxxxxx)\n* Net \n" "peering connections (vpcx-xxxxxxxx)\n* Net endpoints (vpce-xxxxxxxx)\n* NAT \n" "services (nat-xxxxxxxx)\n* Internet services (igw-xxxxxxxx)\n* Client gateways \n" "(cgw-xxxxxxxx)\n* Virtual gateways (vgw-xxxxxxxx)\n* VPN connections \n" "(vpn-xxxxxxxx)\n* DHCP options (dopt-xxxxxxxx)\n* OMI export tasks \n" "(image-export-xxxxxxxx)\n* Snapshot export tasks (snap-export-xxxxxxxx)\n" "\nRequired Argument: ResourceIds, Tags \n"
+	"Usage: oapi-cli CreateTags [options]\n" "Adds one or more tags to the specified resources.\nIf a tag with the same key \n" "already exists for the resource, the tag value is replaced.\nYou can tag the \n" "following resources using their IDs:\n\n* Virtual machines (VMs) \n" "(i-xxxxxxxx)\n* OMIs (ami-xxxxxxxx)\n* Volumes (vol-xxxxxxxx)\n* Snapshots \n" "(snap-xxxxxxxx)\n* Public IPs (eipalloc-xxxxxxxx)\n* Security groups \n" "(sg-xxxxxxxx)\n* Route tables (rtb-xxxxxxxx)\n* Network interface cards (NIC) \n" "(eni-xxxxxxxx)\n* Nets (vpc-xxxxxxxx)\n* Subnets (subnet-xxxxxxxx)\n* Net \n" "peerings (vpcx-xxxxxxxx)\n* Net endpoints (vpce-xxxxxxxx)\n* NAT services \n" "(nat-xxxxxxxx)\n* Internet services (igw-xxxxxxxx)\n* Client gateways \n" "(cgw-xxxxxxxx)\n* Virtual gateways (vgw-xxxxxxxx)\n* VPN connections \n" "(vpn-xxxxxxxx)\n* DHCP options (dopt-xxxxxxxx)\n* OMI export tasks \n" "(image-export-xxxxxxxx)\n* Snapshot export tasks (snap-export-xxxxxxxx)\n" "\nRequired Argument: ResourceIds, Tags \n"
 ,
 	"Usage: oapi-cli CreateSubnet [options]\n" "Creates a Subnet in an existing Net.\nTo create a Subnet in a Net, you have to \n" "provide the ID of the Net and the IP range for the Subnet (its network range). \n" "Once the Subnet is created, you cannot modify its IP range.\n" "\nRequired Argument: IpRange, NetId \n"
 ,
@@ -522,13 +522,13 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli CreateRouteTable [options]\n" "Creates a route table for a specified Net.\nYou can then add routes and \n" "associate this route table with a Subnet.\n" "\nRequired Argument: NetId \n"
 ,
-	"Usage: oapi-cli CreateRoute [options]\n" "Creates a route in a specified route table within a specified Net.\nYou must \n" "specify one of the following elements as the target:\n\n* Net peering \n" "connection\n* NAT VM\n* Internet service\n* Virtual gateway\n* NAT service\n* \n" "Network interface card (NIC)\n\nThe routing algorithm is based on the most \n" "specific match.\n" "\nRequired Argument: DestinationIpRange, RouteTableId \n"
+	"Usage: oapi-cli CreateRoute [options]\n" "Creates a route in a specified route table within a specified Net.\nYou must \n" "specify one of the following elements as the target:\n\n* Net peering\n* NAT \n" "VM\n* Internet service\n* Virtual gateway\n* NAT service\n* Network interface \n" "card (NIC)\n\nThe routing algorithm is based on the most specific match.\n" "\nRequired Argument: DestinationIpRange, RouteTableId \n"
 ,
 	"Usage: oapi-cli CreatePublicIp [options]\n" "Acquires a public IP for your account.\nA public IP is a static IP designed for \n" "dynamic Cloud computing. It can be associated with a virtual machine (VM) in \n" "the public Cloud or in a Net, a network interface card (NIC), a NAT service.\n" "\nRequired Argument: none \n"
 ,
 	"Usage: oapi-cli CreateNic [options]\n" "Creates a network interface card (NIC) in the specified Subnet.\n" "\nRequired Argument: SubnetId \n"
 ,
-	"Usage: oapi-cli CreateNetPeering [options]\n" "Requests a Net peering connection between a Net you own and a peer Net that \n" "belongs to you or another account.\nThis action creates a Net peering \n" "connection that remains in the `pending-acceptance` state until it is accepted \n" "by the owner of the peer Net. If the owner of the peer Net does not accept the \n" "request within 7 days, the state of the Net peering connection becomes \n" "`expired`. For more information, see \n" "[AcceptNetPeering](#acceptnetpeering).\n\n**[NOTE]**\n* The two Nets must not \n" "have overlapping IP ranges. Otherwise, the Net peering connection is in the \n" "`failed` state.\n* A peering connection between two Nets works both ways. \n" "Therefore, you do not need to create a B-to-A connection if an A-to-B \n" "connection is created and accepted.\n" "\nRequired Argument: AccepterNetId, SourceNetId \n"
+	"Usage: oapi-cli CreateNetPeering [options]\n" "Requests a Net peering between a Net you own and a peer Net that belongs to you \n" "or another account.\nThis action creates a Net peering that remains in the \n" "`pending-acceptance` state until it is accepted by the owner of the peer Net. \n" "If the owner of the peer Net does not accept the request within 7 days, the \n" "state of the Net peering becomes `expired`. For more information, see \n" "[AcceptNetPeering](#acceptnetpeering).\n\n**[NOTE]**\n* Peered Nets must \n" "contain at least one virtual machine (VM) each before the creation of the Net \n" "peering.\n* The two Nets must not have overlapping IP ranges. Otherwise, the \n" "Net peering is in the `failed` state.\n* A peering connection between two Nets \n" "works both ways. Therefore, you do not need to create a B-to-A connection if an \n" "A-to-B connection is created and accepted.\n" "\nRequired Argument: AccepterNetId, SourceNetId \n"
 ,
 	"Usage: oapi-cli CreateNetAccessPoint [options]\n" "Creates a Net access point to access an OUTSCALE service from this Net without \n" "using the Internet and public IPs.\nYou specify the service using its name. For \n" "more information about the available services, see \n" "[ReadNetAccessPointServices](#readnetaccesspointservices).\nTo control the \n" "routing of traffic between the Net and the specified service, you can specify \n" "one or more route tables. Virtual machines placed in Subnets associated with \n" "the specified route table thus use the Net access point to access the service. \n" "When you specify a route table, a route is automatically added to it with the \n" "destination set to the prefix list ID of the service, and the target set to the \n" "ID of the access point.\n" "\nRequired Argument: ServiceName, NetId \n"
 ,
@@ -574,7 +574,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli CheckAuthentication [options]\n" "Validates the authenticity of the account.\n" "\nRequired Argument: Login, Password \n"
 ,
-	"Usage: oapi-cli AcceptNetPeering [options]\n" "Accepts a Net peering connection request.\nTo accept this request, you must be \n" "the owner of the peer Net. If you do not accept the request within 7 days, the \n" "state of the Net peering connection becomes `expired`.\n**[NOTE]**\nA peering \n" "connection between two Nets works both ways. Therefore, when an A-to-B peering \n" "connection is accepted, any pending B-to-A peering connection is automatically \n" "rejected as redundant.\n" "\nRequired Argument: NetPeeringId \n"
+	"Usage: oapi-cli AcceptNetPeering [options]\n" "Accepts a Net peering request.\nTo accept this request, you must be the owner \n" "of the peer Net. If you do not accept the request within 7 days, the state of \n" "the Net peering becomes `expired`.\n**[NOTE]**\nA peering connection between \n" "two Nets works both ways. Therefore, when an A-to-B peering connection is \n" "accepted, any pending B-to-A peering connection is automatically rejected as \n" "redundant.\n" "\nRequired Argument: NetPeeringId \n"
 ,
 	NULL
 };
@@ -598,8 +598,9 @@ static const char *calls_args_descriptions[] = {
 "Iops: int\n"
 	"	The new number of I/O operations per second (IOPS). This parameter \n"
 	"	can be specified only if you update an `io1` volume. The maximum \n"
-	"	number of IOPS allowed for `io1` volumes is `13000`. This \n"
-	"	modification is instantaneous on a cold volume, not on a hot one.\n"
+	"	number of IOPS allowed for `io1` volumes is `13000` with a maximum \n"
+	"	performance ratio of 300 IOPS per gibibyte. This modification is \n"
+	"	instantaneous on a cold volume, not on a hot one.\n"
 "Size: int\n"
 	"	(cold volume only) The new size of the volume, in gibibytes (GiB). \n"
 	"	This value must be equal to or greater than the current size of the \n"
@@ -699,7 +700,7 @@ static const char *calls_args_descriptions[] = {
 "NatServiceId: string\n"
 	"	The ID of a NAT service.\n"
 "NetPeeringId: string\n"
-	"	The ID of a Net peering connection.\n"
+	"	The ID of a Net peering.\n"
 "NicId: string\n"
 	"	The ID of a network interface card (NIC).\n"
 "RouteTableId: string\n"
@@ -837,7 +838,7 @@ static const char *calls_args_descriptions[] = {
 	"	If true, checks whether you have the required permissions to perform \n"
 	"	the action.\n"
 "IpRanges: array string\n"
-	"	One or more IP ranges, in CIDR notation (for example, `192.0.2.0/16`).\n"
+	"	One or more IP addresses or CIDR blocks (for example, `192.0.2.0/16`).\n"
 ,
 	"DryRun: bool\n"
 	"	If true, checks whether you have the required permissions to perform \n"
@@ -1006,7 +1007,7 @@ static const char *calls_args_descriptions[] = {
 	"	If true, checks whether you have the required permissions to perform \n"
 	"	the action.\n"
 "NetPeeringId: string\n"
-	"	The ID of the Net peering connection you want to reject.\n"
+	"	The ID of the Net peering you want to reject.\n"
 ,
 	"BackendVmIds: array string\n"
 	"	One or more IDs of back-end VMs.\nSpecifying the same ID several \n"
@@ -1343,9 +1344,9 @@ static const char *calls_args_descriptions[] = {
 ,
 	"DeviceName: string\n"
 	"	The name of the device. For a root device, you must use `/dev/sda1`. \n"
-	"	For other volumes, you must use `/dev/sdX`, `/dev/sdXY`, `/dev/xvdX`, \n"
-	"	or `/dev/xvdXY` (where `X` is a letter between `b` and `z` and where \n"
-	"	`Y` is a letter between `a` and `z`).\n"
+	"	For other volumes, you must use `/dev/sdX`, `/dev/sdXX`, `/dev/xvdX`, \n"
+	"	or `/dev/xvdXX` (where the first `X` is a letter between `b` and `z`, \n"
+	"	and the second `X` is a letter between `a` and `z`).\n"
 "DryRun: bool\n"
 	"	If true, checks whether you have the required permissions to perform \n"
 	"	the action.\n"
@@ -1591,7 +1592,7 @@ static const char *calls_args_descriptions[] = {
 	"	If true, checks whether you have the required permissions to perform \n"
 	"	the action.\n"
 "NetPeeringId: string\n"
-	"	The ID of the Net peering connection you want to delete.\n"
+	"	The ID of the Net peering you want to delete.\n"
 ,
 	"DryRun: bool\n"
 	"	If true, checks whether you have the required permissions to perform \n"
@@ -1750,7 +1751,8 @@ static const char *calls_args_descriptions[] = {
 "Iops: int\n"
 	"	The number of I/O operations per second (IOPS). This parameter must \n"
 	"	be specified only if you create an `io1` volume. The maximum number \n"
-	"	of IOPS allowed for `io1` volumes is `13000`.\n"
+	"	of IOPS allowed for `io1` volumes is `13000` with a maximum \n"
+	"	performance ratio of 300 IOPS per gibibyte.\n"
 "Size: int\n"
 	"	The size of the volume, in gibibytes (GiB). The maximum allowed size \n"
 	"	for a volume is 14901 GiB. This parameter is required if the volume \n"
@@ -1987,7 +1989,7 @@ static const char *calls_args_descriptions[] = {
 "NatServiceId: string\n"
 	"	The ID of a NAT service.\n"
 "NetPeeringId: string\n"
-	"	The ID of a Net peering connection.\n"
+	"	The ID of a Net peering.\n"
 "NicId: string\n"
 	"	The ID of a NIC.\n"
 "RouteTableId: string\n"
@@ -2284,7 +2286,7 @@ static const char *calls_args_descriptions[] = {
 	"	If true, checks whether you have the required permissions to perform \n"
 	"	the action.\n"
 "IpRanges: array string\n"
-	"	One or more IP ranges, in CIDR notation (for example, `192.0.2.0/16`).\n"
+	"	One or more IP addresses or CIDR blocks (for example, `192.0.2.0/16`).\n"
 ,
 	"AdditionalEmails: array string\n"
 	"	One or more additional email addresses for the account. These \n"
@@ -2343,7 +2345,7 @@ static const char *calls_args_descriptions[] = {
 	"	If true, checks whether you have the required permissions to perform \n"
 	"	the action.\n"
 "NetPeeringId: string\n"
-	"	The ID of the Net peering connection you want to accept.\n"
+	"	The ID of the Net peering you want to accept.\n"
 ,
 	NULL
 };
