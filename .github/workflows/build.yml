@@ -29,6 +29,7 @@ jobs:
       run: .github/scripts/release-push.sh
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - name: create pull request
       run: .github/scripts/release-pr.sh ${{ github.event.inputs.api_version }}
       env:
