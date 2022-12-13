@@ -4,6 +4,8 @@ Welcome to Outscale SDK for C.
 
 **THIS IS STILL WORK IN PROGRESS EVERYTHING CAN STILL CHANGE !!!!!**
 
+**The Code is Generated using this: https://github.com/outscale-mgo/COGNAC**
+
 ## Dependency
 
 json-c and libcurl (7.75 and after)
