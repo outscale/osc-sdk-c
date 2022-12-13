@@ -2,6 +2,7 @@ all: help
 
 help:
 	@echo "Available targets:"
+	@echo "- osc_sdk.a: build SDK as static library (you can also include the .c/.h direclty in your source)"
 	@echo "- examples: build all examples"
 	@echo "- integration-test: test if SDK works"
 	@echo "- regen-test: test osc-sdk-c regeneration"
