@@ -25,6 +25,7 @@ int usage(const char *prog_name, int ret)
 	fprintf(ret ? stderr: stdout,
 		"Usage: %s [OPTION]\n"
 		"	-h			help"
+		"	-Y			don't ask before creating VMs"
 		"	-n	VM_NAME		vm name\n"
 		"	-s	VOLUME_SIZE	a BIG volume size", prog_name);
 	return ret;
@@ -39,6 +40,8 @@ int main(int ac, char **av)
 	auto_osc_str struct osc_str out = {};
 	char *vm_id = NULL;
 	json_object *jobj;
+	char answer[4];
+	int create_no_ask = 0;
 	int ret = 1;
 
 	srand(time(0));
@@ -52,6 +55,8 @@ int main(int ac, char **av)
 			}
 			name = av[++i];
 		}
+		if (!strcmp(av[i], "-Y"))
+			create_no_ask = 1;
 		if (!strcmp(av[i], "-s")) {
 			if (ac == i + 1) {
 				fprintf(stderr, "missing a size");
@@ -69,6 +74,16 @@ int main(int ac, char **av)
 	}
 	printf("will create vm name %s, with a volume size of %d\n",
 	       name, size);
+	if (!create_no_ask) {
+		printf("ARE YOU SURE ? (yes/No)\n");
+		scanf("%3s", answer);
+		answer[3] = 0;
+		if (strcmp("yes", answer)) {
+			printf("operation cancel\n");
+			return 0;
+		}
+	}
+
 
 	if (osc_init_sdk(&e, NULL, OSC_VERBOSE_MODE) < 0)
 		return 1;
