@@ -1,4 +1,13 @@
-all: example1 example2 example3 example0
+all: help
+
+help:
+	@echo "Available targets:"
+	@echo "- examples: build all examples"
+	@echo "- integration-test: test if SDK works"
+	@echo "- regen-test: test osc-sdk-c regeneration"
+	@echo "- tests: run all tests"
+
+examples: example0 example1 example2 example3
 
 osc_sdk.o:
 	gcc -c osc_sdk.c `pkg-config --cflags json-c` $(CFLAGS)
@@ -30,7 +39,7 @@ COGNAC/osc_sdk.c: COGNAC/config.mk
 COGNAC/osc_sdk.h: COGNAC/config.mk
 	make -C COGNAC osc_sdk.h
 
-regen: COGNAC/osc_sdk.c COGNAC/osc_sdk.h
+regen: clean_sdk COGNAC/osc_sdk.c COGNAC/osc_sdk.h
 	cp COGNAC/osc_sdk.c .
 	cp COGNAC/osc_sdk.h .
 
@@ -42,7 +51,15 @@ clean_sdk:
 
 clean_all: clean clean_sdk
 
-test: example0 example1 example2 example3
+tests: integration-test
+	@echo "all tests ok"
+
+integration-test: examples
 	./intergration-test.sh
 
-.PHONY: clean clean_sdk clean_all all test regen
+regen-test: regen
+	git add osc_sdk.c osc_sdk.h
+	git diff --cached -s --exit-code
+	git diff -s --exit-code
+
+.PHONY: clean clean_sdk clean_all all tests integration-test regen-test regen help examples
