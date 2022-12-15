@@ -16,8 +16,7 @@ if [ -z "$GH_TOKEN" ]; then
 fi
 
 # https://docs.github.com/en/free-pro-team@latest/rest/reference/pulls#create-a-pull-request
-result=$(curl -s -X POST -H "Authorization: token $GH_TOKEN" -d "{\"head\":\"$branch_name\",\"base\":\"master\",\"title\":\"SDK v$new_sdk_version\",\"body\":\"Automatic build of SDK v$new_sdk_version ver\
-sion based on Outscale API v$osc_api_version\"}" "https://api.github.com/repos/outscale/osc-sdk-c/pulls")
+result=$(curl -s -X POST -H "Authorization: token $GH_TOKEN" -d "{\"head\":\"$branch_name\",\"base\":\"master\",\"title\":\"SDK v$new_sdk_version for API v$osc_api_version\",\"body\":\"Automatic build of SDK v$new_sdk_version version based on Outscale API v$osc_api_version\"}" "https://api.github.com/repos/outscale/osc-sdk-c/pulls")
 
 errors=$(echo $result | jq .errors)
 
