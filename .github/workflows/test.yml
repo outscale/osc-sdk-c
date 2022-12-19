@@ -22,3 +22,7 @@ jobs:
         OSC_ACCESS_KEY: ${{secrets.OSC_ACCESS_KEY}}
         OSC_SECRET_KEY: ${{secrets.OSC_SECRET_KEY}}
         OSC_REGION: ${{secrets.OSC_REGION}}
+    - name: analyze
+    - uses: github/codeql-action/init@v2
+      with:
+        languages: c 
