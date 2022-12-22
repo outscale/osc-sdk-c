@@ -50,7 +50,7 @@ clean:
 clean_sdk:
 	rm -rvf COGNAC/
 
-fclean:
+fclean: clean
 	rm -vf osc_sdk.a
 
 clean_all: fclean clean_sdk
