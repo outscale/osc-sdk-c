@@ -45,12 +45,15 @@ regen: clean_sdk COGNAC/osc_sdk.c COGNAC/osc_sdk.h
 	cp COGNAC/osc_sdk.h .
 
 clean:
-	rm -rvf examples/*.o example0 example1 example2 example3
+	rm -rvf examples/*.o example0 example1 example2 example3 osc_sdk.o
 
 clean_sdk:
 	rm -rvf COGNAC/
 
-clean_all: clean clean_sdk
+fclean: clean
+	rm -vf osc_sdk.a
+
+clean_all: fclean clean_sdk
 
 tests: integration-test
 	@echo "all tests ok"
@@ -63,4 +66,4 @@ regen-test: regen
 	git diff --cached -s --exit-code
 	git diff -s --exit-code
 
-.PHONY: clean clean_sdk clean_all all tests integration-test regen-test regen help examples
+.PHONY: clean clean_sdk clean_all fclean all tests integration-test regen-test regen help examples
