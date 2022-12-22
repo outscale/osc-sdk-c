@@ -35,4 +35,6 @@ jobs:
         languages: c 
     - name: codeql-make
       run: make
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
 
