@@ -45,7 +45,7 @@ regen: clean_sdk COGNAC/osc_sdk.c COGNAC/osc_sdk.h
 	cp COGNAC/osc_sdk.h .
 
 clean:
-	rm -rvf examples/*.o example0 example1 example2 example3
+	rm -rvf examples/*.o example0 example1 example2 example3 osc_sdk.o
 
 clean_sdk:
 	rm -rvf COGNAC/
