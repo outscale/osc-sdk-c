@@ -8,21 +8,31 @@ jobs:
   auto-build:
     environment: auto-build
     runs-on: ubuntu-22.04
+    permissions:
+      # required for all workflows
+      security-events: write
+
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
     steps:
     - uses: actions/checkout@v2
     - name: install dependancies
       run: |
         sudo apt-get update --fix-missing
         sudo apt-get install -y -f -o Acquire::Retries=3 jq libjson-c-dev libcurl4-openssl-dev pkg-config
+    - name: analyze-init
+      uses: github/codeql-action/init@v2
+      with:
+        languages: c 
     - name: Build and test
       run: |
         pkg-config --libs json-c
         CFLAGS="-fsanitize=address -O0" make tests
+        make clean
       env:
         OSC_ACCESS_KEY: ${{secrets.OSC_ACCESS_KEY}}
         OSC_SECRET_KEY: ${{secrets.OSC_SECRET_KEY}}
         OSC_REGION: ${{secrets.OSC_REGION}}
-    - name: analyze
-      uses: github/codeql-action/init@v2
-      with:
-        languages: c 
+
+
