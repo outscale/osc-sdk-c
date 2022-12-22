@@ -31,10 +31,8 @@ jobs:
         OSC_REGION: ${{secrets.OSC_REGION}}
     - name: codeql-init
       uses: github/codeql-action/init@v2
-      with:
-        languages: c 
     - name: codeql-make
-      run: make
+      run: make examples
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
