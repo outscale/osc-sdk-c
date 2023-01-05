@@ -24,7 +24,10 @@ jobs:
     - name: Build release
       run: |
         echo $(cat sdk_version | cut -d '.' -f 1).$(( $( cat sdk_version | cut -d '.' -f 2  ) + 1 )).$(cat sdk_version | cut -d '.' -f 3) > sdk_version
-        COGNAC_CONFIG="--yq-go" make regen
+        .github/scripts/release-make.sh
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - name: push release branch
       run: .github/scripts/release-push.sh
       env:
