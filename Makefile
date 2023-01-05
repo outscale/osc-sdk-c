@@ -40,7 +40,9 @@ COGNAC/osc_sdk.c: COGNAC/config.mk
 COGNAC/osc_sdk.h: COGNAC/config.mk
 	make -C COGNAC osc_sdk.h
 
-regen: clean_sdk COGNAC/osc_sdk.c COGNAC/osc_sdk.h
+regen:  clean_sdk
+	$(MAKE) COGNAC/config.mk
+	make -j -C COGNAC osc_sdk.h osc_sdk.c
 	cp COGNAC/osc_sdk.c .
 	cp COGNAC/osc_sdk.h .
 
