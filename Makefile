@@ -32,6 +32,7 @@ COGNAC/.git:
 	git submodule update --init
 
 COGNAC/config.mk: COGNAC/.git
+	@echo "==== make coniac with $$COGNAC_CONFIG ===="
 	cd COGNAC && ./configure $$COGNAC_CONFIG
 
 COGNAC/osc_sdk.c: COGNAC/config.mk
@@ -41,7 +42,7 @@ COGNAC/osc_sdk.h: COGNAC/config.mk
 	make -C COGNAC osc_sdk.h
 
 regen:  clean_sdk
-	$(MAKE) COGNAC/config.mk
+	COGNAC_CONFIG=--target-api=$$(./tag-from-src.sh) $(MAKE) COGNAC/config.mk
 	make -j -C COGNAC osc_sdk.h osc_sdk.c
 	cp COGNAC/osc_sdk.c .
 	cp COGNAC/osc_sdk.h .
