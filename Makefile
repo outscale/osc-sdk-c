@@ -42,7 +42,7 @@ COGNAC/osc_sdk.h: COGNAC/config.mk
 	make -C COGNAC osc_sdk.h
 
 regen:  clean_sdk
-	COGNAC_CONFIG="${COGNAC_CONFIG} --target-api=$$(./tag-from-src.sh)" $(MAKE) COGNAC/config.mk
+	COGNAC_CONFIG="${COGNAC_CONFIG} $$(./tag-from-src.sh)" $(MAKE) COGNAC/config.mk
 	make -j -C COGNAC osc_sdk.h osc_sdk.c
 	cp COGNAC/osc_sdk.c .
 	cp COGNAC/osc_sdk.h .
