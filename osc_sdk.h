@@ -54,7 +54,7 @@ struct osc_str {
 #define OSC_VERBOSE_MODE 4
 #define OSC_INSECURE_MODE 8
 
-#define OSC_API_VERSION "1.23"
+#define OSC_API_VERSION "1.24"
 
 struct osc_env {
 	char *ak;
@@ -2257,7 +2257,7 @@ struct filters_vms_state {
 
 struct filters_volume {
         /*
-         * The dates and times at which the volumes were created.
+         * The dates and times of creation of the volumes.
          */
         char *creation_dates_str;
 	char **creation_dates; /* array string */
@@ -2272,7 +2272,7 @@ struct filters_volume {
         char *link_volume_device_names_str;
 	char **link_volume_device_names; /* array string */
         /*
-         * The dates and times at which the volumes were created.
+         * The dates and times of creation of the volumes.
          */
         char *link_volume_link_dates_str;
 	char **link_volume_link_dates; /* array string */
@@ -2551,7 +2551,7 @@ struct image {
         int nb_block_device_mappings;
 	struct block_device_mapping_image *block_device_mappings; /* array ref BlockDeviceMappingImage */
         /*
-         * The date and time at which the OMI was created.
+         * The date and time of creation of the OMI.
          */
 	char *creation_date; /* string */
         /*
@@ -4503,7 +4503,7 @@ struct vm {
          */
 	char *client_token; /* string */
         /*
-         * The date and time at which the VM was created.
+         * The date and time of creation of the VM.
          */
 	char *creation_date; /* string */
         /*
@@ -6623,7 +6623,8 @@ struct osc_read_api_logs_arg  {
         int is_set_filters;
 	struct filters_api_log filters; /* ref FiltersApiLog */
         /*
-         * The token to request the next page of results.
+         * The token to request the next page of results. Each token refers to a 
+         * specific page.
          */
 	char *next_page_token; /* string */
         /*
@@ -7895,11 +7896,15 @@ struct osc_create_snapshot_arg  {
 struct osc_create_server_certificate_arg  {
         /* Required: body, private_key, name */
         /*
-         * The PEM-encoded X509 certificate.
+         * The PEM-encoded X509 certificate.<br />With OSC CLI, use the 
+         * following syntax to make sure your CA file is correctly parsed: 
+         * `--CaPem=&quot;$(cat FILENAME)&quot;`.
          */
 	char *body; /* string */
         /*
-         * The PEM-encoded intermediate certification authorities.
+         * The PEM-encoded intermediate certification authorities.<br />With OSC 
+         * CLI, use the following syntax to make sure your CA file is correctly 
+         * parsed: `--CaPem=&quot;$(cat FILENAME)&quot;`.
          */
 	char *chain; /* string */
         /*
@@ -7920,7 +7925,9 @@ struct osc_create_server_certificate_arg  {
          */
 	char *path; /* string */
         /*
-         * The PEM-encoded private key matching the certificate.
+         * The PEM-encoded private key matching the certificate.<br />With OSC 
+         * CLI, use the following syntax to make sure your CA file is correctly 
+         * parsed: `--CaPem=&quot;$(cat FILENAME)&quot;`.
          */
 	char *private_key; /* string */
 };
@@ -8623,8 +8630,9 @@ struct osc_create_client_gateway_arg  {
 struct osc_create_ca_arg  {
         /* Required: ca_pem */
         /*
-         * The CA in PEM format. It must be a single-line string, containing 
-         * literal line breaks (`\\n`).
+         * The CA in PEM format.<br />With OSC CLI, use the following syntax to 
+         * make sure your CA file is correctly parsed: `--CaPem=&quot;$(cat 
+         * FILENAME)&quot;`.
          */
 	char *ca_pem; /* string */
         /*

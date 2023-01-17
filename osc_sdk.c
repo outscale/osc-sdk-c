@@ -260,7 +260,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli UpdateCa [options]\n" "Modifies the specified attribute of a Client Certificate Authority (CA).\n" "\nRequired Argument: CaId \n"
 ,
-	"Usage: oapi-cli UpdateApiAccessRule [options]\n" "Modifies a specified API access rule.\n\n**[NOTE]** \nThe new rule you specify \n" "fully replaces the old rule. Therefore, for a parameter that is not specified, \n" "any previously set value is deleted.\n" "\nRequired Argument: ApiAccessRuleId \n"
+	"Usage: oapi-cli UpdateApiAccessRule [options]\n" "Modifies a specified API access rule.\n\n**[NOTE]** \n- The new rule you \n" "specify fully replaces the old rule. Therefore, for a parameter that is not \n" "specified, any previously set value is deleted.\n- If, as result of your \n" "modification, you no longer have access to the APIs, you will need to contact \n" "the Support team to regain access. For more information, see [Technical \n" "Support](https://docs.outscale.com/en/userguide/Technical-Support.html).\n" "\nRequired Argument: ApiAccessRuleId \n"
 ,
 	"Usage: oapi-cli UpdateApiAccessPolicy [options]\n" "Updates the API access policy of your account.\n\n**[NOTE]**\nOnly one API \n" "access policy can be associated with your account.\n" "\nRequired Argument: MaxAccessKeyExpirationSeconds, RequireTrustedEnv \n"
 ,
@@ -430,7 +430,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeleteVolume [options]\n" "Deletes a specified Block Storage Unit (BSU) volume.\nYou can delete available \n" "volumes only, that is, volumes that are not attached to a virtual machine (VM).\n" "\nRequired Argument: VolumeId \n"
 ,
-	"Usage: oapi-cli DeleteVms [options]\n" "Performs a shut down for at least one virtual machine (VM).\nThis operation is \n" "idempotent, that means that all calls succeed if you terminate a VM more than \n" "once.\n" "\nRequired Argument: VmIds \n"
+	"Usage: oapi-cli DeleteVms [options]\n" "Terminates one or more virtual machines (VMs).\nThis operation is idempotent, \n" "that means that all calls succeed if you terminate a VM more than once.\n" "\nRequired Argument: VmIds \n"
 ,
 	"Usage: oapi-cli DeleteVirtualGateway [options]\n" "Deletes a specified virtual gateway.\nBefore deleting a virtual gateway, we \n" "recommend to detach it from the Net and delete the VPN connection.\n" "\nRequired Argument: VirtualGatewayId \n"
 ,
@@ -456,7 +456,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeleteNetPeering [options]\n" "Deletes a Net peering.\nIf the Net peering is in the `active` state, it can be \n" "deleted either by the owner of the requester Net or the owner of the peer \n" "Net.\nIf it is in the `pending-acceptance` state, it can be deleted only by the \n" "owner of the requester Net.\nIf it is in the `rejected`, `failed`, or `expired` \n" "states, it cannot be deleted.\n" "\nRequired Argument: NetPeeringId \n"
 ,
-	"Usage: oapi-cli DeleteNetAccessPoint [options]\n" "Deletes one or more Net access point.\nThis action also deletes the \n" "corresponding routes added to the route tables you specified for the Net access \n" "point.\n" "\nRequired Argument: NetAccessPointId \n"
+	"Usage: oapi-cli DeleteNetAccessPoint [options]\n" "Deletes a specified Net access point.\nThis action also deletes the \n" "corresponding routes added to the route tables you specified for the Net access \n" "point.\n" "\nRequired Argument: NetAccessPointId \n"
 ,
 	"Usage: oapi-cli DeleteNet [options]\n" "Deletes a specified Net.\nBefore deleting the Net, you need to delete or detach \n" "all the resources associated with the Net:\n\n* Virtual machines (VMs)\n* Net \n" "peerings\n* Custom route tables\n* Public IPs allocated to resources in the \n" "Net\n* Network Interface Cards (NICs) created in the Subnets\n* Virtual \n" "gateways, Internet services and NAT services\n* Load balancers\n* Security \n" "groups\n* Subnets\n" "\nRequired Argument: NetId \n"
 ,
@@ -492,7 +492,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeleteCa [options]\n" "Deletes a specified Client Certificate Authority (CA).\n" "\nRequired Argument: CaId \n"
 ,
-	"Usage: oapi-cli DeleteApiAccessRule [options]\n" "Deletes a specified API access rule.\n\n**[NOTE]** \nYou cannot delete the last \n" "remaining API access rule. However, if you delete all the API access rules that \n" "allow you to access the API, you need to contact the Support team to regain \n" "access. For more information, see [Technical \n" "Support](https://docs.outscale.com/en/userguide/Technical-Support.html).\n" "\nRequired Argument: ApiAccessRuleId \n"
+	"Usage: oapi-cli DeleteApiAccessRule [options]\n" "Deletes a specified API access rule.\n\n**[NOTE]** \nYou cannot delete the last \n" "remaining API access rule. However, if you delete all the API access rules that \n" "allow you to access the APIs, you need to contact the Support team to regain \n" "access. For more information, see [Technical \n" "Support](https://docs.outscale.com/en/userguide/Technical-Support.html).\n" "\nRequired Argument: ApiAccessRuleId \n"
 ,
 	"Usage: oapi-cli DeleteAccessKey [options]\n" "Deletes the specified access key of your account.\n\n**[NOTE]**\nTo protect \n" "against brute force attacks, the number of requests allowed for this method in \n" "a given time period is limited.\n" "\nRequired Argument: AccessKeyId \n"
 ,
@@ -564,7 +564,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli CreateClientGateway [options]\n" "Provides information about your client gateway.\nThis action registers \n" "information to identify the client gateway that you deployed in your \n" "network.\nTo open a tunnel to the client gateway, you must provide the \n" "communication protocol type, the fixed public IP of the gateway, and an \n" "Autonomous System Number (ASN).\n" "\nRequired Argument: BgpAsn, PublicIp, ConnectionType \n"
 ,
-	"Usage: oapi-cli CreateCa [options]\n" "Creates a Client Certificate Authority (CA).\n\n**[NOTE]**\nIf you use OSC CLI, \n" "the content of your certificate file must be enclosed in quotes before you pass \n" "it into this command. For example:\n`$ cat ca-string.pem`\n`'-----BEGIN \n" "CERTIFICATE-----\\nXXXX\\nXXXX\\nXXXX\\n-----END CERTIFICATE-----\\n'`\n`$ \n" "osc-cli api CreateCa --CaPem &quot;$(cat ca-string.pem)&quot;`\n" "\nRequired Argument: CaPem \n"
+	"Usage: oapi-cli CreateCa [options]\n" "Creates a Client Certificate Authority (CA).\n" "\nRequired Argument: CaPem \n"
 ,
 	"Usage: oapi-cli CreateApiAccessRule [options]\n" "Creates a rule to allow access to the API from your account.\nYou need to \n" "specify at least the `CaIds` or the `IpRanges` parameter.\n\n**[NOTE]**\nBy \n" "default, your account has a set of rules allowing global access that you can \n" "delete. For more information, see [About API Access \n" "Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).\n" "\nRequired Argument: none \n"
 ,
@@ -1309,7 +1309,8 @@ static const char *calls_args_descriptions[] = {
 "Filters: ref FiltersApiLog\n"
 	"	null\n"
 "NextPageToken: string\n"
-	"	The token to request the next page of results.\n"
+	"	The token to request the next page of results. Each token refers to a \n"
+	"	specific page.\n"
 "ResultsPerPage: int\n"
 	"	The maximum number of logs returned in a single response (between \n"
 	"	`1`and `1000`, both included). By default, `100`.\n"
@@ -1903,9 +1904,13 @@ static const char *calls_args_descriptions[] = {
 	"	(When creating) The ID of the volume you want to create a snapshot of.\n"
 ,
 	"Body: string\n"
-	"	The PEM-encoded X509 certificate.\n"
+	"	The PEM-encoded X509 certificate.With OSC CLI, use the following \n"
+	"	syntax to make sure your CA file is correctly parsed: \n"
+	"	`--CaPem=&quot;$(cat FILENAME)&quot;`.\n"
 "Chain: string\n"
-	"	The PEM-encoded intermediate certification authorities.\n"
+	"	The PEM-encoded intermediate certification authorities.With OSC CLI, \n"
+	"	use the following syntax to make sure your CA file is correctly \n"
+	"	parsed: `--CaPem=&quot;$(cat FILENAME)&quot;`.\n"
 "DryRun: bool\n"
 	"	If true, checks whether you have the required permissions to perform \n"
 	"	the action.\n"
@@ -1917,7 +1922,9 @@ static const char *calls_args_descriptions[] = {
 	"	The path to the server certificate, set to a slash (/) if not \n"
 	"	specified.\n"
 "PrivateKey: string\n"
-	"	The PEM-encoded private key matching the certificate.\n"
+	"	The PEM-encoded private key matching the certificate.With OSC CLI, \n"
+	"	use the following syntax to make sure your CA file is correctly \n"
+	"	parsed: `--CaPem=&quot;$(cat FILENAME)&quot;`.\n"
 ,
 	"DryRun: bool\n"
 	"	If true, checks whether you have the required permissions to perform \n"
@@ -2267,8 +2274,9 @@ static const char *calls_args_descriptions[] = {
 	"	The public fixed IPv4 address of your client gateway.\n"
 ,
 	"CaPem: string\n"
-	"	The CA in PEM format. It must be a single-line string, containing \n"
-	"	literal line breaks (`\\n`).\n"
+	"	The CA in PEM format.With OSC CLI, use the following syntax to make \n"
+	"	sure your CA file is correctly parsed: `--CaPem=&quot;$(cat \n"
+	"	FILENAME)&quot;`.\n"
 "Description: string\n"
 	"	The description of the CA.\n"
 "DryRun: bool\n"
