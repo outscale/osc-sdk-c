@@ -16,6 +16,9 @@ osc_sdk.o:
 osc_sdk.a: osc_sdk.o
 	ar -crs osc_sdk.a osc_sdk.o
 
+example_a: osc_sdk.a osc_sdk.h examples/example_a.cc
+	$(CXX) examples/example_a.cc -I./ -o example_a -Wall -Wno-unused-function -g $(CFLAGS) ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c`
+
 example0: osc_sdk.a osc_sdk.h examples/example0.c
 	$(CC) examples/example0.c -I./ -o example0 -Wall -Wno-unused-function -g -std=c89 $(CFLAGS) ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c`
 
