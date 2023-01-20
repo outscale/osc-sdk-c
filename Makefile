@@ -8,7 +8,7 @@ help:
 	@echo "- regen-test: test osc-sdk-c regeneration"
 	@echo "- tests: run all tests"
 
-examples: example0 example1 example2 example3
+examples: example0 example1 example2 example3 example_a
 
 osc_sdk.o:
 	gcc -c osc_sdk.c `pkg-config --cflags json-c` $(CFLAGS)
@@ -17,7 +17,7 @@ osc_sdk.a: osc_sdk.o
 	ar -crs osc_sdk.a osc_sdk.o
 
 example_a: osc_sdk.a osc_sdk.h examples/example_a.cc
-	$(CXX) examples/example_a.cc -I./ -o example_a -Wall -Wno-unused-function -g $(CFLAGS) ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c`
+	$(CXX) examples/example_a.cc -I./ -o example_a -Wall -Wno-unused-function -g $(CFLAGS) `pkg-config --cflags jsoncpp` ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c jsoncpp`
 
 example0: osc_sdk.a osc_sdk.h examples/example0.c
 	$(CC) examples/example0.c -I./ -o example0 -Wall -Wno-unused-function -g -std=c89 $(CFLAGS) ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c`
@@ -51,7 +51,7 @@ regen:  clean_sdk
 	cp COGNAC/osc_sdk.h .
 
 clean:
-	rm -rvf examples/*.o example0 example1 example2 example3 osc_sdk.o
+	rm -rvf examples/*.o example0 example1 example2 example3 example_a osc_sdk.o
 
 clean_sdk:
 	rm -rvf COGNAC/
