@@ -84,7 +84,7 @@ static const char *osc_sdk_version_str(void)
 	static char ret[OSC_SDK_VERSON_L];
 
 	if (OSC_SDK_VERSION == 0xC061AC)
-		return "COGNAC-gen";
+		return "unstable";
 	ret[1] = (OSC_SDK_VERSION & 0x00000F) + '0';
 	ret[0] = ((OSC_SDK_VERSION & 0x0000F0) >> 4) + '0';
 	ret[2] = '.';

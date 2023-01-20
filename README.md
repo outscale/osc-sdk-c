@@ -35,7 +35,7 @@ json-c have deprecated ANSI C in favor to C99 and C11, if you want to continue u
 
 **Interface is not stable yet, please be aware that some breaking change can still exist until 1.x.**
 
-SDK itself is generated from Outscale's [COGNAC](https://github.com/outscale-mgo/COGNAC) using [osc-api](https://github.com/outscale/osc-api) description.
+SDK itself is generated from Outscale's [COGNAC](https://github.com/outscale/COGNAC) using [osc-api](https://github.com/outscale/osc-api) description.
 
 # Contributing
 
