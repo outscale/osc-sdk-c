@@ -37,9 +37,19 @@
 #ifndef __SDK_C__
 #define __SDK_C__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <stdlib.h>
 #include <curl/curl.h>
 
 #ifdef __GNUC__
+/*
+ * note that thoses attribute work, on the struct, not the pointer
+ * so, use it with "auto_osc_env struct osc_env e;"
+ * note the absence of '*' before e; (and same with osc_str)
+ */
 #define auto_osc_str __attribute__((cleanup(osc_deinit_str)))
 #define auto_osc_env __attribute__((cleanup(osc_deinit_sdk)))
 #endif
@@ -55,6 +65,7 @@ struct osc_str {
 #define OSC_INSECURE_MODE 8
 
 #define OSC_API_VERSION "1.24"
+#define OSC_SDK_VERSION 0xC061AC
 
 struct osc_env {
 	char *ak;
@@ -65,6 +76,25 @@ struct osc_env {
 	struct osc_str endpoint;
 	CURL *c;
 };
+
+#define OSC_SDK_VERSON_L (sizeof "00.11.22" - 1)
+
+static const char *osc_sdk_version_str(void)
+{
+	static char ret[OSC_SDK_VERSON_L];
+
+	if (OSC_SDK_VERSION == 0xC061AC)
+		return "COGNAC-gen";
+	ret[1] = (OSC_SDK_VERSION & 0x00000F) + '0';
+	ret[0] = ((OSC_SDK_VERSION & 0x0000F0) >> 4) + '0';
+	ret[2] = '.';
+	ret[4] = ((OSC_SDK_VERSION & 0x000F00) >> 8) + '0';
+	ret[3] = ((OSC_SDK_VERSION & 0x00F000) >> 12) + '0';
+	ret[5] = '.';
+	ret[7] = ((OSC_SDK_VERSION & 0x0F0000) >> 16) + '0';
+	ret[6] = ((OSC_SDK_VERSION & 0xF00000) >> 20) + '0';
+	return ret;
+}
 
 struct accepter_net {
         /*
@@ -8806,6 +8836,46 @@ void osc_deinit_str(struct osc_str *r);
 int osc_init_sdk(struct osc_env *e, const char *profile, unsigned int flag);
 void osc_deinit_sdk(struct osc_env *e);
 
+/*
+ * osc_new_sdk/str and osc_destroy_sdk/str where made so we can use
+ * C++'s std::unique_ptr with the lib.
+ * use it like
+ * const std::unique_ptr<osc_env, decltype(&osc_destroy_sdk)>
+ *	e(osc_new_sdk(NULL, 0), &osc_destroy_sdk);
+ */
+static struct osc_env *osc_new_sdk(const char *profile, unsigned int flag)
+{
+	struct osc_env *e = (struct osc_env *)malloc(sizeof *e);
+
+	if (osc_init_sdk(e, profile, flag) < 0) {
+		free(e);
+		return NULL;
+	}
+	return e;
+}
+
+static void osc_destroy_sdk(struct osc_env *e)
+{
+	osc_deinit_sdk(e);
+	free(e);
+}
+
+static struct osc_str *osc_new_str(void)
+{
+	struct osc_str *e = (struct osc_str *)malloc(sizeof *e);
+
+	osc_init_str(e);
+	return e;
+}
+
+static void osc_destroy_str(struct osc_str *e)
+{
+	osc_deinit_str(e);
+	free(e);
+}
+
+int osc_sdk_set_useragent(struct osc_env *e, const char *str);
+
 #ifdef WITH_DESCRIPTION
 
 const char *osc_find_description(const char *call_name);
@@ -8988,5 +9058,9 @@ int osc_create_account(struct osc_env *e, struct osc_str *out, struct osc_create
 int osc_create_access_key(struct osc_env *e, struct osc_str *out, struct osc_create_access_key_arg *args);
 int osc_check_authentication(struct osc_env *e, struct osc_str *out, struct osc_check_authentication_arg *args);
 int osc_accept_net_peering(struct osc_env *e, struct osc_str *out, struct osc_accept_net_peering_arg *args);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __SDK_C__ */
