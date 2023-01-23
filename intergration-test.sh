@@ -32,3 +32,13 @@ trap "echo [$MSG_BASE 2 FAIL]" ERR
 ./example2 test-example-3 TERMINATE_VM  'Fire ! Fire ! Fire !' &> /dev/null
 
 echo "[$MSG_BASE 2 OK]"
+
+MSG_BASE="Test C++ Example"
+
+trap "echo [$MSG_BASE A FAIL]" ERR
+
+out=$( ./example0 | grep -v '==' | jq )
+
+[ $( echo "$out" | jq -r .Images[0].AccountAlias | grep -v null ) == "Outscale" ]
+
+echo "[$MSG_BASE A OK]"
