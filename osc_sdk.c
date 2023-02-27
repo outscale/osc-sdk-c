@@ -228,13 +228,13 @@ static const char *calls_name[] = {
 static const char *calls_descriptions[] = {
 	"Usage: oapi-cli UpdateVpnConnection [options]\n" "Modifies the specified attributes of a VPN connection.\n" "\nRequired Argument: VpnConnectionId \n"
 ,
-	"Usage: oapi-cli UpdateVolume [options]\n" "Modifies the specified attributes of a volume. Cold volumes are volumes that \n" "are attached to stopped VMs or that are detached. Hot volumes are volumes that \n" "are attached to running VMs.\n\n**[NOTE]**\nWhen the modification is not \n" "instantaneous, the response displays the previous value. You can use the \n" "[ReadVolumes](#readvolumes) method to see the new value.\n" "\nRequired Argument: VolumeId \n"
+	"Usage: oapi-cli UpdateVolume [options]\n" "Modifies the specified attributes of a volume.\nCold volumes are volumes that \n" "are attached to stopped or stopping VMs, or that are detached. Hot volumes are \n" "volumes that are attached to running VMs.\n\n**[NOTE]**\nWhen the modification \n" "is not instantaneous, the response displays the previous value. You can use the \n" "[ReadVolumes](#readvolumes) method to see the new value.\n" "\nRequired Argument: VolumeId \n"
 ,
 	"Usage: oapi-cli UpdateVm [options]\n" "Modifies the specified attributes of a virtual machine (VM).\nYou must stop the \n" "VM before modifying the following attributes:\n* `NestedVirtualization`\n* \n" "`Performance`\n* `UserData`\n* `VmType`\n" "\nRequired Argument: VmId \n"
 ,
 	"Usage: oapi-cli UpdateSubnet [options]\n" "Modifies the specified attribute of a Subnet.\n" "\nRequired Argument: SubnetId, MapPublicIpOnLaunch \n"
 ,
-	"Usage: oapi-cli UpdateSnapshot [options]\n" "Modifies the permissions for a specified snapshot.\nYou can add or remove \n" "permissions for specified account IDs or groups. You can share a snapshot with \n" "a user that is in the same Region. The user can create a copy of the snapshot \n" "you shared, obtaining all the rights for the copy of the snapshot.\n" "\nRequired Argument: SnapshotId, PermissionsToCreateVolume \n"
+	"Usage: oapi-cli UpdateSnapshot [options]\n" "Modifies the permissions for a specified snapshot.\nYou must specify either the \n" "`Additions` or the `Removals` parameter.\nAfter sharing a snapshot with an \n" "account, the other account can create a copy of it that they own. For more \n" "information about copying snapshots, see [CreateSnapshot](#createsnapshot).\n" "\nRequired Argument: SnapshotId, PermissionsToCreateVolume \n"
 ,
 	"Usage: oapi-cli UpdateServerCertificate [options]\n" "Modifies the name and/or the path of a specified server certificate.\n" "\nRequired Argument: Name \n"
 ,
@@ -252,7 +252,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli UpdateListenerRule [options]\n" "Updates the pattern of the listener rule.\nThis call updates the pattern \n" "matching algorithm for incoming traffic.\n" "\nRequired Argument: ListenerRuleName \n"
 ,
-	"Usage: oapi-cli UpdateImage [options]\n" "Modifies the specified attribute of an OUTSCALE machine image (OMI).\nYou can \n" "specify only one attribute at a time. You can modify the permissions to access \n" "the OMI by adding or removing account IDs or groups. You can share an OMI with \n" "a user that is in the same Region. The user can create a copy of the OMI you \n" "shared, obtaining all the rights for the copy of the OMI. For more information, \n" "see [CreateImage](#createimage).\n" "\nRequired Argument: ImageId, PermissionsToLaunch \n"
+	"Usage: oapi-cli UpdateImage [options]\n" "Modifies the access permissions for an OUTSCALE machine image (OMI).\nYou must \n" "specify either the `Additions` or the `Removals` parameter.\nAfter sharing an \n" "OMI with an account, the other account can create a copy of it that they own. \n" "For more information about copying OMIs, see [CreateImage](#createimage).\n" "\nRequired Argument: ImageId, PermissionsToLaunch \n"
 ,
 	"Usage: oapi-cli UpdateFlexibleGpu [options]\n" "Modifies a flexible GPU (fGPU) behavior.\n" "\nRequired Argument: FlexibleGpuId \n"
 ,
@@ -516,7 +516,7 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli CreateServerCertificate [options]\n" "Creates a server certificate and its matching private key.\nThese elements can \n" "be used with other services (for example, to configure SSL termination on load \n" "balancers).\nYou can also specify the chain of intermediate certification \n" "authorities if your certificate is not directly signed by a root one. You can \n" "specify multiple intermediate certification authorities in the \n" "`CertificateChain` parameter. To do so, concatenate all certificates in the \n" "correct order (the first certificate must be the authority of your certificate, \n" "the second must the the authority of the first one, and so on).\nThe private \n" "key must be a RSA key in PKCS1 form. To check this, open the PEM file and \n" "ensure its header reads as follows: BEGIN RSA PRIVATE KEY.\n[IMPORTANT]\nThis \n" "private key must not be protected by a password or a passphrase.\n" "\nRequired Argument: Body, PrivateKey, Name \n"
 ,
-	"Usage: oapi-cli CreateSecurityGroupRule [options]\n" "Configures the rules for a security group.\nThe modifications are effective at \n" "virtual machine (VM) level as quickly as possible, but a small delay may \n" "occur.\n\nYou can add one or more egress rules to a security group for use with \n" "a Net.\nIt allows VMs to send traffic to either one or more destination IP \n" "ranges or destination security groups for the same Net.\nWe recommend using a \n" "set of IP permissions to authorize outbound access to a destination security \n" "group. We also recommended this method to create a rule with a specific IP \n" "protocol and a specific port range. In a set of IP permissions, we recommend to \n" "specify the the protocol.\n\nYou can also add one or more ingress rules to a \n" "security group.\nIn the public Cloud, this action allows one or more IP ranges \n" "to access a security group for your account, or allows one or more security \n" "groups (source groups) to access a security group for your own OUTSCALE account \n" "or another one.\nIn a Net, this action allows one or more IP ranges to access a \n" "security group for your Net, or allows one or more other security groups \n" "(source groups) to access a security group for your Net. All the security \n" "groups must be for the same Net.\n\n**[NOTE]**\nBy default, traffic between two \n" "security groups is allowed through both public and private IPs. To restrict it \n" "to private IPs only, contact our Support team: support@outscale.com.\n" "\nRequired Argument: SecurityGroupId, Flow \n"
+	"Usage: oapi-cli CreateSecurityGroupRule [options]\n" "Adds one or more rules to a security group.\nUse the `SecurityGroupId` \n" "parameter to specify the security group for which you want to create a \n" "rule.\nUse the `Flow` parameter to specify if you want an inbound rule or an \n" "outbound rule.\nAn inbound rule allows the security group to receive \n" "traffic:\n* Either from a specific IP range (`IpRange` parameter) on a specific \n" "port range (`FromPortRange` and `ToPortRange` parameters) and specific protocol \n" "(`IpProtocol` parameter).\n* Or from another specific security group \n" "(`SecurityGroupAccountIdToLink` and `SecurityGroupNameToLink` \n" "parameters).\n\n(Net only) An outbound rule works similarly but allows the \n" "security group to send traffic rather than receive traffic.\n\nAlternatively, \n" "you can use the `Rules` parameter to add several rules at the same \n" "time.\n\n**[NOTE]**\n* The modifications are effective as quickly as possible, \n" "but a small delay may occur.\n* By default, traffic between two security groups \n" "is allowed through both public and private IPs. To restrict traffic to private \n" "IPs only, contact our Support team at support@outscale.com.\n" "\nRequired Argument: SecurityGroupId, Flow \n"
 ,
 	"Usage: oapi-cli CreateSecurityGroup [options]\n" "Creates a security group.\nThis action creates a security group either in the \n" "public Cloud or in a specified Net. By default, a default security group for \n" "use in the public Cloud and a default security group for use in a Net are \n" "created.\nWhen launching a virtual machine (VM), if no security group is \n" "explicitly specified, the appropriate default security group is assigned to the \n" "VM. Default security groups include a default rule granting VMs network access \n" "to each other.\nWhen creating a security group, you specify a name. Two \n" "security groups for use in the public Cloud or for use in a Net cannot have the \n" "same name.\nYou can have up to 500 security groups in the public Cloud. You can \n" "create up to 500 security groups per Net.\nTo add or remove rules, use the \n" "[CreateSecurityGroupRule](#createsecuritygrouprule) method.\n" "\nRequired Argument: Description, SecurityGroupName \n"
 ,
@@ -628,10 +628,15 @@ static const char *calls_args_descriptions[] = {
 	"	false, it is disabled. This value must be false for a NAT VM to \n"
 	"	perform network address translation (NAT) in a Net.\n"
 "KeypairName: string\n"
-	"	The name of the keypair.\nTo complete the replacement, manually \n"
-	"	replace the old public key with the new public key in the \n"
-	"	~/.ssh/authorized_keys file located in the VM. Restart the VM to \n"
-	"	apply the change.\n"
+	"	The name of a keypair you want to associate with the VM.\nWhen you \n"
+	"	replace the keypair of a VM with another one, the metadata of the VM \n"
+	"	is modified to reflect the new public key, but the replacement is \n"
+	"	still not effective in the operating system of the VM. To complete \n"
+	"	the replacement and effectively apply the new keypair, you need to \n"
+	"	perform other actions inside the VM. For more information, see \n"
+	"	[Modifying the Keypair of an \n"
+	"	Instance](https://docs.outscale.com/en/userguide/Modifying-the-Keypair\n"
+	"	-of-an-Instance.html).\n"
 "NestedVirtualization: bool\n"
 	"	(dedicated tenancy only) If true, nested virtualization is enabled. \n"
 	"	If false, it is disabled.\n"
@@ -816,7 +821,7 @@ static const char *calls_args_descriptions[] = {
 	"	the action.\n"
 "Mtu: int\n"
 	"	The maximum transmission unit (MTU) of the DirectLink interface, in \n"
-	"	bytes (either `1500` or `9000`).\n"
+	"	bytes (always `1500`).\n"
 ,
 	"CaId: string\n"
 	"	The ID of the CA.\n"
@@ -1953,13 +1958,13 @@ static const char *calls_args_descriptions[] = {
 	"	following parent parameters: `FromPortRange`, `IpProtocol`, \n"
 	"	`IpRange`, and `ToPortRange`.\n"
 "SecurityGroupAccountIdToLink: string\n"
-	"	The account ID of the owner of the security group for which you want \n"
-	"	to create a rule.\n"
+	"	The account ID that owns the source or destination security group \n"
+	"	specified in the `SecurityGroupNameToLink` parameter.\n"
 "SecurityGroupId: string\n"
 	"	The ID of the security group for which you want to create a rule.\n"
 "SecurityGroupNameToLink: string\n"
-	"	The ID of the source security group. If you are in the Public Cloud, \n"
-	"	you can also specify the name of the source security group.\n"
+	"	The ID of a source or destination security group that you want to \n"
+	"	link to the security group of the rule.\n"
 "ToPortRange: int\n"
 	"	The end of the port range for the TCP and UDP protocols, or an ICMP \n"
 	"	code number. If you specify this parameter, you cannot specify the \n"
