@@ -52,6 +52,7 @@ extern "C" {
  */
 #define auto_osc_str __attribute__((cleanup(osc_deinit_str)))
 #define auto_osc_env __attribute__((cleanup(osc_deinit_sdk)))
+
 #endif
 
 struct osc_str {
@@ -59,19 +60,39 @@ struct osc_str {
 	char *buf;
 };
 
-#define OSC_ENV_FREE_AK_SK 1
-#define OSC_ENV_FREE_REGION 2
-#define OSC_VERBOSE_MODE 4
-#define OSC_INSECURE_MODE 8
+#define OSC_ENV_FREE_AK 1 << 0
+#define OSC_ENV_FREE_REGION 1 << 1
+#define OSC_VERBOSE_MODE  1 << 2 /* curl verbose mode + print request content */
+#define OSC_INSECURE_MODE 1 << 3 /* see --insecure option of curl */
+#define OSC_ENV_FREE_CERT 1 << 4
+#define OSC_ENV_FREE_SSLKEY 1 << 5
+#define OSC_ENV_FREE_SK 1 << 6
+
+#define OSC_ENV_FREE_AK_SK (OSC_ENV_FREE_AK | OSC_ENV_FREE_SK)
 
 #define OSC_API_VERSION "1.25"
 #define OSC_SDK_VERSION 0xC061AC
+
+enum osc_auth_method {
+	OSC_AKSK_METHOD,
+	OSC_PASSWORD_METHOD,
+	OSC_NONE_METHOD
+};
+
+struct osc_env_conf {
+	char *login;
+	char *password;
+	enum osc_auth_method auth_method;
+};
 
 struct osc_env {
 	char *ak;
 	char *sk;
 	char *region;
+	char *cert;
+	char *sslkey;
 	int flag;
+	enum osc_auth_method auth_method;
 	struct curl_slist *headers;
 	struct osc_str endpoint;
 	CURL *c;
@@ -8841,10 +8862,23 @@ struct osc_accept_net_peering_arg  {
 
 int osc_load_ak_sk_from_conf(const char *profile, char **ak, char **sk);
 int osc_load_region_from_conf(const char *profile, char **region);
+int osc_load_loging_password_from_conf(const char *profile,
+				       char **email, char **password);
+
+/**
+ * @brief parse osc config file, and store cred_path/key_path. key is optional.
+ *
+ * @return if < 0, an error, otherwise a flag contain OSC_ENV_FREE_CERT,
+ *	OSC_ENV_FREE_SSLKEY, both or 0
+ */
+int osc_load_cert_from_conf(const char *profile, char **cert_path,
+			    char **key_path);
 
 void osc_init_str(struct osc_str *r);
 void osc_deinit_str(struct osc_str *r);
 int osc_init_sdk(struct osc_env *e, const char *profile, unsigned int flag);
+int osc_init_sdk_ext(struct osc_env *e, const char *profile,
+		     unsigned int flag, struct osc_env_conf *cfg);
 void osc_deinit_sdk(struct osc_env *e);
 
 /*
@@ -8886,6 +8920,12 @@ static void osc_destroy_str(struct osc_str *e)
 }
 
 int osc_sdk_set_useragent(struct osc_env *e, const char *str);
+
+void *osc_realloc(void *buf, size_t l);
+
+/* set/get config path, thread safe if -DWITH_C11_THREAD_LOCAL=1 is set */
+void osc_set_cfg_path(const char *cfg);
+const char *osc_set_get_path(void);
 
 #ifdef WITH_DESCRIPTION
 
