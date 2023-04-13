@@ -1,5 +1,7 @@
 # osc-sdk-c example
 
+examples with numbers are in C, and with letters are in C++
+
 ## example 0
 
 call osc_read_load_balancers and osc_read_images with outscale ownner as filter,
@@ -25,6 +27,9 @@ It's in GNU C 99 too.
 ## example 3
 
 Create a VM with a big volume as /dev/sda
+
+## example a
+call osc_read_images with *Outscale* account_alias as filter, and pretty print the result using jsoncpp.
 
 ## LICENSE
 
