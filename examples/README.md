@@ -31,6 +31,9 @@ Create a VM with a big volume as /dev/sda
 ## example a
 call osc_read_images with *Outscale* account_alias as filter, and pretty print the result using jsoncpp.
 
+## ricochet_preparation
+not an example per say, but a bit of code called by local-tests, to have the mock behave the same as our Outscale Test Account 
+
 ## LICENSE
 
 exemples are license under BSD-3
