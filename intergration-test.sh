@@ -2,6 +2,11 @@
 
 set -eE
 
+echo $OSC_ENDPOINT_API | grep 127.0.0.1 > /dev/null
+if [ $? -eq 0 ]; then
+    ./ricochet_preparation
+fi
+
 MSG_BASE="Test Example"
 
 trap "echo [$MSG_BASE 0 FAIL]" ERR
