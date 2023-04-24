@@ -31,6 +31,9 @@ example2: osc_sdk.c osc_sdk.h examples/example2.c
 example3: osc_sdk.c osc_sdk.h examples/example3.c
 	$(CC) examples/example3.c ./osc_sdk.c -I./ `pkg-config --cflags json-c`  -o example3 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
 
+ricochet_preparation: osc_sdk.c osc_sdk.h examples/ricochet_preparation.c
+	$(CC) examples/ricochet_preparation.c ./osc_sdk.c -I./ `pkg-config --cflags json-c`  -o ricochet_preparation -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
+
 COGNAC/.git:
 	git submodule update --init
 
@@ -66,6 +69,9 @@ tests: integration-test
 
 integration-test: examples
 	./intergration-test.sh
+
+local-tests: ricochet_preparation
+	./local-tests.sh
 
 regen-test: regen
 	git add osc_sdk.c osc_sdk.h

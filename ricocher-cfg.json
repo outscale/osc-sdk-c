@@ -1,0 +1,11 @@
+{
+    "auth_type": "exist",
+    "users": [
+	{
+	    "access_key": "11112211111110000000",
+	    "secret_key": "0000001111112222223333334444445555555666",
+	    "login": "Outscale",
+	    "pass": "oui"
+	}
+    ]
+}
