@@ -25,14 +25,20 @@ jobs:
       run: |
         CFLAGS="-fsanitize=address -O0" make tests
         make fclean
+      if: github.event_name != 'pull_request'
       env:
         OSC_ACCESS_KEY: ${{secrets.OSC_ACCESS_KEY}}
         OSC_SECRET_KEY: ${{secrets.OSC_SECRET_KEY}}
         OSC_REGION: ${{secrets.OSC_REGION}}
+    - name: local-test
+      run: |
+        CFLAGS="-fsanitize=address -O0" make ricochet_preparation
+        make local-tests
+        make fclean
     - name: codeql-init
       uses: github/codeql-action/init@v2
     - name: codeql-make
-      run: make examples
+      run: make examples ricochet_preparation
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
