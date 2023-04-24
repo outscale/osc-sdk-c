@@ -1,11 +1,12 @@
 #!/bin/bash
 
-set -eE
 
 echo $OSC_ENDPOINT_API | grep 127.0.0.1 > /dev/null
 if [ $? -eq 0 ]; then
     ./ricochet_preparation
 fi
+
+set -eE
 
 MSG_BASE="Test Example"
 
