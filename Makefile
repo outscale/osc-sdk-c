@@ -49,6 +49,7 @@ COGNAC/osc_sdk.h: COGNAC/config.mk
 
 regen:  clean_sdk
 	COGNAC_CONFIG="${COGNAC_CONFIG} $$(./tag-from-src.sh)" $(MAKE) COGNAC/config.mk
+	printf "0X%02d%02d%02d\n" $$(cat sdk_version | cut -d '.' -f 1) $$(cat sdk_version | cut -d '.' -f 2) $$(cat sdk_version | cut -d '.' -f 3) > COGNAC/sdk-version
 	make -j -C COGNAC osc_sdk.h osc_sdk.c
 	cp COGNAC/osc_sdk.c .
 	cp COGNAC/osc_sdk.h .
