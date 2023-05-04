@@ -1,0 +1,16 @@
+name: Outscale API release
+on:
+  release:
+    types: [published]
+
+jobs:
+  osc-sdk-js:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Trigger oapi-cli build
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_OSC_SDK_JS }}
+        run: .github/scripts/build-osc-sdk.sh oapi-cli master
