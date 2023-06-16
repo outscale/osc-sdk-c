@@ -12,5 +12,5 @@ jobs:
           ref: master
       - name: Trigger oapi-cli build
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN_OSC_SDK_JS }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: .github/scripts/build-osc-sdk.sh oapi-cli master
