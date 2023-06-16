@@ -4,7 +4,7 @@ on:
     types: [published]
 
 jobs:
-  osc-sdk-js:
+  oapi-cli:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
