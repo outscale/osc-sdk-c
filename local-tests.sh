@@ -2,21 +2,22 @@
 
 set -eE
 
-trap "echo [clone git FAIL]" ERR
+if [ "$#" -eq 0 ]; then
+    trap "echo [clone git FAIL]" ERR
+    if [ ! -d "osc-ricochet-2" ]; then
+	git clone https://github.com/outscale-mgo/osc-ricochet-2
+    fi
 
-if [ ! -d "osc-ricochet-2" ]; then
-    git clone https://github.com/outscale-mgo/osc-ricochet-2
+    trap "echo [make ricochet-2 FAIL]" ERR
+    cd osc-ricochet-2
+
+    cargo build
+    cargo run -- ../ricocher-cfg.json > /dev/null  &
+
+    sleep 5
+
+    cd ..
 fi
-
-trap "echo [make ricochet-2 FAIL]" ERR
-cd osc-ricochet-2
-
-cargo build
-cargo run -- ../ricocher-cfg.json > /dev/null  &
-
-sleep 5
-
-cd ..
 
 export OSC_ENDPOINT_API=127.0.0.1:3000
 export OSC_ACCESS_KEY=11112211111110000000
