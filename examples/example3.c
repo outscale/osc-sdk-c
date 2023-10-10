@@ -91,6 +91,7 @@ int main(int ac, char **av)
 
 	if (osc_create_vms(&e, &out, &(struct osc_create_vms_arg) {
 				.image_id=image_id,
+				.vm_type="tinav5.c1r1p2",
 				.block_device_mappings=(struct block_device_mapping_vm_creation[]) {
 					{
 						.is_set_bsu = 1,
