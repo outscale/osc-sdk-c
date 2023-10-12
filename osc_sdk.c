@@ -4526,7 +4526,7 @@ static int access_log_setter(struct access_log *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_is_enabled) {
-		ARG_TO_JSON(data, bool, args->is_enabled);
+		ARG_TO_JSON(IsEnabled, bool, args->is_enabled);
 	   	ret += 1;
 	}
 	if (args->osu_bucket_name) {
@@ -4644,7 +4644,7 @@ static int api_access_policy_setter(struct api_access_policy *args, struct osc_s
 	   	ret += 1;
 	}
 	if (args->is_set_require_trusted_env) {
-		ARG_TO_JSON(data, bool, args->require_trusted_env);
+		ARG_TO_JSON(RequireTrustedEnv, bool, args->require_trusted_env);
 	   	ret += 1;
 	}
 	return !!ret;
@@ -4861,7 +4861,7 @@ static int bsu_created_setter(struct bsu_created *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->link_date) {
@@ -4885,7 +4885,7 @@ static int bsu_to_create_setter(struct bsu_to_create *args, struct osc_str *data
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->is_set_iops || args->iops) {
@@ -4912,7 +4912,7 @@ static int bsu_to_update_vm_setter(struct bsu_to_update_vm *args, struct osc_str
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->volume_id) {
@@ -5157,7 +5157,7 @@ static int dhcp_options_set_setter(struct dhcp_options_set *args, struct osc_str
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_default_arg) {
-		ARG_TO_JSON(data, bool, args->default_arg);
+		ARG_TO_JSON(Default, bool, args->default_arg);
 	   	ret += 1;
 	}
 	if (args->dhcp_options_set_id) {
@@ -5714,7 +5714,7 @@ static int filters_catalogs_setter(struct filters_catalogs *args, struct osc_str
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_current_catalog_only) {
-		ARG_TO_JSON(data, bool, args->current_catalog_only);
+		ARG_TO_JSON(CurrentCatalogOnly, bool, args->current_catalog_only);
 	   	ret += 1;
 	}
 	if (args->from_date) {
@@ -5866,7 +5866,7 @@ static int filters_dhcp_options_setter(struct filters_dhcp_options *args, struct
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_default_arg) {
-		ARG_TO_JSON(data, bool, args->default_arg);
+		ARG_TO_JSON(Default, bool, args->default_arg);
 	   	ret += 1;
 	}
 	if (args->dhcp_options_set_ids) {
@@ -6082,7 +6082,7 @@ static int filters_flexible_gpu_setter(struct filters_flexible_gpu *args, struct
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->flexible_gpu_ids) {
@@ -6235,7 +6235,7 @@ static int filters_image_setter(struct filters_image *args, struct osc_str *data
 		ret += 1;
 	}
 	if (args->is_set_block_device_mapping_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->block_device_mapping_delete_on_vm_deletion);
+		ARG_TO_JSON(BlockDeviceMappingDeleteOnVmDeletion, bool, args->block_device_mapping_delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->block_device_mapping_device_names) {
@@ -6399,7 +6399,7 @@ static int filters_image_setter(struct filters_image *args, struct osc_str *data
 		ret += 1;
 	}
 	if (args->is_set_permissions_to_launch_global_permission) {
-		ARG_TO_JSON(data, bool, args->permissions_to_launch_global_permission);
+		ARG_TO_JSON(PermissionsToLaunchGlobalPermission, bool, args->permissions_to_launch_global_permission);
 	   	ret += 1;
 	}
 	if (args->product_codes) {
@@ -6865,7 +6865,7 @@ static int filters_net_setter(struct filters_net *args, struct osc_str *data) {
 		ret += 1;
 	}
 	if (args->is_set_is_default_arg) {
-		ARG_TO_JSON(data, bool, args->is_default_arg);
+		ARG_TO_JSON(IsDefault, bool, args->is_default_arg);
 	   	ret += 1;
 	}
 	if (args->net_ids) {
@@ -7284,11 +7284,11 @@ static int filters_nic_setter(struct filters_nic *args, struct osc_str *data) {
 		ret += 1;
 	}
 	if (args->is_set_is_source_dest_check) {
-		ARG_TO_JSON(data, bool, args->is_source_dest_check);
+		ARG_TO_JSON(IsSourceDestCheck, bool, args->is_source_dest_check);
 	   	ret += 1;
 	}
 	if (args->is_set_link_nic_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->link_nic_delete_on_vm_deletion);
+		ARG_TO_JSON(LinkNicDeleteOnVmDeletion, bool, args->link_nic_delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->link_nic_device_numbers) {
@@ -7532,7 +7532,7 @@ static int filters_nic_setter(struct filters_nic *args, struct osc_str *data) {
 		ret += 1;
 	}
 	if (args->is_set_private_ips_primary_ip) {
-		ARG_TO_JSON(data, bool, args->private_ips_primary_ip);
+		ARG_TO_JSON(PrivateIpsPrimaryIp, bool, args->private_ips_primary_ip);
 	   	ret += 1;
 	}
 	if (args->private_ips_private_ips) {
@@ -7988,7 +7988,7 @@ static int filters_route_table_setter(struct filters_route_table *args, struct o
 		ret += 1;
 	}
 	if (args->is_set_link_route_table_main) {
-		ARG_TO_JSON(data, bool, args->link_route_table_main);
+		ARG_TO_JSON(LinkRouteTableMain, bool, args->link_route_table_main);
 	   	ret += 1;
 	}
 	if (args->link_subnet_ids) {
@@ -8705,7 +8705,7 @@ static int filters_snapshot_setter(struct filters_snapshot *args, struct osc_str
 		ret += 1;
 	}
 	if (args->is_set_permissions_to_create_volume_global_permission) {
-		ARG_TO_JSON(data, bool, args->permissions_to_create_volume_global_permission);
+		ARG_TO_JSON(PermissionsToCreateVolumeGlobalPermission, bool, args->permissions_to_create_volume_global_permission);
 	   	ret += 1;
 	}
 	if (args->progresses) {
@@ -9650,7 +9650,7 @@ static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_bsu_optimized) {
-		ARG_TO_JSON(data, bool, args->bsu_optimized);
+		ARG_TO_JSON(BsuOptimized, bool, args->bsu_optimized);
 	   	ret += 1;
 	}
 	if (args->memory_sizes) {
@@ -9872,7 +9872,7 @@ static int filters_volume_setter(struct filters_volume *args, struct osc_str *da
 		ret += 1;
 	}
 	if (args->is_set_link_volume_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->link_volume_delete_on_vm_deletion);
+		ARG_TO_JSON(LinkVolumeDeleteOnVmDeletion, bool, args->link_volume_delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->link_volume_device_names) {
@@ -10169,7 +10169,7 @@ static int filters_vpn_connection_setter(struct filters_vpn_connection *args, st
 		ret += 1;
 	}
 	if (args->is_set_static_routes_only) {
-		ARG_TO_JSON(data, bool, args->static_routes_only);
+		ARG_TO_JSON(StaticRoutesOnly, bool, args->static_routes_only);
 	   	ret += 1;
 	}
 	if (args->tag_keys) {
@@ -10258,7 +10258,7 @@ static int flexible_gpu_setter(struct flexible_gpu *args, struct osc_str *data) 
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->flexible_gpu_id) {
@@ -10637,7 +10637,7 @@ static int link_nic_setter(struct link_nic *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->is_set_device_number || args->device_number) {
@@ -10670,7 +10670,7 @@ static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *da
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->is_set_device_number || args->device_number) {
@@ -10693,7 +10693,7 @@ static int link_nic_to_update_setter(struct link_nic_to_update *args, struct osc
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->link_nic_id) {
@@ -10762,7 +10762,7 @@ static int link_route_table_setter(struct link_route_table *args, struct osc_str
 	   	ret += 1;
 	}
 	if (args->is_set_main) {
-		ARG_TO_JSON(data, bool, args->main);
+		ARG_TO_JSON(Main, bool, args->main);
 	   	ret += 1;
 	}
 	if (args->route_table_id) {
@@ -10781,7 +10781,7 @@ static int linked_volume_setter(struct linked_volume *args, struct osc_str *data
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->device_name) {
@@ -11095,7 +11095,7 @@ static int load_balancer_setter(struct load_balancer *args, struct osc_str *data
 	   	ret += 1;
 	}
 	if (args->is_set_secured_cookies) {
-		ARG_TO_JSON(data, bool, args->secured_cookies);
+		ARG_TO_JSON(SecuredCookies, bool, args->secured_cookies);
 	   	ret += 1;
 	}
 	if (args->security_groups) {
@@ -11614,7 +11614,7 @@ static int nic_setter(struct nic *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->is_set_is_source_dest_checked) {
-		ARG_TO_JSON(data, bool, args->is_source_dest_checked);
+		ARG_TO_JSON(IsSourceDestChecked, bool, args->is_source_dest_checked);
 	   	ret += 1;
 	}
 	if (args->link_nic_str) {
@@ -11732,7 +11732,7 @@ static int nic_for_vm_creation_setter(struct nic_for_vm_creation *args, struct o
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->description) {
@@ -11808,7 +11808,7 @@ static int nic_light_setter(struct nic_light *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->is_set_is_source_dest_checked) {
-		ARG_TO_JSON(data, bool, args->is_source_dest_checked);
+		ARG_TO_JSON(IsSourceDestChecked, bool, args->is_source_dest_checked);
 	   	ret += 1;
 	}
 	if (args->link_nic_str) {
@@ -12014,7 +12014,7 @@ static int permissions_on_resource_setter(struct permissions_on_resource *args, 
 		ret += 1;
 	}
 	if (args->is_set_global_permission) {
-		ARG_TO_JSON(data, bool, args->global_permission);
+		ARG_TO_JSON(GlobalPermission, bool, args->global_permission);
 	   	ret += 1;
 	}
 	return !!ret;
@@ -12216,7 +12216,7 @@ static int private_ip_setter(struct private_ip *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_is_primary) {
-		ARG_TO_JSON(data, bool, args->is_primary);
+		ARG_TO_JSON(IsPrimary, bool, args->is_primary);
 	   	ret += 1;
 	}
 	if (args->link_public_ip_str) {
@@ -12245,7 +12245,7 @@ static int private_ip_light_setter(struct private_ip_light *args, struct osc_str
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_is_primary) {
-		ARG_TO_JSON(data, bool, args->is_primary);
+		ARG_TO_JSON(IsPrimary, bool, args->is_primary);
 	   	ret += 1;
 	}
 	if (args->private_ip) {
@@ -12259,7 +12259,7 @@ static int private_ip_light_for_vm_setter(struct private_ip_light_for_vm *args, 
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_is_primary) {
-		ARG_TO_JSON(data, bool, args->is_primary);
+		ARG_TO_JSON(IsPrimary, bool, args->is_primary);
 	   	ret += 1;
 	}
 	if (args->link_public_ip_str) {
@@ -13109,7 +13109,7 @@ static int subnet_setter(struct subnet *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->is_set_map_public_ip_on_launch) {
-		ARG_TO_JSON(data, bool, args->map_public_ip_on_launch);
+		ARG_TO_JSON(MapPublicIpOnLaunch, bool, args->map_public_ip_on_launch);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -13334,7 +13334,7 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 		ret += 1;
 	}
 	if (args->is_set_bsu_optimized) {
-		ARG_TO_JSON(data, bool, args->bsu_optimized);
+		ARG_TO_JSON(BsuOptimized, bool, args->bsu_optimized);
 	   	ret += 1;
 	}
 	if (args->client_token) {
@@ -13348,7 +13348,7 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->is_set_deletion_protection) {
-		ARG_TO_JSON(data, bool, args->deletion_protection);
+		ARG_TO_JSON(DeletionProtection, bool, args->deletion_protection);
 	   	ret += 1;
 	}
 	if (args->hypervisor) {
@@ -13362,7 +13362,7 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->is_set_is_source_dest_checked) {
-		ARG_TO_JSON(data, bool, args->is_source_dest_checked);
+		ARG_TO_JSON(IsSourceDestChecked, bool, args->is_source_dest_checked);
 	   	ret += 1;
 	}
 	if (args->keypair_name) {
@@ -13375,7 +13375,7 @@ static int vm_setter(struct vm *args, struct osc_str *data) {
 	   	ret += 1;
 	}
 	if (args->is_set_nested_virtualization) {
-		ARG_TO_JSON(data, bool, args->nested_virtualization);
+		ARG_TO_JSON(NestedVirtualization, bool, args->nested_virtualization);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -13777,7 +13777,7 @@ static int vm_type_setter(struct vm_type *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_bsu_optimized) {
-		ARG_TO_JSON(data, bool, args->bsu_optimized);
+		ARG_TO_JSON(BsuOptimized, bool, args->bsu_optimized);
 	   	ret += 1;
 	}
 	if (args->is_set_max_private_ips || args->max_private_ips) {
@@ -13928,7 +13928,7 @@ static int vpn_connection_setter(struct vpn_connection *args, struct osc_str *da
 	   	ret += 1;
 	}
 	if (args->is_set_static_routes_only) {
-		ARG_TO_JSON(data, bool, args->static_routes_only);
+		ARG_TO_JSON(StaticRoutesOnly, bool, args->static_routes_only);
 	   	ret += 1;
 	}
         if (args->tags) {
@@ -14023,67 +14023,67 @@ static int with_setter(struct with *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
 	if (args->is_set_account_id) {
-		ARG_TO_JSON(data, bool, args->account_id);
+		ARG_TO_JSON(AccountId, bool, args->account_id);
 	   	ret += 1;
 	}
 	if (args->is_set_call_duration) {
-		ARG_TO_JSON(data, bool, args->call_duration);
+		ARG_TO_JSON(CallDuration, bool, args->call_duration);
 	   	ret += 1;
 	}
 	if (args->is_set_query_access_key) {
-		ARG_TO_JSON(data, bool, args->query_access_key);
+		ARG_TO_JSON(QueryAccessKey, bool, args->query_access_key);
 	   	ret += 1;
 	}
 	if (args->is_set_query_api_name) {
-		ARG_TO_JSON(data, bool, args->query_api_name);
+		ARG_TO_JSON(QueryApiName, bool, args->query_api_name);
 	   	ret += 1;
 	}
 	if (args->is_set_query_api_version) {
-		ARG_TO_JSON(data, bool, args->query_api_version);
+		ARG_TO_JSON(QueryApiVersion, bool, args->query_api_version);
 	   	ret += 1;
 	}
 	if (args->is_set_query_call_name) {
-		ARG_TO_JSON(data, bool, args->query_call_name);
+		ARG_TO_JSON(QueryCallName, bool, args->query_call_name);
 	   	ret += 1;
 	}
 	if (args->is_set_query_date) {
-		ARG_TO_JSON(data, bool, args->query_date);
+		ARG_TO_JSON(QueryDate, bool, args->query_date);
 	   	ret += 1;
 	}
 	if (args->is_set_query_header_raw) {
-		ARG_TO_JSON(data, bool, args->query_header_raw);
+		ARG_TO_JSON(QueryHeaderRaw, bool, args->query_header_raw);
 	   	ret += 1;
 	}
 	if (args->is_set_query_header_size) {
-		ARG_TO_JSON(data, bool, args->query_header_size);
+		ARG_TO_JSON(QueryHeaderSize, bool, args->query_header_size);
 	   	ret += 1;
 	}
 	if (args->is_set_query_ip_address) {
-		ARG_TO_JSON(data, bool, args->query_ip_address);
+		ARG_TO_JSON(QueryIpAddress, bool, args->query_ip_address);
 	   	ret += 1;
 	}
 	if (args->is_set_query_payload_raw) {
-		ARG_TO_JSON(data, bool, args->query_payload_raw);
+		ARG_TO_JSON(QueryPayloadRaw, bool, args->query_payload_raw);
 	   	ret += 1;
 	}
 	if (args->is_set_query_payload_size) {
-		ARG_TO_JSON(data, bool, args->query_payload_size);
+		ARG_TO_JSON(QueryPayloadSize, bool, args->query_payload_size);
 	   	ret += 1;
 	}
 	if (args->is_set_query_user_agent) {
-		ARG_TO_JSON(data, bool, args->query_user_agent);
+		ARG_TO_JSON(QueryUserAgent, bool, args->query_user_agent);
 	   	ret += 1;
 	}
 	if (args->is_set_request_id) {
-		ARG_TO_JSON(data, bool, args->request_id);
+		ARG_TO_JSON(RequestId, bool, args->request_id);
 	   	ret += 1;
 	}
 	if (args->is_set_response_size) {
-		ARG_TO_JSON(data, bool, args->response_size);
+		ARG_TO_JSON(ResponseSize, bool, args->response_size);
 	   	ret += 1;
 	}
 	if (args->is_set_response_status_code) {
-		ARG_TO_JSON(data, bool, args->response_status_code);
+		ARG_TO_JSON(ResponseStatusCode, bool, args->response_status_code);
 	   	ret += 1;
 	}
 	return !!ret;
@@ -14103,7 +14103,7 @@ static  int update_vpn_connection_data(struct osc_update_vpn_connection_arg *arg
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
@@ -14166,7 +14166,7 @@ static  int update_volume_data(struct osc_update_volume_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_iops || args->iops) {
@@ -14232,7 +14232,7 @@ static  int update_vm_template_data(struct osc_update_vm_template_arg *args, str
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
         if (args->tags) {
@@ -14308,7 +14308,7 @@ static  int update_vm_group_data(struct osc_update_vm_group_arg *args, struct os
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
         if (args->tags) {
@@ -14402,19 +14402,19 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 		ret += 1;
 	}
 	if (args->is_set_bsu_optimized) {
-		ARG_TO_JSON(data, bool, args->bsu_optimized);
+		ARG_TO_JSON(BsuOptimized, bool, args->bsu_optimized);
 	   	ret += 1;
 	}
 	if (args->is_set_deletion_protection) {
-		ARG_TO_JSON(data, bool, args->deletion_protection);
+		ARG_TO_JSON(DeletionProtection, bool, args->deletion_protection);
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_is_source_dest_checked) {
-		ARG_TO_JSON(data, bool, args->is_source_dest_checked);
+		ARG_TO_JSON(IsSourceDestChecked, bool, args->is_source_dest_checked);
 	   	ret += 1;
 	}
 	if (args->keypair_name) {
@@ -14423,7 +14423,7 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->is_set_nested_virtualization) {
-		ARG_TO_JSON(data, bool, args->nested_virtualization);
+		ARG_TO_JSON(NestedVirtualization, bool, args->nested_virtualization);
 	   	ret += 1;
 	}
 	if (args->performance) {
@@ -14507,7 +14507,7 @@ static  int update_user_data(struct osc_update_user_arg *args, struct osc_str *d
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->new_path) {
@@ -14565,11 +14565,11 @@ static  int update_subnet_data(struct osc_update_subnet_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_map_public_ip_on_launch) {
-		ARG_TO_JSON(data, bool, args->map_public_ip_on_launch);
+		ARG_TO_JSON(MapPublicIpOnLaunch, bool, args->map_public_ip_on_launch);
 	   	ret += 1;
 	}
 	if (args->subnet_id) {
@@ -14617,7 +14617,7 @@ static  int update_snapshot_data(struct osc_update_snapshot_arg *args, struct os
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->permissions_to_create_volume_str) {
@@ -14675,7 +14675,7 @@ static  int update_server_certificate_data(struct osc_update_server_certificate_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->name) {
@@ -14733,11 +14733,11 @@ static  int update_route_propagation_data(struct osc_update_route_propagation_ar
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_enable) {
-		ARG_TO_JSON(data, bool, args->enable);
+		ARG_TO_JSON(Enable, bool, args->enable);
 	   	ret += 1;
 	}
 	if (args->route_table_id) {
@@ -14795,7 +14795,7 @@ static  int update_route_data(struct osc_update_route_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->gateway_id) {
@@ -14873,7 +14873,7 @@ static  int update_nic_data(struct osc_update_nic_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->link_nic_str) {
@@ -14963,7 +14963,7 @@ static  int update_net_access_point_data(struct osc_update_net_access_point_arg 
 		ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_access_point_id) {
@@ -15032,7 +15032,7 @@ static  int update_net_data(struct osc_update_net_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -15090,7 +15090,7 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 	       ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->health_check_str) {
@@ -15134,7 +15134,7 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 	   	ret += 1;
 	}
 	if (args->is_set_secured_cookies) {
-		ARG_TO_JSON(data, bool, args->secured_cookies);
+		ARG_TO_JSON(SecuredCookies, bool, args->secured_cookies);
 	   	ret += 1;
 	}
 	if (args->security_groups) {
@@ -15198,7 +15198,7 @@ static  int update_listener_rule_data(struct osc_update_listener_rule_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->host_pattern) {
@@ -15256,7 +15256,7 @@ static  int update_image_data(struct osc_update_image_arg *args, struct osc_str 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->image_id) {
@@ -15314,11 +15314,11 @@ static  int update_flexible_gpu_data(struct osc_update_flexible_gpu_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->flexible_gpu_id) {
@@ -15371,7 +15371,7 @@ static  int update_direct_link_interface_data(struct osc_update_direct_link_inte
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_mtu || args->mtu) {
@@ -15428,7 +15428,7 @@ static  int update_ca_data(struct osc_update_ca_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -15513,7 +15513,7 @@ static  int update_api_access_rule_data(struct osc_update_api_access_rule_arg *a
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->ip_ranges) {
@@ -15572,7 +15572,7 @@ static  int update_api_access_policy_data(struct osc_update_api_access_policy_ar
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_max_access_key_expiration_seconds || args->max_access_key_expiration_seconds) {
@@ -15580,7 +15580,7 @@ static  int update_api_access_policy_data(struct osc_update_api_access_policy_ar
 	   	ret += 1;
 	}
 	if (args->is_set_require_trusted_env) {
-		ARG_TO_JSON(data, bool, args->require_trusted_env);
+		ARG_TO_JSON(RequireTrustedEnv, bool, args->require_trusted_env);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -15654,7 +15654,7 @@ static  int update_account_data(struct osc_update_account_arg *args, struct osc_
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->email) {
@@ -15747,7 +15747,7 @@ static  int update_access_key_data(struct osc_update_access_key_arg *args, struc
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->expiration_date) {
@@ -15805,11 +15805,11 @@ static  int unlink_volume_data(struct osc_unlink_volume_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_force_unlink) {
-		ARG_TO_JSON(data, bool, args->force_unlink);
+		ARG_TO_JSON(ForceUnlink, bool, args->force_unlink);
 	   	ret += 1;
 	}
 	if (args->volume_id) {
@@ -15857,7 +15857,7 @@ static  int unlink_virtual_gateway_data(struct osc_unlink_virtual_gateway_arg *a
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -15910,7 +15910,7 @@ static  int unlink_route_table_data(struct osc_unlink_route_table_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->link_route_table_id) {
@@ -15958,7 +15958,7 @@ static  int unlink_public_ip_data(struct osc_unlink_public_ip_arg *args, struct 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->link_public_ip_id) {
@@ -16011,7 +16011,7 @@ static  int unlink_private_ips_data(struct osc_unlink_private_ips_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->nic_id) {
@@ -16075,7 +16075,7 @@ static  int unlink_nic_data(struct osc_unlink_nic_arg *args, struct osc_str *dat
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->link_nic_id) {
@@ -16155,7 +16155,7 @@ static  int unlink_load_balancer_backend_machines_data(struct osc_unlink_load_ba
 		ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -16203,7 +16203,7 @@ static  int unlink_internet_service_data(struct osc_unlink_internet_service_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->internet_service_id) {
@@ -16256,7 +16256,7 @@ static  int unlink_flexible_gpu_data(struct osc_unlink_flexible_gpu_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->flexible_gpu_id) {
@@ -16304,11 +16304,11 @@ static  int stop_vms_data(struct osc_stop_vms_arg *args, struct osc_str *data)
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_force_stop) {
-		ARG_TO_JSON(data, bool, args->force_stop);
+		ARG_TO_JSON(ForceStop, bool, args->force_stop);
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
@@ -16367,7 +16367,7 @@ static  int start_vms_data(struct osc_start_vms_arg *args, struct osc_str *data)
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
@@ -16426,7 +16426,7 @@ static  int send_reset_password_email_data(struct osc_send_reset_password_email_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->email) {
@@ -16474,7 +16474,7 @@ static  int scale_up_vm_group_data(struct osc_scale_up_vm_group_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_vm_addition || args->vm_addition) {
@@ -16526,7 +16526,7 @@ static  int scale_down_vm_group_data(struct osc_scale_down_vm_group_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_group_id) {
@@ -16578,7 +16578,7 @@ static  int reset_account_password_data(struct osc_reset_account_password_arg *a
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->password) {
@@ -16631,7 +16631,7 @@ static  int reject_net_peering_data(struct osc_reject_net_peering_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_peering_id) {
@@ -16695,7 +16695,7 @@ static  int register_vms_in_load_balancer_data(struct osc_register_vms_in_load_b
 		ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -16743,7 +16743,7 @@ static  int reboot_vms_data(struct osc_reboot_vms_arg *args, struct osc_str *dat
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
@@ -16802,7 +16802,7 @@ static  int read_vpn_connections_data(struct osc_read_vpn_connections_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -16855,7 +16855,7 @@ static  int read_volumes_data(struct osc_read_volumes_arg *args, struct osc_str 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -16908,11 +16908,11 @@ static  int read_vms_state_data(struct osc_read_vms_state_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_all_vms) {
-		ARG_TO_JSON(data, bool, args->all_vms);
+		ARG_TO_JSON(AllVms, bool, args->all_vms);
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -16981,7 +16981,7 @@ static  int read_vms_health_data(struct osc_read_vms_health_arg *args, struct os
 		ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -17029,7 +17029,7 @@ static  int read_vms_data(struct osc_read_vms_arg *args, struct osc_str *data)
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17082,7 +17082,7 @@ static  int read_vm_types_data(struct osc_read_vm_types_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17135,7 +17135,7 @@ static  int read_vm_templates_data(struct osc_read_vm_templates_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17188,7 +17188,7 @@ static  int read_vm_groups_data(struct osc_read_vm_groups_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17241,7 +17241,7 @@ static  int read_virtual_gateways_data(struct osc_read_virtual_gateways_arg *arg
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17294,7 +17294,7 @@ static  int read_users_data(struct osc_read_users_arg *args, struct osc_str *dat
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -17337,7 +17337,7 @@ static  int read_tags_data(struct osc_read_tags_arg *args, struct osc_str *data)
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17390,7 +17390,7 @@ static  int read_subregions_data(struct osc_read_subregions_arg *args, struct os
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17443,7 +17443,7 @@ static  int read_subnets_data(struct osc_read_subnets_arg *args, struct osc_str 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17496,7 +17496,7 @@ static  int read_snapshots_data(struct osc_read_snapshots_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17549,7 +17549,7 @@ static  int read_snapshot_export_tasks_data(struct osc_read_snapshot_export_task
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17602,7 +17602,7 @@ static  int read_server_certificates_data(struct osc_read_server_certificates_ar
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17655,7 +17655,7 @@ static  int read_security_groups_data(struct osc_read_security_groups_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17713,7 +17713,7 @@ static  int read_secret_access_key_data(struct osc_read_secret_access_key_arg *a
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -17756,7 +17756,7 @@ static  int read_route_tables_data(struct osc_read_route_tables_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17809,7 +17809,7 @@ static  int read_regions_data(struct osc_read_regions_arg *args, struct osc_str 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -17852,7 +17852,7 @@ static  int read_quotas_data(struct osc_read_quotas_arg *args, struct osc_str *d
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17905,7 +17905,7 @@ static  int read_public_ips_data(struct osc_read_public_ips_arg *args, struct os
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -17958,7 +17958,7 @@ static  int read_public_ip_ranges_data(struct osc_read_public_ip_ranges_arg *arg
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -18001,7 +18001,7 @@ static  int read_public_catalog_data(struct osc_read_public_catalog_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -18044,7 +18044,7 @@ static  int read_product_types_data(struct osc_read_product_types_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18097,7 +18097,7 @@ static  int read_nics_data(struct osc_read_nics_arg *args, struct osc_str *data)
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18150,7 +18150,7 @@ static  int read_nets_data(struct osc_read_nets_arg *args, struct osc_str *data)
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18203,7 +18203,7 @@ static  int read_net_peerings_data(struct osc_read_net_peerings_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18256,7 +18256,7 @@ static  int read_net_access_points_data(struct osc_read_net_access_points_arg *a
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18309,7 +18309,7 @@ static  int read_net_access_point_services_data(struct osc_read_net_access_point
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18362,7 +18362,7 @@ static  int read_nat_services_data(struct osc_read_nat_services_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18415,7 +18415,7 @@ static  int read_locations_data(struct osc_read_locations_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -18458,7 +18458,7 @@ static  int read_load_balancers_data(struct osc_read_load_balancers_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18511,7 +18511,7 @@ static  int read_load_balancer_tags_data(struct osc_read_load_balancer_tags_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_names) {
@@ -18570,7 +18570,7 @@ static  int read_listener_rules_data(struct osc_read_listener_rules_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18623,7 +18623,7 @@ static  int read_keypairs_data(struct osc_read_keypairs_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18676,7 +18676,7 @@ static  int read_internet_services_data(struct osc_read_internet_services_arg *a
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18729,7 +18729,7 @@ static  int read_images_data(struct osc_read_images_arg *args, struct osc_str *d
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18782,7 +18782,7 @@ static  int read_image_export_tasks_data(struct osc_read_image_export_tasks_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18835,7 +18835,7 @@ static  int read_flexible_gpus_data(struct osc_read_flexible_gpus_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18888,7 +18888,7 @@ static  int read_flexible_gpu_catalog_data(struct osc_read_flexible_gpu_catalog_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -18931,7 +18931,7 @@ static  int read_direct_links_data(struct osc_read_direct_links_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -18984,7 +18984,7 @@ static  int read_direct_link_interfaces_data(struct osc_read_direct_link_interfa
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19037,7 +19037,7 @@ static  int read_dhcp_options_data(struct osc_read_dhcp_options_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19090,7 +19090,7 @@ static  int read_consumption_account_data(struct osc_read_consumption_account_ar
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->from_date) {
@@ -19099,7 +19099,7 @@ static  int read_consumption_account_data(struct osc_read_consumption_account_ar
 	   	ret += 1;
 	}
 	if (args->is_set_overall) {
-		ARG_TO_JSON(data, bool, args->overall);
+		ARG_TO_JSON(Overall, bool, args->overall);
 	   	ret += 1;
 	}
 	if (args->to_date) {
@@ -19147,7 +19147,7 @@ static  int read_console_output_data(struct osc_read_console_output_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_id) {
@@ -19195,7 +19195,7 @@ static  int read_client_gateways_data(struct osc_read_client_gateways_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19248,7 +19248,7 @@ static  int read_catalogs_data(struct osc_read_catalogs_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19301,7 +19301,7 @@ static  int read_catalog_data(struct osc_read_catalog_arg *args, struct osc_str 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -19344,7 +19344,7 @@ static  int read_cas_data(struct osc_read_cas_arg *args, struct osc_str *data)
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19397,7 +19397,7 @@ static  int read_api_logs_data(struct osc_read_api_logs_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19469,7 +19469,7 @@ static  int read_api_access_rules_data(struct osc_read_api_access_rules_arg *arg
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19522,7 +19522,7 @@ static  int read_api_access_policy_data(struct osc_read_api_access_policy_arg *a
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -19565,7 +19565,7 @@ static  int read_admin_password_data(struct osc_read_admin_password_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_id) {
@@ -19613,7 +19613,7 @@ static  int read_accounts_data(struct osc_read_accounts_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -19656,7 +19656,7 @@ static  int read_access_keys_data(struct osc_read_access_keys_arg *args, struct 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->filters_str) {
@@ -19719,7 +19719,7 @@ static  int link_volume_data(struct osc_link_volume_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_id) {
@@ -19772,7 +19772,7 @@ static  int link_virtual_gateway_data(struct osc_link_virtual_gateway_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -19825,7 +19825,7 @@ static  int link_route_table_data(struct osc_link_route_table_arg *args, struct 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->route_table_id) {
@@ -19878,11 +19878,11 @@ static  int link_public_ip_data(struct osc_link_public_ip_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_allow_relink) {
-		ARG_TO_JSON(data, bool, args->allow_relink);
+		ARG_TO_JSON(AllowRelink, bool, args->allow_relink);
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->nic_id) {
@@ -19950,11 +19950,11 @@ static  int link_private_ips_data(struct osc_link_private_ips_arg *args, struct 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_allow_relink) {
-		ARG_TO_JSON(data, bool, args->allow_relink);
+		ARG_TO_JSON(AllowRelink, bool, args->allow_relink);
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->nic_id) {
@@ -20026,7 +20026,7 @@ static  int link_nic_data(struct osc_link_nic_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->nic_id) {
@@ -20111,7 +20111,7 @@ static  int link_load_balancer_backend_machines_data(struct osc_link_load_balanc
 		ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -20159,7 +20159,7 @@ static  int link_internet_service_data(struct osc_link_internet_service_arg *arg
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->internet_service_id) {
@@ -20212,7 +20212,7 @@ static  int link_flexible_gpu_data(struct osc_link_flexible_gpu_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->flexible_gpu_id) {
@@ -20281,7 +20281,7 @@ static  int deregister_vms_in_load_balancer_data(struct osc_deregister_vms_in_lo
 		ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -20334,7 +20334,7 @@ static  int delete_vpn_connection_route_data(struct osc_delete_vpn_connection_ro
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vpn_connection_id) {
@@ -20382,7 +20382,7 @@ static  int delete_vpn_connection_data(struct osc_delete_vpn_connection_arg *arg
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vpn_connection_id) {
@@ -20430,7 +20430,7 @@ static  int delete_volume_data(struct osc_delete_volume_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->volume_id) {
@@ -20478,7 +20478,7 @@ static  int delete_vms_data(struct osc_delete_vms_arg *args, struct osc_str *dat
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_ids) {
@@ -20537,7 +20537,7 @@ static  int delete_vm_template_data(struct osc_delete_vm_template_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_template_id) {
@@ -20585,7 +20585,7 @@ static  int delete_vm_group_data(struct osc_delete_vm_group_arg *args, struct os
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vm_group_id) {
@@ -20633,7 +20633,7 @@ static  int delete_virtual_gateway_data(struct osc_delete_virtual_gateway_arg *a
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
@@ -20681,7 +20681,7 @@ static  int delete_user_data(struct osc_delete_user_arg *args, struct osc_str *d
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->user_name) {
@@ -20729,7 +20729,7 @@ static  int delete_tags_data(struct osc_delete_tags_arg *args, struct osc_str *d
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->resource_ids) {
@@ -20806,7 +20806,7 @@ static  int delete_subnet_data(struct osc_delete_subnet_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->subnet_id) {
@@ -20854,7 +20854,7 @@ static  int delete_snapshot_data(struct osc_delete_snapshot_arg *args, struct os
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->snapshot_id) {
@@ -20902,7 +20902,7 @@ static  int delete_server_certificate_data(struct osc_delete_server_certificate_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->name) {
@@ -20950,7 +20950,7 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->flow) {
@@ -21049,7 +21049,7 @@ static  int delete_security_group_data(struct osc_delete_security_group_arg *arg
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->security_group_id) {
@@ -21102,7 +21102,7 @@ static  int delete_route_table_data(struct osc_delete_route_table_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->route_table_id) {
@@ -21155,7 +21155,7 @@ static  int delete_route_data(struct osc_delete_route_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->route_table_id) {
@@ -21203,7 +21203,7 @@ static  int delete_public_ip_data(struct osc_delete_public_ip_arg *args, struct 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->public_ip) {
@@ -21256,7 +21256,7 @@ static  int delete_nic_data(struct osc_delete_nic_arg *args, struct osc_str *dat
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->nic_id) {
@@ -21304,7 +21304,7 @@ static  int delete_net_peering_data(struct osc_delete_net_peering_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_peering_id) {
@@ -21352,7 +21352,7 @@ static  int delete_net_access_point_data(struct osc_delete_net_access_point_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_access_point_id) {
@@ -21400,7 +21400,7 @@ static  int delete_net_data(struct osc_delete_net_arg *args, struct osc_str *dat
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -21448,7 +21448,7 @@ static  int delete_nat_service_data(struct osc_delete_nat_service_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->nat_service_id) {
@@ -21496,7 +21496,7 @@ static  int delete_load_balancer_tags_data(struct osc_delete_load_balancer_tags_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_names) {
@@ -21573,7 +21573,7 @@ static  int delete_load_balancer_policy_data(struct osc_delete_load_balancer_pol
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -21626,7 +21626,7 @@ static  int delete_load_balancer_listeners_data(struct osc_delete_load_balancer_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -21690,7 +21690,7 @@ static  int delete_load_balancer_data(struct osc_delete_load_balancer_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -21738,7 +21738,7 @@ static  int delete_listener_rule_data(struct osc_delete_listener_rule_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->listener_rule_name) {
@@ -21786,7 +21786,7 @@ static  int delete_keypair_data(struct osc_delete_keypair_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->keypair_name) {
@@ -21834,7 +21834,7 @@ static  int delete_internet_service_data(struct osc_delete_internet_service_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->internet_service_id) {
@@ -21882,7 +21882,7 @@ static  int delete_image_data(struct osc_delete_image_arg *args, struct osc_str 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->image_id) {
@@ -21930,7 +21930,7 @@ static  int delete_flexible_gpu_data(struct osc_delete_flexible_gpu_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->flexible_gpu_id) {
@@ -21978,7 +21978,7 @@ static  int delete_export_task_data(struct osc_delete_export_task_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->export_task_id) {
@@ -22031,7 +22031,7 @@ static  int delete_direct_link_interface_data(struct osc_delete_direct_link_inte
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -22079,7 +22079,7 @@ static  int delete_direct_link_data(struct osc_delete_direct_link_arg *args, str
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -22127,7 +22127,7 @@ static  int delete_dhcp_options_data(struct osc_delete_dhcp_options_arg *args, s
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -22175,7 +22175,7 @@ static  int delete_client_gateway_data(struct osc_delete_client_gateway_arg *arg
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -22223,7 +22223,7 @@ static  int delete_ca_data(struct osc_delete_ca_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -22271,7 +22271,7 @@ static  int delete_api_access_rule_data(struct osc_delete_api_access_rule_arg *a
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -22319,7 +22319,7 @@ static  int delete_access_key_data(struct osc_delete_access_key_arg *args, struc
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->user_name) {
@@ -22372,7 +22372,7 @@ static  int create_vpn_connection_route_data(struct osc_create_vpn_connection_ro
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->vpn_connection_id) {
@@ -22430,11 +22430,11 @@ static  int create_vpn_connection_data(struct osc_create_vpn_connection_arg *arg
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_static_routes_only) {
-		ARG_TO_JSON(data, bool, args->static_routes_only);
+		ARG_TO_JSON(StaticRoutesOnly, bool, args->static_routes_only);
 	   	ret += 1;
 	}
 	if (args->virtual_gateway_id) {
@@ -22482,7 +22482,7 @@ static  int create_volume_data(struct osc_create_volume_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->is_set_iops || args->iops) {
@@ -22566,11 +22566,11 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 		ret += 1;
 	}
 	if (args->is_set_boot_on_creation) {
-		ARG_TO_JSON(data, bool, args->boot_on_creation);
+		ARG_TO_JSON(BootOnCreation, bool, args->boot_on_creation);
 	   	ret += 1;
 	}
 	if (args->is_set_bsu_optimized) {
-		ARG_TO_JSON(data, bool, args->bsu_optimized);
+		ARG_TO_JSON(BsuOptimized, bool, args->bsu_optimized);
 	   	ret += 1;
 	}
 	if (args->client_token) {
@@ -22579,11 +22579,11 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->is_set_deletion_protection) {
-		ARG_TO_JSON(data, bool, args->deletion_protection);
+		ARG_TO_JSON(DeletionProtection, bool, args->deletion_protection);
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->image_id) {
@@ -22605,7 +22605,7 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->is_set_nested_virtualization) {
-		ARG_TO_JSON(data, bool, args->nested_virtualization);
+		ARG_TO_JSON(NestedVirtualization, bool, args->nested_virtualization);
 	   	ret += 1;
 	}
         if (args->nics) {
@@ -22768,7 +22768,7 @@ static  int create_vm_template_data(struct osc_create_vm_template_arg *args, str
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->image_id) {
@@ -22853,7 +22853,7 @@ static  int create_vm_group_data(struct osc_create_vm_group_arg *args, struct os
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->positioning_strategy) {
@@ -22959,7 +22959,7 @@ static  int create_virtual_gateway_data(struct osc_create_virtual_gateway_arg *a
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -23002,7 +23002,7 @@ static  int create_user_data(struct osc_create_user_arg *args, struct osc_str *d
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->path) {
@@ -23055,7 +23055,7 @@ static  int create_tags_data(struct osc_create_tags_arg *args, struct osc_str *d
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->resource_ids) {
@@ -23132,7 +23132,7 @@ static  int create_subnet_data(struct osc_create_subnet_arg *args, struct osc_st
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->ip_range) {
@@ -23190,7 +23190,7 @@ static  int create_snapshot_export_task_data(struct osc_create_snapshot_export_t
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->osu_export_str) {
@@ -23253,7 +23253,7 @@ static  int create_snapshot_data(struct osc_create_snapshot_arg *args, struct os
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->file_location) {
@@ -23330,7 +23330,7 @@ static  int create_server_certificate_data(struct osc_create_server_certificate_
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->name) {
@@ -23388,7 +23388,7 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->flow) {
@@ -23492,7 +23492,7 @@ static  int create_security_group_data(struct osc_create_security_group_arg *arg
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -23545,7 +23545,7 @@ static  int create_route_table_data(struct osc_create_route_table_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -23598,7 +23598,7 @@ static  int create_route_data(struct osc_create_route_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->gateway_id) {
@@ -23671,7 +23671,7 @@ static  int create_public_ip_data(struct osc_create_public_ip_arg *args, struct 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -23719,7 +23719,7 @@ static  int create_nic_data(struct osc_create_nic_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
         if (args->private_ips) {
@@ -23806,7 +23806,7 @@ static  int create_net_peering_data(struct osc_create_net_peering_arg *args, str
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->source_net_id) {
@@ -23854,7 +23854,7 @@ static  int create_net_access_point_data(struct osc_create_net_access_point_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_id) {
@@ -23923,7 +23923,7 @@ static  int create_net_data(struct osc_create_net_arg *args, struct osc_str *dat
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->ip_range) {
@@ -23976,7 +23976,7 @@ static  int create_nat_service_data(struct osc_create_nat_service_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->public_ip_id) {
@@ -24029,7 +24029,7 @@ static  int create_load_balancer_tags_data(struct osc_create_load_balancer_tags_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_names) {
@@ -24115,7 +24115,7 @@ static  int create_load_balancer_policy_data(struct osc_create_load_balancer_pol
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->load_balancer_name) {
@@ -24173,7 +24173,7 @@ static  int create_load_balancer_listeners_data(struct osc_create_load_balancer_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
         if (args->listeners) {
@@ -24239,7 +24239,7 @@ static  int create_load_balancer_data(struct osc_create_load_balancer_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
         if (args->listeners) {
@@ -24381,7 +24381,7 @@ static  int create_listener_rule_data(struct osc_create_listener_rule_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->listener_str) {
@@ -24460,7 +24460,7 @@ static  int create_keypair_data(struct osc_create_keypair_arg *args, struct osc_
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->keypair_name) {
@@ -24513,7 +24513,7 @@ static  int create_internet_service_data(struct osc_create_internet_service_arg 
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -24556,7 +24556,7 @@ static  int create_image_export_task_data(struct osc_create_image_export_task_ar
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->image_id) {
@@ -24642,7 +24642,7 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->file_location) {
@@ -24656,7 +24656,7 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	if (args->is_set_no_reboot) {
-		ARG_TO_JSON(data, bool, args->no_reboot);
+		ARG_TO_JSON(NoReboot, bool, args->no_reboot);
 	   	ret += 1;
 	}
 	if (args->product_codes) {
@@ -24735,11 +24735,11 @@ static  int create_flexible_gpu_data(struct osc_create_flexible_gpu_arg *args, s
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(data, bool, args->delete_on_vm_deletion);
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->generation) {
@@ -24812,7 +24812,7 @@ static  int create_direct_link_interface_data(struct osc_create_direct_link_inte
 	       ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -24865,7 +24865,7 @@ static  int create_direct_link_data(struct osc_create_direct_link_arg *args, str
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->location) {
@@ -24934,7 +24934,7 @@ static  int create_dhcp_options_data(struct osc_create_dhcp_options_arg *args, s
 		ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->log_servers) {
@@ -25018,7 +25018,7 @@ static  int create_client_gateway_data(struct osc_create_client_gateway_arg *arg
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->public_ip) {
@@ -25076,7 +25076,7 @@ static  int create_ca_data(struct osc_create_ca_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
@@ -25156,7 +25156,7 @@ static  int create_api_access_rule_data(struct osc_create_api_access_rule_arg *a
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->ip_ranges) {
@@ -25251,7 +25251,7 @@ static  int create_account_data(struct osc_create_account_arg *args, struct osc_
 	   	ret += 1;
 	}
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->email) {
@@ -25339,7 +25339,7 @@ static  int create_access_key_data(struct osc_create_access_key_arg *args, struc
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->expiration_date) {
@@ -25392,7 +25392,7 @@ static  int check_authentication_data(struct osc_check_authentication_arg *args,
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->login) {
@@ -25445,7 +25445,7 @@ static  int accept_net_peering_data(struct osc_accept_net_peering_arg *args, str
 		return 0;
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
-		ARG_TO_JSON(data, bool, args->dry_run);
+		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	if (args->net_peering_id) {
