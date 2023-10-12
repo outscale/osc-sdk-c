@@ -21,7 +21,9 @@ int main(void)
 			    {.filters=(struct filters_image) {
 					    .image_names_str = "[\"*Arch*\"]"
 				    },
-			     .is_set_filters = 1}
+			     .is_set_filters = 1,
+			     .is_set_dry_run = 1,
+			     .dry_run = 0}
 		    ) < 0)
 		return 1;
 
