@@ -21,6 +21,11 @@ jobs:
       run: |
         sudo apt-get update --fix-missing
         sudo apt-get install -y -f -o Acquire::Retries=3 jq libjson-c-dev libcurl4-openssl-dev pkg-config libjsoncpp-dev
+    - name: local-test
+      run: |
+        CFLAGS="-fsanitize=address -O0" make ricochet_preparation
+        make local-tests
+        make fclean
     - name: Build and test
       run: |
         CFLAGS="-fsanitize=address -O0" make tests
@@ -30,11 +35,6 @@ jobs:
         OSC_ACCESS_KEY: ${{secrets.OSC_ACCESS_KEY}}
         OSC_SECRET_KEY: ${{secrets.OSC_SECRET_KEY}}
         OSC_REGION: ${{secrets.OSC_REGION}}
-    - name: local-test
-      run: |
-        CFLAGS="-fsanitize=address -O0" make ricochet_preparation
-        make local-tests
-        make fclean
     - name: codeql-init
       uses: github/codeql-action/init@v2
     - name: codeql-make
