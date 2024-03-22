@@ -53,6 +53,11 @@ extern "C" {
 #define auto_osc_str __attribute__((cleanup(osc_deinit_str)))
 #define auto_osc_env __attribute__((cleanup(osc_deinit_sdk)))
 
+/*
+ * Helper for json C
+ */
+#define auto_osc_json_c __attribute__((cleanup(osc_deinit_json_c)))
+
 #endif
 
 struct osc_str {
@@ -71,7 +76,7 @@ struct osc_str {
 #define OSC_ENV_FREE_AK_SK (OSC_ENV_FREE_AK | OSC_ENV_FREE_SK)
 
 #define OSC_API_VERSION "1.28.7"
-#define OSC_SDK_VERSION 0X000800
+#define OSC_SDK_VERSION 0X000900
 
 enum osc_auth_method {
 	OSC_AKSK_METHOD,
@@ -13063,6 +13068,12 @@ int osc_init_sdk(struct osc_env *e, const char *profile, unsigned int flag);
 int osc_init_sdk_ext(struct osc_env *e, const char *profile,
 		     unsigned int flag, struct osc_env_conf *cfg);
 void osc_deinit_sdk(struct osc_env *e);
+
+struct json_object;
+
+typedef struct json_object json_object;
+
+void osc_deinit_json_c(json_object **j);
 
 int osc_str_append_string(struct osc_str *osc_str, const char *str);
 int osc_str_append_n_string(struct osc_str *osc_str, const char *str, int l);
