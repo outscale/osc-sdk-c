@@ -27,7 +27,7 @@ echo "[$MSG_BASE 1 OK]"
 # Yes example 3 is run before 2, because 3, create a VM, and 2 is used to destroy it
 trap "echo [$MSG_BASE 3 FAIL]" ERR
 
-./example3 -n 'test-example-3' -Y &> /dev/null
+./example3 -n 'test-example-3' -Y
 
 echo "[$MSG_BASE 3 OK]"
 
