@@ -76,7 +76,7 @@ local-tests: ricochet_preparation
 
 regen-test: regen
 	git add osc_sdk.c osc_sdk.h
-	git diff --cached -s --exit-code
-	git diff -s --exit-code
+	git diff --cached --exit-code
+	git diff --exit-code
 
 .PHONY: clean clean_sdk clean_all fclean all tests integration-test regen-test regen help examples
