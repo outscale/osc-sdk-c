@@ -29553,6 +29553,7 @@ static inline char *cfg_pass(struct osc_env_conf *cfg)
 int osc_init_sdk_ext(struct osc_env *e, const char *profile, unsigned int flag,
 		     struct osc_env_conf *cfg)
 {
+	*e = (struct osc_env){0};
 	char *ca = getenv("CURL_CA_BUNDLE");
 	char *endpoint;
 	char user_agent[sizeof "osc-sdk-c/" + OSC_SDK_VERSON_L];
@@ -29566,8 +29567,6 @@ int osc_init_sdk_ext(struct osc_env *e, const char *profile, unsigned int flag,
 	e->region = getenv("OSC_REGION");
 	e->flag = flag;
 	e->auth_method = cfg ? cfg->auth_method : OSC_AKSK_METHOD;
-	e->proxy = NULL;
-	e->endpoint_allocated_ = NULL;
 	endpoint = getenv("OSC_ENDPOINT_API");
 	osc_init_str(&e->endpoint);
 
