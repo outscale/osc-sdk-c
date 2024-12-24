@@ -13,10 +13,9 @@ MSG_BASE="Test Example"
 
 echo "OSC_ENDPOINT_API($is_local): " $OSC_ENDPOINT_API
 
-file example0
-
 if [[ "is_local" == 1 ]]; then
     ./example0
+    echo "example 0 done"
 fi
 
 trap "echo [$MSG_BASE 0 FAIL]" ERR
