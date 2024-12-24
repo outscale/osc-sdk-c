@@ -11,7 +11,7 @@ int main(void)
 	int curl_res;
 
 	arg.filters_str = "{\"AccountAliases\": [\"Outscale\"]}";
-	if (osc_init_sdk(&e, NULL, OSC_VERBOSE_MODE) < 0) {
+	if (osc_init_sdk(&e, NULL, 0) < 0) {
 		fprintf(stderr, "fail to init osc-sdk-c\n");
 		return 1;
 	}
