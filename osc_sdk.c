@@ -16351,9 +16351,9 @@ static  int accept_net_peering_data(struct osc_env *e, struct osc_accept_net_pee
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/AcceptNetPeering");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/AcceptNetPeering");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16418,9 +16418,9 @@ static  int add_user_to_user_group_data(struct osc_env *e, struct osc_add_user_t
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/AddUserToUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/AddUserToUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16475,9 +16475,9 @@ static  int check_authentication_data(struct osc_env *e, struct osc_check_authen
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CheckAuthentication");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CheckAuthentication");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16532,9 +16532,9 @@ static  int create_access_key_data(struct osc_env *e, struct osc_create_access_k
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateAccessKey");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateAccessKey");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16660,9 +16660,9 @@ static  int create_account_data(struct osc_env *e, struct osc_create_account_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateAccount");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateAccount");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16760,9 +16760,9 @@ static  int create_api_access_rule_data(struct osc_env *e, struct osc_create_api
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateApiAccessRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateApiAccessRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16817,9 +16817,9 @@ static  int create_ca_data(struct osc_env *e, struct osc_create_ca_arg *args, st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateCa");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateCa");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16878,9 +16878,9 @@ static  int create_client_gateway_data(struct osc_env *e, struct osc_create_clie
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateClientGateway");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateClientGateway");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16939,9 +16939,9 @@ static  int create_dedicated_group_data(struct osc_env *e, struct osc_create_ded
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateDedicatedGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateDedicatedGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17039,9 +17039,9 @@ static  int create_dhcp_options_data(struct osc_env *e, struct osc_create_dhcp_o
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateDhcpOptions");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateDhcpOptions");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17101,9 +17101,9 @@ static  int create_direct_link_interface_data(struct osc_env *e, struct osc_crea
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateDirectLinkInterface");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateDirectLinkInterface");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17163,9 +17163,9 @@ static  int create_direct_link_data(struct osc_env *e, struct osc_create_direct_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateDirectLink");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateDirectLink");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17229,9 +17229,9 @@ static  int create_flexible_gpu_data(struct osc_env *e, struct osc_create_flexib
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateFlexibleGpu");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateFlexibleGpu");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17291,9 +17291,9 @@ static  int create_image_export_task_data(struct osc_env *e, struct osc_create_i
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateImageExportTask");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateImageExportTask");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17416,9 +17416,9 @@ static  int create_image_data(struct osc_env *e, struct osc_create_image_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateImage");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateImage");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17463,9 +17463,9 @@ static  int create_internet_service_data(struct osc_env *e, struct osc_create_in
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateInternetService");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateInternetService");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17520,9 +17520,9 @@ static  int create_keypair_data(struct osc_env *e, struct osc_create_keypair_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateKeypair");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateKeypair");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17603,9 +17603,9 @@ static  int create_listener_rule_data(struct osc_env *e, struct osc_create_liste
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateListenerRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateListenerRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17673,9 +17673,9 @@ static  int create_load_balancer_listeners_data(struct osc_env *e, struct osc_cr
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerListeners");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerListeners");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17744,9 +17744,9 @@ static  int create_load_balancer_policy_data(struct osc_env *e, struct osc_creat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17890,9 +17890,9 @@ static  int create_load_balancer_data(struct osc_env *e, struct osc_create_load_
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancer");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancer");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17971,9 +17971,9 @@ static  int create_load_balancer_tags_data(struct osc_env *e, struct osc_create_
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerTags");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerTags");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18033,9 +18033,9 @@ static  int create_nat_service_data(struct osc_env *e, struct osc_create_nat_ser
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateNatService");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateNatService");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18106,9 +18106,9 @@ static  int create_net_access_point_data(struct osc_env *e, struct osc_create_ne
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateNetAccessPoint");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateNetAccessPoint");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18168,9 +18168,9 @@ static  int create_net_peering_data(struct osc_env *e, struct osc_create_net_pee
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateNetPeering");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateNetPeering");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18225,9 +18225,9 @@ static  int create_net_data(struct osc_env *e, struct osc_create_net_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateNet");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateNet");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18316,9 +18316,9 @@ static  int create_nic_data(struct osc_env *e, struct osc_create_nic_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateNic");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateNic");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18383,9 +18383,9 @@ static  int create_policy_data(struct osc_env *e, struct osc_create_policy_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreatePolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreatePolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18440,9 +18440,9 @@ static  int create_policy_version_data(struct osc_env *e, struct osc_create_poli
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreatePolicyVersion");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreatePolicyVersion");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18497,9 +18497,9 @@ static  int create_product_type_data(struct osc_env *e, struct osc_create_produc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateProductType");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateProductType");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18544,9 +18544,9 @@ static  int create_public_ip_data(struct osc_env *e, struct osc_create_public_ip
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreatePublicIp");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreatePublicIp");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18626,9 +18626,9 @@ static  int create_route_data(struct osc_env *e, struct osc_create_route_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateRoute");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateRoute");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18678,9 +18678,9 @@ static  int create_route_table_data(struct osc_env *e, struct osc_create_route_t
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateRouteTable");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateRouteTable");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18740,9 +18740,9 @@ static  int create_security_group_data(struct osc_env *e, struct osc_create_secu
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18843,9 +18843,9 @@ static  int create_security_group_rule_data(struct osc_env *e, struct osc_create
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroupRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroupRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18915,9 +18915,9 @@ static  int create_server_certificate_data(struct osc_env *e, struct osc_create_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateServerCertificate");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateServerCertificate");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18977,9 +18977,9 @@ static  int create_snapshot_export_task_data(struct osc_env *e, struct osc_creat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateSnapshotExportTask");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateSnapshotExportTask");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19053,9 +19053,9 @@ static  int create_snapshot_data(struct osc_env *e, struct osc_create_snapshot_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateSnapshot");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateSnapshot");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19115,9 +19115,9 @@ static  int create_subnet_data(struct osc_env *e, struct osc_create_subnet_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateSubnet");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateSubnet");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19196,9 +19196,9 @@ static  int create_tags_data(struct osc_env *e, struct osc_create_tags_arg *args
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateTags");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateTags");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19253,9 +19253,9 @@ static  int create_user_group_data(struct osc_env *e, struct osc_create_user_gro
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19315,9 +19315,9 @@ static  int create_user_data(struct osc_env *e, struct osc_create_user_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateUser");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateUser");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19367,9 +19367,9 @@ static  int create_virtual_gateway_data(struct osc_env *e, struct osc_create_vir
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateVirtualGateway");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateVirtualGateway");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19477,9 +19477,9 @@ static  int create_vm_group_data(struct osc_env *e, struct osc_create_vm_group_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateVmGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateVmGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19580,9 +19580,9 @@ static  int create_vm_template_data(struct osc_env *e, struct osc_create_vm_temp
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateVmTemplate");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateVmTemplate");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19785,9 +19785,9 @@ static  int create_vms_data(struct osc_env *e, struct osc_create_vms_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateVms");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateVms");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19855,9 +19855,9 @@ static  int create_volume_data(struct osc_env *e, struct osc_create_volume_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateVolume");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateVolume");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19921,9 +19921,9 @@ static  int create_vpn_connection_data(struct osc_env *e, struct osc_create_vpn_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnection");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnection");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19978,9 +19978,9 @@ static  int create_vpn_connection_route_data(struct osc_env *e, struct osc_creat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnectionRoute");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnectionRoute");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20035,9 +20035,9 @@ static  int delete_access_key_data(struct osc_env *e, struct osc_delete_access_k
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteAccessKey");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteAccessKey");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20087,9 +20087,9 @@ static  int delete_api_access_rule_data(struct osc_env *e, struct osc_delete_api
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteApiAccessRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteApiAccessRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20139,9 +20139,9 @@ static  int delete_ca_data(struct osc_env *e, struct osc_delete_ca_arg *args, st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteCa");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteCa");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20191,9 +20191,9 @@ static  int delete_client_gateway_data(struct osc_env *e, struct osc_delete_clie
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteClientGateway");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteClientGateway");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20247,9 +20247,9 @@ static  int delete_dedicated_group_data(struct osc_env *e, struct osc_delete_ded
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteDedicatedGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteDedicatedGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20299,9 +20299,9 @@ static  int delete_dhcp_options_data(struct osc_env *e, struct osc_delete_dhcp_o
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteDhcpOptions");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteDhcpOptions");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20351,9 +20351,9 @@ static  int delete_direct_link_interface_data(struct osc_env *e, struct osc_dele
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLinkInterface");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLinkInterface");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20403,9 +20403,9 @@ static  int delete_direct_link_data(struct osc_env *e, struct osc_delete_direct_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLink");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLink");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20455,9 +20455,9 @@ static  int delete_export_task_data(struct osc_env *e, struct osc_delete_export_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteExportTask");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteExportTask");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20507,9 +20507,9 @@ static  int delete_flexible_gpu_data(struct osc_env *e, struct osc_delete_flexib
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteFlexibleGpu");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteFlexibleGpu");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20559,9 +20559,9 @@ static  int delete_image_data(struct osc_env *e, struct osc_delete_image_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteImage");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteImage");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20611,9 +20611,9 @@ static  int delete_internet_service_data(struct osc_env *e, struct osc_delete_in
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteInternetService");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteInternetService");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20663,9 +20663,9 @@ static  int delete_keypair_data(struct osc_env *e, struct osc_delete_keypair_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteKeypair");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteKeypair");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20715,9 +20715,9 @@ static  int delete_listener_rule_data(struct osc_env *e, struct osc_delete_liste
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteListenerRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteListenerRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20783,9 +20783,9 @@ static  int delete_load_balancer_listeners_data(struct osc_env *e, struct osc_de
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerListeners");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerListeners");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20840,9 +20840,9 @@ static  int delete_load_balancer_policy_data(struct osc_env *e, struct osc_delet
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20892,9 +20892,9 @@ static  int delete_load_balancer_data(struct osc_env *e, struct osc_delete_load_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancer");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancer");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20973,9 +20973,9 @@ static  int delete_load_balancer_tags_data(struct osc_env *e, struct osc_delete_
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerTags");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerTags");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21025,9 +21025,9 @@ static  int delete_nat_service_data(struct osc_env *e, struct osc_delete_nat_ser
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteNatService");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteNatService");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21077,9 +21077,9 @@ static  int delete_net_access_point_data(struct osc_env *e, struct osc_delete_ne
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteNetAccessPoint");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteNetAccessPoint");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21129,9 +21129,9 @@ static  int delete_net_peering_data(struct osc_env *e, struct osc_delete_net_pee
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteNetPeering");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteNetPeering");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21181,9 +21181,9 @@ static  int delete_net_data(struct osc_env *e, struct osc_delete_net_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteNet");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteNet");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21233,9 +21233,9 @@ static  int delete_nic_data(struct osc_env *e, struct osc_delete_nic_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteNic");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteNic");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21285,9 +21285,9 @@ static  int delete_policy_data(struct osc_env *e, struct osc_delete_policy_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeletePolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeletePolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21338,9 +21338,9 @@ static  int delete_policy_version_data(struct osc_env *e, struct osc_delete_poli
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeletePolicyVersion");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeletePolicyVersion");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21395,9 +21395,9 @@ static  int delete_public_ip_data(struct osc_env *e, struct osc_delete_public_ip
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeletePublicIp");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeletePublicIp");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21452,9 +21452,9 @@ static  int delete_route_data(struct osc_env *e, struct osc_delete_route_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteRoute");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteRoute");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21504,9 +21504,9 @@ static  int delete_route_table_data(struct osc_env *e, struct osc_delete_route_t
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteRouteTable");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteRouteTable");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21561,9 +21561,9 @@ static  int delete_security_group_data(struct osc_env *e, struct osc_delete_secu
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21664,9 +21664,9 @@ static  int delete_security_group_rule_data(struct osc_env *e, struct osc_delete
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroupRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroupRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21716,9 +21716,9 @@ static  int delete_server_certificate_data(struct osc_env *e, struct osc_delete_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteServerCertificate");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteServerCertificate");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21768,9 +21768,9 @@ static  int delete_snapshot_data(struct osc_env *e, struct osc_delete_snapshot_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteSnapshot");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteSnapshot");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21820,9 +21820,9 @@ static  int delete_subnet_data(struct osc_env *e, struct osc_delete_subnet_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteSubnet");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteSubnet");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21901,9 +21901,9 @@ static  int delete_tags_data(struct osc_env *e, struct osc_delete_tags_arg *args
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteTags");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteTags");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21963,9 +21963,9 @@ static  int delete_user_group_policy_data(struct osc_env *e, struct osc_delete_u
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroupPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroupPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22024,9 +22024,9 @@ static  int delete_user_group_data(struct osc_env *e, struct osc_delete_user_gro
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22076,9 +22076,9 @@ static  int delete_user_data(struct osc_env *e, struct osc_delete_user_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteUser");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteUser");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22128,9 +22128,9 @@ static  int delete_virtual_gateway_data(struct osc_env *e, struct osc_delete_vir
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteVirtualGateway");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteVirtualGateway");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22180,9 +22180,9 @@ static  int delete_vm_group_data(struct osc_env *e, struct osc_delete_vm_group_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteVmGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteVmGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22232,9 +22232,9 @@ static  int delete_vm_template_data(struct osc_env *e, struct osc_delete_vm_temp
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteVmTemplate");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteVmTemplate");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22295,9 +22295,9 @@ static  int delete_vms_data(struct osc_env *e, struct osc_delete_vms_arg *args, 
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteVms");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteVms");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22347,9 +22347,9 @@ static  int delete_volume_data(struct osc_env *e, struct osc_delete_volume_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteVolume");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteVolume");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22399,9 +22399,9 @@ static  int delete_vpn_connection_data(struct osc_env *e, struct osc_delete_vpn_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnection");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnection");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22456,9 +22456,9 @@ static  int delete_vpn_connection_route_data(struct osc_env *e, struct osc_delet
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnectionRoute");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnectionRoute");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22524,9 +22524,9 @@ static  int deregister_vms_in_load_balancer_data(struct osc_env *e, struct osc_d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/DeregisterVmsInLoadBalancer");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/DeregisterVmsInLoadBalancer");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22581,9 +22581,9 @@ static  int link_flexible_gpu_data(struct osc_env *e, struct osc_link_flexible_g
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkFlexibleGpu");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkFlexibleGpu");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22638,9 +22638,9 @@ static  int link_internet_service_data(struct osc_env *e, struct osc_link_intern
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkInternetService");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkInternetService");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22722,9 +22722,9 @@ static  int link_load_balancer_backend_machines_data(struct osc_env *e, struct o
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkLoadBalancerBackendMachines");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkLoadBalancerBackendMachines");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22779,9 +22779,9 @@ static  int link_managed_policy_to_user_group_data(struct osc_env *e, struct osc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkManagedPolicyToUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkManagedPolicyToUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22840,9 +22840,9 @@ static  int link_nic_data(struct osc_env *e, struct osc_link_nic_arg *args, stru
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkNic");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkNic");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22897,9 +22897,9 @@ static  int link_policy_data(struct osc_env *e, struct osc_link_policy_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22973,9 +22973,9 @@ static  int link_private_ips_data(struct osc_env *e, struct osc_link_private_ips
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkPrivateIps");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkPrivateIps");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23049,9 +23049,9 @@ static  int link_public_ip_data(struct osc_env *e, struct osc_link_public_ip_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkPublicIp");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkPublicIp");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23106,9 +23106,9 @@ static  int link_route_table_data(struct osc_env *e, struct osc_link_route_table
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkRouteTable");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkRouteTable");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23163,9 +23163,9 @@ static  int link_virtual_gateway_data(struct osc_env *e, struct osc_link_virtual
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkVirtualGateway");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkVirtualGateway");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23225,9 +23225,9 @@ static  int link_volume_data(struct osc_env *e, struct osc_link_volume_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/LinkVolume");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/LinkVolume");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23292,9 +23292,9 @@ static  int put_user_group_policy_data(struct osc_env *e, struct osc_put_user_gr
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/PutUserGroupPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/PutUserGroupPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23354,9 +23354,9 @@ static  int read_access_keys_data(struct osc_env *e, struct osc_read_access_keys
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadAccessKeys");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadAccessKeys");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23401,9 +23401,9 @@ static  int read_accounts_data(struct osc_env *e, struct osc_read_accounts_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadAccounts");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadAccounts");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23453,9 +23453,9 @@ static  int read_admin_password_data(struct osc_env *e, struct osc_read_admin_pa
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadAdminPassword");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadAdminPassword");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23500,9 +23500,9 @@ static  int read_api_access_policy_data(struct osc_env *e, struct osc_read_api_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23557,9 +23557,9 @@ static  int read_api_access_rules_data(struct osc_env *e, struct osc_read_api_ac
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessRules");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessRules");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23633,9 +23633,9 @@ static  int read_api_logs_data(struct osc_env *e, struct osc_read_api_logs_arg *
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadApiLogs");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadApiLogs");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23690,9 +23690,9 @@ static  int read_cas_data(struct osc_env *e, struct osc_read_cas_arg *args, stru
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadCas");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadCas");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23737,9 +23737,9 @@ static  int read_catalog_data(struct osc_env *e, struct osc_read_catalog_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadCatalog");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadCatalog");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23794,9 +23794,9 @@ static  int read_catalogs_data(struct osc_env *e, struct osc_read_catalogs_arg *
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadCatalogs");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadCatalogs");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23860,9 +23860,9 @@ static  int read_client_gateways_data(struct osc_env *e, struct osc_read_client_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadClientGateways");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadClientGateways");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23912,9 +23912,9 @@ static  int read_console_output_data(struct osc_env *e, struct osc_read_console_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadConsoleOutput");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadConsoleOutput");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23977,9 +23977,9 @@ static  int read_consumption_account_data(struct osc_env *e, struct osc_read_con
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadConsumptionAccount");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadConsumptionAccount");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24043,9 +24043,9 @@ static  int read_dedicated_groups_data(struct osc_env *e, struct osc_read_dedica
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadDedicatedGroups");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadDedicatedGroups");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24109,9 +24109,9 @@ static  int read_dhcp_options_data(struct osc_env *e, struct osc_read_dhcp_optio
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadDhcpOptions");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadDhcpOptions");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24175,9 +24175,9 @@ static  int read_direct_link_interfaces_data(struct osc_env *e, struct osc_read_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinkInterfaces");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinkInterfaces");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24241,9 +24241,9 @@ static  int read_direct_links_data(struct osc_env *e, struct osc_read_direct_lin
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinks");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinks");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24313,9 +24313,9 @@ static  int read_entities_linked_to_policy_data(struct osc_env *e, struct osc_re
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadEntitiesLinkedToPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadEntitiesLinkedToPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24360,9 +24360,9 @@ static  int read_flexible_gpu_catalog_data(struct osc_env *e, struct osc_read_fl
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpuCatalog");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpuCatalog");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24417,9 +24417,9 @@ static  int read_flexible_gpus_data(struct osc_env *e, struct osc_read_flexible_
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpus");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpus");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24483,9 +24483,9 @@ static  int read_image_export_tasks_data(struct osc_env *e, struct osc_read_imag
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadImageExportTasks");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadImageExportTasks");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24549,9 +24549,9 @@ static  int read_images_data(struct osc_env *e, struct osc_read_images_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadImages");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadImages");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24615,9 +24615,9 @@ static  int read_internet_services_data(struct osc_env *e, struct osc_read_inter
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadInternetServices");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadInternetServices");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24681,9 +24681,9 @@ static  int read_keypairs_data(struct osc_env *e, struct osc_read_keypairs_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadKeypairs");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadKeypairs");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24751,9 +24751,9 @@ static  int read_linked_policies_data(struct osc_env *e, struct osc_read_linked_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadLinkedPolicies");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadLinkedPolicies");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24808,9 +24808,9 @@ static  int read_listener_rules_data(struct osc_env *e, struct osc_read_listener
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadListenerRules");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadListenerRules");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24871,9 +24871,9 @@ static  int read_load_balancer_tags_data(struct osc_env *e, struct osc_read_load
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancerTags");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancerTags");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24928,9 +24928,9 @@ static  int read_load_balancers_data(struct osc_env *e, struct osc_read_load_bal
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancers");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancers");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24984,9 +24984,9 @@ static  int read_locations_data(struct osc_env *e, struct osc_read_locations_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadLocations");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadLocations");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25054,9 +25054,9 @@ static  int read_managed_policies_linked_to_user_group_data(struct osc_env *e, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadManagedPoliciesLinkedToUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadManagedPoliciesLinkedToUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25120,9 +25120,9 @@ static  int read_nat_services_data(struct osc_env *e, struct osc_read_nat_servic
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadNatServices");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadNatServices");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25186,9 +25186,9 @@ static  int read_net_access_point_services_data(struct osc_env *e, struct osc_re
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPointServices");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPointServices");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25252,9 +25252,9 @@ static  int read_net_access_points_data(struct osc_env *e, struct osc_read_net_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPoints");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPoints");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25318,9 +25318,9 @@ static  int read_net_peerings_data(struct osc_env *e, struct osc_read_net_peerin
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadNetPeerings");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadNetPeerings");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25384,9 +25384,9 @@ static  int read_nets_data(struct osc_env *e, struct osc_read_nets_arg *args, st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadNets");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadNets");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25441,9 +25441,9 @@ static  int read_nics_data(struct osc_env *e, struct osc_read_nics_arg *args, st
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadNics");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadNics");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25506,9 +25506,9 @@ static  int read_policies_data(struct osc_env *e, struct osc_read_policies_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicies");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicies");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25554,9 +25554,9 @@ static  int read_policy_data(struct osc_env *e, struct osc_read_policy_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25607,9 +25607,9 @@ static  int read_policy_version_data(struct osc_env *e, struct osc_read_policy_v
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersion");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersion");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25663,9 +25663,9 @@ static  int read_policy_versions_data(struct osc_env *e, struct osc_read_policy_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersions");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersions");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25729,9 +25729,9 @@ static  int read_product_types_data(struct osc_env *e, struct osc_read_product_t
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadProductTypes");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadProductTypes");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25776,9 +25776,9 @@ static  int read_public_catalog_data(struct osc_env *e, struct osc_read_public_c
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadPublicCatalog");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadPublicCatalog");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25832,9 +25832,9 @@ static  int read_public_ip_ranges_data(struct osc_env *e, struct osc_read_public
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadPublicIpRanges");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadPublicIpRanges");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25898,9 +25898,9 @@ static  int read_public_ips_data(struct osc_env *e, struct osc_read_public_ips_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadPublicIps");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadPublicIps");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25964,9 +25964,9 @@ static  int read_quotas_data(struct osc_env *e, struct osc_read_quotas_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadQuotas");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadQuotas");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26011,9 +26011,9 @@ static  int read_regions_data(struct osc_env *e, struct osc_read_regions_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadRegions");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadRegions");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26077,9 +26077,9 @@ static  int read_route_tables_data(struct osc_env *e, struct osc_read_route_tabl
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadRouteTables");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadRouteTables");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26129,9 +26129,9 @@ static  int read_secret_access_key_data(struct osc_env *e, struct osc_read_secre
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadSecretAccessKey");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadSecretAccessKey");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26195,9 +26195,9 @@ static  int read_security_groups_data(struct osc_env *e, struct osc_read_securit
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadSecurityGroups");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadSecurityGroups");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26252,9 +26252,9 @@ static  int read_server_certificates_data(struct osc_env *e, struct osc_read_ser
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadServerCertificates");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadServerCertificates");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26318,9 +26318,9 @@ static  int read_snapshot_export_tasks_data(struct osc_env *e, struct osc_read_s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadSnapshotExportTasks");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadSnapshotExportTasks");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26384,9 +26384,9 @@ static  int read_snapshots_data(struct osc_env *e, struct osc_read_snapshots_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadSnapshots");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadSnapshots");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26450,9 +26450,9 @@ static  int read_subnets_data(struct osc_env *e, struct osc_read_subnets_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadSubnets");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadSubnets");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26516,9 +26516,9 @@ static  int read_subregions_data(struct osc_env *e, struct osc_read_subregions_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadSubregions");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadSubregions");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26582,9 +26582,9 @@ static  int read_tags_data(struct osc_env *e, struct osc_read_tags_arg *args, st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadTags");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadTags");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26640,9 +26640,9 @@ static  int read_unit_price_data(struct osc_env *e, struct osc_read_unit_price_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadUnitPrice");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadUnitPrice");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26705,9 +26705,9 @@ static  int read_user_group_policies_data(struct osc_env *e, struct osc_read_use
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicies");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicies");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26767,9 +26767,9 @@ static  int read_user_group_policy_data(struct osc_env *e, struct osc_read_user_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26824,9 +26824,9 @@ static  int read_user_group_data(struct osc_env *e, struct osc_read_user_group_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26881,9 +26881,9 @@ static  int read_user_groups_per_user_data(struct osc_env *e, struct osc_read_us
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupsPerUser");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupsPerUser");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26946,9 +26946,9 @@ static  int read_user_groups_data(struct osc_env *e, struct osc_read_user_groups
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroups");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroups");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27011,9 +27011,9 @@ static  int read_users_data(struct osc_env *e, struct osc_read_users_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadUsers");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadUsers");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27077,9 +27077,9 @@ static  int read_virtual_gateways_data(struct osc_env *e, struct osc_read_virtua
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVirtualGateways");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVirtualGateways");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27134,9 +27134,9 @@ static  int read_vm_groups_data(struct osc_env *e, struct osc_read_vm_groups_arg
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVmGroups");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVmGroups");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27191,9 +27191,9 @@ static  int read_vm_templates_data(struct osc_env *e, struct osc_read_vm_templat
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVmTemplates");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVmTemplates");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27257,9 +27257,9 @@ static  int read_vm_types_data(struct osc_env *e, struct osc_read_vm_types_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVmTypes");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVmTypes");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27325,9 +27325,9 @@ static  int read_vms_health_data(struct osc_env *e, struct osc_read_vms_health_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVmsHealth");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVmsHealth");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27391,9 +27391,9 @@ static  int read_vms_data(struct osc_env *e, struct osc_read_vms_arg *args, stru
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVms");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVms");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27461,9 +27461,9 @@ static  int read_vms_state_data(struct osc_env *e, struct osc_read_vms_state_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVmsState");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVmsState");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27527,9 +27527,9 @@ static  int read_volumes_data(struct osc_env *e, struct osc_read_volumes_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVolumes");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVolumes");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27593,9 +27593,9 @@ static  int read_vpn_connections_data(struct osc_env *e, struct osc_read_vpn_con
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ReadVpnConnections");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ReadVpnConnections");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27656,9 +27656,9 @@ static  int reboot_vms_data(struct osc_env *e, struct osc_reboot_vms_arg *args, 
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/RebootVms");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/RebootVms");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27724,9 +27724,9 @@ static  int register_vms_in_load_balancer_data(struct osc_env *e, struct osc_reg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/RegisterVmsInLoadBalancer");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/RegisterVmsInLoadBalancer");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27776,9 +27776,9 @@ static  int reject_net_peering_data(struct osc_env *e, struct osc_reject_net_pee
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/RejectNetPeering");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/RejectNetPeering");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27843,9 +27843,9 @@ static  int remove_user_from_user_group_data(struct osc_env *e, struct osc_remov
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/RemoveUserFromUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/RemoveUserFromUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27899,9 +27899,9 @@ static  int scale_down_vm_group_data(struct osc_env *e, struct osc_scale_down_vm
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ScaleDownVmGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ScaleDownVmGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27955,9 +27955,9 @@ static  int scale_up_vm_group_data(struct osc_env *e, struct osc_scale_up_vm_gro
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/ScaleUpVmGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/ScaleUpVmGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28008,9 +28008,9 @@ static  int set_default_policy_version_data(struct osc_env *e, struct osc_set_de
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/SetDefaultPolicyVersion");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/SetDefaultPolicyVersion");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28071,9 +28071,9 @@ static  int start_vms_data(struct osc_env *e, struct osc_start_vms_arg *args, st
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/StartVms");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/StartVms");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28138,9 +28138,9 @@ static  int stop_vms_data(struct osc_env *e, struct osc_stop_vms_arg *args, stru
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/StopVms");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/StopVms");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28190,9 +28190,9 @@ static  int unlink_flexible_gpu_data(struct osc_env *e, struct osc_unlink_flexib
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkFlexibleGpu");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkFlexibleGpu");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28247,9 +28247,9 @@ static  int unlink_internet_service_data(struct osc_env *e, struct osc_unlink_in
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkInternetService");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkInternetService");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28331,9 +28331,9 @@ static  int unlink_load_balancer_backend_machines_data(struct osc_env *e, struct
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkLoadBalancerBackendMachines");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkLoadBalancerBackendMachines");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28388,9 +28388,9 @@ static  int unlink_managed_policy_from_user_group_data(struct osc_env *e, struct
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkManagedPolicyFromUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkManagedPolicyFromUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28440,9 +28440,9 @@ static  int unlink_nic_data(struct osc_env *e, struct osc_unlink_nic_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkNic");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkNic");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28497,9 +28497,9 @@ static  int unlink_policy_data(struct osc_env *e, struct osc_unlink_policy_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28565,9 +28565,9 @@ static  int unlink_private_ips_data(struct osc_env *e, struct osc_unlink_private
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkPrivateIps");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkPrivateIps");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28622,9 +28622,9 @@ static  int unlink_public_ip_data(struct osc_env *e, struct osc_unlink_public_ip
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkPublicIp");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkPublicIp");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28674,9 +28674,9 @@ static  int unlink_route_table_data(struct osc_env *e, struct osc_unlink_route_t
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkRouteTable");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkRouteTable");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28731,9 +28731,9 @@ static  int unlink_virtual_gateway_data(struct osc_env *e, struct osc_unlink_vir
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkVirtualGateway");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkVirtualGateway");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28787,9 +28787,9 @@ static  int unlink_volume_data(struct osc_env *e, struct osc_unlink_volume_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UnlinkVolume");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UnlinkVolume");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28854,9 +28854,9 @@ static  int update_access_key_data(struct osc_env *e, struct osc_update_access_k
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateAccessKey");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateAccessKey");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28977,9 +28977,9 @@ static  int update_account_data(struct osc_env *e, struct osc_update_account_arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateAccount");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateAccount");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29032,9 +29032,9 @@ static  int update_api_access_policy_data(struct osc_env *e, struct osc_update_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessPolicy");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessPolicy");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29137,9 +29137,9 @@ static  int update_api_access_rule_data(struct osc_env *e, struct osc_update_api
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29194,9 +29194,9 @@ static  int update_ca_data(struct osc_env *e, struct osc_update_ca_arg *args, st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateCa");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateCa");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29251,9 +29251,9 @@ static  int update_dedicated_group_data(struct osc_env *e, struct osc_update_ded
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateDedicatedGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateDedicatedGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29307,9 +29307,9 @@ static  int update_direct_link_interface_data(struct osc_env *e, struct osc_upda
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateDirectLinkInterface");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateDirectLinkInterface");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29363,9 +29363,9 @@ static  int update_flexible_gpu_data(struct osc_env *e, struct osc_update_flexib
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateFlexibleGpu");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateFlexibleGpu");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29430,9 +29430,9 @@ static  int update_image_data(struct osc_env *e, struct osc_update_image_arg *ar
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateImage");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateImage");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29492,9 +29492,9 @@ static  int update_listener_rule_data(struct osc_env *e, struct osc_update_liste
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateListenerRule");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateListenerRule");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29614,9 +29614,9 @@ static  int update_load_balancer_data(struct osc_env *e, struct osc_update_load_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateLoadBalancer");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateLoadBalancer");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29698,9 +29698,9 @@ static  int update_net_access_point_data(struct osc_env *e, struct osc_update_ne
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateNetAccessPoint");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateNetAccessPoint");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29755,9 +29755,9 @@ static  int update_net_data(struct osc_env *e, struct osc_update_net_arg *args, 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateNet");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateNet");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29838,9 +29838,9 @@ static  int update_nic_data(struct osc_env *e, struct osc_update_nic_arg *args, 
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateNic");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateNic");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29899,9 +29899,9 @@ static  int update_route_propagation_data(struct osc_env *e, struct osc_update_r
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateRoutePropagation");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateRoutePropagation");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29981,9 +29981,9 @@ static  int update_route_data(struct osc_env *e, struct osc_update_route_arg *ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateRoute");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateRoute");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30038,9 +30038,9 @@ static  int update_route_table_link_data(struct osc_env *e, struct osc_update_ro
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateRouteTableLink");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateRouteTableLink");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30100,9 +30100,9 @@ static  int update_server_certificate_data(struct osc_env *e, struct osc_update_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateServerCertificate");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateServerCertificate");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30162,9 +30162,9 @@ static  int update_snapshot_data(struct osc_env *e, struct osc_update_snapshot_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateSnapshot");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateSnapshot");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30218,9 +30218,9 @@ static  int update_subnet_data(struct osc_env *e, struct osc_update_subnet_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateSubnet");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateSubnet");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30285,9 +30285,9 @@ static  int update_user_group_data(struct osc_env *e, struct osc_update_user_gro
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateUserGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateUserGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30352,9 +30352,9 @@ static  int update_user_data(struct osc_env *e, struct osc_update_user_arg *args
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateUser");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateUser");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30437,9 +30437,9 @@ static  int update_vm_group_data(struct osc_env *e, struct osc_update_vm_group_a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateVmGroup");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateVmGroup");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30564,9 +30564,9 @@ static  int update_vm_data(struct osc_env *e, struct osc_update_vm_arg *args, st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateVm");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateVm");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30644,9 +30644,9 @@ static  int update_vm_template_data(struct osc_env *e, struct osc_update_vm_temp
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateVmTemplate");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateVmTemplate");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30709,9 +30709,9 @@ static  int update_volume_data(struct osc_env *e, struct osc_update_volume_arg *
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateVolume");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateVolume");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30781,9 +30781,9 @@ static  int update_vpn_connection_data(struct osc_env *e, struct osc_update_vpn_
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
-	osc_str_append_string(&end_call, "/api/v1/UpdateVpnConnection");
 
 no_data:
+	osc_str_append_string(&end_call, "/api/v1/UpdateVpnConnection");
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
