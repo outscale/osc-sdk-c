@@ -308,83 +308,83 @@ static const char *calls_name[] = {
 static const char *calls_descriptions[] = {
 	"Usage: oapi-cli AcceptNetPeering --NetPeeringId=netpeeringid [OPTIONS]\n" "Accepts a Net peering request.\nTo accept this request, you must be the owner \n" "of the peer Net. If you do not accept the request within 7 days, the state of \n" "the Net peering becomes `expired`.\n\n**[NOTE]**\nA peering connection between \n" "two Nets works both ways. Therefore, when an A-to-B peering connection is \n" "accepted, any pending B-to-A peering connection is automatically rejected as \n" "redundant.\n" "\nRequired Argument: NetPeeringId \n"
 ,
-	"Usage: oapi-cli AddUserToUserGroup --UserGroupName=usergroupname --UserName=username [OPTIONS]\n" "Adds a user to a specified group.\n" "\nRequired Argument: UserGroupName, UserName \n"
+	"Usage: oapi-cli AddUserToUserGroup --UserGroupName=usergroupname --UserName=username [OPTIONS]\n" "Adds a user to a specified group.\n" "\nRequired Argument: UserGroupName UserName \n"
 ,
-	"Usage: oapi-cli CheckAuthentication --Login=login --Password=password [OPTIONS]\n" "Validates the authenticity of the account.\n" "\nRequired Argument: Login, Password \n"
+	"Usage: oapi-cli CheckAuthentication --Login=login --Password=password [OPTIONS]\n" "Validates the authenticity of the account.\n" "\nRequired Argument: Login Password \n"
 ,
-	"Usage: oapi-cli CreateAccessKey [OPTIONS]\n" "Creates an access key for either your root account or an EIM user. The new key \n" "is automatically set to `ACTIVE`.\nFor more information, see [About Access \n" "Keys](https://docs.outscale.com/en/userguide/About-Access-Keys.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli CreateAccessKey [OPTIONS]\n" "Creates an access key for either your root account or an EIM user. The new key \n" "is automatically set to `ACTIVE`.\nFor more information, see [About Access \n" "Keys](https://docs.outscale.com/en/userguide/About-Access-Keys.html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli CreateAccount --City=city --CompanyName=companyname --Country=country --CustomerId=customerid --Email=email --FirstName=firstname --LastName=lastname --ZipCode=zipcode [OPTIONS]\n" "Creates an OUTSCALE account.\n\n**[IMPORTANT]**\n* You need OUTSCALE \n" "credentials and the appropriate quotas to create an account via API. To get \n" "quotas, you can send an email to sales@outscale.com.\n* If you want to pass a \n" "numeral value as a string instead of an integer, you must wrap your string in \n" "additional quotes (for example, `'&quot;92000&quot;'`).\n\nFor more \n" "information, see [About Your \n" "Account](https://docs.outscale.com/en/userguide/About-Your-Account.html).\n" "\nRequired Argument: City, CompanyName, Country, CustomerId, Email, FirstName, LastName, ZipCode \n"
+	"Usage: oapi-cli CreateAccount --City=city --CompanyName=companyname --Country=country --CustomerId=customerid --Email=email --FirstName=firstname --LastName=lastname --ZipCode=zipcode [OPTIONS]\n" "Creates an OUTSCALE account.\n\n**[IMPORTANT]**\n* You need OUTSCALE \n" "credentials and the appropriate quotas to create an account via API. To get \n" "quotas, you can send an email to sales@outscale.com.\n* If you want to pass a \n" "numeral value as a string instead of an integer, you must wrap your string in \n" "additional quotes (for example, `'&quot;92000&quot;'`).\n\nFor more \n" "information, see [About Your \n" "Account](https://docs.outscale.com/en/userguide/About-Your-Account.html).\n" "\nRequired Argument: City CompanyName Country CustomerId Email FirstName LastName ZipCode \n"
 ,
-	"Usage: oapi-cli CreateApiAccessRule [OPTIONS]\n" "Creates a rule to allow access to the API from your account.\nYou need to \n" "specify at least the `CaIds` or the `IpRanges` parameter.\n\n**[NOTE]**\nBy \n" "default, your account has a set of rules allowing global access, that you can \n" "delete.\nFor more information, see [About API Access \n" "Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli CreateApiAccessRule [OPTIONS]\n" "Creates a rule to allow access to the API from your account.\nYou need to \n" "specify at least the `CaIds` or the `IpRanges` parameter.\n\n**[NOTE]**\nBy \n" "default, your account has a set of rules allowing global access, that you can \n" "delete.\nFor more information, see [About API Access \n" "Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli CreateCa --CaPem=capem [OPTIONS]\n" "Creates a Client Certificate Authority (CA).\nFor more information, see [About \n" "API Access \n" "Rules](https://docs.outscale.com/en/userguide/About-API-Access-Rules.html).\n" "\nRequired Argument: CaPem \n"
 ,
-	"Usage: oapi-cli CreateClientGateway --BgpAsn=bgpasn --PublicIp=publicip --ConnectionType=connectiontype [OPTIONS]\n" "Provides information about your client gateway.\nThis action registers \n" "information to identify the client gateway that you deployed in your \n" "network.\nTo open a tunnel to the client gateway, you must provide the \n" "communication protocol type, the fixed public IP of the gateway, and an \n" "Autonomous System Number (ASN).\nFor more information, see [About Client \n" "Gateways](https://docs.outscale.com/en/userguide/About-Client-Gateways.html).\n" "\nRequired Argument: BgpAsn, PublicIp, ConnectionType \n"
+	"Usage: oapi-cli CreateClientGateway --BgpAsn=bgpasn --PublicIp=publicip --ConnectionType=connectiontype [OPTIONS]\n" "Provides information about your client gateway.\nThis action registers \n" "information to identify the client gateway that you deployed in your \n" "network.\nTo open a tunnel to the client gateway, you must provide the \n" "communication protocol type, the fixed public IP of the gateway, and an \n" "Autonomous System Number (ASN).\nFor more information, see [About Client \n" "Gateways](https://docs.outscale.com/en/userguide/About-Client-Gateways.html).\n" "\nRequired Argument: BgpAsn PublicIp ConnectionType \n"
 ,
-	"Usage: oapi-cli CreateDedicatedGroup --CpuGeneration=cpugeneration --Name=name --SubregionName=subregionname [OPTIONS]\n" "> [WARNING]\n> This feature is currently in beta.\n\nCreates a dedicated group \n" "for virtual machines (VMs).\nFor more information, see [About Dedicated \n" "Groups](https://docs.outscale.com/en/userguide/About-Dedicated-Groups.html).\n" "\nRequired Argument: CpuGeneration, Name, SubregionName \n"
+	"Usage: oapi-cli CreateDedicatedGroup --CpuGeneration=cpugeneration --Name=name --SubregionName=subregionname [OPTIONS]\n" "> [WARNING]\n> This feature is currently in beta.\n\nCreates a dedicated group \n" "for virtual machines (VMs).\nFor more information, see [About Dedicated \n" "Groups](https://docs.outscale.com/en/userguide/About-Dedicated-Groups.html).\n" "\nRequired Argument: CpuGeneration Name SubregionName \n"
 ,
-	"Usage: oapi-cli CreateDhcpOptions [OPTIONS]\n" "Creates a set of DHCP options, that you can then associate with a Net using the \n" "[UpdateNet](#updatenet) method.\nFor more information, see [About DHCP \n" "Options](https://docs.outscale.com/en/userguide/About-DHCP-Options.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli CreateDhcpOptions [OPTIONS]\n" "Creates a set of DHCP options, that you can then associate with a Net using the \n" "[UpdateNet](#updatenet) method.\nFor more information, see [About DHCP \n" "Options](https://docs.outscale.com/en/userguide/About-DHCP-Options.html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli CreateDirectLinkInterface --DirectLinkId=directlinkid --DirectLinkInterface=directlinkinterface [OPTIONS]\n" "Creates a DirectLink interface.\nDirectLink interfaces enable you to reach one \n" "of your Nets through a virtual gateway.\nFor more information, see [About \n" "DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).\n" "\nRequired Argument: DirectLinkId, DirectLinkInterface \n"
+	"Usage: oapi-cli CreateDirectLinkInterface --DirectLinkId=directlinkid --DirectLinkInterface=directlinkinterface [OPTIONS]\n" "Creates a DirectLink interface.\nDirectLink interfaces enable you to reach one \n" "of your Nets through a virtual gateway.\nFor more information, see [About \n" "DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).\n" "\nRequired Argument: DirectLinkId DirectLinkInterface \n"
 ,
-	"Usage: oapi-cli CreateDirectLink --Bandwidth=bandwidth --DirectLinkName=directlinkname --Location=location [OPTIONS]\n" "Creates a DirectLink between a customer network and a specified DirectLink \n" "location.\nFor more information, see [About \n" "DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).\n" "\nRequired Argument: Bandwidth, DirectLinkName, Location \n"
+	"Usage: oapi-cli CreateDirectLink --Bandwidth=bandwidth --DirectLinkName=directlinkname --Location=location [OPTIONS]\n" "Creates a DirectLink between a customer network and a specified DirectLink \n" "location.\nFor more information, see [About \n" "DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).\n" "\nRequired Argument: Bandwidth DirectLinkName Location \n"
 ,
-	"Usage: oapi-cli CreateFlexibleGpu --ModelName=modelname --SubregionName=subregionname [OPTIONS]\n" "Allocates a flexible GPU (fGPU) to your account.\nYou can then attach this fGPU \n" "to a virtual machine (VM).\nFor more information, see [About Flexible \n" "GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html).\n" "\nRequired Argument: ModelName, SubregionName \n"
+	"Usage: oapi-cli CreateFlexibleGpu --ModelName=modelname --SubregionName=subregionname [OPTIONS]\n" "Allocates a flexible GPU (fGPU) to your account.\nYou can then attach this fGPU \n" "to a virtual machine (VM).\nFor more information, see [About Flexible \n" "GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html).\n" "\nRequired Argument: ModelName SubregionName \n"
 ,
-	"Usage: oapi-cli CreateImageExportTask --OsuExport=osuexport --ImageId=imageid [OPTIONS]\n" "Exports an OUTSCALE machine image (OMI) to an OUTSCALE Object Storage (OOS) \n" "bucket.\nThis enables you to copy an OMI between accounts in different \n" "Regions.\nThis action creates the necessary snapshots and manifest file in the \n" "bucket. The OMI can then be imported to another account using a pre-signed URL \n" "of its manifest file. For more information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\nTo\n" " copy an OMI in the same Region, you can also use the \n" "[CreateImage](#createimage) method.\n\n**[IMPORTANT]**\nYou cannot export a \n" "shared or public OMI, as they do not belong to you. To do so, you must first \n" "copy it to your account. The copy then belongs to you and you can export \n" "it.\nFor more information, see [About \n" "OMIs](https://docs.outscale.com/en/userguide/About-OMIs.html).\n" "\nRequired Argument: OsuExport, ImageId \n"
+	"Usage: oapi-cli CreateImageExportTask --OsuExport=osuexport --ImageId=imageid [OPTIONS]\n" "Exports an OUTSCALE machine image (OMI) to an OUTSCALE Object Storage (OOS) \n" "bucket.\nThis enables you to copy an OMI between accounts in different \n" "Regions.\nThis action creates the necessary snapshots and manifest file in the \n" "bucket. The OMI can then be imported to another account using a pre-signed URL \n" "of its manifest file. For more information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\nTo\n" " copy an OMI in the same Region, you can also use the \n" "[CreateImage](#createimage) method.\n\n**[IMPORTANT]**\nYou cannot export a \n" "shared or public OMI, as they do not belong to you. To do so, you must first \n" "copy it to your account. The copy then belongs to you and you can export \n" "it.\nFor more information, see [About \n" "OMIs](https://docs.outscale.com/en/userguide/About-OMIs.html).\n" "\nRequired Argument: OsuExport ImageId \n"
 ,
-	"Usage: oapi-cli CreateImage [OPTIONS]\n" "Creates an OUTSCALE machine image (OMI).\nYou can use this method in different \n" "ways:\n* **Creating from a VM**: You create an OMI from one of your virtual \n" "machines (VMs).<br>\n* **Copying an OMI**: You copy an existing OMI. The source \n" "OMI can be one of your own OMIs, or an OMI owned by another account that has \n" "granted you permission via the [UpdateImage](#updateimage) method.<br>\n* \n" "**Registering from a snapshot**: You register an OMI from an existing snapshot. \n" "The source snapshot can be one of your own snapshots, or a snapshot owned by \n" "another account that has granted you permission via the \n" "[UpdateSnapshot](#updatesnapshot) method.<br>\n* **Registering from a bucket by \n" "using a manifest file**: You register an OMI from the manifest file of an OMI \n" "that was exported to an OUTSCALE Object Storage (OOS) bucket. First, the owner \n" "of the source OMI must export it to the bucket by using the \n" "[CreateImageExportTask](#createimageexporttask) method. Then, they must grant \n" "you permission to read the manifest file via a pre-signed URL. For more \n" "information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\n\n\n" "**[TIP]**\nRegistering from a bucket enables you to copy an OMI across \n" "Regions.\n\nFor more information, see [About \n" "OMIs](https://docs.outscale.com/en/userguide/About-OMIs.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli CreateImage [OPTIONS]\n" "Creates an OUTSCALE machine image (OMI).\nYou can use this method in different \n" "ways:\n* **Creating from a VM**: You create an OMI from one of your virtual \n" "machines (VMs).<br>\n* **Copying an OMI**: You copy an existing OMI. The source \n" "OMI can be one of your own OMIs, or an OMI owned by another account that has \n" "granted you permission via the [UpdateImage](#updateimage) method.<br>\n* \n" "**Registering from a snapshot**: You register an OMI from an existing snapshot. \n" "The source snapshot can be one of your own snapshots, or a snapshot owned by \n" "another account that has granted you permission via the \n" "[UpdateSnapshot](#updatesnapshot) method.<br>\n* **Registering from a bucket by \n" "using a manifest file**: You register an OMI from the manifest file of an OMI \n" "that was exported to an OUTSCALE Object Storage (OOS) bucket. First, the owner \n" "of the source OMI must export it to the bucket by using the \n" "[CreateImageExportTask](#createimageexporttask) method. Then, they must grant \n" "you permission to read the manifest file via a pre-signed URL. For more \n" "information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\n\n\n" "**[TIP]**\nRegistering from a bucket enables you to copy an OMI across \n" "Regions.\n\nFor more information, see [About \n" "OMIs](https://docs.outscale.com/en/userguide/About-OMIs.html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli CreateInternetService [OPTIONS]\n" "Creates an Internet service you can use with a Net.\nAn Internet service \n" "enables virtual machines (VMs) launched in a Net to connect to the Internet. It \n" "allows routing of incoming and outgoing Internet traffic and management of \n" "public IP addresses.\nFor more information, see [About Internet \n" "Services](https://docs.outscale.com/en/userguide/About-Internet-Services.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli CreateInternetService [OPTIONS]\n" "Creates an Internet service you can use with a Net.\nAn Internet service \n" "enables virtual machines (VMs) launched in a Net to connect to the Internet. It \n" "allows routing of incoming and outgoing Internet traffic and management of \n" "public IP addresses.\nFor more information, see [About Internet \n" "Services](https://docs.outscale.com/en/userguide/About-Internet-Services.html).\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli CreateKeypair --KeypairName=keypairname [OPTIONS]\n" "Creates a keypair to use with your virtual machines (VMs).\nYou can use this \n" "method in two different ways:\n* **Creating a keypair**: In that case, 3DS \n" "OUTSCALE creates a 2048-bit RSA keypair, stores its public key in your account, \n" "and returns its private key in the response of the call so that you can save it \n" "in a file.\nWhen you save the returned private key, make sure you replace the \n" "`\\n` escape sequences with real line breaks.\n* **Importing a keypair created \n" "locally**: If you already have a keypair that you have created locally with a \n" "third-party tool, you can import its public key in your account. The following \n" "types of key can be imported: RSA (2048 bits or preferably 4096 bits), Ed25519, \n" "and ECDSA (256 bits, 384 bits, or 521 bits). The following formats can be used: \n" "PEM, PKCS8, RFC4716, and OpenSSH.\n\nFor more information, see [About \n" "Keypairs](https://docs.outscale.com/en/userguide/About-Keypairs.html).\n" "\nRequired Argument: KeypairName \n"
 ,
-	"Usage: oapi-cli CreateListenerRule --VmIds=vmids --Listener=listener --ListenerRule=listenerrule [OPTIONS]\n" "Creates a rule for traffic redirection for the specified listener. Each rule \n" "must have either the `HostNamePattern` or `PathPattern` parameter specified. \n" "Rules are treated in priority order, from the highest value to the lowest \n" "value.\nOnce the rule is created, you need to register backend VMs with it. For \n" "more information, see the \n" "[RegisterVmsInLoadBalancer](#registervmsinloadbalancer) method.\nFor more \n" "information, see [About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: VmIds, Listener, ListenerRule \n"
+	"Usage: oapi-cli CreateListenerRule --VmIds=vmids --Listener=listener --ListenerRule=listenerrule [OPTIONS]\n" "Creates a rule for traffic redirection for the specified listener. Each rule \n" "must have either the `HostNamePattern` or `PathPattern` parameter specified. \n" "Rules are treated in priority order, from the highest value to the lowest \n" "value.\nOnce the rule is created, you need to register backend VMs with it. For \n" "more information, see the \n" "[RegisterVmsInLoadBalancer](#registervmsinloadbalancer) method.\nFor more \n" "information, see [About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: VmIds Listener ListenerRule \n"
 ,
-	"Usage: oapi-cli CreateLoadBalancerListeners --Listeners=listeners --LoadBalancerName=loadbalancername [OPTIONS]\n" "Creates one or more listeners for a specified load balancer.\nFor more \n" "information, see [About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: Listeners, LoadBalancerName \n"
+	"Usage: oapi-cli CreateLoadBalancerListeners --Listeners=listeners --LoadBalancerName=loadbalancername [OPTIONS]\n" "Creates one or more listeners for a specified load balancer.\nFor more \n" "information, see [About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: Listeners LoadBalancerName \n"
 ,
-	"Usage: oapi-cli CreateLoadBalancerPolicy --PolicyType=policytype --LoadBalancerName=loadbalancername --PolicyName=policyname [OPTIONS]\n" "Creates a stickiness policy with sticky session lifetimes defined by the \n" "browser lifetime.\nThe created policy can be used with HTTP or HTTPS listeners \n" "only.\nIf this policy is implemented by a load balancer, this load balancer \n" "uses this cookie in all incoming requests to direct them to the specified \n" "backend server virtual machine (VM). If this cookie is not present, the load \n" "balancer sends the request to any other server according to its load-balancing \n" "algorithm.\n\nYou can also create a stickiness policy with sticky session \n" "lifetimes following the lifetime of an application-generated cookie.\nUnlike \n" "the other type of stickiness policy, the lifetime of the special Load Balancer \n" "Unit (LBU) cookie follows the lifetime of the application-generated cookie \n" "specified in the policy configuration. The load balancer inserts a new \n" "stickiness cookie only when the application response includes a new application \n" "cookie.\nThe session stops being sticky if the application cookie is removed or \n" "expires, until a new application cookie is issued.\nFor more information, see \n" "[About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: PolicyType, LoadBalancerName, PolicyName \n"
+	"Usage: oapi-cli CreateLoadBalancerPolicy --PolicyType=policytype --LoadBalancerName=loadbalancername --PolicyName=policyname [OPTIONS]\n" "Creates a stickiness policy with sticky session lifetimes defined by the \n" "browser lifetime.\nThe created policy can be used with HTTP or HTTPS listeners \n" "only.\nIf this policy is implemented by a load balancer, this load balancer \n" "uses this cookie in all incoming requests to direct them to the specified \n" "backend server virtual machine (VM). If this cookie is not present, the load \n" "balancer sends the request to any other server according to its load-balancing \n" "algorithm.\n\nYou can also create a stickiness policy with sticky session \n" "lifetimes following the lifetime of an application-generated cookie.\nUnlike \n" "the other type of stickiness policy, the lifetime of the special Load Balancer \n" "Unit (LBU) cookie follows the lifetime of the application-generated cookie \n" "specified in the policy configuration. The load balancer inserts a new \n" "stickiness cookie only when the application response includes a new application \n" "cookie.\nThe session stops being sticky if the application cookie is removed or \n" "expires, until a new application cookie is issued.\nFor more information, see \n" "[About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: PolicyType LoadBalancerName PolicyName \n"
 ,
-	"Usage: oapi-cli CreateLoadBalancer --Listeners=listeners --LoadBalancerName=loadbalancername [OPTIONS]\n" "Creates a load balancer.\nThe load balancer is created with a unique Domain \n" "Name Service (DNS) name. It receives the incoming traffic and routes it to its \n" "registered virtual machines (VMs).\nBy default, this action creates an \n" "Internet-facing load balancer, resolving to public IPs. To create an internal \n" "load balancer in a Net, resolving to private IPs, use the `LoadBalancerType` \n" "parameter.\nYou must specify either the `Subnets` or the `SubregionNames` \n" "parameters.\nFor more information, see [About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: Listeners, LoadBalancerName \n"
+	"Usage: oapi-cli CreateLoadBalancer --Listeners=listeners --LoadBalancerName=loadbalancername [OPTIONS]\n" "Creates a load balancer.\nThe load balancer is created with a unique Domain \n" "Name Service (DNS) name. It receives the incoming traffic and routes it to its \n" "registered virtual machines (VMs).\nBy default, this action creates an \n" "Internet-facing load balancer, resolving to public IPs. To create an internal \n" "load balancer in a Net, resolving to private IPs, use the `LoadBalancerType` \n" "parameter.\nYou must specify either the `Subnets` or the `SubregionNames` \n" "parameters.\nFor more information, see [About Load \n" "Balancers](https://docs.outscale.com/en/userguide/About-Load-Balancers.html).\n" "\nRequired Argument: Listeners LoadBalancerName \n"
 ,
-	"Usage: oapi-cli CreateLoadBalancerTags --LoadBalancerNames=loadbalancernames --Tags=tags [OPTIONS]\n" "Adds one or more tags to the specified load balancers.\nIf a tag with the same \n" "key already exists for the load balancer, the tag value is replaced.\nFor more \n" "information, see [About \n" "Tags](https://docs.outscale.com/en/userguide/About-Tags.html).\n" "\nRequired Argument: LoadBalancerNames, Tags \n"
+	"Usage: oapi-cli CreateLoadBalancerTags --LoadBalancerNames=loadbalancernames --Tags=tags [OPTIONS]\n" "Adds one or more tags to the specified load balancers.\nIf a tag with the same \n" "key already exists for the load balancer, the tag value is replaced.\nFor more \n" "information, see [About \n" "Tags](https://docs.outscale.com/en/userguide/About-Tags.html).\n" "\nRequired Argument: LoadBalancerNames Tags \n"
 ,
-	"Usage: oapi-cli CreateNatService --PublicIpId=publicipid --SubnetId=subnetid [OPTIONS]\n" "Creates a network address translation (NAT) service in the specified public \n" "Subnet of a Net.\nA NAT service enables virtual machines (VMs) placed in the \n" "private Subnet of this Net to connect to the Internet, without being accessible \n" "from the Internet.\nWhen creating a NAT service, you specify the allocation ID \n" "of the public IP you want to use as public IP for the NAT service. Once the NAT \n" "service is created, you need to create a route in the route table of the \n" "private Subnet, with 0.0.0.0/0 as destination and the ID of the NAT service as \n" "target. For more information, see [LinkPublicIP](#linkpublicip) and \n" "[CreateRoute](#createroute).\nThis action also enables you to create multiple \n" "NAT services in the same Net (one per public Subnet).\n\n**[IMPORTANT]**\nYou \n" "cannot modify the public IP associated with a NAT service after its creation. \n" "To do so, you need to delete the NAT service and create a new one with another \n" "public IP.\nFor more information, see [About NAT \n" "Services](https://docs.outscale.com/en/userguide/About-NAT-Services.html).\n" "\nRequired Argument: PublicIpId, SubnetId \n"
+	"Usage: oapi-cli CreateNatService --PublicIpId=publicipid --SubnetId=subnetid [OPTIONS]\n" "Creates a network address translation (NAT) service in the specified public \n" "Subnet of a Net.\nA NAT service enables virtual machines (VMs) placed in the \n" "private Subnet of this Net to connect to the Internet, without being accessible \n" "from the Internet.\nWhen creating a NAT service, you specify the allocation ID \n" "of the public IP you want to use as public IP for the NAT service. Once the NAT \n" "service is created, you need to create a route in the route table of the \n" "private Subnet, with 0.0.0.0/0 as destination and the ID of the NAT service as \n" "target. For more information, see [LinkPublicIP](#linkpublicip) and \n" "[CreateRoute](#createroute).\nThis action also enables you to create multiple \n" "NAT services in the same Net (one per public Subnet).\n\n**[IMPORTANT]**\nYou \n" "cannot modify the public IP associated with a NAT service after its creation. \n" "To do so, you need to delete the NAT service and create a new one with another \n" "public IP.\nFor more information, see [About NAT \n" "Services](https://docs.outscale.com/en/userguide/About-NAT-Services.html).\n" "\nRequired Argument: PublicIpId SubnetId \n"
 ,
-	"Usage: oapi-cli CreateNetAccessPoint --ServiceName=servicename --NetId=netid [OPTIONS]\n" "Creates a Net access point to access an OUTSCALE service from this Net without \n" "using the Internet and public IPs.\nYou specify the service using its name. For \n" "more information about the available services, see \n" "[ReadNetAccessPointServices](#readnetaccesspointservices). \nTo control the \n" "routing of traffic between the Net and the specified service, you can specify \n" "one or more route tables. Virtual machines placed in Subnets associated with \n" "the specified route table thus use the Net access point to access the service. \n" "When you specify a route table, a route is automatically added to it with the \n" "destination set to the prefix list ID of the service, and the target set to the \n" "ID of the access point.\nWhen a Net access point is created, a public IP is \n" "automatically allocated to your account and used for the Net access point. This \n" "public IP is not connected to the Internet. It is counted in your quota, but it \n" "is not billed. \nFor more information, see [About Net Access \n" "Points](https://docs.outscale.com/en/userguide/About-Net-Access-Points.html).\n" "\nRequired Argument: ServiceName, NetId \n"
+	"Usage: oapi-cli CreateNetAccessPoint --ServiceName=servicename --NetId=netid [OPTIONS]\n" "Creates a Net access point to access an OUTSCALE service from this Net without \n" "using the Internet and public IPs.\nYou specify the service using its name. For \n" "more information about the available services, see \n" "[ReadNetAccessPointServices](#readnetaccesspointservices). \nTo control the \n" "routing of traffic between the Net and the specified service, you can specify \n" "one or more route tables. Virtual machines placed in Subnets associated with \n" "the specified route table thus use the Net access point to access the service. \n" "When you specify a route table, a route is automatically added to it with the \n" "destination set to the prefix list ID of the service, and the target set to the \n" "ID of the access point.\nWhen a Net access point is created, a public IP is \n" "automatically allocated to your account and used for the Net access point. This \n" "public IP is not connected to the Internet. It is counted in your quota, but it \n" "is not billed. \nFor more information, see [About Net Access \n" "Points](https://docs.outscale.com/en/userguide/About-Net-Access-Points.html).\n" "\nRequired Argument: ServiceName NetId \n"
 ,
-	"Usage: oapi-cli CreateNetPeering --AccepterNetId=accepternetid --SourceNetId=sourcenetid [OPTIONS]\n" "Requests a Net peering between a Net you own and a peer Net that belongs to you \n" "or another account.\nThis action creates a Net peering that remains in the \n" "`pending-acceptance` state until it is accepted by the owner of the peer Net. \n" "If the owner of the peer Net does not accept the request within 7 days, the \n" "state of the Net peering becomes `expired`. For more information, see \n" "[AcceptNetPeering](#acceptnetpeering).\n\n**[IMPORTANT]**\n* Peered Nets must \n" "contain at least one virtual machine (VM) each before the creation of the Net \n" "peering.\n* The two Nets must not have overlapping IP ranges. Otherwise, the \n" "Net peering is in the `failed` state.\n* A peering connection between two Nets \n" "works both ways. If an A-to-B connection is already created and accepted, \n" "creating a B-to-A connection is not necessary and would be automatically \n" "rejected.\n\nFor more information, see [About Net \n" "Peerings](https://docs.outscale.com/en/userguide/About-Net-Peerings.html).\n" "\nRequired Argument: AccepterNetId, SourceNetId \n"
+	"Usage: oapi-cli CreateNetPeering --AccepterNetId=accepternetid --SourceNetId=sourcenetid [OPTIONS]\n" "Requests a Net peering between a Net you own and a peer Net that belongs to you \n" "or another account.\nThis action creates a Net peering that remains in the \n" "`pending-acceptance` state until it is accepted by the owner of the peer Net. \n" "If the owner of the peer Net does not accept the request within 7 days, the \n" "state of the Net peering becomes `expired`. For more information, see \n" "[AcceptNetPeering](#acceptnetpeering).\n\n**[IMPORTANT]**\n* Peered Nets must \n" "contain at least one virtual machine (VM) each before the creation of the Net \n" "peering.\n* The two Nets must not have overlapping IP ranges. Otherwise, the \n" "Net peering is in the `failed` state.\n* A peering connection between two Nets \n" "works both ways. If an A-to-B connection is already created and accepted, \n" "creating a B-to-A connection is not necessary and would be automatically \n" "rejected.\n\nFor more information, see [About Net \n" "Peerings](https://docs.outscale.com/en/userguide/About-Net-Peerings.html).\n" "\nRequired Argument: AccepterNetId SourceNetId \n"
 ,
 	"Usage: oapi-cli CreateNet --IpRange=iprange [OPTIONS]\n" "Creates a Net with a specified IP range.\nThe IP range (network range) of your \n" "Net must be between a /28 netmask (16 IPs) and a /16 netmask (65536 IPs).\nFor \n" "more information, see [About \n" "Nets](https://docs.outscale.com/en/userguide/About-Nets.html).\n" "\nRequired Argument: IpRange \n"
 ,
 	"Usage: oapi-cli CreateNic --SubnetId=subnetid [OPTIONS]\n" "Creates a network interface card (NIC) in the specified Subnet.\nFor more \n" "information, see [About \n" "NICs](https://docs.outscale.com/en/userguide/About-NICs.html).\n" "\nRequired Argument: SubnetId \n"
 ,
-	"Usage: oapi-cli CreatePolicy --Document=document --PolicyName=policyname [OPTIONS]\n" "Creates a managed policy to apply to a user.\nThis action creates a policy \n" "version and sets v1 as the default one.\n" "\nRequired Argument: Document, PolicyName \n"
+	"Usage: oapi-cli CreatePolicy --Document=document --PolicyName=policyname [OPTIONS]\n" "Creates a managed policy to apply to a user.\nThis action creates a policy \n" "version and sets v1 as the default one.\n" "\nRequired Argument: Document PolicyName \n"
 ,
-	"Usage: oapi-cli CreatePolicyVersion --Document=document --PolicyOrn=policyorn [OPTIONS]\n" "Creates a version of a specified managed policy.\nA managed policy can have up \n" "to five versions.\n" "\nRequired Argument: Document, PolicyOrn \n"
+	"Usage: oapi-cli CreatePolicyVersion --Document=document --PolicyOrn=policyorn [OPTIONS]\n" "Creates a version of a specified managed policy.\nA managed policy can have up \n" "to five versions.\n" "\nRequired Argument: Document PolicyOrn \n"
 ,
 	"Usage: oapi-cli CreateProductType --Description=description [OPTIONS]\n" "Creates a product type you can associate with an OMI for consumption monitoring \n" "and billing purposes.\n" "\nRequired Argument: Description \n"
 ,
-	"Usage: oapi-cli CreatePublicIp [OPTIONS]\n" "Acquires a public IP for your account.\nA public IP is a static IP designed for \n" "dynamic Cloud computing. It can be associated with a virtual machine (VM) in \n" "the public Cloud or in a Net, a network interface card (NIC), a NAT \n" "service.\nFor more information, see [About Public \n" "IPs](https://docs.outscale.com/en/userguide/About-Public-IPs.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli CreatePublicIp [OPTIONS]\n" "Acquires a public IP for your account.\nA public IP is a static IP designed for \n" "dynamic Cloud computing. It can be associated with a virtual machine (VM) in \n" "the public Cloud or in a Net, a network interface card (NIC), a NAT \n" "service.\nFor more information, see [About Public \n" "IPs](https://docs.outscale.com/en/userguide/About-Public-IPs.html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli CreateRoute --DestinationIpRange=destinationiprange --RouteTableId=routetableid [OPTIONS]\n" "Creates a route in a specified route table within a specified Net.\nYou must \n" "specify one of the following elements as the target:\n\n* Net peering\n* NAT \n" "VM\n* Internet service\n* Virtual gateway\n* NAT service\n* Network interface \n" "card (NIC)\n\nThe routing algorithm is based on the most specific match.\nFor \n" "more information, see [About Route \n" "Tables](https://docs.outscale.com/en/userguide/About-Route-Tables.html).\n" "\nRequired Argument: DestinationIpRange, RouteTableId \n"
+	"Usage: oapi-cli CreateRoute --DestinationIpRange=destinationiprange --RouteTableId=routetableid [OPTIONS]\n" "Creates a route in a specified route table within a specified Net.\nYou must \n" "specify one of the following elements as the target:\n\n* Net peering\n* NAT \n" "VM\n* Internet service\n* Virtual gateway\n* NAT service\n* Network interface \n" "card (NIC)\n\nThe routing algorithm is based on the most specific match.\nFor \n" "more information, see [About Route \n" "Tables](https://docs.outscale.com/en/userguide/About-Route-Tables.html).\n" "\nRequired Argument: DestinationIpRange RouteTableId \n"
 ,
 	"Usage: oapi-cli CreateRouteTable --NetId=netid [OPTIONS]\n" "Creates a route table for a specified Net.\nYou can then add routes and \n" "associate this route table with a Subnet.\nFor more information, see [About \n" "Route Tables](https://docs.outscale.com/en/userguide/About-Route-Tables.html).\n" "\nRequired Argument: NetId \n"
 ,
-	"Usage: oapi-cli CreateSecurityGroup --Description=description --SecurityGroupName=securitygroupname [OPTIONS]\n" "Creates a security group.\nThis action creates a security group either in the \n" "public Cloud or in a specified Net. By default, a default security group for \n" "use in the public Cloud and a default security group for use in a Net are \n" "created.\nWhen launching a virtual machine (VM), if no security group is \n" "explicitly specified, the appropriate default security group is assigned to the \n" "VM. Default security groups include a default rule granting VMs network access \n" "to each other.\nWhen creating a security group, you specify a name. Two \n" "security groups for use in the public Cloud or for use in a Net cannot have the \n" "same name.\nYou can have up to 500 security groups in the public Cloud. You can \n" "create up to 500 security groups per Net.\nTo add or remove rules, use the \n" "[CreateSecurityGroupRule](#createsecuritygrouprule) method.\nFor more \n" "information, see [About Security \n" "Groups](https://docs.outscale.com/en/userguide/About-Security-Groups.html).\n" "\nRequired Argument: Description, SecurityGroupName \n"
+	"Usage: oapi-cli CreateSecurityGroup --Description=description --SecurityGroupName=securitygroupname [OPTIONS]\n" "Creates a security group.\nThis action creates a security group either in the \n" "public Cloud or in a specified Net. By default, a default security group for \n" "use in the public Cloud and a default security group for use in a Net are \n" "created.\nWhen launching a virtual machine (VM), if no security group is \n" "explicitly specified, the appropriate default security group is assigned to the \n" "VM. Default security groups include a default rule granting VMs network access \n" "to each other.\nWhen creating a security group, you specify a name. Two \n" "security groups for use in the public Cloud or for use in a Net cannot have the \n" "same name.\nYou can have up to 500 security groups in the public Cloud. You can \n" "create up to 500 security groups per Net.\nTo add or remove rules, use the \n" "[CreateSecurityGroupRule](#createsecuritygrouprule) method.\nFor more \n" "information, see [About Security \n" "Groups](https://docs.outscale.com/en/userguide/About-Security-Groups.html).\n" "\nRequired Argument: Description SecurityGroupName \n"
 ,
-	"Usage: oapi-cli CreateSecurityGroupRule --SecurityGroupId=securitygroupid --Flow=flow [OPTIONS]\n" "Adds one or more rules to a security group.\nUse the `SecurityGroupId` \n" "parameter to specify the security group for which you want to create a \n" "rule.\nUse the `Flow` parameter to specify if you want an inbound rule or an \n" "outbound rule.\nAn inbound rule allows the security group to receive \n" "traffic:\n* Either from a specific IP range (`IpRange` parameter) on a specific \n" "port range (`FromPortRange` and `ToPortRange` parameters) and specific protocol \n" "(`IpProtocol` parameter).\n* Or from another specific security group \n" "(`SecurityGroupAccountIdToLink` and `SecurityGroupNameToLink` \n" "parameters).\n\n(Net only) An outbound rule works similarly but allows the \n" "security group to send traffic rather than receive traffic.\n\nAlternatively, \n" "you can use the `Rules` parameter to add several rules at the same \n" "time.\n\n**[NOTE]**\n* The modifications are effective as quickly as possible, \n" "but a small delay may occur.\n* By default, traffic between two security groups \n" "is allowed through both public and private IPs. To restrict traffic to private \n" "IPs only, contact our Support team at support@outscale.com.\n\nFor more \n" "information, see [About Security Group \n" "Rules](https://docs.outscale.com/en/userguide/About-Security-Group-Rules.html).\n" "\nRequired Argument: SecurityGroupId, Flow \n"
+	"Usage: oapi-cli CreateSecurityGroupRule --SecurityGroupId=securitygroupid --Flow=flow [OPTIONS]\n" "Adds one or more rules to a security group.\nUse the `SecurityGroupId` \n" "parameter to specify the security group for which you want to create a \n" "rule.\nUse the `Flow` parameter to specify if you want an inbound rule or an \n" "outbound rule.\nAn inbound rule allows the security group to receive \n" "traffic:\n* Either from a specific IP range (`IpRange` parameter) on a specific \n" "port range (`FromPortRange` and `ToPortRange` parameters) and specific protocol \n" "(`IpProtocol` parameter).\n* Or from another specific security group \n" "(`SecurityGroupAccountIdToLink` and `SecurityGroupNameToLink` \n" "parameters).\n\n(Net only) An outbound rule works similarly but allows the \n" "security group to send traffic rather than receive traffic.\n\nAlternatively, \n" "you can use the `Rules` parameter to add several rules at the same \n" "time.\n\n**[NOTE]**\n* The modifications are effective as quickly as possible, \n" "but a small delay may occur.\n* By default, traffic between two security groups \n" "is allowed through both public and private IPs. To restrict traffic to private \n" "IPs only, contact our Support team at support@outscale.com.\n\nFor more \n" "information, see [About Security Group \n" "Rules](https://docs.outscale.com/en/userguide/About-Security-Group-Rules.html).\n" "\nRequired Argument: SecurityGroupId Flow \n"
 ,
-	"Usage: oapi-cli CreateServerCertificate --Body=body --PrivateKey=privatekey --Name=name [OPTIONS]\n" "Creates a server certificate and its matching private key.\nThese elements can \n" "be used with other services (for example, to configure SSL termination on load \n" "balancers).\nYou can also specify the chain of intermediate certification \n" "authorities if your certificate is not directly signed by a root one. You can \n" "specify multiple intermediate certification authorities in the \n" "`CertificateChain` parameter. To do so, concatenate all certificates in the \n" "correct order (the first certificate must be the authority of your certificate, \n" "the second must be the authority of the first one, and so on).\nThe private key \n" "must be a RSA key in PKCS1 form. To check this, open the PEM file and ensure \n" "its header reads as follows: BEGIN RSA PRIVATE KEY.\n[IMPORTANT]\nThis private \n" "key must not be protected by a password or a passphrase.\nFor more information, \n" "see [About Server Certificates in \n" "EIM](https://docs.outscale.com/en/userguide/About-Server-Certificates-in-EIM.htm\n" "l).\n" "\nRequired Argument: Body, PrivateKey, Name \n"
+	"Usage: oapi-cli CreateServerCertificate --Body=body --PrivateKey=privatekey --Name=name [OPTIONS]\n" "Creates a server certificate and its matching private key.\nThese elements can \n" "be used with other services (for example, to configure SSL termination on load \n" "balancers).\nYou can also specify the chain of intermediate certification \n" "authorities if your certificate is not directly signed by a root one. You can \n" "specify multiple intermediate certification authorities in the \n" "`CertificateChain` parameter. To do so, concatenate all certificates in the \n" "correct order (the first certificate must be the authority of your certificate, \n" "the second must be the authority of the first one, and so on).\nThe private key \n" "must be a RSA key in PKCS1 form. To check this, open the PEM file and ensure \n" "its header reads as follows: BEGIN RSA PRIVATE KEY.\n[IMPORTANT]\nThis private \n" "key must not be protected by a password or a passphrase.\nFor more information, \n" "see [About Server Certificates in \n" "EIM](https://docs.outscale.com/en/userguide/About-Server-Certificates-in-EIM.htm\n" "l).\n" "\nRequired Argument: Body PrivateKey Name \n"
 ,
-	"Usage: oapi-cli CreateSnapshotExportTask --OsuExport=osuexport --SnapshotId=snapshotid [OPTIONS]\n" "Exports a snapshot to an OUTSCALE Object Storage (OOS) bucket that belongs to \n" "you. This action enables you to create a backup of your snapshot.\nYou can \n" "share this snapshot with others accounts by granting permission to read it via \n" "pre-signed URLs. For more information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\nFo\n" "r more information, see [About \n" "Snapshots](https://docs.outscale.com/en/userguide/About-Snapshots.html).\n" "\nRequired Argument: OsuExport, SnapshotId \n"
+	"Usage: oapi-cli CreateSnapshotExportTask --OsuExport=osuexport --SnapshotId=snapshotid [OPTIONS]\n" "Exports a snapshot to an OUTSCALE Object Storage (OOS) bucket that belongs to \n" "you. This action enables you to create a backup of your snapshot.\nYou can \n" "share this snapshot with others accounts by granting permission to read it via \n" "pre-signed URLs. For more information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\nFo\n" "r more information, see [About \n" "Snapshots](https://docs.outscale.com/en/userguide/About-Snapshots.html).\n" "\nRequired Argument: OsuExport SnapshotId \n"
 ,
-	"Usage: oapi-cli CreateSnapshot [OPTIONS]\n" "Creates a snapshot. Snapshots are point-in-time images of a volume that you can \n" "use to back up your data or to create replicas of this volume.\nYou can use \n" "this method in three different ways:\n* **Creating from a volume**: You create \n" "a snapshot from one of your volumes.\n* **Copying a snapshot**: You copy an \n" "existing snapshot. The source snapshot can be one of your own snapshots, or a \n" "snapshot owned by another account that has granted you permission via the \n" "[UpdateSnapshot](#updatesnapshot) method.\n* **Importing from a bucket**: You \n" "import a snapshot located in an OUTSCALE Object Storage (OOS) bucket. First, \n" "the owner of the source snapshot must export it to a bucket by using the \n" "[CreateSnapshotExportTask](#createsnapshotexporttask) method. Then, they must \n" "grant you permission to read the snapshot via a pre-signed URL. For more \n" "information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\n\n\n" "**[NOTE]**\nIn case of excessive use of the snapshot creation feature on the \n" "same volume over a short period of time, 3DS OUTSCALE reserves the right to \n" "temporarily block the feature.\n\nFor more information, see [About \n" "Snapshots](https://docs.outscale.com/en/userguide/About-Snapshots.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli CreateSnapshot [OPTIONS]\n" "Creates a snapshot. Snapshots are point-in-time images of a volume that you can \n" "use to back up your data or to create replicas of this volume.\nYou can use \n" "this method in three different ways:\n* **Creating from a volume**: You create \n" "a snapshot from one of your volumes.\n* **Copying a snapshot**: You copy an \n" "existing snapshot. The source snapshot can be one of your own snapshots, or a \n" "snapshot owned by another account that has granted you permission via the \n" "[UpdateSnapshot](#updatesnapshot) method.\n* **Importing from a bucket**: You \n" "import a snapshot located in an OUTSCALE Object Storage (OOS) bucket. First, \n" "the owner of the source snapshot must export it to a bucket by using the \n" "[CreateSnapshotExportTask](#createsnapshotexporttask) method. Then, they must \n" "grant you permission to read the snapshot via a pre-signed URL. For more \n" "information, see [Creating a Pre-Signed \n" "URL](https://docs.outscale.com/en/userguide/Creating-a-Pre-Signed-URL.html).\n\n\n" "**[NOTE]**\nIn case of excessive use of the snapshot creation feature on the \n" "same volume over a short period of time, 3DS OUTSCALE reserves the right to \n" "temporarily block the feature.\n\nFor more information, see [About \n" "Snapshots](https://docs.outscale.com/en/userguide/About-Snapshots.html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli CreateSubnet --IpRange=iprange --NetId=netid [OPTIONS]\n" "Creates a Subnet in an existing Net.\nTo create a Subnet in a Net, you have to \n" "provide the ID of the Net and the IP range for the Subnet (its network range). \n" "Once the Subnet is created, you cannot modify its IP range.\nFor more \n" "information, see [About \n" "Nets](https://docs.outscale.com/en/userguide/About-Nets.html).\n" "\nRequired Argument: IpRange, NetId \n"
+	"Usage: oapi-cli CreateSubnet --IpRange=iprange --NetId=netid [OPTIONS]\n" "Creates a Subnet in an existing Net.\nTo create a Subnet in a Net, you have to \n" "provide the ID of the Net and the IP range for the Subnet (its network range). \n" "Once the Subnet is created, you cannot modify its IP range.\nFor more \n" "information, see [About \n" "Nets](https://docs.outscale.com/en/userguide/About-Nets.html).\n" "\nRequired Argument: IpRange NetId \n"
 ,
-	"Usage: oapi-cli CreateTags --ResourceIds=resourceids --Tags=tags [OPTIONS]\n" "Adds one or more tags to the specified resources.\nIf a tag with the same key \n" "already exists for the resource, the tag value is replaced.\nYou can tag the \n" "following resources using their IDs:\n\n* Virtual machines (VMs) \n" "(i-xxxxxxxx)\n* OMIs (ami-xxxxxxxx)\n* Volumes (vol-xxxxxxxx)\n* Snapshots \n" "(snap-xxxxxxxx)\n* Public IPs (eipalloc-xxxxxxxx)\n* Security groups \n" "(sg-xxxxxxxx)\n* Route tables (rtb-xxxxxxxx)\n* Network interface cards (NIC) \n" "(eni-xxxxxxxx)\n* Nets (vpc-xxxxxxxx)\n* Subnets (subnet-xxxxxxxx)\n* Net \n" "peerings (vpcx-xxxxxxxx)\n* Net endpoints (vpce-xxxxxxxx)\n* NAT services \n" "(nat-xxxxxxxx)\n* Internet services (igw-xxxxxxxx)\n* Client gateways \n" "(cgw-xxxxxxxx)\n* Virtual gateways (vgw-xxxxxxxx)\n* VPN connections \n" "(vpn-xxxxxxxx)\n* DHCP options (dopt-xxxxxxxx)\n* OMI export tasks \n" "(image-export-xxxxxxxx)\n* Snapshot export tasks (snap-export-xxxxxxxx)\n\nFor \n" "more information, see [About \n" "Tags](https://docs.outscale.com/en/userguide/About-Tags.html).\n" "\nRequired Argument: ResourceIds, Tags \n"
+	"Usage: oapi-cli CreateTags --ResourceIds=resourceids --Tags=tags [OPTIONS]\n" "Adds one or more tags to the specified resources.\nIf a tag with the same key \n" "already exists for the resource, the tag value is replaced.\nYou can tag the \n" "following resources using their IDs:\n\n* Virtual machines (VMs) \n" "(i-xxxxxxxx)\n* OMIs (ami-xxxxxxxx)\n* Volumes (vol-xxxxxxxx)\n* Snapshots \n" "(snap-xxxxxxxx)\n* Public IPs (eipalloc-xxxxxxxx)\n* Security groups \n" "(sg-xxxxxxxx)\n* Route tables (rtb-xxxxxxxx)\n* Network interface cards (NIC) \n" "(eni-xxxxxxxx)\n* Nets (vpc-xxxxxxxx)\n* Subnets (subnet-xxxxxxxx)\n* Net \n" "peerings (vpcx-xxxxxxxx)\n* Net endpoints (vpce-xxxxxxxx)\n* NAT services \n" "(nat-xxxxxxxx)\n* Internet services (igw-xxxxxxxx)\n* Client gateways \n" "(cgw-xxxxxxxx)\n* Virtual gateways (vgw-xxxxxxxx)\n* VPN connections \n" "(vpn-xxxxxxxx)\n* DHCP options (dopt-xxxxxxxx)\n* OMI export tasks \n" "(image-export-xxxxxxxx)\n* Snapshot export tasks (snap-export-xxxxxxxx)\n\nFor \n" "more information, see [About \n" "Tags](https://docs.outscale.com/en/userguide/About-Tags.html).\n" "\nRequired Argument: ResourceIds Tags \n"
 ,
 	"Usage: oapi-cli CreateUserGroup --UserGroupName=usergroupname [OPTIONS]\n" "Creates a group to which you can add users.\nYou can also add an inline policy \n" "or link a managed policy to the group, which is applied to all its users.\n" "\nRequired Argument: UserGroupName \n"
 ,
@@ -392,17 +392,17 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli CreateVirtualGateway --ConnectionType=connectiontype [OPTIONS]\n" "Creates a virtual gateway.\nA virtual gateway is the access point on the Net \n" "side of a VPN connection.\nFor more information, see [About Virtual \n" "Gateways](https://docs.outscale.com/en/userguide/About-Virtual-Gateways.html).\n" "\nRequired Argument: ConnectionType \n"
 ,
-	"Usage: oapi-cli CreateVmGroup --SecurityGroupIds=securitygroupids --SubnetId=subnetid --VmGroupName=vmgroupname --VmTemplateId=vmtemplateid --VmCount=vmcount [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nCreates a group of virtual machines (VMs) containing the same \n" "characteristics as a specified VM template, and then launches them.\nYou can \n" "create up to 100 VM groups in your account.\n" "\nRequired Argument: SecurityGroupIds, SubnetId, VmGroupName, VmTemplateId, VmCount \n"
+	"Usage: oapi-cli CreateVmGroup --SecurityGroupIds=securitygroupids --SubnetId=subnetid --VmGroupName=vmgroupname --VmTemplateId=vmtemplateid --VmCount=vmcount [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nCreates a group of virtual machines (VMs) containing the same \n" "characteristics as a specified VM template, and then launches them.\nYou can \n" "create up to 100 VM groups in your account.\n" "\nRequired Argument: SecurityGroupIds SubnetId VmGroupName VmTemplateId VmCount \n"
 ,
-	"Usage: oapi-cli CreateVmTemplate --CpuCores=cpucores --CpuGeneration=cpugeneration --ImageId=imageid --Ram=ram --VmTemplateName=vmtemplatename [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nCreates a virtual machine (VM) template. You can then use the VM \n" "template to create VM groups.\nYou can create up to 50 VM templates in your \n" "account.\n" "\nRequired Argument: CpuCores, CpuGeneration, ImageId, Ram, VmTemplateName \n"
+	"Usage: oapi-cli CreateVmTemplate --CpuCores=cpucores --CpuGeneration=cpugeneration --ImageId=imageid --Ram=ram --VmTemplateName=vmtemplatename [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nCreates a virtual machine (VM) template. You can then use the VM \n" "template to create VM groups.\nYou can create up to 50 VM templates in your \n" "account.\n" "\nRequired Argument: CpuCores CpuGeneration ImageId Ram VmTemplateName \n"
 ,
 	"Usage: oapi-cli CreateVms --ImageId=imageid [OPTIONS]\n" "Creates virtual machines (VMs), and then launches them.\nThis action enables \n" "you to create a specified number of VMs using an OUTSCALE machine image (OMI) \n" "that you are allowed to use, and then to automatically launch them.\nThe VMs \n" "remain in the `pending` state until they are created and ready to be used. Once \n" "automatically launched, they are in the `running` state.\nTo check the state of \n" "your VMs, call the [ReadVms](#readvms) method.\nIf not specified, the security \n" "group used by the service is the default one.\nThe metadata server enables you \n" "to get the public key provided when the VM is launched. Official OMIs contain a \n" "script to get this public key and put it inside the VM to provide secure access \n" "without password.\nFor more information, see [About \n" "VMs](https://docs.outscale.com/en/userguide/About-VMs.html).\n" "\nRequired Argument: ImageId \n"
 ,
 	"Usage: oapi-cli CreateVolume --SubregionName=subregionname [OPTIONS]\n" "Creates a Block Storage Unit (BSU) volume in a specified Region.\nBSU volumes \n" "can be attached to a virtual machine (VM) in the same Subregion. You can create \n" "an empty volume or restore a volume from an existing snapshot.\nYou can create \n" "the following volume types: Enterprise (`io1`) for provisioned IOPS SSD \n" "volumes, Performance (`gp2`) for general purpose SSD volumes, or Magnetic \n" "(`standard`) volumes.\nFor more information, see [About \n" "Volumes](https://docs.outscale.com/en/userguide/About-Volumes.html).\n" "\nRequired Argument: SubregionName \n"
 ,
-	"Usage: oapi-cli CreateVpnConnection --ClientGatewayId=clientgatewayid --ConnectionType=connectiontype --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Creates a VPN connection between a specified virtual gateway and a specified \n" "client gateway.\nYou can create only one VPN connection between a virtual \n" "gateway and a client gateway.\n\n**[IMPORTANT]**\nThis action can be done only \n" "if the virtual gateway is in the `available` state.\nFor more information, see \n" "[About VPN \n" "Connections](https://docs.outscale.com/en/userguide/About-VPN-Connections.html).\n" "\nRequired Argument: ClientGatewayId, ConnectionType, VirtualGatewayId \n"
+	"Usage: oapi-cli CreateVpnConnection --ClientGatewayId=clientgatewayid --ConnectionType=connectiontype --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Creates a VPN connection between a specified virtual gateway and a specified \n" "client gateway.\nYou can create only one VPN connection between a virtual \n" "gateway and a client gateway.\n\n**[IMPORTANT]**\nThis action can be done only \n" "if the virtual gateway is in the `available` state.\nFor more information, see \n" "[About VPN \n" "Connections](https://docs.outscale.com/en/userguide/About-VPN-Connections.html).\n" "\nRequired Argument: ClientGatewayId ConnectionType VirtualGatewayId \n"
 ,
-	"Usage: oapi-cli CreateVpnConnectionRoute --DestinationIpRange=destinationiprange --VpnConnectionId=vpnconnectionid [OPTIONS]\n" "Creates a static route to a VPN connection.\nThis enables you to select the \n" "network flows sent by the virtual gateway to the target VPN connection.\nFor \n" "more information, see [About Routing Configuration for VPN \n" "Connections](https://docs.outscale.com/en/userguide/About-Routing-Configuration-\n" "for-VPN-Connections.html).\n" "\nRequired Argument: DestinationIpRange, VpnConnectionId \n"
+	"Usage: oapi-cli CreateVpnConnectionRoute --DestinationIpRange=destinationiprange --VpnConnectionId=vpnconnectionid [OPTIONS]\n" "Creates a static route to a VPN connection.\nThis enables you to select the \n" "network flows sent by the virtual gateway to the target VPN connection.\nFor \n" "more information, see [About Routing Configuration for VPN \n" "Connections](https://docs.outscale.com/en/userguide/About-Routing-Configuration-\n" "for-VPN-Connections.html).\n" "\nRequired Argument: DestinationIpRange VpnConnectionId \n"
 ,
 	"Usage: oapi-cli DeleteAccessKey --AccessKeyId=accesskeyid [OPTIONS]\n" "Deletes the specified access key of either your root account or an EIM \n" "user.\nThe access key of an EIM user must be in the `INACTIVE` state to be \n" "deleted.\n" "\nRequired Argument: AccessKeyId \n"
 ,
@@ -432,13 +432,13 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeleteListenerRule --ListenerRuleName=listenerrulename [OPTIONS]\n" "Deletes a listener rule.\nThe previously active rule is disabled after deletion.\n" "\nRequired Argument: ListenerRuleName \n"
 ,
-	"Usage: oapi-cli DeleteLoadBalancerListeners --LoadBalancerName=loadbalancername --LoadBalancerPorts=loadbalancerports [OPTIONS]\n" "Deletes listeners of a specified load balancer.\n" "\nRequired Argument: LoadBalancerName, LoadBalancerPorts \n"
+	"Usage: oapi-cli DeleteLoadBalancerListeners --LoadBalancerName=loadbalancername --LoadBalancerPorts=loadbalancerports [OPTIONS]\n" "Deletes listeners of a specified load balancer.\n" "\nRequired Argument: LoadBalancerName LoadBalancerPorts \n"
 ,
-	"Usage: oapi-cli DeleteLoadBalancerPolicy --LoadBalancerName=loadbalancername --PolicyName=policyname [OPTIONS]\n" "Deletes a specified policy from a load balancer.\nIn order to be deleted, the \n" "policy must not be enabled for any listener.\n" "\nRequired Argument: LoadBalancerName, PolicyName \n"
+	"Usage: oapi-cli DeleteLoadBalancerPolicy --LoadBalancerName=loadbalancername --PolicyName=policyname [OPTIONS]\n" "Deletes a specified policy from a load balancer.\nIn order to be deleted, the \n" "policy must not be enabled for any listener.\n" "\nRequired Argument: LoadBalancerName PolicyName \n"
 ,
 	"Usage: oapi-cli DeleteLoadBalancer --LoadBalancerName=loadbalancername [OPTIONS]\n" "Deletes a specified load balancer.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Usage: oapi-cli DeleteLoadBalancerTags --LoadBalancerNames=loadbalancernames --Tags=tags [OPTIONS]\n" "Deletes one or more tags from the specified load balancers.\n" "\nRequired Argument: LoadBalancerNames, Tags \n"
+	"Usage: oapi-cli DeleteLoadBalancerTags --LoadBalancerNames=loadbalancernames --Tags=tags [OPTIONS]\n" "Deletes one or more tags from the specified load balancers.\n" "\nRequired Argument: LoadBalancerNames Tags \n"
 ,
 	"Usage: oapi-cli DeleteNatService --NatServiceId=natserviceid [OPTIONS]\n" "Deletes a specified network address translation (NAT) service.\nThis action \n" "disassociates the public IP from the NAT service, but does not release this \n" "public IP from your account. However, it does not delete any NAT service routes \n" "in your route tables.\n" "\nRequired Argument: NatServiceId \n"
 ,
@@ -452,17 +452,17 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeletePolicy --PolicyOrn=policyorn [OPTIONS]\n" "Deletes a managed policy.\nBefore deleting a managed policy, you must unlink \n" "all users linked to it and delete all the versions of the policy using the \n" "`DeletePolicyVersion` method.\n" "\nRequired Argument: PolicyOrn \n"
 ,
-	"Usage: oapi-cli DeletePolicyVersion --PolicyOrn=policyorn --VersionId=versionid [OPTIONS]\n" "Deletes a specified version of a managed policy, if it is not set as the \n" "default one.\n" "\nRequired Argument: PolicyOrn, VersionId \n"
+	"Usage: oapi-cli DeletePolicyVersion --PolicyOrn=policyorn --VersionId=versionid [OPTIONS]\n" "Deletes a specified version of a managed policy, if it is not set as the \n" "default one.\n" "\nRequired Argument: PolicyOrn VersionId \n"
 ,
-	"Usage: oapi-cli DeletePublicIp [OPTIONS]\n" "Releases a public IP.\nYou can release a public IP associated with your \n" "account. This address is released in the public IP pool and can be used by \n" "someone else. Before releasing a public IP, ensure you updated all your \n" "resources communicating with this address.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli DeletePublicIp [OPTIONS]\n" "Releases a public IP.\nYou can release a public IP associated with your \n" "account. This address is released in the public IP pool and can be used by \n" "someone else. Before releasing a public IP, ensure you updated all your \n" "resources communicating with this address.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli DeleteRoute --RouteTableId=routetableid --DestinationIpRange=destinationiprange [OPTIONS]\n" "Deletes a route from a specified route table.\n" "\nRequired Argument: RouteTableId, DestinationIpRange \n"
+	"Usage: oapi-cli DeleteRoute --RouteTableId=routetableid --DestinationIpRange=destinationiprange [OPTIONS]\n" "Deletes a route from a specified route table.\n" "\nRequired Argument: RouteTableId DestinationIpRange \n"
 ,
 	"Usage: oapi-cli DeleteRouteTable --RouteTableId=routetableid [OPTIONS]\n" "Deletes a specified route table.\nBefore deleting a route table, you must \n" "disassociate it from any Subnet. You cannot delete the main route table.\n" "\nRequired Argument: RouteTableId \n"
 ,
-	"Usage: oapi-cli DeleteSecurityGroup [OPTIONS]\n" "Deletes a specified security group.\nYou can specify either the name of the \n" "security group or its ID.\nThis action fails if the specified group is \n" "associated with a virtual machine (VM) or referenced by another security group.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli DeleteSecurityGroup [OPTIONS]\n" "Deletes a specified security group.\nYou can specify either the name of the \n" "security group or its ID.\nThis action fails if the specified group is \n" "associated with a virtual machine (VM) or referenced by another security group.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli DeleteSecurityGroupRule --SecurityGroupId=securitygroupid --Flow=flow [OPTIONS]\n" "Deletes one or more inbound or outbound rules from a security group. For the \n" "rule to be deleted, the values specified in the deletion request must exactly \n" "match the value of the existing rule.\nIn case of TCP and UDP protocols, you \n" "have to indicate the destination port or range of ports. In case of ICMP \n" "protocol, you have to specify the ICMP type and code numbers.\nRules (IP \n" "permissions) consist of the protocol, IP range or source security group.\nTo \n" "remove outbound access to a destination security group, we recommend to use a \n" "set of IP permissions. We also recommend to specify the protocol in a set of IP \n" "permissions.\n" "\nRequired Argument: SecurityGroupId, Flow \n"
+	"Usage: oapi-cli DeleteSecurityGroupRule --SecurityGroupId=securitygroupid --Flow=flow [OPTIONS]\n" "Deletes one or more inbound or outbound rules from a security group. For the \n" "rule to be deleted, the values specified in the deletion request must exactly \n" "match the value of the existing rule.\nIn case of TCP and UDP protocols, you \n" "have to indicate the destination port or range of ports. In case of ICMP \n" "protocol, you have to specify the ICMP type and code numbers.\nRules (IP \n" "permissions) consist of the protocol, IP range or source security group.\nTo \n" "remove outbound access to a destination security group, we recommend to use a \n" "set of IP permissions. We also recommend to specify the protocol in a set of IP \n" "permissions.\n" "\nRequired Argument: SecurityGroupId Flow \n"
 ,
 	"Usage: oapi-cli DeleteServerCertificate --Name=name [OPTIONS]\n" "Deletes a specified server certificate.\n" "\nRequired Argument: Name \n"
 ,
@@ -470,9 +470,9 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeleteSubnet --SubnetId=subnetid [OPTIONS]\n" "Deletes a specified Subnet.\nBefore deleting the Subnet, you need to delete all \n" "resources associated with the Subnet:\n\n* Virtual machines (VMs)\n* Network \n" "Interface Cards (NICs)\n* NAT services\n* Load balancers\n" "\nRequired Argument: SubnetId \n"
 ,
-	"Usage: oapi-cli DeleteTags --ResourceIds=resourceids --Tags=tags [OPTIONS]\n" "Deletes one or more tags from the specified resources.\n" "\nRequired Argument: ResourceIds, Tags \n"
+	"Usage: oapi-cli DeleteTags --ResourceIds=resourceids --Tags=tags [OPTIONS]\n" "Deletes one or more tags from the specified resources.\n" "\nRequired Argument: ResourceIds Tags \n"
 ,
-	"Usage: oapi-cli DeleteUserGroupPolicy --UserGroupName=usergroupname --PolicyName=policyname [OPTIONS]\n" "Deletes a specified inline policy from a specific group.\n" "\nRequired Argument: UserGroupName, PolicyName \n"
+	"Usage: oapi-cli DeleteUserGroupPolicy --UserGroupName=usergroupname --PolicyName=policyname [OPTIONS]\n" "Deletes a specified inline policy from a specific group.\n" "\nRequired Argument: UserGroupName PolicyName \n"
 ,
 	"Usage: oapi-cli DeleteUserGroup --UserGroupName=usergroupname [OPTIONS]\n" "Deletes a specified user group.\n\n**[WARNING]**\nThe user group must be empty \n" "of any user and must not have any linked policy. Otherwise, you need to force \n" "the deletion.\nIf you force the deletion, all inline policies will be deleted \n" "with the user group.\n" "\nRequired Argument: UserGroupName \n"
 ,
@@ -490,187 +490,187 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli DeleteVpnConnection --VpnConnectionId=vpnconnectionid [OPTIONS]\n" "Deletes a specified VPN connection.\nIf you want to delete a Net and all its \n" "dependencies, we recommend to detach the virtual gateway from the Net and \n" "delete the Net before deleting the VPN connection. This enables you to delete \n" "the Net without waiting for the VPN connection to be deleted.\n" "\nRequired Argument: VpnConnectionId \n"
 ,
-	"Usage: oapi-cli DeleteVpnConnectionRoute --DestinationIpRange=destinationiprange --VpnConnectionId=vpnconnectionid [OPTIONS]\n" "Deletes a static route to a VPN connection previously created using the \n" "CreateVpnConnectionRoute method.\n" "\nRequired Argument: DestinationIpRange, VpnConnectionId \n"
+	"Usage: oapi-cli DeleteVpnConnectionRoute --DestinationIpRange=destinationiprange --VpnConnectionId=vpnconnectionid [OPTIONS]\n" "Deletes a static route to a VPN connection previously created using the \n" "CreateVpnConnectionRoute method.\n" "\nRequired Argument: DestinationIpRange VpnConnectionId \n"
 ,
-	"Usage: oapi-cli DeregisterVmsInLoadBalancer --BackendVmIds=backendvmids --LoadBalancerName=loadbalancername [OPTIONS]\n" "Deregisters a specified virtual machine (VM) from a load balancer.\n" "\nRequired Argument: BackendVmIds, LoadBalancerName \n"
+	"Usage: oapi-cli DeregisterVmsInLoadBalancer --BackendVmIds=backendvmids --LoadBalancerName=loadbalancername [OPTIONS]\n" "Deregisters a specified virtual machine (VM) from a load balancer.\n" "\nRequired Argument: BackendVmIds LoadBalancerName \n"
 ,
-	"Usage: oapi-cli LinkFlexibleGpu --FlexibleGpuId=flexiblegpuid --VmId=vmid [OPTIONS]\n" "Attaches one of your allocated flexible GPUs (fGPUs) to one of your virtual \n" "machines (VMs).\nTo complete the linking of the fGPU, you need to do a \n" "stop/start of the VM. A simple restart is not sufficient, as the linking of the \n" "fGPU is done when the VM goes through the `stopped` state. For the difference \n" "between stop/start and restart, see [About VM \n" "Lifecycle](https://docs.outscale.com/en/userguide/About-VM-Lifecycle.html).\n\n*\n" "*[NOTE]**\nYou can attach fGPUs only to VMs with the `highest` (1) performance \n" "flag. For more information see [About Flexible \n" "GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html) and [VM \n" "Types](https://docs.outscale.com/en/userguide/VM-Types.html).\n" "\nRequired Argument: FlexibleGpuId, VmId \n"
+	"Usage: oapi-cli LinkFlexibleGpu --FlexibleGpuId=flexiblegpuid --VmId=vmid [OPTIONS]\n" "Attaches one of your allocated flexible GPUs (fGPUs) to one of your virtual \n" "machines (VMs).\nTo complete the linking of the fGPU, you need to do a \n" "stop/start of the VM. A simple restart is not sufficient, as the linking of the \n" "fGPU is done when the VM goes through the `stopped` state. For the difference \n" "between stop/start and restart, see [About VM \n" "Lifecycle](https://docs.outscale.com/en/userguide/About-VM-Lifecycle.html).\n\n*\n" "*[NOTE]**\nYou can attach fGPUs only to VMs with the `highest` (1) performance \n" "flag. For more information see [About Flexible \n" "GPUs](https://docs.outscale.com/en/userguide/About-Flexible-GPUs.html) and [VM \n" "Types](https://docs.outscale.com/en/userguide/VM-Types.html).\n" "\nRequired Argument: FlexibleGpuId VmId \n"
 ,
-	"Usage: oapi-cli LinkInternetService --InternetServiceId=internetserviceid --NetId=netid [OPTIONS]\n" "Attaches an Internet service to a Net.\nTo enable the connection between the \n" "Internet and a Net, you must attach an Internet service to this Net.\n" "\nRequired Argument: InternetServiceId, NetId \n"
+	"Usage: oapi-cli LinkInternetService --InternetServiceId=internetserviceid --NetId=netid [OPTIONS]\n" "Attaches an Internet service to a Net.\nTo enable the connection between the \n" "Internet and a Net, you must attach an Internet service to this Net.\n" "\nRequired Argument: InternetServiceId NetId \n"
 ,
 	"Usage: oapi-cli LinkLoadBalancerBackendMachines --LoadBalancerName=loadbalancername [OPTIONS]\n" "Attaches one or more virtual machines (VMs) to a specified load balancer. You \n" "need to specify at least the `BackendIps` or the `BackendVmIds` parameter.\nThe \n" "VMs can be in different Subnets and different Subregions than the load \n" "balancer, as long as the VMs and load balancers are all in the public Cloud or \n" "all in the same Net. It may take a little time for a VM to be registered with \n" "the load balancer. Once the VM is registered with a load balancer, it receives \n" "traffic and requests from this load balancer and is called a backend VM.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Usage: oapi-cli LinkManagedPolicyToUserGroup --PolicyOrn=policyorn --UserGroupName=usergroupname [OPTIONS]\n" "Links a managed policy to a specific group. This policy applies to all the \n" "users contained in this group.\n" "\nRequired Argument: PolicyOrn, UserGroupName \n"
+	"Usage: oapi-cli LinkManagedPolicyToUserGroup --PolicyOrn=policyorn --UserGroupName=usergroupname [OPTIONS]\n" "Links a managed policy to a specific group. This policy applies to all the \n" "users contained in this group.\n" "\nRequired Argument: PolicyOrn UserGroupName \n"
 ,
-	"Usage: oapi-cli LinkNic --DeviceNumber=devicenumber --VmId=vmid --NicId=nicid [OPTIONS]\n" "Attaches a network interface card (NIC) to a virtual machine (VM).\nThe \n" "interface and the VM must be in the same Subregion. The VM can be either \n" "`running` or `stopped`. The NIC must be in the `available` state. For more \n" "information, see [Attaching a NIC to a \n" "VM](https://docs.outscale.com/en/userguide/Attaching-a-NIC-to-a-VM.html).\n" "\nRequired Argument: DeviceNumber, VmId, NicId \n"
+	"Usage: oapi-cli LinkNic --DeviceNumber=devicenumber --VmId=vmid --NicId=nicid [OPTIONS]\n" "Attaches a network interface card (NIC) to a virtual machine (VM).\nThe \n" "interface and the VM must be in the same Subregion. The VM can be either \n" "`running` or `stopped`. The NIC must be in the `available` state. For more \n" "information, see [Attaching a NIC to a \n" "VM](https://docs.outscale.com/en/userguide/Attaching-a-NIC-to-a-VM.html).\n" "\nRequired Argument: DeviceNumber VmId NicId \n"
 ,
-	"Usage: oapi-cli LinkPolicy --PolicyOrn=policyorn --UserName=username [OPTIONS]\n" "Links a managed policy to a specific user.\n" "\nRequired Argument: PolicyOrn, UserName \n"
+	"Usage: oapi-cli LinkPolicy --PolicyOrn=policyorn --UserName=username [OPTIONS]\n" "Links a managed policy to a specific user.\n" "\nRequired Argument: PolicyOrn UserName \n"
 ,
 	"Usage: oapi-cli LinkPrivateIps --NicId=nicid [OPTIONS]\n" "Assigns one or more secondary private IPs to a specified network interface card \n" "(NIC). This action is only available in a Net. The private IPs to be assigned \n" "can be added individually using the `PrivateIps` parameter, or you can specify \n" "the number of private IPs to be automatically chosen within the Subnet range \n" "using the `SecondaryPrivateIpCount` parameter. You can specify only one of \n" "these two parameters. If none of these parameters are specified, a private IP \n" "is chosen within the Subnet range.\n" "\nRequired Argument: NicId \n"
 ,
-	"Usage: oapi-cli LinkPublicIp [OPTIONS]\n" "Associates a public IP with a virtual machine (VM) or a network interface card \n" "(NIC), in the public Cloud or in a Net. You can associate a public IP with only \n" "one VM or network interface at a time.\nTo associate a public IP in a Net, \n" "ensure that the Net has an Internet service attached. For more information, see \n" "the [LinkInternetService](#linkinternetservice) method.\nBy default, the public \n" "IP is disassociated every time you stop and start the VM. For a persistent \n" "association, you can add the `osc.fcu.eip.auto-attach` tag to the VM with the \n" "public IP as value. For more information, see the [CreateTags](#createtags) \n" "method.\n\n**[IMPORTANT]**\nYou can associate a public IP with a network \n" "address translation (NAT) service only when creating the NAT service. To modify \n" "its public IP, you need to delete the NAT service and re-create it with the new \n" "public IP. For more information, see the [CreateNatService](#createnatservice) \n" "method.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli LinkPublicIp [OPTIONS]\n" "Associates a public IP with a virtual machine (VM) or a network interface card \n" "(NIC), in the public Cloud or in a Net. You can associate a public IP with only \n" "one VM or network interface at a time.\nTo associate a public IP in a Net, \n" "ensure that the Net has an Internet service attached. For more information, see \n" "the [LinkInternetService](#linkinternetservice) method.\nBy default, the public \n" "IP is disassociated every time you stop and start the VM. For a persistent \n" "association, you can add the `osc.fcu.eip.auto-attach` tag to the VM with the \n" "public IP as value. For more information, see the [CreateTags](#createtags) \n" "method.\n\n**[IMPORTANT]**\nYou can associate a public IP with a network \n" "address translation (NAT) service only when creating the NAT service. To modify \n" "its public IP, you need to delete the NAT service and re-create it with the new \n" "public IP. For more information, see the [CreateNatService](#createnatservice) \n" "method.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli LinkRouteTable --RouteTableId=routetableid --SubnetId=subnetid [OPTIONS]\n" "Associates a Subnet with a route table.\nThe Subnet and the route table must be \n" "in the same Net. The traffic is routed according to the route table defined \n" "within this Net. You can associate a route table with several Subnets.\n" "\nRequired Argument: RouteTableId, SubnetId \n"
+	"Usage: oapi-cli LinkRouteTable --RouteTableId=routetableid --SubnetId=subnetid [OPTIONS]\n" "Associates a Subnet with a route table.\nThe Subnet and the route table must be \n" "in the same Net. The traffic is routed according to the route table defined \n" "within this Net. You can associate a route table with several Subnets.\n" "\nRequired Argument: RouteTableId SubnetId \n"
 ,
-	"Usage: oapi-cli LinkVirtualGateway --NetId=netid --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Attaches a virtual gateway to a Net.\n\n**[IMPORTANT]**\nThis action can be \n" "done only if the virtual gateway is in the `available` state.\n" "\nRequired Argument: NetId, VirtualGatewayId \n"
+	"Usage: oapi-cli LinkVirtualGateway --NetId=netid --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Attaches a virtual gateway to a Net.\n\n**[IMPORTANT]**\nThis action can be \n" "done only if the virtual gateway is in the `available` state.\n" "\nRequired Argument: NetId VirtualGatewayId \n"
 ,
-	"Usage: oapi-cli LinkVolume --DeviceName=devicename --VmId=vmid --VolumeId=volumeid [OPTIONS]\n" "Attaches a Block Storage Unit (BSU) volume to a virtual machine (VM).\nThe \n" "volume and the VM must be in the same Subregion. The VM can be running or \n" "stopped. The volume is attached to the specified VM device.\n" "\nRequired Argument: DeviceName, VmId, VolumeId \n"
+	"Usage: oapi-cli LinkVolume --DeviceName=devicename --VmId=vmid --VolumeId=volumeid [OPTIONS]\n" "Attaches a Block Storage Unit (BSU) volume to a virtual machine (VM).\nThe \n" "volume and the VM must be in the same Subregion. The VM can be running or \n" "stopped. The volume is attached to the specified VM device.\n" "\nRequired Argument: DeviceName VmId VolumeId \n"
 ,
-	"Usage: oapi-cli PutUserGroupPolicy --PolicyName=policyname --PolicyDocument=policydocument --UserGroupName=usergroupname [OPTIONS]\n" "Creates or updates an inline policy included in a specified group.\nThe policy \n" "is automatically applied to all the users of the group after its creation.\n" "\nRequired Argument: PolicyName, PolicyDocument, UserGroupName \n"
+	"Usage: oapi-cli PutUserGroupPolicy --PolicyName=policyname --PolicyDocument=policydocument --UserGroupName=usergroupname [OPTIONS]\n" "Creates or updates an inline policy included in a specified group.\nThe policy \n" "is automatically applied to all the users of the group after its creation.\n" "\nRequired Argument: PolicyName PolicyDocument UserGroupName \n"
 ,
-	"Usage: oapi-cli ReadAccessKeys [OPTIONS]\n" "Lists the access key IDs of either your root account or an EIM user.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadAccessKeys [OPTIONS]\n" "Lists the access key IDs of either your root account or an EIM user.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadAccounts [OPTIONS]\n" "Gets information about the account that sent the request.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadAccounts [OPTIONS]\n" "Gets information about the account that sent the request.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadAdminPassword --VmId=vmid [OPTIONS]\n" "Gets the administrator password for a Windows running virtual machine \n" "(VM).\nThe administrator password is encrypted using the keypair you specified \n" "when launching the VM.\n\n**[IMPORTANT]**\n* Only RSA keypairs can decrypt the \n" "password of a Windows VM.\n* The administrator password is generated only on \n" "the first boot of the Windows VM. It is not returned after the first boot.\n" "\nRequired Argument: VmId \n"
 ,
-	"Usage: oapi-cli ReadApiAccessPolicy [OPTIONS]\n" "Gets information about the API access policy of your account.\nFor more \n" "information, see [About Your API Access \n" "Policy](https://docs.outscale.com/en/userguide/About-Your-API-Access-Policy.html\n" ").\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadApiAccessPolicy [OPTIONS]\n" "Gets information about the API access policy of your account.\nFor more \n" "information, see [About Your API Access \n" "Policy](https://docs.outscale.com/en/userguide/About-Your-API-Access-Policy.html\n" ").\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadApiAccessRules [OPTIONS]\n" "Lists one or more API access rules.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadApiAccessRules [OPTIONS]\n" "Lists one or more API access rules.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadApiLogs [OPTIONS]\n" "Lists the logs of the API calls you have performed with this \n" "account.\n\n**[IMPORTANT]**\nPast logs are accessible for up to 32 days.\nBy \n" "default, the retrieved interval is 48 hours. If neither of the \n" "`QueryDateBefore` nor `QueryDateAfter` parameters are specified, logs from the \n" "past 48 hours are retrieved. If you only specify one of two, logs are retrieved \n" "from a 2-day interval based on the date you provided. To retrieve logs beyond a \n" "2-day interval, specify both parameters.\nFor more information, see [About \n" "OMS](https://docs.outscale.com/en/userguide/About-OMS.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadApiLogs [OPTIONS]\n" "Lists the logs of the API calls you have performed with this \n" "account.\n\n**[IMPORTANT]**\nPast logs are accessible for up to 32 days.\nBy \n" "default, the retrieved interval is 48 hours. If neither of the \n" "`QueryDateBefore` nor `QueryDateAfter` parameters are specified, logs from the \n" "past 48 hours are retrieved. If you only specify one of two, logs are retrieved \n" "from a 2-day interval based on the date you provided. To retrieve logs beyond a \n" "2-day interval, specify both parameters.\nFor more information, see [About \n" "OMS](https://docs.outscale.com/en/userguide/About-OMS.html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadCas [OPTIONS]\n" "Gets information about one or more of your Client Certificate Authorities (CAs).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadCas [OPTIONS]\n" "Gets information about one or more of your Client Certificate Authorities (CAs).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadCatalog [OPTIONS]\n" "Returns the price list of OUTSCALE services for the current Region.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadCatalog [OPTIONS]\n" "Returns the price list of OUTSCALE services for the current Region.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadCatalogs [OPTIONS]\n" "Returns the price list of OUTSCALE services for the current Region within a \n" "specific time period.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadCatalogs [OPTIONS]\n" "Returns the price list of OUTSCALE services for the current Region within a \n" "specific time period.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadClientGateways [OPTIONS]\n" "Lists one or more of your client gateways.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadClientGateways [OPTIONS]\n" "Lists one or more of your client gateways.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadConsoleOutput --VmId=vmid [OPTIONS]\n" "Gets the console output for a virtual machine (VM). This console provides the \n" "most recent 64 KiB output.\n\n**[IMPORTANT]**\nOn Windows VMs, the console is \n" "handled only on the first boot. It returns no output after the first boot.\n" "\nRequired Argument: VmId \n"
 ,
-	"Usage: oapi-cli ReadConsumptionAccount --FromDate=fromdate --ToDate=todate [OPTIONS]\n" "Gets information about the consumption of your account for each billable \n" "resource within the specified time period.\n" "\nRequired Argument: FromDate, ToDate \n"
+	"Usage: oapi-cli ReadConsumptionAccount --FromDate=fromdate --ToDate=todate [OPTIONS]\n" "Gets information about the consumption of your account for each billable \n" "resource within the specified time period.\n" "\nRequired Argument: FromDate ToDate \n"
 ,
-	"Usage: oapi-cli ReadDedicatedGroups [OPTIONS]\n" "> [WARNING]\n> This feature is currently in beta.\n\nList one or more dedicated \n" "groups of virtual machines (VMs).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadDedicatedGroups [OPTIONS]\n" "> [WARNING]\n> This feature is currently in beta.\n\nList one or more dedicated \n" "groups of virtual machines (VMs).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadDhcpOptions [OPTIONS]\n" "Gets information about the content of one or more DHCP options sets.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadDhcpOptions [OPTIONS]\n" "Gets information about the content of one or more DHCP options sets.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadDirectLinkInterfaces [OPTIONS]\n" "Lists one or more of your DirectLink interfaces.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadDirectLinkInterfaces [OPTIONS]\n" "Lists one or more of your DirectLink interfaces.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadDirectLinks [OPTIONS]\n" "Lists all DirectLinks in the Region.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadDirectLinks [OPTIONS]\n" "Lists all DirectLinks in the Region.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadEntitiesLinkedToPolicy [OPTIONS]\n" "Lists all entities (account, users, or user groups) linked to a specific \n" "managed policy.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadEntitiesLinkedToPolicy [OPTIONS]\n" "Lists all entities (account, users, or user groups) linked to a specific \n" "managed policy.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadFlexibleGpuCatalog [OPTIONS]\n" "Lists all flexible GPUs available in the public catalog.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadFlexibleGpuCatalog [OPTIONS]\n" "Lists all flexible GPUs available in the public catalog.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadFlexibleGpus [OPTIONS]\n" "Lists one or more flexible GPUs (fGPUs) allocated to your account.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadFlexibleGpus [OPTIONS]\n" "Lists one or more flexible GPUs (fGPUs) allocated to your account.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadImageExportTasks [OPTIONS]\n" "Lists one or more image export tasks.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadImageExportTasks [OPTIONS]\n" "Lists one or more image export tasks.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadImages [OPTIONS]\n" "Lists one or more OUTSCALE machine images (OMIs) you can use.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadImages [OPTIONS]\n" "Lists one or more OUTSCALE machine images (OMIs) you can use.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadInternetServices [OPTIONS]\n" "Lists one or more of your Internet services.\nAn Internet service enables \n" "virtual machines (VMs) launched in a Net to connect to the Internet. It allows \n" "routing of incoming and outgoing Internet traffic and management of public IP \n" "addresses.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadInternetServices [OPTIONS]\n" "Lists one or more of your Internet services.\nAn Internet service enables \n" "virtual machines (VMs) launched in a Net to connect to the Internet. It allows \n" "routing of incoming and outgoing Internet traffic and management of public IP \n" "addresses.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadKeypairs [OPTIONS]\n" "Lists one or more of your keypairs.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadKeypairs [OPTIONS]\n" "Lists one or more of your keypairs.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadLinkedPolicies --UserName=username [OPTIONS]\n" "Lists the managed policies linked to a specified user.\n" "\nRequired Argument: UserName \n"
 ,
-	"Usage: oapi-cli ReadListenerRules [OPTIONS]\n" "Lists one or more listener rules. By default, this action returns the full list \n" "of listener rules for the account.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadListenerRules [OPTIONS]\n" "Lists one or more listener rules. By default, this action returns the full list \n" "of listener rules for the account.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadLoadBalancerTags --LoadBalancerNames=loadbalancernames [OPTIONS]\n" "Lists the tags associated with one or more specified load balancers.\n" "\nRequired Argument: LoadBalancerNames \n"
 ,
-	"Usage: oapi-cli ReadLoadBalancers [OPTIONS]\n" "Lists one or more load balancers and their attributes.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadLoadBalancers [OPTIONS]\n" "Lists one or more load balancers and their attributes.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadLocations [OPTIONS]\n" "Lists the locations, corresponding to datacenters, where you can set up a \n" "DirectLink.\nFor more information, see [About \n" "DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadLocations [OPTIONS]\n" "Lists the locations, corresponding to datacenters, where you can set up a \n" "DirectLink.\nFor more information, see [About \n" "DirectLink](https://docs.outscale.com/en/userguide/About-DirectLink.html).\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadManagedPoliciesLinkedToUserGroup --UserGroupName=usergroupname [OPTIONS]\n" "Lists the managed policies linked to a specified group.\n" "\nRequired Argument: UserGroupName \n"
 ,
-	"Usage: oapi-cli ReadNatServices [OPTIONS]\n" "Lists one or more network address translation (NAT) services.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadNatServices [OPTIONS]\n" "Lists one or more network address translation (NAT) services.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadNetAccessPointServices [OPTIONS]\n" "Lists OUTSCALE services available to create Net access points.\nFor more \n" "information, see [CreateNetAccessPoint](#createnetaccesspoint).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadNetAccessPointServices [OPTIONS]\n" "Lists OUTSCALE services available to create Net access points.\nFor more \n" "information, see [CreateNetAccessPoint](#createnetaccesspoint).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadNetAccessPoints [OPTIONS]\n" "Lists one or more Net access points.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadNetAccessPoints [OPTIONS]\n" "Lists one or more Net access points.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadNetPeerings [OPTIONS]\n" "Lists one or more peering connections between two Nets.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadNetPeerings [OPTIONS]\n" "Lists one or more peering connections between two Nets.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadNets [OPTIONS]\n" "Lists one or more Nets.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadNets [OPTIONS]\n" "Lists one or more Nets.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadNics [OPTIONS]\n" "Lists one or more network interface cards (NICs).\nA NIC is a virtual network \n" "interface that you can attach to a virtual machine (VM) in a Net.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadNics [OPTIONS]\n" "Lists one or more network interface cards (NICs).\nA NIC is a virtual network \n" "interface that you can attach to a virtual machine (VM) in a Net.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadPolicies [OPTIONS]\n" "Lists all the managed policies available for your account.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadPolicies [OPTIONS]\n" "Lists all the managed policies available for your account.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadPolicy --PolicyOrn=policyorn [OPTIONS]\n" "Lists information about a specified managed policy.\n" "\nRequired Argument: PolicyOrn \n"
 ,
-	"Usage: oapi-cli ReadPolicyVersion --PolicyOrn=policyorn --VersionId=versionid [OPTIONS]\n" "Lists information about a specified version of a managed policy.\n" "\nRequired Argument: PolicyOrn, VersionId \n"
+	"Usage: oapi-cli ReadPolicyVersion --PolicyOrn=policyorn --VersionId=versionid [OPTIONS]\n" "Lists information about a specified version of a managed policy.\n" "\nRequired Argument: PolicyOrn VersionId \n"
 ,
 	"Usage: oapi-cli ReadPolicyVersions --PolicyOrn=policyorn [OPTIONS]\n" "Lists information about all the policy versions of a specified managed policy.\n" "\nRequired Argument: PolicyOrn \n"
 ,
-	"Usage: oapi-cli ReadProductTypes [OPTIONS]\n" "Lists one or more product types.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadProductTypes [OPTIONS]\n" "Lists one or more product types.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadPublicCatalog [OPTIONS]\n" "Returns the price list of OUTSCALE products and services for the Region \n" "specified in the endpoint of the request. For more information, see [About \n" "Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadPublicCatalog [OPTIONS]\n" "Returns the price list of OUTSCALE products and services for the Region \n" "specified in the endpoint of the request. For more information, see [About \n" "Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadPublicIpRanges [OPTIONS]\n" "Gets the public IPv4 addresses in CIDR notation for the Region specified in the \n" "endpoint of the request. For more information, see [About Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadPublicIpRanges [OPTIONS]\n" "Gets the public IPv4 addresses in CIDR notation for the Region specified in the \n" "endpoint of the request. For more information, see [About Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadPublicIps [OPTIONS]\n" "Lists one or more public IPs allocated to your account.\nBy default, this \n" "action returns information about all your public IPs: available or associated \n" "with a virtual machine (VM), a network interface card (NIC) or a NAT service.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadPublicIps [OPTIONS]\n" "Lists one or more public IPs allocated to your account.\nBy default, this \n" "action returns information about all your public IPs: available or associated \n" "with a virtual machine (VM), a network interface card (NIC) or a NAT service.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadQuotas [OPTIONS]\n" "Lists one or more of your quotas.\nFor more information, see [About Your \n" "Account](https://docs.outscale.com/en/userguide/About-Your-Account.html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadQuotas [OPTIONS]\n" "Lists one or more of your quotas.\nFor more information, see [About Your \n" "Account](https://docs.outscale.com/en/userguide/About-Your-Account.html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadRegions [OPTIONS]\n" "Lists one or more Regions of the OUTSCALE Cloud.\nFor more information, see \n" "[About Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadRegions [OPTIONS]\n" "Lists one or more Regions of the OUTSCALE Cloud.\nFor more information, see \n" "[About Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadRouteTables [OPTIONS]\n" "Lists one or more of your route tables.\nIn your Net, each Subnet must be \n" "associated with a route table. If a Subnet is not explicitly associated with a \n" "route table, it is implicitly associated with the main route table of the Net.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadRouteTables [OPTIONS]\n" "Lists one or more of your route tables.\nIn your Net, each Subnet must be \n" "associated with a route table. If a Subnet is not explicitly associated with a \n" "route table, it is implicitly associated with the main route table of the Net.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadSecretAccessKey --AccessKeyId=accesskeyid [OPTIONS]\n" "> [WARNING]\n> Deprecated: This call will be removed after October 1, \n" "2024.\n\nLists information about the specified access key of your root account, \n" "including its secret key.\n" "\nRequired Argument: AccessKeyId \n"
 ,
-	"Usage: oapi-cli ReadSecurityGroups [OPTIONS]\n" "Lists one or more security groups.\nYou can specify either the name of the \n" "security groups or their IDs.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadSecurityGroups [OPTIONS]\n" "Lists one or more security groups.\nYou can specify either the name of the \n" "security groups or their IDs.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadServerCertificates [OPTIONS]\n" "Lists your server certificates.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadServerCertificates [OPTIONS]\n" "Lists your server certificates.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadSnapshotExportTasks [OPTIONS]\n" "Lists one or more snapshot export tasks.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadSnapshotExportTasks [OPTIONS]\n" "Lists one or more snapshot export tasks.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadSnapshots [OPTIONS]\n" "Lists one or more snapshots that are available to you and the permissions to \n" "create volumes from them.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadSnapshots [OPTIONS]\n" "Lists one or more snapshots that are available to you and the permissions to \n" "create volumes from them.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadSubnets [OPTIONS]\n" "Lists one or more of your Subnets.\nIf you do not specify any Subnet ID, this \n" "action describes all of your Subnets.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadSubnets [OPTIONS]\n" "Lists one or more of your Subnets.\nIf you do not specify any Subnet ID, this \n" "action describes all of your Subnets.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadSubregions [OPTIONS]\n" "Lists one or more of the enabled Subregions that you can access in the current \n" "Region.\n\nFor more information, see [About Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadSubregions [OPTIONS]\n" "Lists one or more of the enabled Subregions that you can access in the current \n" "Region.\n\nFor more information, see [About Regions and \n" "Subregions](https://docs.outscale.com/en/userguide/About-Regions-and-Subregions.\n" "html).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadTags [OPTIONS]\n" "Lists one or more tags for your resources.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadTags [OPTIONS]\n" "Lists one or more tags for your resources.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadUnitPrice --Operation=operation --Service=service --Type=type [OPTIONS]\n" "Gets unit price information for the specified parameters.\n" "\nRequired Argument: Operation, Service, Type \n"
+	"Usage: oapi-cli ReadUnitPrice --Operation=operation --Service=service --Type=type [OPTIONS]\n" "Gets unit price information for the specified parameters.\n" "\nRequired Argument: Operation Service Type \n"
 ,
 	"Usage: oapi-cli ReadUserGroupPolicies --UserGroupName=usergroupname [OPTIONS]\n" "Lists the names of the inline policies embedded in a specific group.\n" "\nRequired Argument: UserGroupName \n"
 ,
-	"Usage: oapi-cli ReadUserGroupPolicy --PolicyName=policyname --UserGroupName=usergroupname [OPTIONS]\n" "Returns information about an inline policy included in a specified group.\n" "\nRequired Argument: PolicyName, UserGroupName \n"
+	"Usage: oapi-cli ReadUserGroupPolicy --PolicyName=policyname --UserGroupName=usergroupname [OPTIONS]\n" "Returns information about an inline policy included in a specified group.\n" "\nRequired Argument: PolicyName UserGroupName \n"
 ,
 	"Usage: oapi-cli ReadUserGroup --UserGroupName=usergroupname [OPTIONS]\n" "Lists information about a specified user group, including its users.\n" "\nRequired Argument: UserGroupName \n"
 ,
 	"Usage: oapi-cli ReadUserGroupsPerUser --UserName=username [OPTIONS]\n" "Lists the groups a specified user belongs to.\n" "\nRequired Argument: UserName \n"
 ,
-	"Usage: oapi-cli ReadUserGroups [OPTIONS]\n" "Lists the groups with the specified path prefix.\nIf you do not specify any \n" "path prefix, this action returns all the groups (or an empty list if there are \n" "none).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadUserGroups [OPTIONS]\n" "Lists the groups with the specified path prefix.\nIf you do not specify any \n" "path prefix, this action returns all the groups (or an empty list if there are \n" "none).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadUsers [OPTIONS]\n" "Lists all EIM users that have a specified path.\nIf you do not specify a path, \n" "this action returns a list of all users in the account (or an empty list if \n" "there are none).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadUsers [OPTIONS]\n" "Lists all EIM users that have a specified path.\nIf you do not specify a path, \n" "this action returns a list of all users in the account (or an empty list if \n" "there are none).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadVirtualGateways [OPTIONS]\n" "Lists one or more virtual gateways.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVirtualGateways [OPTIONS]\n" "Lists one or more virtual gateways.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadVmGroups [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nLists one or more group of virtual machines (VMs).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVmGroups [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nLists one or more group of virtual machines (VMs).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadVmTemplates [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nLists one or more virtual machine (VM) templates.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVmTemplates [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nLists one or more virtual machine (VM) templates.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadVmTypes [OPTIONS]\n" "Lists one or more predefined VM types.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVmTypes [OPTIONS]\n" "Lists one or more predefined VM types.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli ReadVmsHealth --LoadBalancerName=loadbalancername [OPTIONS]\n" "Lists the state of one or more backend virtual machines (VMs) registered with a \n" "specified load balancer.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Usage: oapi-cli ReadVms [OPTIONS]\n" "Lists one or more of your virtual machines (VMs).\nIf you provide one or more \n" "VM IDs, this action returns a description for all of these VMs. If you do not \n" "provide any VM ID, this action returns a description for all of the VMs that \n" "belong to you. If you provide an invalid VM ID, an error is returned. If you \n" "provide the ID of a VM that does not belong to you, the description of this VM \n" "is not included in the response. The refresh interval for data returned by this \n" "action is one hour, meaning that a terminated VM may appear in the response.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVms [OPTIONS]\n" "Lists one or more of your virtual machines (VMs).\nIf you provide one or more \n" "VM IDs, this action returns a description for all of these VMs. If you do not \n" "provide any VM ID, this action returns a description for all of the VMs that \n" "belong to you. If you provide an invalid VM ID, an error is returned. If you \n" "provide the ID of a VM that does not belong to you, the description of this VM \n" "is not included in the response. The refresh interval for data returned by this \n" "action is one hour, meaning that a terminated VM may appear in the response.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadVmsState [OPTIONS]\n" "Lists the status of one or more virtual machines (VMs).\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVmsState [OPTIONS]\n" "Lists the status of one or more virtual machines (VMs).\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadVolumes [OPTIONS]\n" "Lists one or more specified Block Storage Unit (BSU) volumes.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVolumes [OPTIONS]\n" "Lists one or more specified Block Storage Unit (BSU) volumes.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli ReadVpnConnections [OPTIONS]\n" "Lists one or more VPN connections.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli ReadVpnConnections [OPTIONS]\n" "Lists one or more VPN connections.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli RebootVms --VmIds=vmids [OPTIONS]\n" "Reboots one or more virtual machines (VMs).\nThis operation sends a reboot \n" "request to one or more specified VMs. This is an asynchronous action that \n" "queues this reboot request. This action only reboots VMs that are valid and \n" "that belong to you.\n" "\nRequired Argument: VmIds \n"
 ,
-	"Usage: oapi-cli RegisterVmsInLoadBalancer --BackendVmIds=backendvmids --LoadBalancerName=loadbalancername [OPTIONS]\n" "Registers one or more virtual machines (VMs) with a specified load \n" "balancer.\nThe VMs can be in different Subnets and different Subregions than \n" "the load balancer, as long as the VMs and load balancers are all in the public \n" "Cloud or all in the same Net. It may take a little time for a VM to be \n" "registered with the load balancer. Once the VM is registered with a load \n" "balancer, it receives traffic and requests from this load balancer and is \n" "called a backend VM.\n" "\nRequired Argument: BackendVmIds, LoadBalancerName \n"
+	"Usage: oapi-cli RegisterVmsInLoadBalancer --BackendVmIds=backendvmids --LoadBalancerName=loadbalancername [OPTIONS]\n" "Registers one or more virtual machines (VMs) with a specified load \n" "balancer.\nThe VMs can be in different Subnets and different Subregions than \n" "the load balancer, as long as the VMs and load balancers are all in the public \n" "Cloud or all in the same Net. It may take a little time for a VM to be \n" "registered with the load balancer. Once the VM is registered with a load \n" "balancer, it receives traffic and requests from this load balancer and is \n" "called a backend VM.\n" "\nRequired Argument: BackendVmIds LoadBalancerName \n"
 ,
 	"Usage: oapi-cli RejectNetPeering --NetPeeringId=netpeeringid [OPTIONS]\n" "Rejects a Net peering request.\nThe Net peering must be in the \n" "`pending-acceptance` state to be rejected. The rejected Net peering is then in \n" "the `rejected` state.\n" "\nRequired Argument: NetPeeringId \n"
 ,
-	"Usage: oapi-cli RemoveUserFromUserGroup --UserGroupName=usergroupname --UserName=username [OPTIONS]\n" "Removes a specified user from a specified group.\n" "\nRequired Argument: UserGroupName, UserName \n"
+	"Usage: oapi-cli RemoveUserFromUserGroup --UserGroupName=usergroupname --UserName=username [OPTIONS]\n" "Removes a specified user from a specified group.\n" "\nRequired Argument: UserGroupName UserName \n"
 ,
-	"Usage: oapi-cli ScaleDownVmGroup --VmGroupId=vmgroupid --VmSubtraction=vmsubtraction [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nDeletes virtual machines (VMs) from a VM group.\nThe oldest VMs \n" "are the first to be deleted.\n" "\nRequired Argument: VmGroupId, VmSubtraction \n"
+	"Usage: oapi-cli ScaleDownVmGroup --VmGroupId=vmgroupid --VmSubtraction=vmsubtraction [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nDeletes virtual machines (VMs) from a VM group.\nThe oldest VMs \n" "are the first to be deleted.\n" "\nRequired Argument: VmGroupId VmSubtraction \n"
 ,
-	"Usage: oapi-cli ScaleUpVmGroup --VmGroupId=vmgroupid --VmAddition=vmaddition [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nCreates additional virtual machines (VMs) in a VM group.\nThe new \n" "VMs use the current version of the VM template.\n" "\nRequired Argument: VmGroupId, VmAddition \n"
+	"Usage: oapi-cli ScaleUpVmGroup --VmGroupId=vmgroupid --VmAddition=vmaddition [OPTIONS]\n" "> [WARNING]\n> This feature is currently under development and may not function \n" "properly.\n\nCreates additional virtual machines (VMs) in a VM group.\nThe new \n" "VMs use the current version of the VM template.\n" "\nRequired Argument: VmGroupId VmAddition \n"
 ,
-	"Usage: oapi-cli SetDefaultPolicyVersion --PolicyOrn=policyorn --VersionId=versionid [OPTIONS]\n" "Sets a specified version of a managed policy as the default (operative) \n" "one.\nYou can modify the default version of a policy at any time.\n" "\nRequired Argument: PolicyOrn, VersionId \n"
+	"Usage: oapi-cli SetDefaultPolicyVersion --PolicyOrn=policyorn --VersionId=versionid [OPTIONS]\n" "Sets a specified version of a managed policy as the default (operative) \n" "one.\nYou can modify the default version of a policy at any time.\n" "\nRequired Argument: PolicyOrn VersionId \n"
 ,
 	"Usage: oapi-cli StartVms --VmIds=vmids [OPTIONS]\n" "Start one or more virtual machines (VMs).\nYou can start only VMs that are \n" "valid and that belong to you.\n" "\nRequired Argument: VmIds \n"
 ,
@@ -678,39 +678,39 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli UnlinkFlexibleGpu --FlexibleGpuId=flexiblegpuid [OPTIONS]\n" "Detaches a flexible GPU (fGPU) from a virtual machine (VM).\nThe fGPU is in the \n" "`detaching` state until the VM is stopped, after which it becomes `allocated`. \n" "It is then available again for attachment to a VM.\n" "\nRequired Argument: FlexibleGpuId \n"
 ,
-	"Usage: oapi-cli UnlinkInternetService --InternetServiceId=internetserviceid --NetId=netid [OPTIONS]\n" "Detaches an Internet service from a Net.\nThis action disables and detaches an \n" "Internet service from a Net. The Net must not contain virtual machines (VMs) \n" "using public IPs nor internet-facing load balancers.\n" "\nRequired Argument: InternetServiceId, NetId \n"
+	"Usage: oapi-cli UnlinkInternetService --InternetServiceId=internetserviceid --NetId=netid [OPTIONS]\n" "Detaches an Internet service from a Net.\nThis action disables and detaches an \n" "Internet service from a Net. The Net must not contain virtual machines (VMs) \n" "using public IPs nor internet-facing load balancers.\n" "\nRequired Argument: InternetServiceId NetId \n"
 ,
 	"Usage: oapi-cli UnlinkLoadBalancerBackendMachines --LoadBalancerName=loadbalancername [OPTIONS]\n" "Detaches one or more backend virtual machines (VMs) from a load balancer. You \n" "need to specify at least the `BackendIps` or the `BackendVmIds` parameter.\n" "\nRequired Argument: LoadBalancerName \n"
 ,
-	"Usage: oapi-cli UnlinkManagedPolicyFromUserGroup --PolicyOrn=policyorn --UserGroupName=usergroupname [OPTIONS]\n" "Unlinks a managed policy from a specific group.\n" "\nRequired Argument: PolicyOrn, UserGroupName \n"
+	"Usage: oapi-cli UnlinkManagedPolicyFromUserGroup --PolicyOrn=policyorn --UserGroupName=usergroupname [OPTIONS]\n" "Unlinks a managed policy from a specific group.\n" "\nRequired Argument: PolicyOrn UserGroupName \n"
 ,
 	"Usage: oapi-cli UnlinkNic --LinkNicId=linknicid [OPTIONS]\n" "Detaches a network interface card (NIC) from a virtual machine (VM).\nThe \n" "primary NIC cannot be detached.\n" "\nRequired Argument: LinkNicId \n"
 ,
-	"Usage: oapi-cli UnlinkPolicy --PolicyOrn=policyorn --UserName=username [OPTIONS]\n" "Removes a managed policy from a specific user.\n" "\nRequired Argument: PolicyOrn, UserName \n"
+	"Usage: oapi-cli UnlinkPolicy --PolicyOrn=policyorn --UserName=username [OPTIONS]\n" "Removes a managed policy from a specific user.\n" "\nRequired Argument: PolicyOrn UserName \n"
 ,
-	"Usage: oapi-cli UnlinkPrivateIps --NicId=nicid --PrivateIps=privateips [OPTIONS]\n" "Unassigns one or more secondary private IPs from a network interface card (NIC).\n" "\nRequired Argument: NicId, PrivateIps \n"
+	"Usage: oapi-cli UnlinkPrivateIps --NicId=nicid --PrivateIps=privateips [OPTIONS]\n" "Unassigns one or more secondary private IPs from a network interface card (NIC).\n" "\nRequired Argument: NicId PrivateIps \n"
 ,
-	"Usage: oapi-cli UnlinkPublicIp [OPTIONS]\n" "Disassociates a public IP from the virtual machine (VM) or network interface \n" "card (NIC) it is associated with.\n\n**[IMPORTANT]**\nTo disassociate the \n" "public IP from a NAT service, you need to delete the NAT service. For more \n" "information, see the [DeleteNatService](#deletenatservice) method.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli UnlinkPublicIp [OPTIONS]\n" "Disassociates a public IP from the virtual machine (VM) or network interface \n" "card (NIC) it is associated with.\n\n**[IMPORTANT]**\nTo disassociate the \n" "public IP from a NAT service, you need to delete the NAT service. For more \n" "information, see the [DeleteNatService](#deletenatservice) method.\n" "\nRequired Argument: null \n"
 ,
 	"Usage: oapi-cli UnlinkRouteTable --LinkRouteTableId=linkroutetableid [OPTIONS]\n" "Disassociates a Subnet from a route table.\nAfter disassociation, the Subnet \n" "can no longer use the routes in this route table, but uses the routes in the \n" "main route table of the Net instead.\n" "\nRequired Argument: LinkRouteTableId \n"
 ,
-	"Usage: oapi-cli UnlinkVirtualGateway --NetId=netid --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Detaches a virtual gateway from a Net.\nYou must wait until the virtual gateway \n" "is in the detached state before you can attach another Net to it or delete the \n" "Net it was previously attached to.\n" "\nRequired Argument: NetId, VirtualGatewayId \n"
+	"Usage: oapi-cli UnlinkVirtualGateway --NetId=netid --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Detaches a virtual gateway from a Net.\nYou must wait until the virtual gateway \n" "is in the detached state before you can attach another Net to it or delete the \n" "Net it was previously attached to.\n" "\nRequired Argument: NetId VirtualGatewayId \n"
 ,
 	"Usage: oapi-cli UnlinkVolume --VolumeId=volumeid [OPTIONS]\n" "Detaches a Block Storage Unit (BSU) volume from a virtual machine (VM).\nTo \n" "detach the root device of a VM, this VM must be stopped.\n" "\nRequired Argument: VolumeId \n"
 ,
-	"Usage: oapi-cli UpdateAccessKey --AccessKeyId=accesskeyid --State=state [OPTIONS]\n" "Modifies the attributes of the specified access key of either your root account \n" "or an EIM user.\n" "\nRequired Argument: AccessKeyId, State \n"
+	"Usage: oapi-cli UpdateAccessKey --AccessKeyId=accesskeyid --State=state [OPTIONS]\n" "Modifies the attributes of the specified access key of either your root account \n" "or an EIM user.\n" "\nRequired Argument: AccessKeyId State \n"
 ,
-	"Usage: oapi-cli UpdateAccount [OPTIONS]\n" "Updates the account information for the account that sends the request.\n" "\nRequired Argument: \n"
+	"Usage: oapi-cli UpdateAccount [OPTIONS]\n" "Updates the account information for the account that sends the request.\n" "\nRequired Argument: null \n"
 ,
-	"Usage: oapi-cli UpdateApiAccessPolicy --MaxAccessKeyExpirationSeconds=maxaccesskeyexpirationseconds --RequireTrustedEnv=requiretrustedenv [OPTIONS]\n" "Updates the API access policy of your account.\n\n**[IMPORTANT]**\nOnly one API \n" "access policy can be associated with your account.\n" "\nRequired Argument: MaxAccessKeyExpirationSeconds, RequireTrustedEnv \n"
+	"Usage: oapi-cli UpdateApiAccessPolicy --MaxAccessKeyExpirationSeconds=maxaccesskeyexpirationseconds --RequireTrustedEnv=requiretrustedenv [OPTIONS]\n" "Updates the API access policy of your account.\n\n**[IMPORTANT]**\nOnly one API \n" "access policy can be associated with your account.\n" "\nRequired Argument: MaxAccessKeyExpirationSeconds RequireTrustedEnv \n"
 ,
 	"Usage: oapi-cli UpdateApiAccessRule --ApiAccessRuleId=apiaccessruleid [OPTIONS]\n" "Modifies a specified API access rule.\n\n**[WARNING]** \n- The new rule you \n" "specify fully replaces the old rule. Therefore, for a parameter that is not \n" "specified, any previously set value is deleted.\n- If, as result of your \n" "modification, you no longer have access to the APIs, you will need to contact \n" "the Support team to regain access. For more information, see [Technical \n" "Support](https://docs.outscale.com/en/userguide/Technical-Support.html).\n" "\nRequired Argument: ApiAccessRuleId \n"
 ,
 	"Usage: oapi-cli UpdateCa --CaId=caid [OPTIONS]\n" "Modifies the specified attribute of a Client Certificate Authority (CA).\n" "\nRequired Argument: CaId \n"
 ,
-	"Usage: oapi-cli UpdateDedicatedGroup --DedicatedGroupId=dedicatedgroupid --Name=name [OPTIONS]\n" "> [WARNING]\n> This feature is currently in beta.\n\nModifies the name of a \n" "specified dedicated group.\n" "\nRequired Argument: DedicatedGroupId, Name \n"
+	"Usage: oapi-cli UpdateDedicatedGroup --DedicatedGroupId=dedicatedgroupid --Name=name [OPTIONS]\n" "> [WARNING]\n> This feature is currently in beta.\n\nModifies the name of a \n" "specified dedicated group.\n" "\nRequired Argument: DedicatedGroupId Name \n"
 ,
-	"Usage: oapi-cli UpdateDirectLinkInterface --DirectLinkInterfaceId=directlinkinterfaceid --Mtu=mtu [OPTIONS]\n" "Modifies the maximum transmission unit (MTU) of a DirectLink interface.\n" "\nRequired Argument: DirectLinkInterfaceId, Mtu \n"
+	"Usage: oapi-cli UpdateDirectLinkInterface --DirectLinkInterfaceId=directlinkinterfaceid --Mtu=mtu [OPTIONS]\n" "Modifies the maximum transmission unit (MTU) of a DirectLink interface.\n" "\nRequired Argument: DirectLinkInterfaceId Mtu \n"
 ,
 	"Usage: oapi-cli UpdateFlexibleGpu --FlexibleGpuId=flexiblegpuid [OPTIONS]\n" "Modifies a flexible GPU (fGPU) behavior.\n" "\nRequired Argument: FlexibleGpuId \n"
 ,
@@ -722,21 +722,21 @@ static const char *calls_descriptions[] = {
 ,
 	"Usage: oapi-cli UpdateNetAccessPoint --NetAccessPointId=netaccesspointid [OPTIONS]\n" "Modifies the attributes of a Net access point.\nThis action enables you to add \n" "or remove route tables associated with the specified Net access point.\n" "\nRequired Argument: NetAccessPointId \n"
 ,
-	"Usage: oapi-cli UpdateNet --DhcpOptionsSetId=dhcpoptionssetid --NetId=netid [OPTIONS]\n" "Associates a DHCP options set with a specified Net.\n" "\nRequired Argument: DhcpOptionsSetId, NetId \n"
+	"Usage: oapi-cli UpdateNet --DhcpOptionsSetId=dhcpoptionssetid --NetId=netid [OPTIONS]\n" "Associates a DHCP options set with a specified Net.\n" "\nRequired Argument: DhcpOptionsSetId NetId \n"
 ,
 	"Usage: oapi-cli UpdateNic --NicId=nicid [OPTIONS]\n" "Modifies the specified network interface card (NIC). You can specify only one \n" "attribute at a time.\n" "\nRequired Argument: NicId \n"
 ,
-	"Usage: oapi-cli UpdateRoutePropagation --Enable=enable --RouteTableId=routetableid --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Configures the propagation of routes to a specified route table of a Net by a \n" "virtual gateway.\n" "\nRequired Argument: Enable, RouteTableId, VirtualGatewayId \n"
+	"Usage: oapi-cli UpdateRoutePropagation --Enable=enable --RouteTableId=routetableid --VirtualGatewayId=virtualgatewayid [OPTIONS]\n" "Configures the propagation of routes to a specified route table of a Net by a \n" "virtual gateway.\n" "\nRequired Argument: Enable RouteTableId VirtualGatewayId \n"
 ,
-	"Usage: oapi-cli UpdateRoute --RouteTableId=routetableid --DestinationIpRange=destinationiprange [OPTIONS]\n" "Replaces an existing route within a route table in a Net.\nYou must specify one \n" "of the following elements as the target:\n\n* Net peering\n* NAT virtual \n" "machine (VM)\n* Internet service\n* Virtual gateway\n* NAT service\n* Network \n" "interface card (NIC)\n\nThe routing algorithm is based on the most specific \n" "match.\n" "\nRequired Argument: RouteTableId, DestinationIpRange \n"
+	"Usage: oapi-cli UpdateRoute --RouteTableId=routetableid --DestinationIpRange=destinationiprange [OPTIONS]\n" "Replaces an existing route within a route table in a Net.\nYou must specify one \n" "of the following elements as the target:\n\n* Net peering\n* NAT virtual \n" "machine (VM)\n* Internet service\n* Virtual gateway\n* NAT service\n* Network \n" "interface card (NIC)\n\nThe routing algorithm is based on the most specific \n" "match.\n" "\nRequired Argument: RouteTableId DestinationIpRange \n"
 ,
-	"Usage: oapi-cli UpdateRouteTableLink --RouteTableId=routetableid --LinkRouteTableId=linkroutetableid [OPTIONS]\n" "Replaces the route table associated with a specific Subnet in a Net with \n" "another one.\nAfter the route table is replaced, the Subnet uses the routes in \n" "the new route table it is associated with.\n" "\nRequired Argument: RouteTableId, LinkRouteTableId \n"
+	"Usage: oapi-cli UpdateRouteTableLink --RouteTableId=routetableid --LinkRouteTableId=linkroutetableid [OPTIONS]\n" "Replaces the route table associated with a specific Subnet in a Net with \n" "another one.\nAfter the route table is replaced, the Subnet uses the routes in \n" "the new route table it is associated with.\n" "\nRequired Argument: RouteTableId LinkRouteTableId \n"
 ,
 	"Usage: oapi-cli UpdateServerCertificate --Name=name [OPTIONS]\n" "Modifies the name and/or the path of a specified server certificate.\n" "\nRequired Argument: Name \n"
 ,
-	"Usage: oapi-cli UpdateSnapshot --SnapshotId=snapshotid --PermissionsToCreateVolume=permissionstocreatevolume [OPTIONS]\n" "Modifies the permissions for a specified snapshot.\nYou must specify either the \n" "`Additions` or the `Removals` parameter.\nAfter sharing a snapshot with an \n" "account, the other account can create a copy of it that they own. For more \n" "information about copying snapshots, see [CreateSnapshot](#createsnapshot).\n" "\nRequired Argument: SnapshotId, PermissionsToCreateVolume \n"
+	"Usage: oapi-cli UpdateSnapshot --SnapshotId=snapshotid --PermissionsToCreateVolume=permissionstocreatevolume [OPTIONS]\n" "Modifies the permissions for a specified snapshot.\nYou must specify either the \n" "`Additions` or the `Removals` parameter.\nAfter sharing a snapshot with an \n" "account, the other account can create a copy of it that they own. For more \n" "information about copying snapshots, see [CreateSnapshot](#createsnapshot).\n" "\nRequired Argument: SnapshotId PermissionsToCreateVolume \n"
 ,
-	"Usage: oapi-cli UpdateSubnet --SubnetId=subnetid --MapPublicIpOnLaunch=mappubliciponlaunch [OPTIONS]\n" "Modifies the specified attribute of a Subnet.\n" "\nRequired Argument: SubnetId, MapPublicIpOnLaunch \n"
+	"Usage: oapi-cli UpdateSubnet --SubnetId=subnetid --MapPublicIpOnLaunch=mappubliciponlaunch [OPTIONS]\n" "Modifies the specified attribute of a Subnet.\n" "\nRequired Argument: SubnetId MapPublicIpOnLaunch \n"
 ,
 	"Usage: oapi-cli UpdateUserGroup --UserGroupName=usergroupname [OPTIONS]\n" "Modifies the name and/or the path of a specified group.\n" "\nRequired Argument: UserGroupName \n"
 ,
@@ -4509,6 +4509,45 @@ static char *osc_strdup(const char *str) {
 	} while (0)
 
 
+int osc_set_extra_flag_from_conf(const char *profile, unsigned int *flag)
+{
+	char buf[1024];
+	const char *cfg = cfg_path;
+	auto_osc_json_c struct json_object *to_free = NULL;
+	struct json_object *json_tmp, *js = NULL;
+
+	if (!cfg) {
+		LOAD_CFG_GET_HOME(buf);
+		cfg = buf;
+	}
+	TRY(access(cfg, R_OK), "can't open/read %s\n", cfg);
+	js = json_object_from_file(cfg);
+	TRY(!js, "can't load json-file %s (json might have incorect syntaxe)\n", cfg);
+	to_free = js;
+	js = json_object_object_get(js, profile);
+	TRY(!js, "can't find profile %s\n", profile);
+
+	json_tmp = json_object_object_get(js, "ssl_verify");
+	if (json_tmp) {
+		if (!json_object_get_boolean(json_tmp) ||
+		    !json_object_get_int(json_tmp)) {
+			*flag = *flag | OSC_INSECURE_MODE;
+		} else {
+			*flag = *flag & (~OSC_INSECURE_MODE);
+		}
+	}
+	json_tmp = json_object_object_get(js, "verbose");
+	if (json_tmp) {
+		if (json_object_get_boolean(json_tmp) ||
+		    json_object_get_int(json_tmp)) {
+			*flag = *flag | OSC_VERBOSE_MODE;
+		} else {
+			*flag = *flag & (~OSC_VERBOSE_MODE);
+		}
+	}
+	return 0;
+}
+
 int osc_load_ak_sk_from_conf(const char *profile, char **ak, char **sk)
 {
 	char buf[1024];
@@ -4772,9 +4811,9 @@ static int filters_users_setter(struct filters_users *args, struct osc_str *data
 static int filters_virtual_gateway_setter(struct filters_virtual_gateway *args, struct osc_str *data);
 static int filters_vm_setter(struct filters_vm *args, struct osc_str *data);
 static int filters_vm_group_setter(struct filters_vm_group *args, struct osc_str *data);
+static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data);
 static int filters_vm_template_setter(struct filters_vm_template *args, struct osc_str *data);
 static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *data);
-static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data);
 static int filters_volume_setter(struct filters_volume *args, struct osc_str *data);
 static int filters_vpn_connection_setter(struct filters_vpn_connection *args, struct osc_str *data);
 static int flexible_gpu_setter(struct flexible_gpu *args, struct osc_str *data);
@@ -4786,14 +4825,14 @@ static int inline_policy_setter(struct inline_policy *args, struct osc_str *data
 static int internet_service_setter(struct internet_service *args, struct osc_str *data);
 static int keypair_setter(struct keypair *args, struct osc_str *data);
 static int keypair_created_setter(struct keypair_created *args, struct osc_str *data);
+static int linked_policy_setter(struct linked_policy *args, struct osc_str *data);
+static int linked_volume_setter(struct linked_volume *args, struct osc_str *data);
 static int link_nic_setter(struct link_nic *args, struct osc_str *data);
 static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *data);
 static int link_nic_to_update_setter(struct link_nic_to_update *args, struct osc_str *data);
 static int link_public_ip_setter(struct link_public_ip *args, struct osc_str *data);
 static int link_public_ip_light_for_vm_setter(struct link_public_ip_light_for_vm *args, struct osc_str *data);
 static int link_route_table_setter(struct link_route_table *args, struct osc_str *data);
-static int linked_policy_setter(struct linked_policy *args, struct osc_str *data);
-static int linked_volume_setter(struct linked_volume *args, struct osc_str *data);
 static int listener_setter(struct listener *args, struct osc_str *data);
 static int listener_for_creation_setter(struct listener_for_creation *args, struct osc_str *data);
 static int listener_rule_setter(struct listener_rule *args, struct osc_str *data);
@@ -11132,6 +11171,124 @@ static int filters_vm_group_setter(struct filters_vm_group *args, struct osc_str
 
 	return !!ret;
 }
+static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data) {
+       int count_args = 0;
+       int ret = 0;
+	if (args->maintenance_event_codes) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventCodes\":[" ));
+		for (as = args->maintenance_event_codes; *as; ++as) {
+			if (as != args->maintenance_event_codes)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_event_codes_str) {
+		ARG_TO_JSON(MaintenanceEventCodes, string, args->maintenance_event_codes_str);
+		ret += 1;
+	}
+	if (args->maintenance_event_descriptions) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventDescriptions\":[" ));
+		for (as = args->maintenance_event_descriptions; *as; ++as) {
+			if (as != args->maintenance_event_descriptions)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_event_descriptions_str) {
+		ARG_TO_JSON(MaintenanceEventDescriptions, string, args->maintenance_event_descriptions_str);
+		ret += 1;
+	}
+	if (args->maintenance_events_not_after) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotAfter\":[" ));
+		for (as = args->maintenance_events_not_after; *as; ++as) {
+			if (as != args->maintenance_events_not_after)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_events_not_after_str) {
+		ARG_TO_JSON(MaintenanceEventsNotAfter, string, args->maintenance_events_not_after_str);
+		ret += 1;
+	}
+	if (args->maintenance_events_not_before) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotBefore\":[" ));
+		for (as = args->maintenance_events_not_before; *as; ++as) {
+			if (as != args->maintenance_events_not_before)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_events_not_before_str) {
+		ARG_TO_JSON(MaintenanceEventsNotBefore, string, args->maintenance_events_not_before_str);
+		ret += 1;
+	}
+	if (args->subregion_names) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"SubregionNames\":[" ));
+		for (as = args->subregion_names; *as; ++as) {
+			if (as != args->subregion_names)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->subregion_names_str) {
+		ARG_TO_JSON(SubregionNames, string, args->subregion_names_str);
+		ret += 1;
+	}
+	if (args->vm_ids) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"VmIds\":[" ));
+		for (as = args->vm_ids; *as; ++as) {
+			if (as != args->vm_ids)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->vm_ids_str) {
+		ARG_TO_JSON(VmIds, string, args->vm_ids_str);
+		ret += 1;
+	}
+	if (args->vm_states) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"VmStates\":[" ));
+		for (as = args->vm_states; *as; ++as) {
+			if (as != args->vm_states)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->vm_states_str) {
+		ARG_TO_JSON(VmStates, string, args->vm_states_str);
+		ret += 1;
+	}
+
+	return !!ret;
+}
 static int filters_vm_template_setter(struct filters_vm_template *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
@@ -11463,124 +11620,6 @@ static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *
 		ret += 1;
 	} else if (args->volume_sizes_str) {
 		ARG_TO_JSON(VolumeSizes, string, args->volume_sizes_str);
-		ret += 1;
-	}
-
-	return !!ret;
-}
-static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data) {
-       int count_args = 0;
-       int ret = 0;
-	if (args->maintenance_event_codes) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventCodes\":[" ));
-		for (as = args->maintenance_event_codes; *as; ++as) {
-			if (as != args->maintenance_event_codes)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_event_codes_str) {
-		ARG_TO_JSON(MaintenanceEventCodes, string, args->maintenance_event_codes_str);
-		ret += 1;
-	}
-	if (args->maintenance_event_descriptions) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventDescriptions\":[" ));
-		for (as = args->maintenance_event_descriptions; *as; ++as) {
-			if (as != args->maintenance_event_descriptions)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_event_descriptions_str) {
-		ARG_TO_JSON(MaintenanceEventDescriptions, string, args->maintenance_event_descriptions_str);
-		ret += 1;
-	}
-	if (args->maintenance_events_not_after) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotAfter\":[" ));
-		for (as = args->maintenance_events_not_after; *as; ++as) {
-			if (as != args->maintenance_events_not_after)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_events_not_after_str) {
-		ARG_TO_JSON(MaintenanceEventsNotAfter, string, args->maintenance_events_not_after_str);
-		ret += 1;
-	}
-	if (args->maintenance_events_not_before) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotBefore\":[" ));
-		for (as = args->maintenance_events_not_before; *as; ++as) {
-			if (as != args->maintenance_events_not_before)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_events_not_before_str) {
-		ARG_TO_JSON(MaintenanceEventsNotBefore, string, args->maintenance_events_not_before_str);
-		ret += 1;
-	}
-	if (args->subregion_names) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"SubregionNames\":[" ));
-		for (as = args->subregion_names; *as; ++as) {
-			if (as != args->subregion_names)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->subregion_names_str) {
-		ARG_TO_JSON(SubregionNames, string, args->subregion_names_str);
-		ret += 1;
-	}
-	if (args->vm_ids) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"VmIds\":[" ));
-		for (as = args->vm_ids; *as; ++as) {
-			if (as != args->vm_ids)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->vm_ids_str) {
-		ARG_TO_JSON(VmIds, string, args->vm_ids_str);
-		ret += 1;
-	}
-	if (args->vm_states) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"VmStates\":[" ));
-		for (as = args->vm_states; *as; ++as) {
-			if (as != args->vm_states)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->vm_states_str) {
-		ARG_TO_JSON(VmStates, string, args->vm_states_str);
 		ret += 1;
 	}
 
@@ -12403,6 +12442,67 @@ static int keypair_created_setter(struct keypair_created *args, struct osc_str *
 
 	return !!ret;
 }
+static int linked_policy_setter(struct linked_policy *args, struct osc_str *data) {
+       int count_args = 0;
+       int ret = 0;
+	if (args->creation_date) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"CreationDate\":", args->creation_date);
+	   	ret += 1;
+	}
+	if (args->last_modification_date) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"LastModificationDate\":", args->last_modification_date);
+	   	ret += 1;
+	}
+	if (args->orn) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"Orn\":", args->orn);
+	   	ret += 1;
+	}
+	if (args->policy_id) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"PolicyId\":", args->policy_id);
+	   	ret += 1;
+	}
+	if (args->policy_name) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"PolicyName\":", args->policy_name);
+	   	ret += 1;
+	}
+
+	return !!ret;
+}
+static int linked_volume_setter(struct linked_volume *args, struct osc_str *data) {
+       int count_args = 0;
+       int ret = 0;
+	if (args->is_set_delete_on_vm_deletion) {
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
+	   	ret += 1;
+	}
+	if (args->device_name) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"DeviceName\":", args->device_name);
+	   	ret += 1;
+	}
+	if (args->state) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"State\":", args->state);
+	   	ret += 1;
+	}
+	if (args->vm_id) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"VmId\":", args->vm_id);
+	   	ret += 1;
+	}
+	if (args->volume_id) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"VolumeId\":", args->volume_id);
+	   	ret += 1;
+	}
+
+	return !!ret;
+}
 static int link_nic_setter(struct link_nic *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
@@ -12553,67 +12653,6 @@ static int link_route_table_setter(struct link_route_table *args, struct osc_str
 	if (args->subnet_id) {
 		TRY_APPEND_COL(count_args, data);
 	        ARG_TO_JSON_STR("\"SubnetId\":", args->subnet_id);
-	   	ret += 1;
-	}
-
-	return !!ret;
-}
-static int linked_policy_setter(struct linked_policy *args, struct osc_str *data) {
-       int count_args = 0;
-       int ret = 0;
-	if (args->creation_date) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"CreationDate\":", args->creation_date);
-	   	ret += 1;
-	}
-	if (args->last_modification_date) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"LastModificationDate\":", args->last_modification_date);
-	   	ret += 1;
-	}
-	if (args->orn) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"Orn\":", args->orn);
-	   	ret += 1;
-	}
-	if (args->policy_id) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"PolicyId\":", args->policy_id);
-	   	ret += 1;
-	}
-	if (args->policy_name) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"PolicyName\":", args->policy_name);
-	   	ret += 1;
-	}
-
-	return !!ret;
-}
-static int linked_volume_setter(struct linked_volume *args, struct osc_str *data) {
-       int count_args = 0;
-       int ret = 0;
-	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
-	   	ret += 1;
-	}
-	if (args->device_name) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"DeviceName\":", args->device_name);
-	   	ret += 1;
-	}
-	if (args->state) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"State\":", args->state);
-	   	ret += 1;
-	}
-	if (args->vm_id) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"VmId\":", args->vm_id);
-	   	ret += 1;
-	}
-	if (args->volume_id) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"VolumeId\":", args->volume_id);
 	   	ret += 1;
 	}
 
@@ -16289,13 +16328,18 @@ static int with_setter(struct with *args, struct osc_str *data) {
 	return !!ret;
 }
 
-static  int accept_net_peering_data(struct osc_accept_net_peering_arg *args, struct osc_str *data)
+static  int accept_net_peering_data(struct osc_env *e, struct osc_accept_net_peering_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16307,6 +16351,10 @@ static  int accept_net_peering_data(struct osc_accept_net_peering_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/AcceptNetPeering");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16314,36 +16362,35 @@ int osc_accept_net_peering(struct osc_env *e, struct osc_str *out, struct osc_ac
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = accept_net_peering_data(args, &data);
+	r = accept_net_peering_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/AcceptNetPeering");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int add_user_to_user_group_data(struct osc_add_user_to_user_group_arg *args, struct osc_str *data)
+static  int add_user_to_user_group_data(struct osc_env *e, struct osc_add_user_to_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16370,6 +16417,10 @@ static  int add_user_to_user_group_data(struct osc_add_user_to_user_group_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/AddUserToUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16377,36 +16428,35 @@ int osc_add_user_to_user_group(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = add_user_to_user_group_data(args, &data);
+	r = add_user_to_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/AddUserToUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int check_authentication_data(struct osc_check_authentication_arg *args, struct osc_str *data)
+static  int check_authentication_data(struct osc_env *e, struct osc_check_authentication_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16423,6 +16473,10 @@ static  int check_authentication_data(struct osc_check_authentication_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CheckAuthentication");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16430,36 +16484,35 @@ int osc_check_authentication(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = check_authentication_data(args, &data);
+	r = check_authentication_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CheckAuthentication");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_access_key_data(struct osc_create_access_key_arg *args, struct osc_str *data)
+static  int create_access_key_data(struct osc_env *e, struct osc_create_access_key_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16476,6 +16529,10 @@ static  int create_access_key_data(struct osc_create_access_key_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateAccessKey");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16483,36 +16540,35 @@ int osc_create_access_key(struct osc_env *e, struct osc_str *out, struct osc_cre
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_access_key_data(args, &data);
+	r = create_access_key_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateAccessKey");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_account_data(struct osc_create_account_arg *args, struct osc_str *data)
+static  int create_account_data(struct osc_env *e, struct osc_create_account_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->additional_emails) {
 		char **as;
@@ -16600,6 +16656,10 @@ static  int create_account_data(struct osc_create_account_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateAccount");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16607,36 +16667,35 @@ int osc_create_account(struct osc_env *e, struct osc_str *out, struct osc_create
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_account_data(args, &data);
+	r = create_account_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateAccount");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_api_access_rule_data(struct osc_create_api_access_rule_arg *args, struct osc_str *data)
+static  int create_api_access_rule_data(struct osc_env *e, struct osc_create_api_access_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->ca_ids) {
 		char **as;
@@ -16696,6 +16755,10 @@ static  int create_api_access_rule_data(struct osc_create_api_access_rule_arg *a
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateApiAccessRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16703,36 +16766,35 @@ int osc_create_api_access_rule(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_api_access_rule_data(args, &data);
+	r = create_api_access_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateApiAccessRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_ca_data(struct osc_create_ca_arg *args, struct osc_str *data)
+static  int create_ca_data(struct osc_env *e, struct osc_create_ca_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->ca_pem) {
 		TRY_APPEND_COL(count_args, data);
@@ -16749,6 +16811,10 @@ static  int create_ca_data(struct osc_create_ca_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateCa");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16756,36 +16822,35 @@ int osc_create_ca(struct osc_env *e, struct osc_str *out, struct osc_create_ca_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_ca_data(args, &data);
+	r = create_ca_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateCa");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_client_gateway_data(struct osc_create_client_gateway_arg *args, struct osc_str *data)
+static  int create_client_gateway_data(struct osc_env *e, struct osc_create_client_gateway_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_bgp_asn || args->bgp_asn) {
 		ARG_TO_JSON(BgpAsn, int, args->bgp_asn);
@@ -16806,6 +16871,10 @@ static  int create_client_gateway_data(struct osc_create_client_gateway_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateClientGateway");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16813,36 +16882,35 @@ int osc_create_client_gateway(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_client_gateway_data(args, &data);
+	r = create_client_gateway_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateClientGateway");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_dedicated_group_data(struct osc_create_dedicated_group_arg *args, struct osc_str *data)
+static  int create_dedicated_group_data(struct osc_env *e, struct osc_create_dedicated_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_cpu_generation || args->cpu_generation) {
 		ARG_TO_JSON(CpuGeneration, int, args->cpu_generation);
@@ -16863,6 +16931,10 @@ static  int create_dedicated_group_data(struct osc_create_dedicated_group_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateDedicatedGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16870,36 +16942,35 @@ int osc_create_dedicated_group(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_dedicated_group_data(args, &data);
+	r = create_dedicated_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateDedicatedGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_dhcp_options_data(struct osc_create_dhcp_options_arg *args, struct osc_str *data)
+static  int create_dhcp_options_data(struct osc_env *e, struct osc_create_dhcp_options_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->domain_name) {
 		TRY_APPEND_COL(count_args, data);
@@ -16959,6 +17030,10 @@ static  int create_dhcp_options_data(struct osc_create_dhcp_options_arg *args, s
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateDhcpOptions");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -16966,36 +17041,35 @@ int osc_create_dhcp_options(struct osc_env *e, struct osc_str *out, struct osc_c
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_dhcp_options_data(args, &data);
+	r = create_dhcp_options_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateDhcpOptions");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_direct_link_interface_data(struct osc_create_direct_link_interface_arg *args, struct osc_str *data)
+static  int create_direct_link_interface_data(struct osc_env *e, struct osc_create_direct_link_interface_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->direct_link_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -17017,6 +17091,10 @@ static  int create_direct_link_interface_data(struct osc_create_direct_link_inte
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateDirectLinkInterface");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17024,36 +17102,35 @@ int osc_create_direct_link_interface(struct osc_env *e, struct osc_str *out, str
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_direct_link_interface_data(args, &data);
+	r = create_direct_link_interface_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateDirectLinkInterface");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_direct_link_data(struct osc_create_direct_link_arg *args, struct osc_str *data)
+static  int create_direct_link_data(struct osc_env *e, struct osc_create_direct_link_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->bandwidth) {
 		TRY_APPEND_COL(count_args, data);
@@ -17075,6 +17152,10 @@ static  int create_direct_link_data(struct osc_create_direct_link_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateDirectLink");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17082,36 +17163,35 @@ int osc_create_direct_link(struct osc_env *e, struct osc_str *out, struct osc_cr
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_direct_link_data(args, &data);
+	r = create_direct_link_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateDirectLink");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_flexible_gpu_data(struct osc_create_flexible_gpu_arg *args, struct osc_str *data)
+static  int create_flexible_gpu_data(struct osc_env *e, struct osc_create_flexible_gpu_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_delete_on_vm_deletion) {
 		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
@@ -17137,6 +17217,10 @@ static  int create_flexible_gpu_data(struct osc_create_flexible_gpu_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateFlexibleGpu");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17144,36 +17228,35 @@ int osc_create_flexible_gpu(struct osc_env *e, struct osc_str *out, struct osc_c
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_flexible_gpu_data(args, &data);
+	r = create_flexible_gpu_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateFlexibleGpu");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_image_export_task_data(struct osc_create_image_export_task_arg *args, struct osc_str *data)
+static  int create_image_export_task_data(struct osc_env *e, struct osc_create_image_export_task_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17195,6 +17278,10 @@ static  int create_image_export_task_data(struct osc_create_image_export_task_ar
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateImageExportTask");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17202,36 +17289,35 @@ int osc_create_image_export_task(struct osc_env *e, struct osc_str *out, struct 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_image_export_task_data(args, &data);
+	r = create_image_export_task_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateImageExportTask");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_image_data(struct osc_create_image_arg *args, struct osc_str *data)
+static  int create_image_data(struct osc_env *e, struct osc_create_image_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->architecture) {
 		TRY_APPEND_COL(count_args, data);
@@ -17316,6 +17402,10 @@ static  int create_image_data(struct osc_create_image_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateImage");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17323,42 +17413,45 @@ int osc_create_image(struct osc_env *e, struct osc_str *out, struct osc_create_i
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_image_data(args, &data);
+	r = create_image_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateImage");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_internet_service_data(struct osc_create_internet_service_arg *args, struct osc_str *data)
+static  int create_internet_service_data(struct osc_env *e, struct osc_create_internet_service_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateInternetService");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17366,36 +17459,35 @@ int osc_create_internet_service(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_internet_service_data(args, &data);
+	r = create_internet_service_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateInternetService");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_keypair_data(struct osc_create_keypair_arg *args, struct osc_str *data)
+static  int create_keypair_data(struct osc_env *e, struct osc_create_keypair_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17412,6 +17504,10 @@ static  int create_keypair_data(struct osc_create_keypair_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateKeypair");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17419,36 +17515,35 @@ int osc_create_keypair(struct osc_env *e, struct osc_str *out, struct osc_create
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_keypair_data(args, &data);
+	r = create_keypair_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateKeypair");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_listener_rule_data(struct osc_create_listener_rule_arg *args, struct osc_str *data)
+static  int create_listener_rule_data(struct osc_env *e, struct osc_create_listener_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17491,6 +17586,10 @@ static  int create_listener_rule_data(struct osc_create_listener_rule_arg *args,
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateListenerRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17498,36 +17597,35 @@ int osc_create_listener_rule(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_listener_rule_data(args, &data);
+	r = create_listener_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateListenerRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_load_balancer_listeners_data(struct osc_create_load_balancer_listeners_arg *args, struct osc_str *data)
+static  int create_load_balancer_listeners_data(struct osc_env *e, struct osc_create_load_balancer_listeners_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17557,6 +17655,10 @@ static  int create_load_balancer_listeners_data(struct osc_create_load_balancer_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerListeners");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17564,36 +17666,35 @@ int osc_create_load_balancer_listeners(struct osc_env *e, struct osc_str *out, s
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_load_balancer_listeners_data(args, &data);
+	r = create_load_balancer_listeners_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerListeners");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_load_balancer_policy_data(struct osc_create_load_balancer_policy_arg *args, struct osc_str *data)
+static  int create_load_balancer_policy_data(struct osc_env *e, struct osc_create_load_balancer_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_cookie_expiration_period || args->cookie_expiration_period) {
 		ARG_TO_JSON(CookieExpirationPeriod, int, args->cookie_expiration_period);
@@ -17624,6 +17725,10 @@ static  int create_load_balancer_policy_data(struct osc_create_load_balancer_pol
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17631,36 +17736,35 @@ int osc_create_load_balancer_policy(struct osc_env *e, struct osc_str *out, stru
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_load_balancer_policy_data(args, &data);
+	r = create_load_balancer_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_load_balancer_data(struct osc_create_load_balancer_arg *args, struct osc_str *data)
+static  int create_load_balancer_data(struct osc_env *e, struct osc_create_load_balancer_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17766,6 +17870,10 @@ static  int create_load_balancer_data(struct osc_create_load_balancer_arg *args,
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancer");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17773,36 +17881,35 @@ int osc_create_load_balancer(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_load_balancer_data(args, &data);
+	r = create_load_balancer_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancer");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_load_balancer_tags_data(struct osc_create_load_balancer_tags_arg *args, struct osc_str *data)
+static  int create_load_balancer_tags_data(struct osc_env *e, struct osc_create_load_balancer_tags_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17843,6 +17950,10 @@ static  int create_load_balancer_tags_data(struct osc_create_load_balancer_tags_
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerTags");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17850,36 +17961,35 @@ int osc_create_load_balancer_tags(struct osc_env *e, struct osc_str *out, struct
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_load_balancer_tags_data(args, &data);
+	r = create_load_balancer_tags_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerTags");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_nat_service_data(struct osc_create_nat_service_arg *args, struct osc_str *data)
+static  int create_nat_service_data(struct osc_env *e, struct osc_create_nat_service_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->client_token) {
 		TRY_APPEND_COL(count_args, data);
@@ -17901,6 +18011,10 @@ static  int create_nat_service_data(struct osc_create_nat_service_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateNatService");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17908,36 +18022,35 @@ int osc_create_nat_service(struct osc_env *e, struct osc_str *out, struct osc_cr
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_nat_service_data(args, &data);
+	r = create_nat_service_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateNatService");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_net_access_point_data(struct osc_create_net_access_point_arg *args, struct osc_str *data)
+static  int create_net_access_point_data(struct osc_env *e, struct osc_create_net_access_point_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17970,6 +18083,10 @@ static  int create_net_access_point_data(struct osc_create_net_access_point_arg 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateNetAccessPoint");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -17977,36 +18094,35 @@ int osc_create_net_access_point(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_net_access_point_data(args, &data);
+	r = create_net_access_point_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateNetAccessPoint");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_net_peering_data(struct osc_create_net_peering_arg *args, struct osc_str *data)
+static  int create_net_peering_data(struct osc_env *e, struct osc_create_net_peering_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->accepter_net_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -18028,6 +18144,10 @@ static  int create_net_peering_data(struct osc_create_net_peering_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateNetPeering");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18035,36 +18155,35 @@ int osc_create_net_peering(struct osc_env *e, struct osc_str *out, struct osc_cr
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_net_peering_data(args, &data);
+	r = create_net_peering_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateNetPeering");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_net_data(struct osc_create_net_arg *args, struct osc_str *data)
+static  int create_net_data(struct osc_env *e, struct osc_create_net_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18081,6 +18200,10 @@ static  int create_net_data(struct osc_create_net_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateNet");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18088,36 +18211,35 @@ int osc_create_net(struct osc_env *e, struct osc_str *out, struct osc_create_net
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_net_data(args, &data);
+	r = create_net_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateNet");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_nic_data(struct osc_create_nic_arg *args, struct osc_str *data)
+static  int create_nic_data(struct osc_env *e, struct osc_create_nic_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18168,6 +18290,10 @@ static  int create_nic_data(struct osc_create_nic_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateNic");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18175,36 +18301,35 @@ int osc_create_nic(struct osc_env *e, struct osc_str *out, struct osc_create_nic
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_nic_data(args, &data);
+	r = create_nic_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateNic");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_policy_data(struct osc_create_policy_arg *args, struct osc_str *data)
+static  int create_policy_data(struct osc_env *e, struct osc_create_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18231,6 +18356,10 @@ static  int create_policy_data(struct osc_create_policy_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreatePolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18238,36 +18367,35 @@ int osc_create_policy(struct osc_env *e, struct osc_str *out, struct osc_create_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_policy_data(args, &data);
+	r = create_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreatePolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_policy_version_data(struct osc_create_policy_version_arg *args, struct osc_str *data)
+static  int create_policy_version_data(struct osc_env *e, struct osc_create_policy_version_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->document) {
 		TRY_APPEND_COL(count_args, data);
@@ -18284,6 +18412,10 @@ static  int create_policy_version_data(struct osc_create_policy_version_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreatePolicyVersion");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18291,36 +18423,35 @@ int osc_create_policy_version(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_policy_version_data(args, &data);
+	r = create_policy_version_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreatePolicyVersion");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_product_type_data(struct osc_create_product_type_arg *args, struct osc_str *data)
+static  int create_product_type_data(struct osc_env *e, struct osc_create_product_type_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18337,6 +18468,10 @@ static  int create_product_type_data(struct osc_create_product_type_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateProductType");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18344,42 +18479,45 @@ int osc_create_product_type(struct osc_env *e, struct osc_str *out, struct osc_c
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_product_type_data(args, &data);
+	r = create_product_type_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateProductType");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_public_ip_data(struct osc_create_public_ip_arg *args, struct osc_str *data)
+static  int create_public_ip_data(struct osc_env *e, struct osc_create_public_ip_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreatePublicIp");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18387,36 +18525,35 @@ int osc_create_public_ip(struct osc_env *e, struct osc_str *out, struct osc_crea
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_public_ip_data(args, &data);
+	r = create_public_ip_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreatePublicIp");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_route_data(struct osc_create_route_arg *args, struct osc_str *data)
+static  int create_route_data(struct osc_env *e, struct osc_create_route_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -18458,6 +18595,10 @@ static  int create_route_data(struct osc_create_route_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateRoute");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18465,36 +18606,35 @@ int osc_create_route(struct osc_env *e, struct osc_str *out, struct osc_create_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_route_data(args, &data);
+	r = create_route_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateRoute");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_route_table_data(struct osc_create_route_table_arg *args, struct osc_str *data)
+static  int create_route_table_data(struct osc_env *e, struct osc_create_route_table_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18506,6 +18646,10 @@ static  int create_route_table_data(struct osc_create_route_table_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateRouteTable");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18513,36 +18657,35 @@ int osc_create_route_table(struct osc_env *e, struct osc_str *out, struct osc_cr
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_route_table_data(args, &data);
+	r = create_route_table_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateRouteTable");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_security_group_data(struct osc_create_security_group_arg *args, struct osc_str *data)
+static  int create_security_group_data(struct osc_env *e, struct osc_create_security_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18564,6 +18707,10 @@ static  int create_security_group_data(struct osc_create_security_group_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18571,36 +18718,35 @@ int osc_create_security_group(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_security_group_data(args, &data);
+	r = create_security_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_security_group_rule_data(struct osc_create_security_group_rule_arg *args, struct osc_str *data)
+static  int create_security_group_rule_data(struct osc_env *e, struct osc_create_security_group_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18663,6 +18809,10 @@ static  int create_security_group_rule_data(struct osc_create_security_group_rul
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroupRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18670,36 +18820,35 @@ int osc_create_security_group_rule(struct osc_env *e, struct osc_str *out, struc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_security_group_rule_data(args, &data);
+	r = create_security_group_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroupRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_server_certificate_data(struct osc_create_server_certificate_arg *args, struct osc_str *data)
+static  int create_server_certificate_data(struct osc_env *e, struct osc_create_server_certificate_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->body) {
 		TRY_APPEND_COL(count_args, data);
@@ -18731,6 +18880,10 @@ static  int create_server_certificate_data(struct osc_create_server_certificate_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateServerCertificate");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18738,36 +18891,35 @@ int osc_create_server_certificate(struct osc_env *e, struct osc_str *out, struct
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_server_certificate_data(args, &data);
+	r = create_server_certificate_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateServerCertificate");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_snapshot_export_task_data(struct osc_create_snapshot_export_task_arg *args, struct osc_str *data)
+static  int create_snapshot_export_task_data(struct osc_env *e, struct osc_create_snapshot_export_task_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18789,6 +18941,10 @@ static  int create_snapshot_export_task_data(struct osc_create_snapshot_export_t
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateSnapshotExportTask");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18796,36 +18952,35 @@ int osc_create_snapshot_export_task(struct osc_env *e, struct osc_str *out, stru
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_snapshot_export_task_data(args, &data);
+	r = create_snapshot_export_task_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateSnapshotExportTask");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_snapshot_data(struct osc_create_snapshot_arg *args, struct osc_str *data)
+static  int create_snapshot_data(struct osc_env *e, struct osc_create_snapshot_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18861,6 +19016,10 @@ static  int create_snapshot_data(struct osc_create_snapshot_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateSnapshot");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18868,36 +19027,35 @@ int osc_create_snapshot(struct osc_env *e, struct osc_str *out, struct osc_creat
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_snapshot_data(args, &data);
+	r = create_snapshot_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateSnapshot");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_subnet_data(struct osc_create_subnet_arg *args, struct osc_str *data)
+static  int create_subnet_data(struct osc_env *e, struct osc_create_subnet_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18919,6 +19077,10 @@ static  int create_subnet_data(struct osc_create_subnet_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateSubnet");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -18926,36 +19088,35 @@ int osc_create_subnet(struct osc_env *e, struct osc_str *out, struct osc_create_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_subnet_data(args, &data);
+	r = create_subnet_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateSubnet");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_tags_data(struct osc_create_tags_arg *args, struct osc_str *data)
+static  int create_tags_data(struct osc_env *e, struct osc_create_tags_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18996,6 +19157,10 @@ static  int create_tags_data(struct osc_create_tags_arg *args, struct osc_str *d
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateTags");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19003,36 +19168,35 @@ int osc_create_tags(struct osc_env *e, struct osc_str *out, struct osc_create_ta
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_tags_data(args, &data);
+	r = create_tags_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateTags");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_user_group_data(struct osc_create_user_group_arg *args, struct osc_str *data)
+static  int create_user_group_data(struct osc_env *e, struct osc_create_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19049,6 +19213,10 @@ static  int create_user_group_data(struct osc_create_user_group_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19056,36 +19224,35 @@ int osc_create_user_group(struct osc_env *e, struct osc_str *out, struct osc_cre
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_user_group_data(args, &data);
+	r = create_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_user_data(struct osc_create_user_arg *args, struct osc_str *data)
+static  int create_user_data(struct osc_env *e, struct osc_create_user_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19107,6 +19274,10 @@ static  int create_user_data(struct osc_create_user_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateUser");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19114,36 +19285,35 @@ int osc_create_user(struct osc_env *e, struct osc_str *out, struct osc_create_us
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_user_data(args, &data);
+	r = create_user_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateUser");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_virtual_gateway_data(struct osc_create_virtual_gateway_arg *args, struct osc_str *data)
+static  int create_virtual_gateway_data(struct osc_env *e, struct osc_create_virtual_gateway_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->connection_type) {
 		TRY_APPEND_COL(count_args, data);
@@ -19155,6 +19325,10 @@ static  int create_virtual_gateway_data(struct osc_create_virtual_gateway_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateVirtualGateway");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19162,36 +19336,35 @@ int osc_create_virtual_gateway(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_virtual_gateway_data(args, &data);
+	r = create_virtual_gateway_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateVirtualGateway");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_vm_group_data(struct osc_create_vm_group_arg *args, struct osc_str *data)
+static  int create_vm_group_data(struct osc_env *e, struct osc_create_vm_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -19261,6 +19434,10 @@ static  int create_vm_group_data(struct osc_create_vm_group_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateVmGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19268,36 +19445,35 @@ int osc_create_vm_group(struct osc_env *e, struct osc_str *out, struct osc_creat
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_vm_group_data(args, &data);
+	r = create_vm_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateVmGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_vm_template_data(struct osc_create_vm_template_arg *args, struct osc_str *data)
+static  int create_vm_template_data(struct osc_env *e, struct osc_create_vm_template_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_cpu_cores || args->cpu_cores) {
 		ARG_TO_JSON(CpuCores, int, args->cpu_cores);
@@ -19360,6 +19536,10 @@ static  int create_vm_template_data(struct osc_create_vm_template_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateVmTemplate");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19367,36 +19547,35 @@ int osc_create_vm_template(struct osc_env *e, struct osc_str *out, struct osc_cr
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_vm_template_data(args, &data);
+	r = create_vm_template_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateVmTemplate");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *data)
+static  int create_vms_data(struct osc_env *e, struct osc_create_vms_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
         if (args->block_device_mappings) {
 	        TRY_APPEND_COL(count_args, data);
@@ -19561,6 +19740,10 @@ static  int create_vms_data(struct osc_create_vms_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateVms");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19568,36 +19751,35 @@ int osc_create_vms(struct osc_env *e, struct osc_str *out, struct osc_create_vms
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_vms_data(args, &data);
+	r = create_vms_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateVms");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_volume_data(struct osc_create_volume_arg *args, struct osc_str *data)
+static  int create_volume_data(struct osc_env *e, struct osc_create_volume_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19627,6 +19809,10 @@ static  int create_volume_data(struct osc_create_volume_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateVolume");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19634,36 +19820,35 @@ int osc_create_volume(struct osc_env *e, struct osc_str *out, struct osc_create_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_volume_data(args, &data);
+	r = create_volume_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateVolume");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_vpn_connection_data(struct osc_create_vpn_connection_arg *args, struct osc_str *data)
+static  int create_vpn_connection_data(struct osc_env *e, struct osc_create_vpn_connection_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->client_gateway_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19689,6 +19874,10 @@ static  int create_vpn_connection_data(struct osc_create_vpn_connection_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnection");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19696,36 +19885,35 @@ int osc_create_vpn_connection(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_vpn_connection_data(args, &data);
+	r = create_vpn_connection_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnection");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int create_vpn_connection_route_data(struct osc_create_vpn_connection_route_arg *args, struct osc_str *data)
+static  int create_vpn_connection_route_data(struct osc_env *e, struct osc_create_vpn_connection_route_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -19742,6 +19930,10 @@ static  int create_vpn_connection_route_data(struct osc_create_vpn_connection_ro
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnectionRoute");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19749,36 +19941,35 @@ int osc_create_vpn_connection_route(struct osc_env *e, struct osc_str *out, stru
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = create_vpn_connection_route_data(args, &data);
+	r = create_vpn_connection_route_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnectionRoute");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_access_key_data(struct osc_delete_access_key_arg *args, struct osc_str *data)
+static  int delete_access_key_data(struct osc_env *e, struct osc_delete_access_key_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->access_key_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19795,6 +19986,10 @@ static  int delete_access_key_data(struct osc_delete_access_key_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteAccessKey");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19802,36 +19997,35 @@ int osc_delete_access_key(struct osc_env *e, struct osc_str *out, struct osc_del
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_access_key_data(args, &data);
+	r = delete_access_key_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteAccessKey");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_api_access_rule_data(struct osc_delete_api_access_rule_arg *args, struct osc_str *data)
+static  int delete_api_access_rule_data(struct osc_env *e, struct osc_delete_api_access_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->api_access_rule_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19843,6 +20037,10 @@ static  int delete_api_access_rule_data(struct osc_delete_api_access_rule_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteApiAccessRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19850,36 +20048,35 @@ int osc_delete_api_access_rule(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_api_access_rule_data(args, &data);
+	r = delete_api_access_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteApiAccessRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_ca_data(struct osc_delete_ca_arg *args, struct osc_str *data)
+static  int delete_ca_data(struct osc_env *e, struct osc_delete_ca_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->ca_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19891,6 +20088,10 @@ static  int delete_ca_data(struct osc_delete_ca_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteCa");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19898,36 +20099,35 @@ int osc_delete_ca(struct osc_env *e, struct osc_str *out, struct osc_delete_ca_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_ca_data(args, &data);
+	r = delete_ca_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteCa");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_client_gateway_data(struct osc_delete_client_gateway_arg *args, struct osc_str *data)
+static  int delete_client_gateway_data(struct osc_env *e, struct osc_delete_client_gateway_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->client_gateway_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19939,6 +20139,10 @@ static  int delete_client_gateway_data(struct osc_delete_client_gateway_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteClientGateway");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19946,36 +20150,35 @@ int osc_delete_client_gateway(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_client_gateway_data(args, &data);
+	r = delete_client_gateway_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteClientGateway");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_dedicated_group_data(struct osc_delete_dedicated_group_arg *args, struct osc_str *data)
+static  int delete_dedicated_group_data(struct osc_env *e, struct osc_delete_dedicated_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->dedicated_group_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19991,6 +20194,10 @@ static  int delete_dedicated_group_data(struct osc_delete_dedicated_group_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteDedicatedGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -19998,36 +20205,35 @@ int osc_delete_dedicated_group(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_dedicated_group_data(args, &data);
+	r = delete_dedicated_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteDedicatedGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_dhcp_options_data(struct osc_delete_dhcp_options_arg *args, struct osc_str *data)
+static  int delete_dhcp_options_data(struct osc_env *e, struct osc_delete_dhcp_options_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->dhcp_options_set_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20039,6 +20245,10 @@ static  int delete_dhcp_options_data(struct osc_delete_dhcp_options_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteDhcpOptions");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20046,36 +20256,35 @@ int osc_delete_dhcp_options(struct osc_env *e, struct osc_str *out, struct osc_d
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_dhcp_options_data(args, &data);
+	r = delete_dhcp_options_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteDhcpOptions");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_direct_link_interface_data(struct osc_delete_direct_link_interface_arg *args, struct osc_str *data)
+static  int delete_direct_link_interface_data(struct osc_env *e, struct osc_delete_direct_link_interface_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->direct_link_interface_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20087,6 +20296,10 @@ static  int delete_direct_link_interface_data(struct osc_delete_direct_link_inte
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLinkInterface");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20094,36 +20307,35 @@ int osc_delete_direct_link_interface(struct osc_env *e, struct osc_str *out, str
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_direct_link_interface_data(args, &data);
+	r = delete_direct_link_interface_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLinkInterface");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_direct_link_data(struct osc_delete_direct_link_arg *args, struct osc_str *data)
+static  int delete_direct_link_data(struct osc_env *e, struct osc_delete_direct_link_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->direct_link_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20135,6 +20347,10 @@ static  int delete_direct_link_data(struct osc_delete_direct_link_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLink");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20142,36 +20358,35 @@ int osc_delete_direct_link(struct osc_env *e, struct osc_str *out, struct osc_de
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_direct_link_data(args, &data);
+	r = delete_direct_link_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLink");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_export_task_data(struct osc_delete_export_task_arg *args, struct osc_str *data)
+static  int delete_export_task_data(struct osc_env *e, struct osc_delete_export_task_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20183,6 +20398,10 @@ static  int delete_export_task_data(struct osc_delete_export_task_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteExportTask");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20190,36 +20409,35 @@ int osc_delete_export_task(struct osc_env *e, struct osc_str *out, struct osc_de
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_export_task_data(args, &data);
+	r = delete_export_task_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteExportTask");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_flexible_gpu_data(struct osc_delete_flexible_gpu_arg *args, struct osc_str *data)
+static  int delete_flexible_gpu_data(struct osc_env *e, struct osc_delete_flexible_gpu_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20231,6 +20449,10 @@ static  int delete_flexible_gpu_data(struct osc_delete_flexible_gpu_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteFlexibleGpu");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20238,36 +20460,35 @@ int osc_delete_flexible_gpu(struct osc_env *e, struct osc_str *out, struct osc_d
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_flexible_gpu_data(args, &data);
+	r = delete_flexible_gpu_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteFlexibleGpu");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_image_data(struct osc_delete_image_arg *args, struct osc_str *data)
+static  int delete_image_data(struct osc_env *e, struct osc_delete_image_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20279,6 +20500,10 @@ static  int delete_image_data(struct osc_delete_image_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteImage");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20286,36 +20511,35 @@ int osc_delete_image(struct osc_env *e, struct osc_str *out, struct osc_delete_i
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_image_data(args, &data);
+	r = delete_image_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteImage");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_internet_service_data(struct osc_delete_internet_service_arg *args, struct osc_str *data)
+static  int delete_internet_service_data(struct osc_env *e, struct osc_delete_internet_service_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20327,6 +20551,10 @@ static  int delete_internet_service_data(struct osc_delete_internet_service_arg 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteInternetService");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20334,36 +20562,35 @@ int osc_delete_internet_service(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_internet_service_data(args, &data);
+	r = delete_internet_service_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteInternetService");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_keypair_data(struct osc_delete_keypair_arg *args, struct osc_str *data)
+static  int delete_keypair_data(struct osc_env *e, struct osc_delete_keypair_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20375,6 +20602,10 @@ static  int delete_keypair_data(struct osc_delete_keypair_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteKeypair");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20382,36 +20613,35 @@ int osc_delete_keypair(struct osc_env *e, struct osc_str *out, struct osc_delete
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_keypair_data(args, &data);
+	r = delete_keypair_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteKeypair");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_listener_rule_data(struct osc_delete_listener_rule_arg *args, struct osc_str *data)
+static  int delete_listener_rule_data(struct osc_env *e, struct osc_delete_listener_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20423,6 +20653,10 @@ static  int delete_listener_rule_data(struct osc_delete_listener_rule_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteListenerRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20430,36 +20664,35 @@ int osc_delete_listener_rule(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_listener_rule_data(args, &data);
+	r = delete_listener_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteListenerRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_load_balancer_listeners_data(struct osc_delete_load_balancer_listeners_arg *args, struct osc_str *data)
+static  int delete_load_balancer_listeners_data(struct osc_env *e, struct osc_delete_load_balancer_listeners_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20487,6 +20720,10 @@ static  int delete_load_balancer_listeners_data(struct osc_delete_load_balancer_
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerListeners");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20494,36 +20731,35 @@ int osc_delete_load_balancer_listeners(struct osc_env *e, struct osc_str *out, s
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_load_balancer_listeners_data(args, &data);
+	r = delete_load_balancer_listeners_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerListeners");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_load_balancer_policy_data(struct osc_delete_load_balancer_policy_arg *args, struct osc_str *data)
+static  int delete_load_balancer_policy_data(struct osc_env *e, struct osc_delete_load_balancer_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20540,6 +20776,10 @@ static  int delete_load_balancer_policy_data(struct osc_delete_load_balancer_pol
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20547,36 +20787,35 @@ int osc_delete_load_balancer_policy(struct osc_env *e, struct osc_str *out, stru
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_load_balancer_policy_data(args, &data);
+	r = delete_load_balancer_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_load_balancer_data(struct osc_delete_load_balancer_arg *args, struct osc_str *data)
+static  int delete_load_balancer_data(struct osc_env *e, struct osc_delete_load_balancer_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20588,6 +20827,10 @@ static  int delete_load_balancer_data(struct osc_delete_load_balancer_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancer");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20595,36 +20838,35 @@ int osc_delete_load_balancer(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_load_balancer_data(args, &data);
+	r = delete_load_balancer_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancer");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_load_balancer_tags_data(struct osc_delete_load_balancer_tags_arg *args, struct osc_str *data)
+static  int delete_load_balancer_tags_data(struct osc_env *e, struct osc_delete_load_balancer_tags_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20665,6 +20907,10 @@ static  int delete_load_balancer_tags_data(struct osc_delete_load_balancer_tags_
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerTags");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20672,36 +20918,35 @@ int osc_delete_load_balancer_tags(struct osc_env *e, struct osc_str *out, struct
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_load_balancer_tags_data(args, &data);
+	r = delete_load_balancer_tags_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerTags");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_nat_service_data(struct osc_delete_nat_service_arg *args, struct osc_str *data)
+static  int delete_nat_service_data(struct osc_env *e, struct osc_delete_nat_service_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20713,6 +20958,10 @@ static  int delete_nat_service_data(struct osc_delete_nat_service_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteNatService");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20720,36 +20969,35 @@ int osc_delete_nat_service(struct osc_env *e, struct osc_str *out, struct osc_de
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_nat_service_data(args, &data);
+	r = delete_nat_service_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteNatService");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_net_access_point_data(struct osc_delete_net_access_point_arg *args, struct osc_str *data)
+static  int delete_net_access_point_data(struct osc_env *e, struct osc_delete_net_access_point_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20761,6 +21009,10 @@ static  int delete_net_access_point_data(struct osc_delete_net_access_point_arg 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteNetAccessPoint");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20768,36 +21020,35 @@ int osc_delete_net_access_point(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_net_access_point_data(args, &data);
+	r = delete_net_access_point_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteNetAccessPoint");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_net_peering_data(struct osc_delete_net_peering_arg *args, struct osc_str *data)
+static  int delete_net_peering_data(struct osc_env *e, struct osc_delete_net_peering_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20809,6 +21060,10 @@ static  int delete_net_peering_data(struct osc_delete_net_peering_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteNetPeering");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20816,36 +21071,35 @@ int osc_delete_net_peering(struct osc_env *e, struct osc_str *out, struct osc_de
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_net_peering_data(args, &data);
+	r = delete_net_peering_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteNetPeering");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_net_data(struct osc_delete_net_arg *args, struct osc_str *data)
+static  int delete_net_data(struct osc_env *e, struct osc_delete_net_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20857,6 +21111,10 @@ static  int delete_net_data(struct osc_delete_net_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteNet");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20864,36 +21122,35 @@ int osc_delete_net(struct osc_env *e, struct osc_str *out, struct osc_delete_net
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_net_data(args, &data);
+	r = delete_net_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteNet");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_nic_data(struct osc_delete_nic_arg *args, struct osc_str *data)
+static  int delete_nic_data(struct osc_env *e, struct osc_delete_nic_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20905,6 +21162,10 @@ static  int delete_nic_data(struct osc_delete_nic_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteNic");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20912,36 +21173,35 @@ int osc_delete_nic(struct osc_env *e, struct osc_str *out, struct osc_delete_nic
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_nic_data(args, &data);
+	r = delete_nic_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteNic");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_policy_data(struct osc_delete_policy_arg *args, struct osc_str *data)
+static  int delete_policy_data(struct osc_env *e, struct osc_delete_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20953,6 +21213,10 @@ static  int delete_policy_data(struct osc_delete_policy_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeletePolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -20960,36 +21224,35 @@ int osc_delete_policy(struct osc_env *e, struct osc_str *out, struct osc_delete_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_policy_data(args, &data);
+	r = delete_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeletePolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_policy_version_data(struct osc_delete_policy_version_arg *args, struct osc_str *data)
+static  int delete_policy_version_data(struct osc_env *e, struct osc_delete_policy_version_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -21002,6 +21265,10 @@ static  int delete_policy_version_data(struct osc_delete_policy_version_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeletePolicyVersion");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21009,36 +21276,35 @@ int osc_delete_policy_version(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_policy_version_data(args, &data);
+	r = delete_policy_version_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeletePolicyVersion");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_public_ip_data(struct osc_delete_public_ip_arg *args, struct osc_str *data)
+static  int delete_public_ip_data(struct osc_env *e, struct osc_delete_public_ip_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21055,6 +21321,10 @@ static  int delete_public_ip_data(struct osc_delete_public_ip_arg *args, struct 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeletePublicIp");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21062,36 +21332,35 @@ int osc_delete_public_ip(struct osc_env *e, struct osc_str *out, struct osc_dele
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_public_ip_data(args, &data);
+	r = delete_public_ip_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeletePublicIp");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_route_data(struct osc_delete_route_arg *args, struct osc_str *data)
+static  int delete_route_data(struct osc_env *e, struct osc_delete_route_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -21108,6 +21377,10 @@ static  int delete_route_data(struct osc_delete_route_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteRoute");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21115,36 +21388,35 @@ int osc_delete_route(struct osc_env *e, struct osc_str *out, struct osc_delete_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_route_data(args, &data);
+	r = delete_route_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteRoute");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_route_table_data(struct osc_delete_route_table_arg *args, struct osc_str *data)
+static  int delete_route_table_data(struct osc_env *e, struct osc_delete_route_table_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21156,6 +21428,10 @@ static  int delete_route_table_data(struct osc_delete_route_table_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteRouteTable");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21163,36 +21439,35 @@ int osc_delete_route_table(struct osc_env *e, struct osc_str *out, struct osc_de
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_route_table_data(args, &data);
+	r = delete_route_table_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteRouteTable");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_security_group_data(struct osc_delete_security_group_arg *args, struct osc_str *data)
+static  int delete_security_group_data(struct osc_env *e, struct osc_delete_security_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21209,6 +21484,10 @@ static  int delete_security_group_data(struct osc_delete_security_group_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21216,36 +21495,35 @@ int osc_delete_security_group(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_security_group_data(args, &data);
+	r = delete_security_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_security_group_rule_data(struct osc_delete_security_group_rule_arg *args, struct osc_str *data)
+static  int delete_security_group_rule_data(struct osc_env *e, struct osc_delete_security_group_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21308,6 +21586,10 @@ static  int delete_security_group_rule_data(struct osc_delete_security_group_rul
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroupRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21315,36 +21597,35 @@ int osc_delete_security_group_rule(struct osc_env *e, struct osc_str *out, struc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_security_group_rule_data(args, &data);
+	r = delete_security_group_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroupRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_server_certificate_data(struct osc_delete_server_certificate_arg *args, struct osc_str *data)
+static  int delete_server_certificate_data(struct osc_env *e, struct osc_delete_server_certificate_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21356,6 +21637,10 @@ static  int delete_server_certificate_data(struct osc_delete_server_certificate_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteServerCertificate");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21363,36 +21648,35 @@ int osc_delete_server_certificate(struct osc_env *e, struct osc_str *out, struct
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_server_certificate_data(args, &data);
+	r = delete_server_certificate_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteServerCertificate");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_snapshot_data(struct osc_delete_snapshot_arg *args, struct osc_str *data)
+static  int delete_snapshot_data(struct osc_env *e, struct osc_delete_snapshot_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21404,6 +21688,10 @@ static  int delete_snapshot_data(struct osc_delete_snapshot_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteSnapshot");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21411,36 +21699,35 @@ int osc_delete_snapshot(struct osc_env *e, struct osc_str *out, struct osc_delet
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_snapshot_data(args, &data);
+	r = delete_snapshot_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteSnapshot");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_subnet_data(struct osc_delete_subnet_arg *args, struct osc_str *data)
+static  int delete_subnet_data(struct osc_env *e, struct osc_delete_subnet_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21452,6 +21739,10 @@ static  int delete_subnet_data(struct osc_delete_subnet_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteSubnet");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21459,36 +21750,35 @@ int osc_delete_subnet(struct osc_env *e, struct osc_str *out, struct osc_delete_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_subnet_data(args, &data);
+	r = delete_subnet_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteSubnet");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_tags_data(struct osc_delete_tags_arg *args, struct osc_str *data)
+static  int delete_tags_data(struct osc_env *e, struct osc_delete_tags_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21529,6 +21819,10 @@ static  int delete_tags_data(struct osc_delete_tags_arg *args, struct osc_str *d
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteTags");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21536,36 +21830,35 @@ int osc_delete_tags(struct osc_env *e, struct osc_str *out, struct osc_delete_ta
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_tags_data(args, &data);
+	r = delete_tags_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteTags");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_user_group_policy_data(struct osc_delete_user_group_policy_arg *args, struct osc_str *data)
+static  int delete_user_group_policy_data(struct osc_env *e, struct osc_delete_user_group_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21587,6 +21880,10 @@ static  int delete_user_group_policy_data(struct osc_delete_user_group_policy_ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroupPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21594,36 +21891,35 @@ int osc_delete_user_group_policy(struct osc_env *e, struct osc_str *out, struct 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_user_group_policy_data(args, &data);
+	r = delete_user_group_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroupPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_user_group_data(struct osc_delete_user_group_arg *args, struct osc_str *data)
+static  int delete_user_group_data(struct osc_env *e, struct osc_delete_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21644,6 +21940,10 @@ static  int delete_user_group_data(struct osc_delete_user_group_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21651,36 +21951,35 @@ int osc_delete_user_group(struct osc_env *e, struct osc_str *out, struct osc_del
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_user_group_data(args, &data);
+	r = delete_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_user_data(struct osc_delete_user_arg *args, struct osc_str *data)
+static  int delete_user_data(struct osc_env *e, struct osc_delete_user_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21692,6 +21991,10 @@ static  int delete_user_data(struct osc_delete_user_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteUser");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21699,36 +22002,35 @@ int osc_delete_user(struct osc_env *e, struct osc_str *out, struct osc_delete_us
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_user_data(args, &data);
+	r = delete_user_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteUser");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_virtual_gateway_data(struct osc_delete_virtual_gateway_arg *args, struct osc_str *data)
+static  int delete_virtual_gateway_data(struct osc_env *e, struct osc_delete_virtual_gateway_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21740,6 +22042,10 @@ static  int delete_virtual_gateway_data(struct osc_delete_virtual_gateway_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteVirtualGateway");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21747,36 +22053,35 @@ int osc_delete_virtual_gateway(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_virtual_gateway_data(args, &data);
+	r = delete_virtual_gateway_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteVirtualGateway");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_vm_group_data(struct osc_delete_vm_group_arg *args, struct osc_str *data)
+static  int delete_vm_group_data(struct osc_env *e, struct osc_delete_vm_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21788,6 +22093,10 @@ static  int delete_vm_group_data(struct osc_delete_vm_group_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteVmGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21795,36 +22104,35 @@ int osc_delete_vm_group(struct osc_env *e, struct osc_str *out, struct osc_delet
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_vm_group_data(args, &data);
+	r = delete_vm_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteVmGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_vm_template_data(struct osc_delete_vm_template_arg *args, struct osc_str *data)
+static  int delete_vm_template_data(struct osc_env *e, struct osc_delete_vm_template_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21836,6 +22144,10 @@ static  int delete_vm_template_data(struct osc_delete_vm_template_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteVmTemplate");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21843,36 +22155,35 @@ int osc_delete_vm_template(struct osc_env *e, struct osc_str *out, struct osc_de
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_vm_template_data(args, &data);
+	r = delete_vm_template_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteVmTemplate");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_vms_data(struct osc_delete_vms_arg *args, struct osc_str *data)
+static  int delete_vms_data(struct osc_env *e, struct osc_delete_vms_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21895,6 +22206,10 @@ static  int delete_vms_data(struct osc_delete_vms_arg *args, struct osc_str *dat
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteVms");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21902,36 +22217,35 @@ int osc_delete_vms(struct osc_env *e, struct osc_str *out, struct osc_delete_vms
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_vms_data(args, &data);
+	r = delete_vms_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteVms");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_volume_data(struct osc_delete_volume_arg *args, struct osc_str *data)
+static  int delete_volume_data(struct osc_env *e, struct osc_delete_volume_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21943,6 +22257,10 @@ static  int delete_volume_data(struct osc_delete_volume_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteVolume");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21950,36 +22268,35 @@ int osc_delete_volume(struct osc_env *e, struct osc_str *out, struct osc_delete_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_volume_data(args, &data);
+	r = delete_volume_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteVolume");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_vpn_connection_data(struct osc_delete_vpn_connection_arg *args, struct osc_str *data)
+static  int delete_vpn_connection_data(struct osc_env *e, struct osc_delete_vpn_connection_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21991,6 +22308,10 @@ static  int delete_vpn_connection_data(struct osc_delete_vpn_connection_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnection");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -21998,36 +22319,35 @@ int osc_delete_vpn_connection(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_vpn_connection_data(args, &data);
+	r = delete_vpn_connection_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnection");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int delete_vpn_connection_route_data(struct osc_delete_vpn_connection_route_arg *args, struct osc_str *data)
+static  int delete_vpn_connection_route_data(struct osc_env *e, struct osc_delete_vpn_connection_route_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -22044,6 +22364,10 @@ static  int delete_vpn_connection_route_data(struct osc_delete_vpn_connection_ro
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnectionRoute");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22051,36 +22375,35 @@ int osc_delete_vpn_connection_route(struct osc_env *e, struct osc_str *out, stru
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = delete_vpn_connection_route_data(args, &data);
+	r = delete_vpn_connection_route_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnectionRoute");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int deregister_vms_in_load_balancer_data(struct osc_deregister_vms_in_load_balancer_arg *args, struct osc_str *data)
+static  int deregister_vms_in_load_balancer_data(struct osc_env *e, struct osc_deregister_vms_in_load_balancer_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
 		char **as;
@@ -22108,6 +22431,10 @@ static  int deregister_vms_in_load_balancer_data(struct osc_deregister_vms_in_lo
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/DeregisterVmsInLoadBalancer");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22115,36 +22442,35 @@ int osc_deregister_vms_in_load_balancer(struct osc_env *e, struct osc_str *out, 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = deregister_vms_in_load_balancer_data(args, &data);
+	r = deregister_vms_in_load_balancer_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/DeregisterVmsInLoadBalancer");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_flexible_gpu_data(struct osc_link_flexible_gpu_arg *args, struct osc_str *data)
+static  int link_flexible_gpu_data(struct osc_env *e, struct osc_link_flexible_gpu_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22161,6 +22487,10 @@ static  int link_flexible_gpu_data(struct osc_link_flexible_gpu_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkFlexibleGpu");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22168,36 +22498,35 @@ int osc_link_flexible_gpu(struct osc_env *e, struct osc_str *out, struct osc_lin
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_flexible_gpu_data(args, &data);
+	r = link_flexible_gpu_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkFlexibleGpu");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_internet_service_data(struct osc_link_internet_service_arg *args, struct osc_str *data)
+static  int link_internet_service_data(struct osc_env *e, struct osc_link_internet_service_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22214,6 +22543,10 @@ static  int link_internet_service_data(struct osc_link_internet_service_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkInternetService");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22221,36 +22554,35 @@ int osc_link_internet_service(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_internet_service_data(args, &data);
+	r = link_internet_service_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkInternetService");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_load_balancer_backend_machines_data(struct osc_link_load_balancer_backend_machines_arg *args, struct osc_str *data)
+static  int link_load_balancer_backend_machines_data(struct osc_env *e, struct osc_link_load_balancer_backend_machines_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->backend_ips) {
 		char **as;
@@ -22294,6 +22626,10 @@ static  int link_load_balancer_backend_machines_data(struct osc_link_load_balanc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkLoadBalancerBackendMachines");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22301,36 +22637,35 @@ int osc_link_load_balancer_backend_machines(struct osc_env *e, struct osc_str *o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_load_balancer_backend_machines_data(args, &data);
+	r = link_load_balancer_backend_machines_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkLoadBalancerBackendMachines");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_managed_policy_to_user_group_data(struct osc_link_managed_policy_to_user_group_arg *args, struct osc_str *data)
+static  int link_managed_policy_to_user_group_data(struct osc_env *e, struct osc_link_managed_policy_to_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22347,6 +22682,10 @@ static  int link_managed_policy_to_user_group_data(struct osc_link_managed_polic
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkManagedPolicyToUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22354,36 +22693,35 @@ int osc_link_managed_policy_to_user_group(struct osc_env *e, struct osc_str *out
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_managed_policy_to_user_group_data(args, &data);
+	r = link_managed_policy_to_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkManagedPolicyToUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_nic_data(struct osc_link_nic_arg *args, struct osc_str *data)
+static  int link_nic_data(struct osc_env *e, struct osc_link_nic_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_device_number || args->device_number) {
 		ARG_TO_JSON(DeviceNumber, int, args->device_number);
@@ -22404,6 +22742,10 @@ static  int link_nic_data(struct osc_link_nic_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkNic");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22411,36 +22753,35 @@ int osc_link_nic(struct osc_env *e, struct osc_str *out, struct osc_link_nic_arg
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_nic_data(args, &data);
+	r = link_nic_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkNic");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_policy_data(struct osc_link_policy_arg *args, struct osc_str *data)
+static  int link_policy_data(struct osc_env *e, struct osc_link_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22457,6 +22798,10 @@ static  int link_policy_data(struct osc_link_policy_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22464,36 +22809,35 @@ int osc_link_policy(struct osc_env *e, struct osc_str *out, struct osc_link_poli
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_policy_data(args, &data);
+	r = link_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_private_ips_data(struct osc_link_private_ips_arg *args, struct osc_str *data)
+static  int link_private_ips_data(struct osc_env *e, struct osc_link_private_ips_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_allow_relink) {
 		ARG_TO_JSON(AllowRelink, bool, args->allow_relink);
@@ -22529,6 +22873,10 @@ static  int link_private_ips_data(struct osc_link_private_ips_arg *args, struct 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkPrivateIps");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22536,36 +22884,35 @@ int osc_link_private_ips(struct osc_env *e, struct osc_str *out, struct osc_link
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_private_ips_data(args, &data);
+	r = link_private_ips_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkPrivateIps");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_public_ip_data(struct osc_link_public_ip_arg *args, struct osc_str *data)
+static  int link_public_ip_data(struct osc_env *e, struct osc_link_public_ip_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_allow_relink) {
 		ARG_TO_JSON(AllowRelink, bool, args->allow_relink);
@@ -22601,6 +22948,10 @@ static  int link_public_ip_data(struct osc_link_public_ip_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkPublicIp");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22608,36 +22959,35 @@ int osc_link_public_ip(struct osc_env *e, struct osc_str *out, struct osc_link_p
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_public_ip_data(args, &data);
+	r = link_public_ip_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkPublicIp");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_route_table_data(struct osc_link_route_table_arg *args, struct osc_str *data)
+static  int link_route_table_data(struct osc_env *e, struct osc_link_route_table_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22654,6 +23004,10 @@ static  int link_route_table_data(struct osc_link_route_table_arg *args, struct 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkRouteTable");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22661,36 +23015,35 @@ int osc_link_route_table(struct osc_env *e, struct osc_str *out, struct osc_link
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_route_table_data(args, &data);
+	r = link_route_table_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkRouteTable");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_virtual_gateway_data(struct osc_link_virtual_gateway_arg *args, struct osc_str *data)
+static  int link_virtual_gateway_data(struct osc_env *e, struct osc_link_virtual_gateway_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22707,6 +23060,10 @@ static  int link_virtual_gateway_data(struct osc_link_virtual_gateway_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkVirtualGateway");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22714,36 +23071,35 @@ int osc_link_virtual_gateway(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_virtual_gateway_data(args, &data);
+	r = link_virtual_gateway_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkVirtualGateway");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int link_volume_data(struct osc_link_volume_arg *args, struct osc_str *data)
+static  int link_volume_data(struct osc_env *e, struct osc_link_volume_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->device_name) {
 		TRY_APPEND_COL(count_args, data);
@@ -22765,6 +23121,10 @@ static  int link_volume_data(struct osc_link_volume_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/LinkVolume");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22772,36 +23132,35 @@ int osc_link_volume(struct osc_env *e, struct osc_str *out, struct osc_link_volu
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = link_volume_data(args, &data);
+	r = link_volume_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/LinkVolume");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int put_user_group_policy_data(struct osc_put_user_group_policy_arg *args, struct osc_str *data)
+static  int put_user_group_policy_data(struct osc_env *e, struct osc_put_user_group_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22828,6 +23187,10 @@ static  int put_user_group_policy_data(struct osc_put_user_group_policy_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/PutUserGroupPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22835,36 +23198,35 @@ int osc_put_user_group_policy(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = put_user_group_policy_data(args, &data);
+	r = put_user_group_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/PutUserGroupPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_access_keys_data(struct osc_read_access_keys_arg *args, struct osc_str *data)
+static  int read_access_keys_data(struct osc_env *e, struct osc_read_access_keys_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22886,6 +23248,10 @@ static  int read_access_keys_data(struct osc_read_access_keys_arg *args, struct 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadAccessKeys");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22893,42 +23259,45 @@ int osc_read_access_keys(struct osc_env *e, struct osc_str *out, struct osc_read
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_access_keys_data(args, &data);
+	r = read_access_keys_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadAccessKeys");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_accounts_data(struct osc_read_accounts_arg *args, struct osc_str *data)
+static  int read_accounts_data(struct osc_env *e, struct osc_read_accounts_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadAccounts");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22936,36 +23305,35 @@ int osc_read_accounts(struct osc_env *e, struct osc_str *out, struct osc_read_ac
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_accounts_data(args, &data);
+	r = read_accounts_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadAccounts");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_admin_password_data(struct osc_read_admin_password_arg *args, struct osc_str *data)
+static  int read_admin_password_data(struct osc_env *e, struct osc_read_admin_password_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22977,6 +23345,10 @@ static  int read_admin_password_data(struct osc_read_admin_password_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadAdminPassword");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -22984,42 +23356,45 @@ int osc_read_admin_password(struct osc_env *e, struct osc_str *out, struct osc_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_admin_password_data(args, &data);
+	r = read_admin_password_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadAdminPassword");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_api_access_policy_data(struct osc_read_api_access_policy_arg *args, struct osc_str *data)
+static  int read_api_access_policy_data(struct osc_env *e, struct osc_read_api_access_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23027,36 +23402,35 @@ int osc_read_api_access_policy(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_api_access_policy_data(args, &data);
+	r = read_api_access_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_api_access_rules_data(struct osc_read_api_access_rules_arg *args, struct osc_str *data)
+static  int read_api_access_rules_data(struct osc_env *e, struct osc_read_api_access_rules_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23073,6 +23447,10 @@ static  int read_api_access_rules_data(struct osc_read_api_access_rules_arg *arg
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessRules");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23080,36 +23458,35 @@ int osc_read_api_access_rules(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_api_access_rules_data(args, &data);
+	r = read_api_access_rules_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessRules");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_api_logs_data(struct osc_read_api_logs_arg *args, struct osc_str *data)
+static  int read_api_logs_data(struct osc_env *e, struct osc_read_api_logs_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23145,6 +23522,10 @@ static  int read_api_logs_data(struct osc_read_api_logs_arg *args, struct osc_st
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadApiLogs");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23152,36 +23533,35 @@ int osc_read_api_logs(struct osc_env *e, struct osc_str *out, struct osc_read_ap
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_api_logs_data(args, &data);
+	r = read_api_logs_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadApiLogs");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_cas_data(struct osc_read_cas_arg *args, struct osc_str *data)
+static  int read_cas_data(struct osc_env *e, struct osc_read_cas_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23198,6 +23578,10 @@ static  int read_cas_data(struct osc_read_cas_arg *args, struct osc_str *data)
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadCas");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23205,42 +23589,45 @@ int osc_read_cas(struct osc_env *e, struct osc_str *out, struct osc_read_cas_arg
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_cas_data(args, &data);
+	r = read_cas_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadCas");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_catalog_data(struct osc_read_catalog_arg *args, struct osc_str *data)
+static  int read_catalog_data(struct osc_env *e, struct osc_read_catalog_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadCatalog");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23248,36 +23635,35 @@ int osc_read_catalog(struct osc_env *e, struct osc_str *out, struct osc_read_cat
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_catalog_data(args, &data);
+	r = read_catalog_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadCatalog");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_catalogs_data(struct osc_read_catalogs_arg *args, struct osc_str *data)
+static  int read_catalogs_data(struct osc_env *e, struct osc_read_catalogs_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23294,6 +23680,10 @@ static  int read_catalogs_data(struct osc_read_catalogs_arg *args, struct osc_st
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadCatalogs");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23301,36 +23691,35 @@ int osc_read_catalogs(struct osc_env *e, struct osc_str *out, struct osc_read_ca
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_catalogs_data(args, &data);
+	r = read_catalogs_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadCatalogs");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_client_gateways_data(struct osc_read_client_gateways_arg *args, struct osc_str *data)
+static  int read_client_gateways_data(struct osc_env *e, struct osc_read_client_gateways_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23356,6 +23745,10 @@ static  int read_client_gateways_data(struct osc_read_client_gateways_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadClientGateways");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23363,36 +23756,35 @@ int osc_read_client_gateways(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_client_gateways_data(args, &data);
+	r = read_client_gateways_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadClientGateways");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_console_output_data(struct osc_read_console_output_arg *args, struct osc_str *data)
+static  int read_console_output_data(struct osc_env *e, struct osc_read_console_output_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23404,6 +23796,10 @@ static  int read_console_output_data(struct osc_read_console_output_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadConsoleOutput");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23411,36 +23807,35 @@ int osc_read_console_output(struct osc_env *e, struct osc_str *out, struct osc_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_console_output_data(args, &data);
+	r = read_console_output_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadConsoleOutput");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_consumption_account_data(struct osc_read_consumption_account_arg *args, struct osc_str *data)
+static  int read_consumption_account_data(struct osc_env *e, struct osc_read_consumption_account_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23465,6 +23860,10 @@ static  int read_consumption_account_data(struct osc_read_consumption_account_ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadConsumptionAccount");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23472,36 +23871,35 @@ int osc_read_consumption_account(struct osc_env *e, struct osc_str *out, struct 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_consumption_account_data(args, &data);
+	r = read_consumption_account_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadConsumptionAccount");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_dedicated_groups_data(struct osc_read_dedicated_groups_arg *args, struct osc_str *data)
+static  int read_dedicated_groups_data(struct osc_env *e, struct osc_read_dedicated_groups_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23527,6 +23925,10 @@ static  int read_dedicated_groups_data(struct osc_read_dedicated_groups_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadDedicatedGroups");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23534,36 +23936,35 @@ int osc_read_dedicated_groups(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_dedicated_groups_data(args, &data);
+	r = read_dedicated_groups_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadDedicatedGroups");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_dhcp_options_data(struct osc_read_dhcp_options_arg *args, struct osc_str *data)
+static  int read_dhcp_options_data(struct osc_env *e, struct osc_read_dhcp_options_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23589,6 +23990,10 @@ static  int read_dhcp_options_data(struct osc_read_dhcp_options_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadDhcpOptions");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23596,36 +24001,35 @@ int osc_read_dhcp_options(struct osc_env *e, struct osc_str *out, struct osc_rea
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_dhcp_options_data(args, &data);
+	r = read_dhcp_options_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadDhcpOptions");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_direct_link_interfaces_data(struct osc_read_direct_link_interfaces_arg *args, struct osc_str *data)
+static  int read_direct_link_interfaces_data(struct osc_env *e, struct osc_read_direct_link_interfaces_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23651,6 +24055,10 @@ static  int read_direct_link_interfaces_data(struct osc_read_direct_link_interfa
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinkInterfaces");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23658,36 +24066,35 @@ int osc_read_direct_link_interfaces(struct osc_env *e, struct osc_str *out, stru
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_direct_link_interfaces_data(args, &data);
+	r = read_direct_link_interfaces_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinkInterfaces");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_direct_links_data(struct osc_read_direct_links_arg *args, struct osc_str *data)
+static  int read_direct_links_data(struct osc_env *e, struct osc_read_direct_links_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23713,6 +24120,10 @@ static  int read_direct_links_data(struct osc_read_direct_links_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinks");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23720,36 +24131,35 @@ int osc_read_direct_links(struct osc_env *e, struct osc_str *out, struct osc_rea
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_direct_links_data(args, &data);
+	r = read_direct_links_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinks");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_entities_linked_to_policy_data(struct osc_read_entities_linked_to_policy_arg *args, struct osc_str *data)
+static  int read_entities_linked_to_policy_data(struct osc_env *e, struct osc_read_entities_linked_to_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->entities_type) {
 		char **as;
@@ -23781,6 +24191,10 @@ static  int read_entities_linked_to_policy_data(struct osc_read_entities_linked_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadEntitiesLinkedToPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23788,42 +24202,45 @@ int osc_read_entities_linked_to_policy(struct osc_env *e, struct osc_str *out, s
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_entities_linked_to_policy_data(args, &data);
+	r = read_entities_linked_to_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadEntitiesLinkedToPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_flexible_gpu_catalog_data(struct osc_read_flexible_gpu_catalog_arg *args, struct osc_str *data)
+static  int read_flexible_gpu_catalog_data(struct osc_env *e, struct osc_read_flexible_gpu_catalog_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpuCatalog");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23831,36 +24248,35 @@ int osc_read_flexible_gpu_catalog(struct osc_env *e, struct osc_str *out, struct
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_flexible_gpu_catalog_data(args, &data);
+	r = read_flexible_gpu_catalog_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpuCatalog");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_flexible_gpus_data(struct osc_read_flexible_gpus_arg *args, struct osc_str *data)
+static  int read_flexible_gpus_data(struct osc_env *e, struct osc_read_flexible_gpus_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23877,6 +24293,10 @@ static  int read_flexible_gpus_data(struct osc_read_flexible_gpus_arg *args, str
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpus");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23884,36 +24304,35 @@ int osc_read_flexible_gpus(struct osc_env *e, struct osc_str *out, struct osc_re
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_flexible_gpus_data(args, &data);
+	r = read_flexible_gpus_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpus");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_image_export_tasks_data(struct osc_read_image_export_tasks_arg *args, struct osc_str *data)
+static  int read_image_export_tasks_data(struct osc_env *e, struct osc_read_image_export_tasks_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23939,6 +24358,10 @@ static  int read_image_export_tasks_data(struct osc_read_image_export_tasks_arg 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadImageExportTasks");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -23946,36 +24369,35 @@ int osc_read_image_export_tasks(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_image_export_tasks_data(args, &data);
+	r = read_image_export_tasks_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadImageExportTasks");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_images_data(struct osc_read_images_arg *args, struct osc_str *data)
+static  int read_images_data(struct osc_env *e, struct osc_read_images_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24001,6 +24423,10 @@ static  int read_images_data(struct osc_read_images_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadImages");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24008,36 +24434,35 @@ int osc_read_images(struct osc_env *e, struct osc_str *out, struct osc_read_imag
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_images_data(args, &data);
+	r = read_images_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadImages");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_internet_services_data(struct osc_read_internet_services_arg *args, struct osc_str *data)
+static  int read_internet_services_data(struct osc_env *e, struct osc_read_internet_services_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24063,6 +24488,10 @@ static  int read_internet_services_data(struct osc_read_internet_services_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadInternetServices");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24070,36 +24499,35 @@ int osc_read_internet_services(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_internet_services_data(args, &data);
+	r = read_internet_services_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadInternetServices");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_keypairs_data(struct osc_read_keypairs_arg *args, struct osc_str *data)
+static  int read_keypairs_data(struct osc_env *e, struct osc_read_keypairs_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24125,6 +24553,10 @@ static  int read_keypairs_data(struct osc_read_keypairs_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadKeypairs");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24132,36 +24564,35 @@ int osc_read_keypairs(struct osc_env *e, struct osc_str *out, struct osc_read_ke
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_keypairs_data(args, &data);
+	r = read_keypairs_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadKeypairs");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_linked_policies_data(struct osc_read_linked_policies_arg *args, struct osc_str *data)
+static  int read_linked_policies_data(struct osc_env *e, struct osc_read_linked_policies_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24191,6 +24622,10 @@ static  int read_linked_policies_data(struct osc_read_linked_policies_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadLinkedPolicies");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24198,36 +24633,35 @@ int osc_read_linked_policies(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_linked_policies_data(args, &data);
+	r = read_linked_policies_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadLinkedPolicies");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_listener_rules_data(struct osc_read_listener_rules_arg *args, struct osc_str *data)
+static  int read_listener_rules_data(struct osc_env *e, struct osc_read_listener_rules_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24244,6 +24678,10 @@ static  int read_listener_rules_data(struct osc_read_listener_rules_arg *args, s
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadListenerRules");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24251,36 +24689,35 @@ int osc_read_listener_rules(struct osc_env *e, struct osc_str *out, struct osc_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_listener_rules_data(args, &data);
+	r = read_listener_rules_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadListenerRules");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_load_balancer_tags_data(struct osc_read_load_balancer_tags_arg *args, struct osc_str *data)
+static  int read_load_balancer_tags_data(struct osc_env *e, struct osc_read_load_balancer_tags_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24303,6 +24740,10 @@ static  int read_load_balancer_tags_data(struct osc_read_load_balancer_tags_arg 
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancerTags");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24310,36 +24751,35 @@ int osc_read_load_balancer_tags(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_load_balancer_tags_data(args, &data);
+	r = read_load_balancer_tags_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancerTags");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_load_balancers_data(struct osc_read_load_balancers_arg *args, struct osc_str *data)
+static  int read_load_balancers_data(struct osc_env *e, struct osc_read_load_balancers_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24356,6 +24796,10 @@ static  int read_load_balancers_data(struct osc_read_load_balancers_arg *args, s
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancers");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24363,36 +24807,35 @@ int osc_read_load_balancers(struct osc_env *e, struct osc_str *out, struct osc_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_load_balancers_data(args, &data);
+	r = read_load_balancers_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancers");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_locations_data(struct osc_read_locations_arg *args, struct osc_str *data)
+static  int read_locations_data(struct osc_env *e, struct osc_read_locations_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24408,6 +24851,10 @@ static  int read_locations_data(struct osc_read_locations_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadLocations");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24415,36 +24862,35 @@ int osc_read_locations(struct osc_env *e, struct osc_str *out, struct osc_read_l
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_locations_data(args, &data);
+	r = read_locations_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadLocations");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_managed_policies_linked_to_user_group_data(struct osc_read_managed_policies_linked_to_user_group_arg *args, struct osc_str *data)
+static  int read_managed_policies_linked_to_user_group_data(struct osc_env *e, struct osc_read_managed_policies_linked_to_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24474,6 +24920,10 @@ static  int read_managed_policies_linked_to_user_group_data(struct osc_read_mana
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadManagedPoliciesLinkedToUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24481,36 +24931,35 @@ int osc_read_managed_policies_linked_to_user_group(struct osc_env *e, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_managed_policies_linked_to_user_group_data(args, &data);
+	r = read_managed_policies_linked_to_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadManagedPoliciesLinkedToUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_nat_services_data(struct osc_read_nat_services_arg *args, struct osc_str *data)
+static  int read_nat_services_data(struct osc_env *e, struct osc_read_nat_services_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24536,6 +24985,10 @@ static  int read_nat_services_data(struct osc_read_nat_services_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadNatServices");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24543,36 +24996,35 @@ int osc_read_nat_services(struct osc_env *e, struct osc_str *out, struct osc_rea
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_nat_services_data(args, &data);
+	r = read_nat_services_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadNatServices");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_net_access_point_services_data(struct osc_read_net_access_point_services_arg *args, struct osc_str *data)
+static  int read_net_access_point_services_data(struct osc_env *e, struct osc_read_net_access_point_services_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24598,6 +25050,10 @@ static  int read_net_access_point_services_data(struct osc_read_net_access_point
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPointServices");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24605,36 +25061,35 @@ int osc_read_net_access_point_services(struct osc_env *e, struct osc_str *out, s
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_net_access_point_services_data(args, &data);
+	r = read_net_access_point_services_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPointServices");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_net_access_points_data(struct osc_read_net_access_points_arg *args, struct osc_str *data)
+static  int read_net_access_points_data(struct osc_env *e, struct osc_read_net_access_points_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24660,6 +25115,10 @@ static  int read_net_access_points_data(struct osc_read_net_access_points_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPoints");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24667,36 +25126,35 @@ int osc_read_net_access_points(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_net_access_points_data(args, &data);
+	r = read_net_access_points_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPoints");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_net_peerings_data(struct osc_read_net_peerings_arg *args, struct osc_str *data)
+static  int read_net_peerings_data(struct osc_env *e, struct osc_read_net_peerings_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24722,6 +25180,10 @@ static  int read_net_peerings_data(struct osc_read_net_peerings_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadNetPeerings");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24729,36 +25191,35 @@ int osc_read_net_peerings(struct osc_env *e, struct osc_str *out, struct osc_rea
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_net_peerings_data(args, &data);
+	r = read_net_peerings_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadNetPeerings");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_nets_data(struct osc_read_nets_arg *args, struct osc_str *data)
+static  int read_nets_data(struct osc_env *e, struct osc_read_nets_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24784,6 +25245,10 @@ static  int read_nets_data(struct osc_read_nets_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadNets");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24791,36 +25256,35 @@ int osc_read_nets(struct osc_env *e, struct osc_str *out, struct osc_read_nets_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_nets_data(args, &data);
+	r = read_nets_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadNets");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_nics_data(struct osc_read_nics_arg *args, struct osc_str *data)
+static  int read_nics_data(struct osc_env *e, struct osc_read_nics_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24837,6 +25301,10 @@ static  int read_nics_data(struct osc_read_nics_arg *args, struct osc_str *data)
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadNics");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24844,36 +25312,35 @@ int osc_read_nics(struct osc_env *e, struct osc_str *out, struct osc_read_nics_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_nics_data(args, &data);
+	r = read_nics_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadNics");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_policies_data(struct osc_read_policies_arg *args, struct osc_str *data)
+static  int read_policies_data(struct osc_env *e, struct osc_read_policies_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24898,6 +25365,10 @@ static  int read_policies_data(struct osc_read_policies_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicies");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24905,36 +25376,35 @@ int osc_read_policies(struct osc_env *e, struct osc_str *out, struct osc_read_po
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_policies_data(args, &data);
+	r = read_policies_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicies");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_policy_data(struct osc_read_policy_arg *args, struct osc_str *data)
+static  int read_policy_data(struct osc_env *e, struct osc_read_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -24942,6 +25412,10 @@ static  int read_policy_data(struct osc_read_policy_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24949,36 +25423,35 @@ int osc_read_policy(struct osc_env *e, struct osc_str *out, struct osc_read_poli
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_policy_data(args, &data);
+	r = read_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_policy_version_data(struct osc_read_policy_version_arg *args, struct osc_str *data)
+static  int read_policy_version_data(struct osc_env *e, struct osc_read_policy_version_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -24991,6 +25464,10 @@ static  int read_policy_version_data(struct osc_read_policy_version_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersion");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -24998,36 +25475,35 @@ int osc_read_policy_version(struct osc_env *e, struct osc_str *out, struct osc_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_policy_version_data(args, &data);
+	r = read_policy_version_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersion");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_policy_versions_data(struct osc_read_policy_versions_arg *args, struct osc_str *data)
+static  int read_policy_versions_data(struct osc_env *e, struct osc_read_policy_versions_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_first_item || args->first_item) {
 		ARG_TO_JSON(FirstItem, int, args->first_item);
@@ -25043,6 +25519,10 @@ static  int read_policy_versions_data(struct osc_read_policy_versions_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersions");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25050,36 +25530,35 @@ int osc_read_policy_versions(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_policy_versions_data(args, &data);
+	r = read_policy_versions_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersions");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_product_types_data(struct osc_read_product_types_arg *args, struct osc_str *data)
+static  int read_product_types_data(struct osc_env *e, struct osc_read_product_types_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25105,6 +25584,10 @@ static  int read_product_types_data(struct osc_read_product_types_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadProductTypes");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25112,42 +25595,45 @@ int osc_read_product_types(struct osc_env *e, struct osc_str *out, struct osc_re
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_product_types_data(args, &data);
+	r = read_product_types_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadProductTypes");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_public_catalog_data(struct osc_read_public_catalog_arg *args, struct osc_str *data)
+static  int read_public_catalog_data(struct osc_env *e, struct osc_read_public_catalog_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadPublicCatalog");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25155,36 +25641,35 @@ int osc_read_public_catalog(struct osc_env *e, struct osc_str *out, struct osc_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_public_catalog_data(args, &data);
+	r = read_public_catalog_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadPublicCatalog");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_public_ip_ranges_data(struct osc_read_public_ip_ranges_arg *args, struct osc_str *data)
+static  int read_public_ip_ranges_data(struct osc_env *e, struct osc_read_public_ip_ranges_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25200,6 +25685,10 @@ static  int read_public_ip_ranges_data(struct osc_read_public_ip_ranges_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadPublicIpRanges");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25207,36 +25696,35 @@ int osc_read_public_ip_ranges(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_public_ip_ranges_data(args, &data);
+	r = read_public_ip_ranges_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadPublicIpRanges");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_public_ips_data(struct osc_read_public_ips_arg *args, struct osc_str *data)
+static  int read_public_ips_data(struct osc_env *e, struct osc_read_public_ips_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25262,6 +25750,10 @@ static  int read_public_ips_data(struct osc_read_public_ips_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadPublicIps");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25269,36 +25761,35 @@ int osc_read_public_ips(struct osc_env *e, struct osc_str *out, struct osc_read_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_public_ips_data(args, &data);
+	r = read_public_ips_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadPublicIps");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_quotas_data(struct osc_read_quotas_arg *args, struct osc_str *data)
+static  int read_quotas_data(struct osc_env *e, struct osc_read_quotas_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25324,6 +25815,10 @@ static  int read_quotas_data(struct osc_read_quotas_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadQuotas");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25331,42 +25826,45 @@ int osc_read_quotas(struct osc_env *e, struct osc_str *out, struct osc_read_quot
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_quotas_data(args, &data);
+	r = read_quotas_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadQuotas");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_regions_data(struct osc_read_regions_arg *args, struct osc_str *data)
+static  int read_regions_data(struct osc_env *e, struct osc_read_regions_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadRegions");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25374,36 +25872,35 @@ int osc_read_regions(struct osc_env *e, struct osc_str *out, struct osc_read_reg
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_regions_data(args, &data);
+	r = read_regions_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadRegions");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_route_tables_data(struct osc_read_route_tables_arg *args, struct osc_str *data)
+static  int read_route_tables_data(struct osc_env *e, struct osc_read_route_tables_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25429,6 +25926,10 @@ static  int read_route_tables_data(struct osc_read_route_tables_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadRouteTables");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25436,36 +25937,35 @@ int osc_read_route_tables(struct osc_env *e, struct osc_str *out, struct osc_rea
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_route_tables_data(args, &data);
+	r = read_route_tables_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadRouteTables");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_secret_access_key_data(struct osc_read_secret_access_key_arg *args, struct osc_str *data)
+static  int read_secret_access_key_data(struct osc_env *e, struct osc_read_secret_access_key_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->access_key_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -25477,6 +25977,10 @@ static  int read_secret_access_key_data(struct osc_read_secret_access_key_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadSecretAccessKey");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25484,36 +25988,35 @@ int osc_read_secret_access_key(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_secret_access_key_data(args, &data);
+	r = read_secret_access_key_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadSecretAccessKey");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_security_groups_data(struct osc_read_security_groups_arg *args, struct osc_str *data)
+static  int read_security_groups_data(struct osc_env *e, struct osc_read_security_groups_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25539,6 +26042,10 @@ static  int read_security_groups_data(struct osc_read_security_groups_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadSecurityGroups");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25546,36 +26053,35 @@ int osc_read_security_groups(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_security_groups_data(args, &data);
+	r = read_security_groups_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadSecurityGroups");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_server_certificates_data(struct osc_read_server_certificates_arg *args, struct osc_str *data)
+static  int read_server_certificates_data(struct osc_env *e, struct osc_read_server_certificates_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25592,6 +26098,10 @@ static  int read_server_certificates_data(struct osc_read_server_certificates_ar
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadServerCertificates");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25599,36 +26109,35 @@ int osc_read_server_certificates(struct osc_env *e, struct osc_str *out, struct 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_server_certificates_data(args, &data);
+	r = read_server_certificates_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadServerCertificates");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_snapshot_export_tasks_data(struct osc_read_snapshot_export_tasks_arg *args, struct osc_str *data)
+static  int read_snapshot_export_tasks_data(struct osc_env *e, struct osc_read_snapshot_export_tasks_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25654,6 +26163,10 @@ static  int read_snapshot_export_tasks_data(struct osc_read_snapshot_export_task
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadSnapshotExportTasks");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25661,36 +26174,35 @@ int osc_read_snapshot_export_tasks(struct osc_env *e, struct osc_str *out, struc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_snapshot_export_tasks_data(args, &data);
+	r = read_snapshot_export_tasks_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadSnapshotExportTasks");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_snapshots_data(struct osc_read_snapshots_arg *args, struct osc_str *data)
+static  int read_snapshots_data(struct osc_env *e, struct osc_read_snapshots_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25716,6 +26228,10 @@ static  int read_snapshots_data(struct osc_read_snapshots_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadSnapshots");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25723,36 +26239,35 @@ int osc_read_snapshots(struct osc_env *e, struct osc_str *out, struct osc_read_s
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_snapshots_data(args, &data);
+	r = read_snapshots_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadSnapshots");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_subnets_data(struct osc_read_subnets_arg *args, struct osc_str *data)
+static  int read_subnets_data(struct osc_env *e, struct osc_read_subnets_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25778,6 +26293,10 @@ static  int read_subnets_data(struct osc_read_subnets_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadSubnets");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25785,36 +26304,35 @@ int osc_read_subnets(struct osc_env *e, struct osc_str *out, struct osc_read_sub
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_subnets_data(args, &data);
+	r = read_subnets_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadSubnets");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_subregions_data(struct osc_read_subregions_arg *args, struct osc_str *data)
+static  int read_subregions_data(struct osc_env *e, struct osc_read_subregions_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25840,6 +26358,10 @@ static  int read_subregions_data(struct osc_read_subregions_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadSubregions");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25847,36 +26369,35 @@ int osc_read_subregions(struct osc_env *e, struct osc_str *out, struct osc_read_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_subregions_data(args, &data);
+	r = read_subregions_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadSubregions");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_tags_data(struct osc_read_tags_arg *args, struct osc_str *data)
+static  int read_tags_data(struct osc_env *e, struct osc_read_tags_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25902,6 +26423,10 @@ static  int read_tags_data(struct osc_read_tags_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadTags");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25909,36 +26434,35 @@ int osc_read_tags(struct osc_env *e, struct osc_str *out, struct osc_read_tags_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_tags_data(args, &data);
+	r = read_tags_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadTags");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_unit_price_data(struct osc_read_unit_price_arg *args, struct osc_str *data)
+static  int read_unit_price_data(struct osc_env *e, struct osc_read_unit_price_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->operation) {
 		TRY_APPEND_COL(count_args, data);
@@ -25956,6 +26480,10 @@ static  int read_unit_price_data(struct osc_read_unit_price_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadUnitPrice");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -25963,36 +26491,35 @@ int osc_read_unit_price(struct osc_env *e, struct osc_str *out, struct osc_read_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_unit_price_data(args, &data);
+	r = read_unit_price_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadUnitPrice");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_user_group_policies_data(struct osc_read_user_group_policies_arg *args, struct osc_str *data)
+static  int read_user_group_policies_data(struct osc_env *e, struct osc_read_user_group_policies_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26017,6 +26544,10 @@ static  int read_user_group_policies_data(struct osc_read_user_group_policies_ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicies");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26024,36 +26555,35 @@ int osc_read_user_group_policies(struct osc_env *e, struct osc_str *out, struct 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_user_group_policies_data(args, &data);
+	r = read_user_group_policies_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicies");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_user_group_policy_data(struct osc_read_user_group_policy_arg *args, struct osc_str *data)
+static  int read_user_group_policy_data(struct osc_env *e, struct osc_read_user_group_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26075,6 +26605,10 @@ static  int read_user_group_policy_data(struct osc_read_user_group_policy_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26082,36 +26616,35 @@ int osc_read_user_group_policy(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_user_group_policy_data(args, &data);
+	r = read_user_group_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_user_group_data(struct osc_read_user_group_arg *args, struct osc_str *data)
+static  int read_user_group_data(struct osc_env *e, struct osc_read_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26128,6 +26661,10 @@ static  int read_user_group_data(struct osc_read_user_group_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26135,36 +26672,35 @@ int osc_read_user_group(struct osc_env *e, struct osc_str *out, struct osc_read_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_user_group_data(args, &data);
+	r = read_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_user_groups_per_user_data(struct osc_read_user_groups_per_user_arg *args, struct osc_str *data)
+static  int read_user_groups_per_user_data(struct osc_env *e, struct osc_read_user_groups_per_user_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26181,6 +26717,10 @@ static  int read_user_groups_per_user_data(struct osc_read_user_groups_per_user_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupsPerUser");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26188,36 +26728,35 @@ int osc_read_user_groups_per_user(struct osc_env *e, struct osc_str *out, struct
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_user_groups_per_user_data(args, &data);
+	r = read_user_groups_per_user_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupsPerUser");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_user_groups_data(struct osc_read_user_groups_arg *args, struct osc_str *data)
+static  int read_user_groups_data(struct osc_env *e, struct osc_read_user_groups_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26242,6 +26781,10 @@ static  int read_user_groups_data(struct osc_read_user_groups_arg *args, struct 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadUserGroups");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26249,36 +26792,35 @@ int osc_read_user_groups(struct osc_env *e, struct osc_str *out, struct osc_read
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_user_groups_data(args, &data);
+	r = read_user_groups_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadUserGroups");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_users_data(struct osc_read_users_arg *args, struct osc_str *data)
+static  int read_users_data(struct osc_env *e, struct osc_read_users_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26303,6 +26845,10 @@ static  int read_users_data(struct osc_read_users_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadUsers");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26310,36 +26856,35 @@ int osc_read_users(struct osc_env *e, struct osc_str *out, struct osc_read_users
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_users_data(args, &data);
+	r = read_users_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadUsers");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_virtual_gateways_data(struct osc_read_virtual_gateways_arg *args, struct osc_str *data)
+static  int read_virtual_gateways_data(struct osc_env *e, struct osc_read_virtual_gateways_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26365,6 +26910,10 @@ static  int read_virtual_gateways_data(struct osc_read_virtual_gateways_arg *arg
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVirtualGateways");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26372,36 +26921,35 @@ int osc_read_virtual_gateways(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_virtual_gateways_data(args, &data);
+	r = read_virtual_gateways_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVirtualGateways");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_vm_groups_data(struct osc_read_vm_groups_arg *args, struct osc_str *data)
+static  int read_vm_groups_data(struct osc_env *e, struct osc_read_vm_groups_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26418,6 +26966,10 @@ static  int read_vm_groups_data(struct osc_read_vm_groups_arg *args, struct osc_
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVmGroups");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26425,36 +26977,35 @@ int osc_read_vm_groups(struct osc_env *e, struct osc_str *out, struct osc_read_v
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_vm_groups_data(args, &data);
+	r = read_vm_groups_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVmGroups");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_vm_templates_data(struct osc_read_vm_templates_arg *args, struct osc_str *data)
+static  int read_vm_templates_data(struct osc_env *e, struct osc_read_vm_templates_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26471,6 +27022,10 @@ static  int read_vm_templates_data(struct osc_read_vm_templates_arg *args, struc
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVmTemplates");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26478,36 +27033,35 @@ int osc_read_vm_templates(struct osc_env *e, struct osc_str *out, struct osc_rea
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_vm_templates_data(args, &data);
+	r = read_vm_templates_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVmTemplates");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_vm_types_data(struct osc_read_vm_types_arg *args, struct osc_str *data)
+static  int read_vm_types_data(struct osc_env *e, struct osc_read_vm_types_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26533,6 +27087,10 @@ static  int read_vm_types_data(struct osc_read_vm_types_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVmTypes");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26540,36 +27098,35 @@ int osc_read_vm_types(struct osc_env *e, struct osc_str *out, struct osc_read_vm
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_vm_types_data(args, &data);
+	r = read_vm_types_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVmTypes");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_vms_health_data(struct osc_read_vms_health_arg *args, struct osc_str *data)
+static  int read_vms_health_data(struct osc_env *e, struct osc_read_vms_health_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
 		char **as;
@@ -26597,6 +27154,10 @@ static  int read_vms_health_data(struct osc_read_vms_health_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVmsHealth");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26604,36 +27165,35 @@ int osc_read_vms_health(struct osc_env *e, struct osc_str *out, struct osc_read_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_vms_health_data(args, &data);
+	r = read_vms_health_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVmsHealth");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_vms_data(struct osc_read_vms_arg *args, struct osc_str *data)
+static  int read_vms_data(struct osc_env *e, struct osc_read_vms_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26659,6 +27219,10 @@ static  int read_vms_data(struct osc_read_vms_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVms");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26666,36 +27230,35 @@ int osc_read_vms(struct osc_env *e, struct osc_str *out, struct osc_read_vms_arg
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_vms_data(args, &data);
+	r = read_vms_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVms");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_vms_state_data(struct osc_read_vms_state_arg *args, struct osc_str *data)
+static  int read_vms_state_data(struct osc_env *e, struct osc_read_vms_state_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_all_vms) {
 		ARG_TO_JSON(AllVms, bool, args->all_vms);
@@ -26725,6 +27288,10 @@ static  int read_vms_state_data(struct osc_read_vms_state_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVmsState");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26732,36 +27299,35 @@ int osc_read_vms_state(struct osc_env *e, struct osc_str *out, struct osc_read_v
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_vms_state_data(args, &data);
+	r = read_vms_state_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVmsState");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_volumes_data(struct osc_read_volumes_arg *args, struct osc_str *data)
+static  int read_volumes_data(struct osc_env *e, struct osc_read_volumes_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26787,6 +27353,10 @@ static  int read_volumes_data(struct osc_read_volumes_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVolumes");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26794,36 +27364,35 @@ int osc_read_volumes(struct osc_env *e, struct osc_str *out, struct osc_read_vol
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_volumes_data(args, &data);
+	r = read_volumes_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVolumes");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int read_vpn_connections_data(struct osc_read_vpn_connections_arg *args, struct osc_str *data)
+static  int read_vpn_connections_data(struct osc_env *e, struct osc_read_vpn_connections_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26849,6 +27418,10 @@ static  int read_vpn_connections_data(struct osc_read_vpn_connections_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ReadVpnConnections");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26856,36 +27429,35 @@ int osc_read_vpn_connections(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = read_vpn_connections_data(args, &data);
+	r = read_vpn_connections_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ReadVpnConnections");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int reboot_vms_data(struct osc_reboot_vms_arg *args, struct osc_str *data)
+static  int reboot_vms_data(struct osc_env *e, struct osc_reboot_vms_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26908,6 +27480,10 @@ static  int reboot_vms_data(struct osc_reboot_vms_arg *args, struct osc_str *dat
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/RebootVms");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26915,36 +27491,35 @@ int osc_reboot_vms(struct osc_env *e, struct osc_str *out, struct osc_reboot_vms
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = reboot_vms_data(args, &data);
+	r = reboot_vms_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/RebootVms");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int register_vms_in_load_balancer_data(struct osc_register_vms_in_load_balancer_arg *args, struct osc_str *data)
+static  int register_vms_in_load_balancer_data(struct osc_env *e, struct osc_register_vms_in_load_balancer_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
 		char **as;
@@ -26972,6 +27547,10 @@ static  int register_vms_in_load_balancer_data(struct osc_register_vms_in_load_b
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/RegisterVmsInLoadBalancer");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -26979,36 +27558,35 @@ int osc_register_vms_in_load_balancer(struct osc_env *e, struct osc_str *out, st
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = register_vms_in_load_balancer_data(args, &data);
+	r = register_vms_in_load_balancer_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/RegisterVmsInLoadBalancer");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int reject_net_peering_data(struct osc_reject_net_peering_arg *args, struct osc_str *data)
+static  int reject_net_peering_data(struct osc_env *e, struct osc_reject_net_peering_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27020,6 +27598,10 @@ static  int reject_net_peering_data(struct osc_reject_net_peering_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/RejectNetPeering");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27027,36 +27609,35 @@ int osc_reject_net_peering(struct osc_env *e, struct osc_str *out, struct osc_re
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = reject_net_peering_data(args, &data);
+	r = reject_net_peering_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/RejectNetPeering");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int remove_user_from_user_group_data(struct osc_remove_user_from_user_group_arg *args, struct osc_str *data)
+static  int remove_user_from_user_group_data(struct osc_env *e, struct osc_remove_user_from_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27083,6 +27664,10 @@ static  int remove_user_from_user_group_data(struct osc_remove_user_from_user_gr
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/RemoveUserFromUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27090,36 +27675,35 @@ int osc_remove_user_from_user_group(struct osc_env *e, struct osc_str *out, stru
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = remove_user_from_user_group_data(args, &data);
+	r = remove_user_from_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/RemoveUserFromUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int scale_down_vm_group_data(struct osc_scale_down_vm_group_arg *args, struct osc_str *data)
+static  int scale_down_vm_group_data(struct osc_env *e, struct osc_scale_down_vm_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27135,6 +27719,10 @@ static  int scale_down_vm_group_data(struct osc_scale_down_vm_group_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ScaleDownVmGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27142,36 +27730,35 @@ int osc_scale_down_vm_group(struct osc_env *e, struct osc_str *out, struct osc_s
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = scale_down_vm_group_data(args, &data);
+	r = scale_down_vm_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ScaleDownVmGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int scale_up_vm_group_data(struct osc_scale_up_vm_group_arg *args, struct osc_str *data)
+static  int scale_up_vm_group_data(struct osc_env *e, struct osc_scale_up_vm_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27187,6 +27774,10 @@ static  int scale_up_vm_group_data(struct osc_scale_up_vm_group_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/ScaleUpVmGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27194,36 +27785,35 @@ int osc_scale_up_vm_group(struct osc_env *e, struct osc_str *out, struct osc_sca
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = scale_up_vm_group_data(args, &data);
+	r = scale_up_vm_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/ScaleUpVmGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int set_default_policy_version_data(struct osc_set_default_policy_version_arg *args, struct osc_str *data)
+static  int set_default_policy_version_data(struct osc_env *e, struct osc_set_default_policy_version_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -27236,6 +27826,10 @@ static  int set_default_policy_version_data(struct osc_set_default_policy_versio
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/SetDefaultPolicyVersion");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27243,36 +27837,35 @@ int osc_set_default_policy_version(struct osc_env *e, struct osc_str *out, struc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = set_default_policy_version_data(args, &data);
+	r = set_default_policy_version_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/SetDefaultPolicyVersion");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int start_vms_data(struct osc_start_vms_arg *args, struct osc_str *data)
+static  int start_vms_data(struct osc_env *e, struct osc_start_vms_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27295,6 +27888,10 @@ static  int start_vms_data(struct osc_start_vms_arg *args, struct osc_str *data)
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/StartVms");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27302,36 +27899,35 @@ int osc_start_vms(struct osc_env *e, struct osc_str *out, struct osc_start_vms_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = start_vms_data(args, &data);
+	r = start_vms_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/StartVms");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int stop_vms_data(struct osc_stop_vms_arg *args, struct osc_str *data)
+static  int stop_vms_data(struct osc_env *e, struct osc_stop_vms_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27358,6 +27954,10 @@ static  int stop_vms_data(struct osc_stop_vms_arg *args, struct osc_str *data)
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/StopVms");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27365,36 +27965,35 @@ int osc_stop_vms(struct osc_env *e, struct osc_str *out, struct osc_stop_vms_arg
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = stop_vms_data(args, &data);
+	r = stop_vms_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/StopVms");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_flexible_gpu_data(struct osc_unlink_flexible_gpu_arg *args, struct osc_str *data)
+static  int unlink_flexible_gpu_data(struct osc_env *e, struct osc_unlink_flexible_gpu_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27406,6 +28005,10 @@ static  int unlink_flexible_gpu_data(struct osc_unlink_flexible_gpu_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkFlexibleGpu");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27413,36 +28016,35 @@ int osc_unlink_flexible_gpu(struct osc_env *e, struct osc_str *out, struct osc_u
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_flexible_gpu_data(args, &data);
+	r = unlink_flexible_gpu_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkFlexibleGpu");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_internet_service_data(struct osc_unlink_internet_service_arg *args, struct osc_str *data)
+static  int unlink_internet_service_data(struct osc_env *e, struct osc_unlink_internet_service_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27459,6 +28061,10 @@ static  int unlink_internet_service_data(struct osc_unlink_internet_service_arg 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkInternetService");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27466,36 +28072,35 @@ int osc_unlink_internet_service(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_internet_service_data(args, &data);
+	r = unlink_internet_service_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkInternetService");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_load_balancer_backend_machines_data(struct osc_unlink_load_balancer_backend_machines_arg *args, struct osc_str *data)
+static  int unlink_load_balancer_backend_machines_data(struct osc_env *e, struct osc_unlink_load_balancer_backend_machines_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->backend_ips) {
 		char **as;
@@ -27539,6 +28144,10 @@ static  int unlink_load_balancer_backend_machines_data(struct osc_unlink_load_ba
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkLoadBalancerBackendMachines");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27546,36 +28155,35 @@ int osc_unlink_load_balancer_backend_machines(struct osc_env *e, struct osc_str 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_load_balancer_backend_machines_data(args, &data);
+	r = unlink_load_balancer_backend_machines_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkLoadBalancerBackendMachines");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_managed_policy_from_user_group_data(struct osc_unlink_managed_policy_from_user_group_arg *args, struct osc_str *data)
+static  int unlink_managed_policy_from_user_group_data(struct osc_env *e, struct osc_unlink_managed_policy_from_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27592,6 +28200,10 @@ static  int unlink_managed_policy_from_user_group_data(struct osc_unlink_managed
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkManagedPolicyFromUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27599,36 +28211,35 @@ int osc_unlink_managed_policy_from_user_group(struct osc_env *e, struct osc_str 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_managed_policy_from_user_group_data(args, &data);
+	r = unlink_managed_policy_from_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkManagedPolicyFromUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_nic_data(struct osc_unlink_nic_arg *args, struct osc_str *data)
+static  int unlink_nic_data(struct osc_env *e, struct osc_unlink_nic_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27640,6 +28251,10 @@ static  int unlink_nic_data(struct osc_unlink_nic_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkNic");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27647,36 +28262,35 @@ int osc_unlink_nic(struct osc_env *e, struct osc_str *out, struct osc_unlink_nic
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_nic_data(args, &data);
+	r = unlink_nic_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkNic");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_policy_data(struct osc_unlink_policy_arg *args, struct osc_str *data)
+static  int unlink_policy_data(struct osc_env *e, struct osc_unlink_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27693,6 +28307,10 @@ static  int unlink_policy_data(struct osc_unlink_policy_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27700,36 +28318,35 @@ int osc_unlink_policy(struct osc_env *e, struct osc_str *out, struct osc_unlink_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_policy_data(args, &data);
+	r = unlink_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_private_ips_data(struct osc_unlink_private_ips_arg *args, struct osc_str *data)
+static  int unlink_private_ips_data(struct osc_env *e, struct osc_unlink_private_ips_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27757,6 +28374,10 @@ static  int unlink_private_ips_data(struct osc_unlink_private_ips_arg *args, str
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkPrivateIps");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27764,36 +28385,35 @@ int osc_unlink_private_ips(struct osc_env *e, struct osc_str *out, struct osc_un
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_private_ips_data(args, &data);
+	r = unlink_private_ips_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkPrivateIps");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_public_ip_data(struct osc_unlink_public_ip_arg *args, struct osc_str *data)
+static  int unlink_public_ip_data(struct osc_env *e, struct osc_unlink_public_ip_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27810,6 +28430,10 @@ static  int unlink_public_ip_data(struct osc_unlink_public_ip_arg *args, struct 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkPublicIp");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27817,36 +28441,35 @@ int osc_unlink_public_ip(struct osc_env *e, struct osc_str *out, struct osc_unli
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_public_ip_data(args, &data);
+	r = unlink_public_ip_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkPublicIp");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_route_table_data(struct osc_unlink_route_table_arg *args, struct osc_str *data)
+static  int unlink_route_table_data(struct osc_env *e, struct osc_unlink_route_table_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27858,6 +28481,10 @@ static  int unlink_route_table_data(struct osc_unlink_route_table_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkRouteTable");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27865,36 +28492,35 @@ int osc_unlink_route_table(struct osc_env *e, struct osc_str *out, struct osc_un
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_route_table_data(args, &data);
+	r = unlink_route_table_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkRouteTable");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_virtual_gateway_data(struct osc_unlink_virtual_gateway_arg *args, struct osc_str *data)
+static  int unlink_virtual_gateway_data(struct osc_env *e, struct osc_unlink_virtual_gateway_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27911,6 +28537,10 @@ static  int unlink_virtual_gateway_data(struct osc_unlink_virtual_gateway_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkVirtualGateway");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27918,36 +28548,35 @@ int osc_unlink_virtual_gateway(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_virtual_gateway_data(args, &data);
+	r = unlink_virtual_gateway_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkVirtualGateway");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int unlink_volume_data(struct osc_unlink_volume_arg *args, struct osc_str *data)
+static  int unlink_volume_data(struct osc_env *e, struct osc_unlink_volume_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27963,6 +28592,10 @@ static  int unlink_volume_data(struct osc_unlink_volume_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UnlinkVolume");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -27970,36 +28603,35 @@ int osc_unlink_volume(struct osc_env *e, struct osc_str *out, struct osc_unlink_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = unlink_volume_data(args, &data);
+	r = unlink_volume_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UnlinkVolume");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_access_key_data(struct osc_update_access_key_arg *args, struct osc_str *data)
+static  int update_access_key_data(struct osc_env *e, struct osc_update_access_key_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->access_key_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28026,6 +28658,10 @@ static  int update_access_key_data(struct osc_update_access_key_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateAccessKey");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28033,36 +28669,35 @@ int osc_update_access_key(struct osc_env *e, struct osc_str *out, struct osc_upd
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_access_key_data(args, &data);
+	r = update_access_key_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateAccessKey");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_account_data(struct osc_update_account_arg *args, struct osc_str *data)
+static  int update_account_data(struct osc_env *e, struct osc_update_account_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->additional_emails) {
 		char **as;
@@ -28145,6 +28780,10 @@ static  int update_account_data(struct osc_update_account_arg *args, struct osc_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateAccount");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28152,36 +28791,35 @@ int osc_update_account(struct osc_env *e, struct osc_str *out, struct osc_update
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_account_data(args, &data);
+	r = update_account_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateAccount");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_api_access_policy_data(struct osc_update_api_access_policy_arg *args, struct osc_str *data)
+static  int update_api_access_policy_data(struct osc_env *e, struct osc_update_api_access_policy_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28196,6 +28834,10 @@ static  int update_api_access_policy_data(struct osc_update_api_access_policy_ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessPolicy");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28203,36 +28845,35 @@ int osc_update_api_access_policy(struct osc_env *e, struct osc_str *out, struct 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_api_access_policy_data(args, &data);
+	r = update_api_access_policy_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessPolicy");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_api_access_rule_data(struct osc_update_api_access_rule_arg *args, struct osc_str *data)
+static  int update_api_access_rule_data(struct osc_env *e, struct osc_update_api_access_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->api_access_rule_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28297,6 +28938,10 @@ static  int update_api_access_rule_data(struct osc_update_api_access_rule_arg *a
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28304,36 +28949,35 @@ int osc_update_api_access_rule(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_api_access_rule_data(args, &data);
+	r = update_api_access_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_ca_data(struct osc_update_ca_arg *args, struct osc_str *data)
+static  int update_ca_data(struct osc_env *e, struct osc_update_ca_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->ca_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28350,6 +28994,10 @@ static  int update_ca_data(struct osc_update_ca_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateCa");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28357,36 +29005,35 @@ int osc_update_ca(struct osc_env *e, struct osc_str *out, struct osc_update_ca_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_ca_data(args, &data);
+	r = update_ca_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateCa");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_dedicated_group_data(struct osc_update_dedicated_group_arg *args, struct osc_str *data)
+static  int update_dedicated_group_data(struct osc_env *e, struct osc_update_dedicated_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->dedicated_group_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28403,6 +29050,10 @@ static  int update_dedicated_group_data(struct osc_update_dedicated_group_arg *a
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateDedicatedGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28410,36 +29061,35 @@ int osc_update_dedicated_group(struct osc_env *e, struct osc_str *out, struct os
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_dedicated_group_data(args, &data);
+	r = update_dedicated_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateDedicatedGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_direct_link_interface_data(struct osc_update_direct_link_interface_arg *args, struct osc_str *data)
+static  int update_direct_link_interface_data(struct osc_env *e, struct osc_update_direct_link_interface_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->direct_link_interface_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28455,6 +29105,10 @@ static  int update_direct_link_interface_data(struct osc_update_direct_link_inte
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateDirectLinkInterface");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28462,36 +29116,35 @@ int osc_update_direct_link_interface(struct osc_env *e, struct osc_str *out, str
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_direct_link_interface_data(args, &data);
+	r = update_direct_link_interface_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateDirectLinkInterface");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_flexible_gpu_data(struct osc_update_flexible_gpu_arg *args, struct osc_str *data)
+static  int update_flexible_gpu_data(struct osc_env *e, struct osc_update_flexible_gpu_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_delete_on_vm_deletion) {
 		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
@@ -28507,6 +29160,10 @@ static  int update_flexible_gpu_data(struct osc_update_flexible_gpu_arg *args, s
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateFlexibleGpu");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28514,36 +29171,35 @@ int osc_update_flexible_gpu(struct osc_env *e, struct osc_str *out, struct osc_u
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_flexible_gpu_data(args, &data);
+	r = update_flexible_gpu_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateFlexibleGpu");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_image_data(struct osc_update_image_arg *args, struct osc_str *data)
+static  int update_image_data(struct osc_env *e, struct osc_update_image_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -28570,6 +29226,10 @@ static  int update_image_data(struct osc_update_image_arg *args, struct osc_str 
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateImage");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28577,36 +29237,35 @@ int osc_update_image(struct osc_env *e, struct osc_str *out, struct osc_update_i
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_image_data(args, &data);
+	r = update_image_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateImage");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_listener_rule_data(struct osc_update_listener_rule_arg *args, struct osc_str *data)
+static  int update_listener_rule_data(struct osc_env *e, struct osc_update_listener_rule_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28628,6 +29287,10 @@ static  int update_listener_rule_data(struct osc_update_listener_rule_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateListenerRule");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28635,36 +29298,35 @@ int osc_update_listener_rule(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_listener_rule_data(args, &data);
+	r = update_listener_rule_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateListenerRule");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args, struct osc_str *data)
+static  int update_load_balancer_data(struct osc_env *e, struct osc_update_load_balancer_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->access_log_str) {
 		ARG_TO_JSON(AccessLog, string, args->access_log_str);
@@ -28746,6 +29408,10 @@ static  int update_load_balancer_data(struct osc_update_load_balancer_arg *args,
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateLoadBalancer");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28753,36 +29419,35 @@ int osc_update_load_balancer(struct osc_env *e, struct osc_str *out, struct osc_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_load_balancer_data(args, &data);
+	r = update_load_balancer_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateLoadBalancer");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_net_access_point_data(struct osc_update_net_access_point_arg *args, struct osc_str *data)
+static  int update_net_access_point_data(struct osc_env *e, struct osc_update_net_access_point_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->add_route_table_ids) {
 		char **as;
@@ -28826,6 +29491,10 @@ static  int update_net_access_point_data(struct osc_update_net_access_point_arg 
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateNetAccessPoint");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28833,36 +29502,35 @@ int osc_update_net_access_point(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_net_access_point_data(args, &data);
+	r = update_net_access_point_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateNetAccessPoint");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_net_data(struct osc_update_net_arg *args, struct osc_str *data)
+static  int update_net_data(struct osc_env *e, struct osc_update_net_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->dhcp_options_set_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28879,6 +29547,10 @@ static  int update_net_data(struct osc_update_net_arg *args, struct osc_str *dat
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateNet");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28886,36 +29558,35 @@ int osc_update_net(struct osc_env *e, struct osc_str *out, struct osc_update_net
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_net_data(args, &data);
+	r = update_net_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateNet");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_nic_data(struct osc_update_nic_arg *args, struct osc_str *data)
+static  int update_nic_data(struct osc_env *e, struct osc_update_nic_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -28958,6 +29629,10 @@ static  int update_nic_data(struct osc_update_nic_arg *args, struct osc_str *dat
 		ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateNic");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -28965,36 +29640,35 @@ int osc_update_nic(struct osc_env *e, struct osc_str *out, struct osc_update_nic
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_nic_data(args, &data);
+	r = update_nic_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateNic");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_route_propagation_data(struct osc_update_route_propagation_arg *args, struct osc_str *data)
+static  int update_route_propagation_data(struct osc_env *e, struct osc_update_route_propagation_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29015,6 +29689,10 @@ static  int update_route_propagation_data(struct osc_update_route_propagation_ar
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateRoutePropagation");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29022,36 +29700,35 @@ int osc_update_route_propagation(struct osc_env *e, struct osc_str *out, struct 
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_route_propagation_data(args, &data);
+	r = update_route_propagation_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateRoutePropagation");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_route_data(struct osc_update_route_arg *args, struct osc_str *data)
+static  int update_route_data(struct osc_env *e, struct osc_update_route_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -29093,6 +29770,10 @@ static  int update_route_data(struct osc_update_route_arg *args, struct osc_str 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateRoute");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29100,36 +29781,35 @@ int osc_update_route(struct osc_env *e, struct osc_str *out, struct osc_update_r
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_route_data(args, &data);
+	r = update_route_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateRoute");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_route_table_link_data(struct osc_update_route_table_link_arg *args, struct osc_str *data)
+static  int update_route_table_link_data(struct osc_env *e, struct osc_update_route_table_link_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29146,6 +29826,10 @@ static  int update_route_table_link_data(struct osc_update_route_table_link_arg 
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateRouteTableLink");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29153,36 +29837,35 @@ int osc_update_route_table_link(struct osc_env *e, struct osc_str *out, struct o
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_route_table_link_data(args, &data);
+	r = update_route_table_link_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateRouteTableLink");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_server_certificate_data(struct osc_update_server_certificate_arg *args, struct osc_str *data)
+static  int update_server_certificate_data(struct osc_env *e, struct osc_update_server_certificate_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29204,6 +29887,10 @@ static  int update_server_certificate_data(struct osc_update_server_certificate_
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateServerCertificate");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29211,36 +29898,35 @@ int osc_update_server_certificate(struct osc_env *e, struct osc_str *out, struct
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_server_certificate_data(args, &data);
+	r = update_server_certificate_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateServerCertificate");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_snapshot_data(struct osc_update_snapshot_arg *args, struct osc_str *data)
+static  int update_snapshot_data(struct osc_env *e, struct osc_update_snapshot_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29262,6 +29948,10 @@ static  int update_snapshot_data(struct osc_update_snapshot_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateSnapshot");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29269,36 +29959,35 @@ int osc_update_snapshot(struct osc_env *e, struct osc_str *out, struct osc_updat
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_snapshot_data(args, &data);
+	r = update_snapshot_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateSnapshot");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_subnet_data(struct osc_update_subnet_arg *args, struct osc_str *data)
+static  int update_subnet_data(struct osc_env *e, struct osc_update_subnet_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29314,6 +30003,10 @@ static  int update_subnet_data(struct osc_update_subnet_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateSubnet");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29321,36 +30014,35 @@ int osc_update_subnet(struct osc_env *e, struct osc_str *out, struct osc_update_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_subnet_data(args, &data);
+	r = update_subnet_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateSubnet");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_user_group_data(struct osc_update_user_group_arg *args, struct osc_str *data)
+static  int update_user_group_data(struct osc_env *e, struct osc_update_user_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29377,6 +30069,10 @@ static  int update_user_group_data(struct osc_update_user_group_arg *args, struc
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateUserGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29384,36 +30080,35 @@ int osc_update_user_group(struct osc_env *e, struct osc_str *out, struct osc_upd
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_user_group_data(args, &data);
+	r = update_user_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateUserGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_user_data(struct osc_update_user_arg *args, struct osc_str *data)
+static  int update_user_data(struct osc_env *e, struct osc_update_user_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29440,6 +30135,10 @@ static  int update_user_data(struct osc_update_user_arg *args, struct osc_str *d
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateUser");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29447,36 +30146,35 @@ int osc_update_user(struct osc_env *e, struct osc_str *out, struct osc_update_us
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_user_data(args, &data);
+	r = update_user_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateUser");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_vm_group_data(struct osc_update_vm_group_arg *args, struct osc_str *data)
+static  int update_vm_group_data(struct osc_env *e, struct osc_update_vm_group_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -29521,6 +30219,10 @@ static  int update_vm_group_data(struct osc_update_vm_group_arg *args, struct os
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateVmGroup");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29528,36 +30230,35 @@ int osc_update_vm_group(struct osc_env *e, struct osc_str *out, struct osc_updat
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_vm_group_data(args, &data);
+	r = update_vm_group_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateVmGroup");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
+static  int update_vm_data(struct osc_env *e, struct osc_update_vm_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
         if (args->block_device_mappings) {
 	        TRY_APPEND_COL(count_args, data);
@@ -29644,6 +30345,10 @@ static  int update_vm_data(struct osc_update_vm_arg *args, struct osc_str *data)
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateVm");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29651,36 +30356,35 @@ int osc_update_vm(struct osc_env *e, struct osc_str *out, struct osc_update_vm_a
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_vm_data(args, &data);
+	r = update_vm_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateVm");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_vm_template_data(struct osc_update_vm_template_arg *args, struct osc_str *data)
+static  int update_vm_template_data(struct osc_env *e, struct osc_update_vm_template_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -29720,6 +30424,10 @@ static  int update_vm_template_data(struct osc_update_vm_template_arg *args, str
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateVmTemplate");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29727,36 +30435,35 @@ int osc_update_vm_template(struct osc_env *e, struct osc_str *out, struct osc_up
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_vm_template_data(args, &data);
+	r = update_vm_template_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateVmTemplate");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_volume_data(struct osc_update_volume_arg *args, struct osc_str *data)
+static  int update_volume_data(struct osc_env *e, struct osc_update_volume_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29781,6 +30488,10 @@ static  int update_volume_data(struct osc_update_volume_arg *args, struct osc_st
 	   	ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateVolume");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29788,36 +30499,35 @@ int osc_update_volume(struct osc_env *e, struct osc_str *out, struct osc_update_
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_volume_data(args, &data);
+	r = update_volume_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateVolume");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
-static  int update_vpn_connection_data(struct osc_update_vpn_connection_arg *args, struct osc_str *data)
+static  int update_vpn_connection_data(struct osc_env *e, struct osc_update_vpn_connection_arg *args, struct osc_str *data)
 {
+	struct osc_str end_call;
 	int ret = 0;
 	int count_args = 0;
 
+	(void)count_args; /* if use only query/header and path, this is unused */
 	if (!args)
 		return 0;
+
+	osc_init_str(&end_call);
+	osc_str_append_string(&end_call, e->endpoint.buf);
 	osc_str_append_string(data, "{");
 	if (args->client_gateway_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -29849,6 +30559,10 @@ static  int update_vpn_connection_data(struct osc_update_vpn_connection_arg *arg
 	       ret += 1;
 	}
 	osc_str_append_string(data, "}");
+	osc_str_append_string(&end_call, "/api/v1/UpdateVpnConnection");
+
+	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
+	osc_deinit_str(&end_call);
 	return !!ret;
 }
 
@@ -29856,26 +30570,20 @@ int osc_update_vpn_connection(struct osc_env *e, struct osc_str *out, struct osc
 {
 	CURLcode res = CURLE_OUT_OF_MEMORY;
 	struct osc_str data;
-	struct osc_str end_call;
 	int r;
 
 	osc_init_str(&data);
-	osc_init_str(&end_call);
-	r = update_vpn_connection_data(args, &data);
+	r = update_vpn_connection_data(e, args, &data);
 	if (r < 0)
 		goto out;
 
-	osc_str_append_string(&end_call, e->endpoint.buf);
-	osc_str_append_string(&end_call, "/api/v1/UpdateVpnConnection");
-	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
-	curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
+        curl_easy_setopt(e->c, CURLOPT_POSTFIELDS, r ? data.buf : "");
 	curl_easy_setopt(e->c, CURLOPT_WRITEDATA, out);
 	if (e->flag & OSC_VERBOSE_MODE) {
 	  printf("<Data send to curl>\n%s\n</Data send to curl>\n", data.buf);
 	}
 	res = curl_easy_perform(e->c);
 out:
-	osc_deinit_str(&end_call);
 	osc_deinit_str(&data);
 	return res;
 }
@@ -29985,15 +30693,16 @@ int osc_init_sdk_ext(struct osc_env *e, const char *profile, unsigned int flag,
 		if (f < 0)
 			return -1;
 		e->flag |= f;
+		osc_set_extra_flag_from_conf(profile, &flag);
 	}
 
 	if (!e->region)
 		e->region = "eu-west-2";
 
 	if (!endpoint && !e->endpoint_allocated_) {
-		osc_str_append_string(&e->endpoint, "https://api.");
-		osc_str_append_string(&e->endpoint, e->region);
-		osc_str_append_string(&e->endpoint, ".outscale.com");
+	osc_str_append_string(&e->endpoint, "https://api.");
+	osc_str_append_string(&e->endpoint, e->region);
+	osc_str_append_string(&e->endpoint, ".outscale.com");
 	} else {
 		if (e->endpoint_allocated_) {
 			osc_str_append_string(&e->endpoint,
