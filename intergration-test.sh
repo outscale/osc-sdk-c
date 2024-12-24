@@ -13,7 +13,7 @@ MSG_BASE="Test Example"
 
 echo "OSC_ENDPOINT_API($is_local): " $OSC_ENDPOINT_API
 
-if [[ "is_local" == 1 ]]; then
+if [[ "$is_local" == "1" ]]; then
     ./example0
     echo "example 0 done"
 fi
