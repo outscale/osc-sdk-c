@@ -1,9 +1,10 @@
 #!/bin/bash
 
-
+is_local=0
 echo $OSC_ENDPOINT_API | grep 127.0.0.1 > /dev/null
 if [ $? -eq 0 ]; then
     ./ricochet_preparation
+    is_local=1
 fi
 
 set -eE
