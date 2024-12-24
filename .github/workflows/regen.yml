@@ -21,4 +21,5 @@ jobs:
         sudo apt-get update --fix-missing
         sudo apt-get install -y -f -o Acquire::Retries=3 jq libjson-c-dev
     - name: regen-test
+      shell: bash
       run: COGNAC_CONFIG="--yq-go" make regen-test
