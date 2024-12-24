@@ -1,14 +1,23 @@
 #!/bin/bash
 
-
+is_local=0
 echo $OSC_ENDPOINT_API | grep 127.0.0.1 > /dev/null
 if [ $? -eq 0 ]; then
     ./ricochet_preparation
+    is_local=1
 fi
 
 set -eE
 
 MSG_BASE="Test Example"
+
+echo "OSC_ENDPOINT_API($is_local): " $OSC_ENDPOINT_API
+
+file example0
+
+if [[ "is_local" == 1 ]]; then
+    ./example0
+fi
 
 trap "echo [$MSG_BASE 0 FAIL]" ERR
 
