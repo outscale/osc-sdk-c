@@ -16335,11 +16335,11 @@ static  int accept_net_peering_data(struct osc_env *e, struct osc_accept_net_pee
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16353,6 +16353,7 @@ static  int accept_net_peering_data(struct osc_env *e, struct osc_accept_net_pee
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/AcceptNetPeering");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16386,11 +16387,11 @@ static  int add_user_to_user_group_data(struct osc_env *e, struct osc_add_user_t
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16419,6 +16420,7 @@ static  int add_user_to_user_group_data(struct osc_env *e, struct osc_add_user_t
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/AddUserToUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16452,11 +16454,11 @@ static  int check_authentication_data(struct osc_env *e, struct osc_check_authen
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16475,6 +16477,7 @@ static  int check_authentication_data(struct osc_env *e, struct osc_check_authen
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CheckAuthentication");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16508,11 +16511,11 @@ static  int create_access_key_data(struct osc_env *e, struct osc_create_access_k
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -16531,6 +16534,7 @@ static  int create_access_key_data(struct osc_env *e, struct osc_create_access_k
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateAccessKey");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16564,11 +16568,11 @@ static  int create_account_data(struct osc_env *e, struct osc_create_account_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->additional_emails) {
 		char **as;
@@ -16658,6 +16662,7 @@ static  int create_account_data(struct osc_env *e, struct osc_create_account_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateAccount");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16691,11 +16696,11 @@ static  int create_api_access_rule_data(struct osc_env *e, struct osc_create_api
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->ca_ids) {
 		char **as;
@@ -16757,6 +16762,7 @@ static  int create_api_access_rule_data(struct osc_env *e, struct osc_create_api
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateApiAccessRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16790,11 +16796,11 @@ static  int create_ca_data(struct osc_env *e, struct osc_create_ca_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->ca_pem) {
 		TRY_APPEND_COL(count_args, data);
@@ -16813,6 +16819,7 @@ static  int create_ca_data(struct osc_env *e, struct osc_create_ca_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateCa");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16846,11 +16853,11 @@ static  int create_client_gateway_data(struct osc_env *e, struct osc_create_clie
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_bgp_asn || args->bgp_asn) {
 		ARG_TO_JSON(BgpAsn, int, args->bgp_asn);
@@ -16873,6 +16880,7 @@ static  int create_client_gateway_data(struct osc_env *e, struct osc_create_clie
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateClientGateway");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16906,11 +16914,11 @@ static  int create_dedicated_group_data(struct osc_env *e, struct osc_create_ded
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_cpu_generation || args->cpu_generation) {
 		ARG_TO_JSON(CpuGeneration, int, args->cpu_generation);
@@ -16933,6 +16941,7 @@ static  int create_dedicated_group_data(struct osc_env *e, struct osc_create_ded
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateDedicatedGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -16966,11 +16975,11 @@ static  int create_dhcp_options_data(struct osc_env *e, struct osc_create_dhcp_o
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->domain_name) {
 		TRY_APPEND_COL(count_args, data);
@@ -17032,6 +17041,7 @@ static  int create_dhcp_options_data(struct osc_env *e, struct osc_create_dhcp_o
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateDhcpOptions");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17065,11 +17075,11 @@ static  int create_direct_link_interface_data(struct osc_env *e, struct osc_crea
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->direct_link_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -17093,6 +17103,7 @@ static  int create_direct_link_interface_data(struct osc_env *e, struct osc_crea
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateDirectLinkInterface");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17126,11 +17137,11 @@ static  int create_direct_link_data(struct osc_env *e, struct osc_create_direct_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->bandwidth) {
 		TRY_APPEND_COL(count_args, data);
@@ -17154,6 +17165,7 @@ static  int create_direct_link_data(struct osc_env *e, struct osc_create_direct_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateDirectLink");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17187,11 +17199,11 @@ static  int create_flexible_gpu_data(struct osc_env *e, struct osc_create_flexib
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_delete_on_vm_deletion) {
 		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
@@ -17219,6 +17231,7 @@ static  int create_flexible_gpu_data(struct osc_env *e, struct osc_create_flexib
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateFlexibleGpu");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17252,11 +17265,11 @@ static  int create_image_export_task_data(struct osc_env *e, struct osc_create_i
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17280,6 +17293,7 @@ static  int create_image_export_task_data(struct osc_env *e, struct osc_create_i
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateImageExportTask");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17313,11 +17327,11 @@ static  int create_image_data(struct osc_env *e, struct osc_create_image_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->architecture) {
 		TRY_APPEND_COL(count_args, data);
@@ -17404,6 +17418,7 @@ static  int create_image_data(struct osc_env *e, struct osc_create_image_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateImage");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17437,11 +17452,11 @@ static  int create_internet_service_data(struct osc_env *e, struct osc_create_in
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17450,6 +17465,7 @@ static  int create_internet_service_data(struct osc_env *e, struct osc_create_in
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateInternetService");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17483,11 +17499,11 @@ static  int create_keypair_data(struct osc_env *e, struct osc_create_keypair_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17506,6 +17522,7 @@ static  int create_keypair_data(struct osc_env *e, struct osc_create_keypair_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateKeypair");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17539,11 +17556,11 @@ static  int create_listener_rule_data(struct osc_env *e, struct osc_create_liste
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17588,6 +17605,7 @@ static  int create_listener_rule_data(struct osc_env *e, struct osc_create_liste
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateListenerRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17621,11 +17639,11 @@ static  int create_load_balancer_listeners_data(struct osc_env *e, struct osc_cr
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17657,6 +17675,7 @@ static  int create_load_balancer_listeners_data(struct osc_env *e, struct osc_cr
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerListeners");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17690,11 +17709,11 @@ static  int create_load_balancer_policy_data(struct osc_env *e, struct osc_creat
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_cookie_expiration_period || args->cookie_expiration_period) {
 		ARG_TO_JSON(CookieExpirationPeriod, int, args->cookie_expiration_period);
@@ -17727,6 +17746,7 @@ static  int create_load_balancer_policy_data(struct osc_env *e, struct osc_creat
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17760,11 +17780,11 @@ static  int create_load_balancer_data(struct osc_env *e, struct osc_create_load_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17872,6 +17892,7 @@ static  int create_load_balancer_data(struct osc_env *e, struct osc_create_load_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancer");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17905,11 +17926,11 @@ static  int create_load_balancer_tags_data(struct osc_env *e, struct osc_create_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -17952,6 +17973,7 @@ static  int create_load_balancer_tags_data(struct osc_env *e, struct osc_create_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateLoadBalancerTags");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -17985,11 +18007,11 @@ static  int create_nat_service_data(struct osc_env *e, struct osc_create_nat_ser
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->client_token) {
 		TRY_APPEND_COL(count_args, data);
@@ -18013,6 +18035,7 @@ static  int create_nat_service_data(struct osc_env *e, struct osc_create_nat_ser
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateNatService");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18046,11 +18069,11 @@ static  int create_net_access_point_data(struct osc_env *e, struct osc_create_ne
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18085,6 +18108,7 @@ static  int create_net_access_point_data(struct osc_env *e, struct osc_create_ne
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateNetAccessPoint");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18118,11 +18142,11 @@ static  int create_net_peering_data(struct osc_env *e, struct osc_create_net_pee
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->accepter_net_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -18146,6 +18170,7 @@ static  int create_net_peering_data(struct osc_env *e, struct osc_create_net_pee
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateNetPeering");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18179,11 +18204,11 @@ static  int create_net_data(struct osc_env *e, struct osc_create_net_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18202,6 +18227,7 @@ static  int create_net_data(struct osc_env *e, struct osc_create_net_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateNet");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18235,11 +18261,11 @@ static  int create_nic_data(struct osc_env *e, struct osc_create_nic_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18292,6 +18318,7 @@ static  int create_nic_data(struct osc_env *e, struct osc_create_nic_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateNic");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18325,11 +18352,11 @@ static  int create_policy_data(struct osc_env *e, struct osc_create_policy_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18358,6 +18385,7 @@ static  int create_policy_data(struct osc_env *e, struct osc_create_policy_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreatePolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18391,11 +18419,11 @@ static  int create_policy_version_data(struct osc_env *e, struct osc_create_poli
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->document) {
 		TRY_APPEND_COL(count_args, data);
@@ -18414,6 +18442,7 @@ static  int create_policy_version_data(struct osc_env *e, struct osc_create_poli
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreatePolicyVersion");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18447,11 +18476,11 @@ static  int create_product_type_data(struct osc_env *e, struct osc_create_produc
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18470,6 +18499,7 @@ static  int create_product_type_data(struct osc_env *e, struct osc_create_produc
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateProductType");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18503,11 +18533,11 @@ static  int create_public_ip_data(struct osc_env *e, struct osc_create_public_ip
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18516,6 +18546,7 @@ static  int create_public_ip_data(struct osc_env *e, struct osc_create_public_ip
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreatePublicIp");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18549,11 +18580,11 @@ static  int create_route_data(struct osc_env *e, struct osc_create_route_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -18597,6 +18628,7 @@ static  int create_route_data(struct osc_env *e, struct osc_create_route_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateRoute");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18630,11 +18662,11 @@ static  int create_route_table_data(struct osc_env *e, struct osc_create_route_t
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18648,6 +18680,7 @@ static  int create_route_table_data(struct osc_env *e, struct osc_create_route_t
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateRouteTable");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18681,11 +18714,11 @@ static  int create_security_group_data(struct osc_env *e, struct osc_create_secu
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -18709,6 +18742,7 @@ static  int create_security_group_data(struct osc_env *e, struct osc_create_secu
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18742,11 +18776,11 @@ static  int create_security_group_rule_data(struct osc_env *e, struct osc_create
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18811,6 +18845,7 @@ static  int create_security_group_rule_data(struct osc_env *e, struct osc_create
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateSecurityGroupRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18844,11 +18879,11 @@ static  int create_server_certificate_data(struct osc_env *e, struct osc_create_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->body) {
 		TRY_APPEND_COL(count_args, data);
@@ -18882,6 +18917,7 @@ static  int create_server_certificate_data(struct osc_env *e, struct osc_create_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateServerCertificate");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18915,11 +18951,11 @@ static  int create_snapshot_export_task_data(struct osc_env *e, struct osc_creat
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -18943,6 +18979,7 @@ static  int create_snapshot_export_task_data(struct osc_env *e, struct osc_creat
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateSnapshotExportTask");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -18976,11 +19013,11 @@ static  int create_snapshot_data(struct osc_env *e, struct osc_create_snapshot_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -19018,6 +19055,7 @@ static  int create_snapshot_data(struct osc_env *e, struct osc_create_snapshot_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateSnapshot");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19051,11 +19089,11 @@ static  int create_subnet_data(struct osc_env *e, struct osc_create_subnet_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19079,6 +19117,7 @@ static  int create_subnet_data(struct osc_env *e, struct osc_create_subnet_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateSubnet");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19112,11 +19151,11 @@ static  int create_tags_data(struct osc_env *e, struct osc_create_tags_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19159,6 +19198,7 @@ static  int create_tags_data(struct osc_env *e, struct osc_create_tags_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateTags");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19192,11 +19232,11 @@ static  int create_user_group_data(struct osc_env *e, struct osc_create_user_gro
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19215,6 +19255,7 @@ static  int create_user_group_data(struct osc_env *e, struct osc_create_user_gro
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19248,11 +19289,11 @@ static  int create_user_data(struct osc_env *e, struct osc_create_user_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19276,6 +19317,7 @@ static  int create_user_data(struct osc_env *e, struct osc_create_user_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateUser");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19309,11 +19351,11 @@ static  int create_virtual_gateway_data(struct osc_env *e, struct osc_create_vir
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->connection_type) {
 		TRY_APPEND_COL(count_args, data);
@@ -19327,6 +19369,7 @@ static  int create_virtual_gateway_data(struct osc_env *e, struct osc_create_vir
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateVirtualGateway");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19360,11 +19403,11 @@ static  int create_vm_group_data(struct osc_env *e, struct osc_create_vm_group_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -19436,6 +19479,7 @@ static  int create_vm_group_data(struct osc_env *e, struct osc_create_vm_group_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateVmGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19469,11 +19513,11 @@ static  int create_vm_template_data(struct osc_env *e, struct osc_create_vm_temp
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_cpu_cores || args->cpu_cores) {
 		ARG_TO_JSON(CpuCores, int, args->cpu_cores);
@@ -19538,6 +19582,7 @@ static  int create_vm_template_data(struct osc_env *e, struct osc_create_vm_temp
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateVmTemplate");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19571,11 +19616,11 @@ static  int create_vms_data(struct osc_env *e, struct osc_create_vms_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
         if (args->block_device_mappings) {
 	        TRY_APPEND_COL(count_args, data);
@@ -19742,6 +19787,7 @@ static  int create_vms_data(struct osc_env *e, struct osc_create_vms_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateVms");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19775,11 +19821,11 @@ static  int create_volume_data(struct osc_env *e, struct osc_create_volume_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -19811,6 +19857,7 @@ static  int create_volume_data(struct osc_env *e, struct osc_create_volume_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateVolume");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19844,11 +19891,11 @@ static  int create_vpn_connection_data(struct osc_env *e, struct osc_create_vpn_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->client_gateway_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19876,6 +19923,7 @@ static  int create_vpn_connection_data(struct osc_env *e, struct osc_create_vpn_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnection");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19909,11 +19957,11 @@ static  int create_vpn_connection_route_data(struct osc_env *e, struct osc_creat
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -19932,6 +19980,7 @@ static  int create_vpn_connection_route_data(struct osc_env *e, struct osc_creat
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/CreateVpnConnectionRoute");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -19965,11 +20014,11 @@ static  int delete_access_key_data(struct osc_env *e, struct osc_delete_access_k
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->access_key_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -19988,6 +20037,7 @@ static  int delete_access_key_data(struct osc_env *e, struct osc_delete_access_k
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteAccessKey");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20021,11 +20071,11 @@ static  int delete_api_access_rule_data(struct osc_env *e, struct osc_delete_api
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->api_access_rule_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20039,6 +20089,7 @@ static  int delete_api_access_rule_data(struct osc_env *e, struct osc_delete_api
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteApiAccessRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20072,11 +20123,11 @@ static  int delete_ca_data(struct osc_env *e, struct osc_delete_ca_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->ca_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20090,6 +20141,7 @@ static  int delete_ca_data(struct osc_env *e, struct osc_delete_ca_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteCa");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20123,11 +20175,11 @@ static  int delete_client_gateway_data(struct osc_env *e, struct osc_delete_clie
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->client_gateway_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20141,6 +20193,7 @@ static  int delete_client_gateway_data(struct osc_env *e, struct osc_delete_clie
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteClientGateway");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20174,11 +20227,11 @@ static  int delete_dedicated_group_data(struct osc_env *e, struct osc_delete_ded
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->dedicated_group_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20196,6 +20249,7 @@ static  int delete_dedicated_group_data(struct osc_env *e, struct osc_delete_ded
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteDedicatedGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20229,11 +20283,11 @@ static  int delete_dhcp_options_data(struct osc_env *e, struct osc_delete_dhcp_o
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->dhcp_options_set_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20247,6 +20301,7 @@ static  int delete_dhcp_options_data(struct osc_env *e, struct osc_delete_dhcp_o
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteDhcpOptions");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20280,11 +20335,11 @@ static  int delete_direct_link_interface_data(struct osc_env *e, struct osc_dele
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->direct_link_interface_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20298,6 +20353,7 @@ static  int delete_direct_link_interface_data(struct osc_env *e, struct osc_dele
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLinkInterface");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20331,11 +20387,11 @@ static  int delete_direct_link_data(struct osc_env *e, struct osc_delete_direct_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->direct_link_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -20349,6 +20405,7 @@ static  int delete_direct_link_data(struct osc_env *e, struct osc_delete_direct_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteDirectLink");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20382,11 +20439,11 @@ static  int delete_export_task_data(struct osc_env *e, struct osc_delete_export_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20400,6 +20457,7 @@ static  int delete_export_task_data(struct osc_env *e, struct osc_delete_export_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteExportTask");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20433,11 +20491,11 @@ static  int delete_flexible_gpu_data(struct osc_env *e, struct osc_delete_flexib
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20451,6 +20509,7 @@ static  int delete_flexible_gpu_data(struct osc_env *e, struct osc_delete_flexib
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteFlexibleGpu");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20484,11 +20543,11 @@ static  int delete_image_data(struct osc_env *e, struct osc_delete_image_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20502,6 +20561,7 @@ static  int delete_image_data(struct osc_env *e, struct osc_delete_image_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteImage");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20535,11 +20595,11 @@ static  int delete_internet_service_data(struct osc_env *e, struct osc_delete_in
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20553,6 +20613,7 @@ static  int delete_internet_service_data(struct osc_env *e, struct osc_delete_in
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteInternetService");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20586,11 +20647,11 @@ static  int delete_keypair_data(struct osc_env *e, struct osc_delete_keypair_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20604,6 +20665,7 @@ static  int delete_keypair_data(struct osc_env *e, struct osc_delete_keypair_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteKeypair");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20637,11 +20699,11 @@ static  int delete_listener_rule_data(struct osc_env *e, struct osc_delete_liste
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20655,6 +20717,7 @@ static  int delete_listener_rule_data(struct osc_env *e, struct osc_delete_liste
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteListenerRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20688,11 +20751,11 @@ static  int delete_load_balancer_listeners_data(struct osc_env *e, struct osc_de
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20722,6 +20785,7 @@ static  int delete_load_balancer_listeners_data(struct osc_env *e, struct osc_de
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerListeners");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20755,11 +20819,11 @@ static  int delete_load_balancer_policy_data(struct osc_env *e, struct osc_delet
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20778,6 +20842,7 @@ static  int delete_load_balancer_policy_data(struct osc_env *e, struct osc_delet
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20811,11 +20876,11 @@ static  int delete_load_balancer_data(struct osc_env *e, struct osc_delete_load_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20829,6 +20894,7 @@ static  int delete_load_balancer_data(struct osc_env *e, struct osc_delete_load_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancer");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20862,11 +20928,11 @@ static  int delete_load_balancer_tags_data(struct osc_env *e, struct osc_delete_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20909,6 +20975,7 @@ static  int delete_load_balancer_tags_data(struct osc_env *e, struct osc_delete_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteLoadBalancerTags");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20942,11 +21009,11 @@ static  int delete_nat_service_data(struct osc_env *e, struct osc_delete_nat_ser
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -20960,6 +21027,7 @@ static  int delete_nat_service_data(struct osc_env *e, struct osc_delete_nat_ser
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteNatService");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -20993,11 +21061,11 @@ static  int delete_net_access_point_data(struct osc_env *e, struct osc_delete_ne
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21011,6 +21079,7 @@ static  int delete_net_access_point_data(struct osc_env *e, struct osc_delete_ne
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteNetAccessPoint");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21044,11 +21113,11 @@ static  int delete_net_peering_data(struct osc_env *e, struct osc_delete_net_pee
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21062,6 +21131,7 @@ static  int delete_net_peering_data(struct osc_env *e, struct osc_delete_net_pee
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteNetPeering");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21095,11 +21165,11 @@ static  int delete_net_data(struct osc_env *e, struct osc_delete_net_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21113,6 +21183,7 @@ static  int delete_net_data(struct osc_env *e, struct osc_delete_net_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteNet");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21146,11 +21217,11 @@ static  int delete_nic_data(struct osc_env *e, struct osc_delete_nic_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21164,6 +21235,7 @@ static  int delete_nic_data(struct osc_env *e, struct osc_delete_nic_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteNic");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21197,11 +21269,11 @@ static  int delete_policy_data(struct osc_env *e, struct osc_delete_policy_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21215,6 +21287,7 @@ static  int delete_policy_data(struct osc_env *e, struct osc_delete_policy_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeletePolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21248,11 +21321,11 @@ static  int delete_policy_version_data(struct osc_env *e, struct osc_delete_poli
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -21267,6 +21340,7 @@ static  int delete_policy_version_data(struct osc_env *e, struct osc_delete_poli
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeletePolicyVersion");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21300,11 +21374,11 @@ static  int delete_public_ip_data(struct osc_env *e, struct osc_delete_public_ip
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21323,6 +21397,7 @@ static  int delete_public_ip_data(struct osc_env *e, struct osc_delete_public_ip
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeletePublicIp");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21356,11 +21431,11 @@ static  int delete_route_data(struct osc_env *e, struct osc_delete_route_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -21379,6 +21454,7 @@ static  int delete_route_data(struct osc_env *e, struct osc_delete_route_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteRoute");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21412,11 +21488,11 @@ static  int delete_route_table_data(struct osc_env *e, struct osc_delete_route_t
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21430,6 +21506,7 @@ static  int delete_route_table_data(struct osc_env *e, struct osc_delete_route_t
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteRouteTable");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21463,11 +21540,11 @@ static  int delete_security_group_data(struct osc_env *e, struct osc_delete_secu
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21486,6 +21563,7 @@ static  int delete_security_group_data(struct osc_env *e, struct osc_delete_secu
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21519,11 +21597,11 @@ static  int delete_security_group_rule_data(struct osc_env *e, struct osc_delete
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21588,6 +21666,7 @@ static  int delete_security_group_rule_data(struct osc_env *e, struct osc_delete
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteSecurityGroupRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21621,11 +21700,11 @@ static  int delete_server_certificate_data(struct osc_env *e, struct osc_delete_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21639,6 +21718,7 @@ static  int delete_server_certificate_data(struct osc_env *e, struct osc_delete_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteServerCertificate");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21672,11 +21752,11 @@ static  int delete_snapshot_data(struct osc_env *e, struct osc_delete_snapshot_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21690,6 +21770,7 @@ static  int delete_snapshot_data(struct osc_env *e, struct osc_delete_snapshot_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteSnapshot");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21723,11 +21804,11 @@ static  int delete_subnet_data(struct osc_env *e, struct osc_delete_subnet_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21741,6 +21822,7 @@ static  int delete_subnet_data(struct osc_env *e, struct osc_delete_subnet_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteSubnet");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21774,11 +21856,11 @@ static  int delete_tags_data(struct osc_env *e, struct osc_delete_tags_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21821,6 +21903,7 @@ static  int delete_tags_data(struct osc_env *e, struct osc_delete_tags_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteTags");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21854,11 +21937,11 @@ static  int delete_user_group_policy_data(struct osc_env *e, struct osc_delete_u
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21882,6 +21965,7 @@ static  int delete_user_group_policy_data(struct osc_env *e, struct osc_delete_u
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroupPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21915,11 +21999,11 @@ static  int delete_user_group_data(struct osc_env *e, struct osc_delete_user_gro
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21942,6 +22026,7 @@ static  int delete_user_group_data(struct osc_env *e, struct osc_delete_user_gro
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -21975,11 +22060,11 @@ static  int delete_user_data(struct osc_env *e, struct osc_delete_user_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -21993,6 +22078,7 @@ static  int delete_user_data(struct osc_env *e, struct osc_delete_user_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteUser");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22026,11 +22112,11 @@ static  int delete_virtual_gateway_data(struct osc_env *e, struct osc_delete_vir
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22044,6 +22130,7 @@ static  int delete_virtual_gateway_data(struct osc_env *e, struct osc_delete_vir
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteVirtualGateway");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22077,11 +22164,11 @@ static  int delete_vm_group_data(struct osc_env *e, struct osc_delete_vm_group_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22095,6 +22182,7 @@ static  int delete_vm_group_data(struct osc_env *e, struct osc_delete_vm_group_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteVmGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22128,11 +22216,11 @@ static  int delete_vm_template_data(struct osc_env *e, struct osc_delete_vm_temp
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22146,6 +22234,7 @@ static  int delete_vm_template_data(struct osc_env *e, struct osc_delete_vm_temp
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteVmTemplate");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22179,11 +22268,11 @@ static  int delete_vms_data(struct osc_env *e, struct osc_delete_vms_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22208,6 +22297,7 @@ static  int delete_vms_data(struct osc_env *e, struct osc_delete_vms_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteVms");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22241,11 +22331,11 @@ static  int delete_volume_data(struct osc_env *e, struct osc_delete_volume_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22259,6 +22349,7 @@ static  int delete_volume_data(struct osc_env *e, struct osc_delete_volume_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteVolume");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22292,11 +22383,11 @@ static  int delete_vpn_connection_data(struct osc_env *e, struct osc_delete_vpn_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22310,6 +22401,7 @@ static  int delete_vpn_connection_data(struct osc_env *e, struct osc_delete_vpn_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnection");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22343,11 +22435,11 @@ static  int delete_vpn_connection_route_data(struct osc_env *e, struct osc_delet
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -22366,6 +22458,7 @@ static  int delete_vpn_connection_route_data(struct osc_env *e, struct osc_delet
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeleteVpnConnectionRoute");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22399,11 +22492,11 @@ static  int deregister_vms_in_load_balancer_data(struct osc_env *e, struct osc_d
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
 		char **as;
@@ -22433,6 +22526,7 @@ static  int deregister_vms_in_load_balancer_data(struct osc_env *e, struct osc_d
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/DeregisterVmsInLoadBalancer");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22466,11 +22560,11 @@ static  int link_flexible_gpu_data(struct osc_env *e, struct osc_link_flexible_g
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22489,6 +22583,7 @@ static  int link_flexible_gpu_data(struct osc_env *e, struct osc_link_flexible_g
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkFlexibleGpu");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22522,11 +22617,11 @@ static  int link_internet_service_data(struct osc_env *e, struct osc_link_intern
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22545,6 +22640,7 @@ static  int link_internet_service_data(struct osc_env *e, struct osc_link_intern
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkInternetService");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22578,11 +22674,11 @@ static  int link_load_balancer_backend_machines_data(struct osc_env *e, struct o
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->backend_ips) {
 		char **as;
@@ -22628,6 +22724,7 @@ static  int link_load_balancer_backend_machines_data(struct osc_env *e, struct o
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkLoadBalancerBackendMachines");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22661,11 +22758,11 @@ static  int link_managed_policy_to_user_group_data(struct osc_env *e, struct osc
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22684,6 +22781,7 @@ static  int link_managed_policy_to_user_group_data(struct osc_env *e, struct osc
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkManagedPolicyToUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22717,11 +22815,11 @@ static  int link_nic_data(struct osc_env *e, struct osc_link_nic_arg *args, stru
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_device_number || args->device_number) {
 		ARG_TO_JSON(DeviceNumber, int, args->device_number);
@@ -22744,6 +22842,7 @@ static  int link_nic_data(struct osc_env *e, struct osc_link_nic_arg *args, stru
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkNic");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22777,11 +22876,11 @@ static  int link_policy_data(struct osc_env *e, struct osc_link_policy_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -22800,6 +22899,7 @@ static  int link_policy_data(struct osc_env *e, struct osc_link_policy_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22833,11 +22933,11 @@ static  int link_private_ips_data(struct osc_env *e, struct osc_link_private_ips
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_allow_relink) {
 		ARG_TO_JSON(AllowRelink, bool, args->allow_relink);
@@ -22875,6 +22975,7 @@ static  int link_private_ips_data(struct osc_env *e, struct osc_link_private_ips
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkPrivateIps");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22908,11 +23009,11 @@ static  int link_public_ip_data(struct osc_env *e, struct osc_link_public_ip_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_allow_relink) {
 		ARG_TO_JSON(AllowRelink, bool, args->allow_relink);
@@ -22950,6 +23051,7 @@ static  int link_public_ip_data(struct osc_env *e, struct osc_link_public_ip_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkPublicIp");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -22983,11 +23085,11 @@ static  int link_route_table_data(struct osc_env *e, struct osc_link_route_table
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23006,6 +23108,7 @@ static  int link_route_table_data(struct osc_env *e, struct osc_link_route_table
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkRouteTable");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23039,11 +23142,11 @@ static  int link_virtual_gateway_data(struct osc_env *e, struct osc_link_virtual
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23062,6 +23165,7 @@ static  int link_virtual_gateway_data(struct osc_env *e, struct osc_link_virtual
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkVirtualGateway");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23095,11 +23199,11 @@ static  int link_volume_data(struct osc_env *e, struct osc_link_volume_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->device_name) {
 		TRY_APPEND_COL(count_args, data);
@@ -23123,6 +23227,7 @@ static  int link_volume_data(struct osc_env *e, struct osc_link_volume_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/LinkVolume");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23156,11 +23261,11 @@ static  int put_user_group_policy_data(struct osc_env *e, struct osc_put_user_gr
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23189,6 +23294,7 @@ static  int put_user_group_policy_data(struct osc_env *e, struct osc_put_user_gr
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/PutUserGroupPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23222,11 +23328,11 @@ static  int read_access_keys_data(struct osc_env *e, struct osc_read_access_keys
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23250,6 +23356,7 @@ static  int read_access_keys_data(struct osc_env *e, struct osc_read_access_keys
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadAccessKeys");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23283,11 +23390,11 @@ static  int read_accounts_data(struct osc_env *e, struct osc_read_accounts_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23296,6 +23403,7 @@ static  int read_accounts_data(struct osc_env *e, struct osc_read_accounts_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadAccounts");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23329,11 +23437,11 @@ static  int read_admin_password_data(struct osc_env *e, struct osc_read_admin_pa
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23347,6 +23455,7 @@ static  int read_admin_password_data(struct osc_env *e, struct osc_read_admin_pa
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadAdminPassword");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23380,11 +23489,11 @@ static  int read_api_access_policy_data(struct osc_env *e, struct osc_read_api_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23393,6 +23502,7 @@ static  int read_api_access_policy_data(struct osc_env *e, struct osc_read_api_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23426,11 +23536,11 @@ static  int read_api_access_rules_data(struct osc_env *e, struct osc_read_api_ac
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23449,6 +23559,7 @@ static  int read_api_access_rules_data(struct osc_env *e, struct osc_read_api_ac
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadApiAccessRules");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23482,11 +23593,11 @@ static  int read_api_logs_data(struct osc_env *e, struct osc_read_api_logs_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23524,6 +23635,7 @@ static  int read_api_logs_data(struct osc_env *e, struct osc_read_api_logs_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadApiLogs");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23557,11 +23669,11 @@ static  int read_cas_data(struct osc_env *e, struct osc_read_cas_arg *args, stru
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23580,6 +23692,7 @@ static  int read_cas_data(struct osc_env *e, struct osc_read_cas_arg *args, stru
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadCas");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23613,11 +23726,11 @@ static  int read_catalog_data(struct osc_env *e, struct osc_read_catalog_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23626,6 +23739,7 @@ static  int read_catalog_data(struct osc_env *e, struct osc_read_catalog_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadCatalog");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23659,11 +23773,11 @@ static  int read_catalogs_data(struct osc_env *e, struct osc_read_catalogs_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23682,6 +23796,7 @@ static  int read_catalogs_data(struct osc_env *e, struct osc_read_catalogs_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadCatalogs");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23715,11 +23830,11 @@ static  int read_client_gateways_data(struct osc_env *e, struct osc_read_client_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23747,6 +23862,7 @@ static  int read_client_gateways_data(struct osc_env *e, struct osc_read_client_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadClientGateways");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23780,11 +23896,11 @@ static  int read_console_output_data(struct osc_env *e, struct osc_read_console_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23798,6 +23914,7 @@ static  int read_console_output_data(struct osc_env *e, struct osc_read_console_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadConsoleOutput");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23831,11 +23948,11 @@ static  int read_consumption_account_data(struct osc_env *e, struct osc_read_con
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23862,6 +23979,7 @@ static  int read_consumption_account_data(struct osc_env *e, struct osc_read_con
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadConsumptionAccount");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23895,11 +24013,11 @@ static  int read_dedicated_groups_data(struct osc_env *e, struct osc_read_dedica
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23927,6 +24045,7 @@ static  int read_dedicated_groups_data(struct osc_env *e, struct osc_read_dedica
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadDedicatedGroups");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -23960,11 +24079,11 @@ static  int read_dhcp_options_data(struct osc_env *e, struct osc_read_dhcp_optio
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -23992,6 +24111,7 @@ static  int read_dhcp_options_data(struct osc_env *e, struct osc_read_dhcp_optio
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadDhcpOptions");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24025,11 +24145,11 @@ static  int read_direct_link_interfaces_data(struct osc_env *e, struct osc_read_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24057,6 +24177,7 @@ static  int read_direct_link_interfaces_data(struct osc_env *e, struct osc_read_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinkInterfaces");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24090,11 +24211,11 @@ static  int read_direct_links_data(struct osc_env *e, struct osc_read_direct_lin
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24122,6 +24243,7 @@ static  int read_direct_links_data(struct osc_env *e, struct osc_read_direct_lin
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadDirectLinks");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24155,11 +24277,11 @@ static  int read_entities_linked_to_policy_data(struct osc_env *e, struct osc_re
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->entities_type) {
 		char **as;
@@ -24193,6 +24315,7 @@ static  int read_entities_linked_to_policy_data(struct osc_env *e, struct osc_re
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadEntitiesLinkedToPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24226,11 +24349,11 @@ static  int read_flexible_gpu_catalog_data(struct osc_env *e, struct osc_read_fl
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24239,6 +24362,7 @@ static  int read_flexible_gpu_catalog_data(struct osc_env *e, struct osc_read_fl
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpuCatalog");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24272,11 +24396,11 @@ static  int read_flexible_gpus_data(struct osc_env *e, struct osc_read_flexible_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24295,6 +24419,7 @@ static  int read_flexible_gpus_data(struct osc_env *e, struct osc_read_flexible_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadFlexibleGpus");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24328,11 +24453,11 @@ static  int read_image_export_tasks_data(struct osc_env *e, struct osc_read_imag
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24360,6 +24485,7 @@ static  int read_image_export_tasks_data(struct osc_env *e, struct osc_read_imag
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadImageExportTasks");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24393,11 +24519,11 @@ static  int read_images_data(struct osc_env *e, struct osc_read_images_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24425,6 +24551,7 @@ static  int read_images_data(struct osc_env *e, struct osc_read_images_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadImages");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24458,11 +24585,11 @@ static  int read_internet_services_data(struct osc_env *e, struct osc_read_inter
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24490,6 +24617,7 @@ static  int read_internet_services_data(struct osc_env *e, struct osc_read_inter
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadInternetServices");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24523,11 +24651,11 @@ static  int read_keypairs_data(struct osc_env *e, struct osc_read_keypairs_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24555,6 +24683,7 @@ static  int read_keypairs_data(struct osc_env *e, struct osc_read_keypairs_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadKeypairs");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24588,11 +24717,11 @@ static  int read_linked_policies_data(struct osc_env *e, struct osc_read_linked_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24624,6 +24753,7 @@ static  int read_linked_policies_data(struct osc_env *e, struct osc_read_linked_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadLinkedPolicies");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24657,11 +24787,11 @@ static  int read_listener_rules_data(struct osc_env *e, struct osc_read_listener
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24680,6 +24810,7 @@ static  int read_listener_rules_data(struct osc_env *e, struct osc_read_listener
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadListenerRules");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24713,11 +24844,11 @@ static  int read_load_balancer_tags_data(struct osc_env *e, struct osc_read_load
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24742,6 +24873,7 @@ static  int read_load_balancer_tags_data(struct osc_env *e, struct osc_read_load
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancerTags");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24775,11 +24907,11 @@ static  int read_load_balancers_data(struct osc_env *e, struct osc_read_load_bal
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24798,6 +24930,7 @@ static  int read_load_balancers_data(struct osc_env *e, struct osc_read_load_bal
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadLoadBalancers");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24831,11 +24964,11 @@ static  int read_locations_data(struct osc_env *e, struct osc_read_locations_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24853,6 +24986,7 @@ static  int read_locations_data(struct osc_env *e, struct osc_read_locations_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadLocations");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24886,11 +25020,11 @@ static  int read_managed_policies_linked_to_user_group_data(struct osc_env *e, s
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24922,6 +25056,7 @@ static  int read_managed_policies_linked_to_user_group_data(struct osc_env *e, s
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadManagedPoliciesLinkedToUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -24955,11 +25090,11 @@ static  int read_nat_services_data(struct osc_env *e, struct osc_read_nat_servic
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -24987,6 +25122,7 @@ static  int read_nat_services_data(struct osc_env *e, struct osc_read_nat_servic
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadNatServices");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25020,11 +25156,11 @@ static  int read_net_access_point_services_data(struct osc_env *e, struct osc_re
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25052,6 +25188,7 @@ static  int read_net_access_point_services_data(struct osc_env *e, struct osc_re
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPointServices");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25085,11 +25222,11 @@ static  int read_net_access_points_data(struct osc_env *e, struct osc_read_net_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25117,6 +25254,7 @@ static  int read_net_access_points_data(struct osc_env *e, struct osc_read_net_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadNetAccessPoints");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25150,11 +25288,11 @@ static  int read_net_peerings_data(struct osc_env *e, struct osc_read_net_peerin
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25182,6 +25320,7 @@ static  int read_net_peerings_data(struct osc_env *e, struct osc_read_net_peerin
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadNetPeerings");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25215,11 +25354,11 @@ static  int read_nets_data(struct osc_env *e, struct osc_read_nets_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25247,6 +25386,7 @@ static  int read_nets_data(struct osc_env *e, struct osc_read_nets_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadNets");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25280,11 +25420,11 @@ static  int read_nics_data(struct osc_env *e, struct osc_read_nics_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25303,6 +25443,7 @@ static  int read_nics_data(struct osc_env *e, struct osc_read_nics_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadNics");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25336,11 +25477,11 @@ static  int read_policies_data(struct osc_env *e, struct osc_read_policies_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25367,6 +25508,7 @@ static  int read_policies_data(struct osc_env *e, struct osc_read_policies_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadPolicies");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25400,11 +25542,11 @@ static  int read_policy_data(struct osc_env *e, struct osc_read_policy_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -25414,6 +25556,7 @@ static  int read_policy_data(struct osc_env *e, struct osc_read_policy_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25447,11 +25590,11 @@ static  int read_policy_version_data(struct osc_env *e, struct osc_read_policy_v
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -25466,6 +25609,7 @@ static  int read_policy_version_data(struct osc_env *e, struct osc_read_policy_v
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersion");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25499,11 +25643,11 @@ static  int read_policy_versions_data(struct osc_env *e, struct osc_read_policy_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_first_item || args->first_item) {
 		ARG_TO_JSON(FirstItem, int, args->first_item);
@@ -25521,6 +25665,7 @@ static  int read_policy_versions_data(struct osc_env *e, struct osc_read_policy_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadPolicyVersions");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25554,11 +25699,11 @@ static  int read_product_types_data(struct osc_env *e, struct osc_read_product_t
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25586,6 +25731,7 @@ static  int read_product_types_data(struct osc_env *e, struct osc_read_product_t
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadProductTypes");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25619,11 +25765,11 @@ static  int read_public_catalog_data(struct osc_env *e, struct osc_read_public_c
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25632,6 +25778,7 @@ static  int read_public_catalog_data(struct osc_env *e, struct osc_read_public_c
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadPublicCatalog");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25665,11 +25812,11 @@ static  int read_public_ip_ranges_data(struct osc_env *e, struct osc_read_public
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25687,6 +25834,7 @@ static  int read_public_ip_ranges_data(struct osc_env *e, struct osc_read_public
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadPublicIpRanges");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25720,11 +25868,11 @@ static  int read_public_ips_data(struct osc_env *e, struct osc_read_public_ips_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25752,6 +25900,7 @@ static  int read_public_ips_data(struct osc_env *e, struct osc_read_public_ips_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadPublicIps");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25785,11 +25934,11 @@ static  int read_quotas_data(struct osc_env *e, struct osc_read_quotas_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25817,6 +25966,7 @@ static  int read_quotas_data(struct osc_env *e, struct osc_read_quotas_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadQuotas");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25850,11 +26000,11 @@ static  int read_regions_data(struct osc_env *e, struct osc_read_regions_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25863,6 +26013,7 @@ static  int read_regions_data(struct osc_env *e, struct osc_read_regions_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadRegions");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25896,11 +26047,11 @@ static  int read_route_tables_data(struct osc_env *e, struct osc_read_route_tabl
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -25928,6 +26079,7 @@ static  int read_route_tables_data(struct osc_env *e, struct osc_read_route_tabl
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadRouteTables");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -25961,11 +26113,11 @@ static  int read_secret_access_key_data(struct osc_env *e, struct osc_read_secre
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->access_key_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -25979,6 +26131,7 @@ static  int read_secret_access_key_data(struct osc_env *e, struct osc_read_secre
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadSecretAccessKey");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26012,11 +26165,11 @@ static  int read_security_groups_data(struct osc_env *e, struct osc_read_securit
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26044,6 +26197,7 @@ static  int read_security_groups_data(struct osc_env *e, struct osc_read_securit
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadSecurityGroups");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26077,11 +26231,11 @@ static  int read_server_certificates_data(struct osc_env *e, struct osc_read_ser
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26100,6 +26254,7 @@ static  int read_server_certificates_data(struct osc_env *e, struct osc_read_ser
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadServerCertificates");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26133,11 +26288,11 @@ static  int read_snapshot_export_tasks_data(struct osc_env *e, struct osc_read_s
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26165,6 +26320,7 @@ static  int read_snapshot_export_tasks_data(struct osc_env *e, struct osc_read_s
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadSnapshotExportTasks");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26198,11 +26354,11 @@ static  int read_snapshots_data(struct osc_env *e, struct osc_read_snapshots_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26230,6 +26386,7 @@ static  int read_snapshots_data(struct osc_env *e, struct osc_read_snapshots_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadSnapshots");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26263,11 +26420,11 @@ static  int read_subnets_data(struct osc_env *e, struct osc_read_subnets_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26295,6 +26452,7 @@ static  int read_subnets_data(struct osc_env *e, struct osc_read_subnets_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadSubnets");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26328,11 +26486,11 @@ static  int read_subregions_data(struct osc_env *e, struct osc_read_subregions_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26360,6 +26518,7 @@ static  int read_subregions_data(struct osc_env *e, struct osc_read_subregions_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadSubregions");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26393,11 +26552,11 @@ static  int read_tags_data(struct osc_env *e, struct osc_read_tags_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26425,6 +26584,7 @@ static  int read_tags_data(struct osc_env *e, struct osc_read_tags_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadTags");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26458,11 +26618,11 @@ static  int read_unit_price_data(struct osc_env *e, struct osc_read_unit_price_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->operation) {
 		TRY_APPEND_COL(count_args, data);
@@ -26482,6 +26642,7 @@ static  int read_unit_price_data(struct osc_env *e, struct osc_read_unit_price_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadUnitPrice");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26515,11 +26676,11 @@ static  int read_user_group_policies_data(struct osc_env *e, struct osc_read_use
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26546,6 +26707,7 @@ static  int read_user_group_policies_data(struct osc_env *e, struct osc_read_use
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicies");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26579,11 +26741,11 @@ static  int read_user_group_policy_data(struct osc_env *e, struct osc_read_user_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26607,6 +26769,7 @@ static  int read_user_group_policy_data(struct osc_env *e, struct osc_read_user_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26640,11 +26803,11 @@ static  int read_user_group_data(struct osc_env *e, struct osc_read_user_group_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26663,6 +26826,7 @@ static  int read_user_group_data(struct osc_env *e, struct osc_read_user_group_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26696,11 +26860,11 @@ static  int read_user_groups_per_user_data(struct osc_env *e, struct osc_read_us
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26719,6 +26883,7 @@ static  int read_user_groups_per_user_data(struct osc_env *e, struct osc_read_us
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadUserGroupsPerUser");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26752,11 +26917,11 @@ static  int read_user_groups_data(struct osc_env *e, struct osc_read_user_groups
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26783,6 +26948,7 @@ static  int read_user_groups_data(struct osc_env *e, struct osc_read_user_groups
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadUserGroups");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26816,11 +26982,11 @@ static  int read_users_data(struct osc_env *e, struct osc_read_users_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26847,6 +27013,7 @@ static  int read_users_data(struct osc_env *e, struct osc_read_users_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadUsers");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26880,11 +27047,11 @@ static  int read_virtual_gateways_data(struct osc_env *e, struct osc_read_virtua
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26912,6 +27079,7 @@ static  int read_virtual_gateways_data(struct osc_env *e, struct osc_read_virtua
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVirtualGateways");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -26945,11 +27113,11 @@ static  int read_vm_groups_data(struct osc_env *e, struct osc_read_vm_groups_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -26968,6 +27136,7 @@ static  int read_vm_groups_data(struct osc_env *e, struct osc_read_vm_groups_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVmGroups");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27001,11 +27170,11 @@ static  int read_vm_templates_data(struct osc_env *e, struct osc_read_vm_templat
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27024,6 +27193,7 @@ static  int read_vm_templates_data(struct osc_env *e, struct osc_read_vm_templat
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVmTemplates");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27057,11 +27227,11 @@ static  int read_vm_types_data(struct osc_env *e, struct osc_read_vm_types_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27089,6 +27259,7 @@ static  int read_vm_types_data(struct osc_env *e, struct osc_read_vm_types_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVmTypes");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27122,11 +27293,11 @@ static  int read_vms_health_data(struct osc_env *e, struct osc_read_vms_health_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
 		char **as;
@@ -27156,6 +27327,7 @@ static  int read_vms_health_data(struct osc_env *e, struct osc_read_vms_health_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVmsHealth");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27189,11 +27361,11 @@ static  int read_vms_data(struct osc_env *e, struct osc_read_vms_arg *args, stru
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27221,6 +27393,7 @@ static  int read_vms_data(struct osc_env *e, struct osc_read_vms_arg *args, stru
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVms");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27254,11 +27427,11 @@ static  int read_vms_state_data(struct osc_env *e, struct osc_read_vms_state_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_all_vms) {
 		ARG_TO_JSON(AllVms, bool, args->all_vms);
@@ -27290,6 +27463,7 @@ static  int read_vms_state_data(struct osc_env *e, struct osc_read_vms_state_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVmsState");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27323,11 +27497,11 @@ static  int read_volumes_data(struct osc_env *e, struct osc_read_volumes_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27355,6 +27529,7 @@ static  int read_volumes_data(struct osc_env *e, struct osc_read_volumes_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVolumes");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27388,11 +27563,11 @@ static  int read_vpn_connections_data(struct osc_env *e, struct osc_read_vpn_con
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27420,6 +27595,7 @@ static  int read_vpn_connections_data(struct osc_env *e, struct osc_read_vpn_con
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ReadVpnConnections");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27453,11 +27629,11 @@ static  int reboot_vms_data(struct osc_env *e, struct osc_reboot_vms_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27482,6 +27658,7 @@ static  int reboot_vms_data(struct osc_env *e, struct osc_reboot_vms_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/RebootVms");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27515,11 +27692,11 @@ static  int register_vms_in_load_balancer_data(struct osc_env *e, struct osc_reg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->backend_vm_ids) {
 		char **as;
@@ -27549,6 +27726,7 @@ static  int register_vms_in_load_balancer_data(struct osc_env *e, struct osc_reg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/RegisterVmsInLoadBalancer");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27582,11 +27760,11 @@ static  int reject_net_peering_data(struct osc_env *e, struct osc_reject_net_pee
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27600,6 +27778,7 @@ static  int reject_net_peering_data(struct osc_env *e, struct osc_reject_net_pee
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/RejectNetPeering");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27633,11 +27812,11 @@ static  int remove_user_from_user_group_data(struct osc_env *e, struct osc_remov
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27666,6 +27845,7 @@ static  int remove_user_from_user_group_data(struct osc_env *e, struct osc_remov
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/RemoveUserFromUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27699,11 +27879,11 @@ static  int scale_down_vm_group_data(struct osc_env *e, struct osc_scale_down_vm
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27721,6 +27901,7 @@ static  int scale_down_vm_group_data(struct osc_env *e, struct osc_scale_down_vm
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ScaleDownVmGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27754,11 +27935,11 @@ static  int scale_up_vm_group_data(struct osc_env *e, struct osc_scale_up_vm_gro
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27776,6 +27957,7 @@ static  int scale_up_vm_group_data(struct osc_env *e, struct osc_scale_up_vm_gro
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/ScaleUpVmGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27809,11 +27991,11 @@ static  int set_default_policy_version_data(struct osc_env *e, struct osc_set_de
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->policy_orn) {
 		TRY_APPEND_COL(count_args, data);
@@ -27828,6 +28010,7 @@ static  int set_default_policy_version_data(struct osc_env *e, struct osc_set_de
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/SetDefaultPolicyVersion");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27861,11 +28044,11 @@ static  int start_vms_data(struct osc_env *e, struct osc_start_vms_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27890,6 +28073,7 @@ static  int start_vms_data(struct osc_env *e, struct osc_start_vms_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/StartVms");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27923,11 +28107,11 @@ static  int stop_vms_data(struct osc_env *e, struct osc_stop_vms_arg *args, stru
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -27956,6 +28140,7 @@ static  int stop_vms_data(struct osc_env *e, struct osc_stop_vms_arg *args, stru
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/StopVms");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -27989,11 +28174,11 @@ static  int unlink_flexible_gpu_data(struct osc_env *e, struct osc_unlink_flexib
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28007,6 +28192,7 @@ static  int unlink_flexible_gpu_data(struct osc_env *e, struct osc_unlink_flexib
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkFlexibleGpu");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28040,11 +28226,11 @@ static  int unlink_internet_service_data(struct osc_env *e, struct osc_unlink_in
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28063,6 +28249,7 @@ static  int unlink_internet_service_data(struct osc_env *e, struct osc_unlink_in
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkInternetService");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28096,11 +28283,11 @@ static  int unlink_load_balancer_backend_machines_data(struct osc_env *e, struct
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->backend_ips) {
 		char **as;
@@ -28146,6 +28333,7 @@ static  int unlink_load_balancer_backend_machines_data(struct osc_env *e, struct
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkLoadBalancerBackendMachines");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28179,11 +28367,11 @@ static  int unlink_managed_policy_from_user_group_data(struct osc_env *e, struct
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28202,6 +28390,7 @@ static  int unlink_managed_policy_from_user_group_data(struct osc_env *e, struct
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkManagedPolicyFromUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28235,11 +28424,11 @@ static  int unlink_nic_data(struct osc_env *e, struct osc_unlink_nic_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28253,6 +28442,7 @@ static  int unlink_nic_data(struct osc_env *e, struct osc_unlink_nic_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkNic");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28286,11 +28476,11 @@ static  int unlink_policy_data(struct osc_env *e, struct osc_unlink_policy_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28309,6 +28499,7 @@ static  int unlink_policy_data(struct osc_env *e, struct osc_unlink_policy_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28342,11 +28533,11 @@ static  int unlink_private_ips_data(struct osc_env *e, struct osc_unlink_private
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28376,6 +28567,7 @@ static  int unlink_private_ips_data(struct osc_env *e, struct osc_unlink_private
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkPrivateIps");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28409,11 +28601,11 @@ static  int unlink_public_ip_data(struct osc_env *e, struct osc_unlink_public_ip
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28432,6 +28624,7 @@ static  int unlink_public_ip_data(struct osc_env *e, struct osc_unlink_public_ip
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkPublicIp");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28465,11 +28658,11 @@ static  int unlink_route_table_data(struct osc_env *e, struct osc_unlink_route_t
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28483,6 +28676,7 @@ static  int unlink_route_table_data(struct osc_env *e, struct osc_unlink_route_t
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkRouteTable");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28516,11 +28710,11 @@ static  int unlink_virtual_gateway_data(struct osc_env *e, struct osc_unlink_vir
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28539,6 +28733,7 @@ static  int unlink_virtual_gateway_data(struct osc_env *e, struct osc_unlink_vir
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkVirtualGateway");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28572,11 +28767,11 @@ static  int unlink_volume_data(struct osc_env *e, struct osc_unlink_volume_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28594,6 +28789,7 @@ static  int unlink_volume_data(struct osc_env *e, struct osc_unlink_volume_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UnlinkVolume");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28627,11 +28823,11 @@ static  int update_access_key_data(struct osc_env *e, struct osc_update_access_k
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->access_key_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28660,6 +28856,7 @@ static  int update_access_key_data(struct osc_env *e, struct osc_update_access_k
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateAccessKey");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28693,11 +28890,11 @@ static  int update_account_data(struct osc_env *e, struct osc_update_account_arg
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->additional_emails) {
 		char **as;
@@ -28782,6 +28979,7 @@ static  int update_account_data(struct osc_env *e, struct osc_update_account_arg
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateAccount");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28815,11 +29013,11 @@ static  int update_api_access_policy_data(struct osc_env *e, struct osc_update_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -28836,6 +29034,7 @@ static  int update_api_access_policy_data(struct osc_env *e, struct osc_update_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessPolicy");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28869,11 +29068,11 @@ static  int update_api_access_rule_data(struct osc_env *e, struct osc_update_api
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->api_access_rule_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28940,6 +29139,7 @@ static  int update_api_access_rule_data(struct osc_env *e, struct osc_update_api
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateApiAccessRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -28973,11 +29173,11 @@ static  int update_ca_data(struct osc_env *e, struct osc_update_ca_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->ca_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -28996,6 +29196,7 @@ static  int update_ca_data(struct osc_env *e, struct osc_update_ca_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateCa");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29029,11 +29230,11 @@ static  int update_dedicated_group_data(struct osc_env *e, struct osc_update_ded
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->dedicated_group_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -29052,6 +29253,7 @@ static  int update_dedicated_group_data(struct osc_env *e, struct osc_update_ded
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateDedicatedGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29085,11 +29287,11 @@ static  int update_direct_link_interface_data(struct osc_env *e, struct osc_upda
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->direct_link_interface_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -29107,6 +29309,7 @@ static  int update_direct_link_interface_data(struct osc_env *e, struct osc_upda
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateDirectLinkInterface");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29140,11 +29343,11 @@ static  int update_flexible_gpu_data(struct osc_env *e, struct osc_update_flexib
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_delete_on_vm_deletion) {
 		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
@@ -29162,6 +29365,7 @@ static  int update_flexible_gpu_data(struct osc_env *e, struct osc_update_flexib
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateFlexibleGpu");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29195,11 +29399,11 @@ static  int update_image_data(struct osc_env *e, struct osc_update_image_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -29228,6 +29432,7 @@ static  int update_image_data(struct osc_env *e, struct osc_update_image_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateImage");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29261,11 +29466,11 @@ static  int update_listener_rule_data(struct osc_env *e, struct osc_update_liste
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29289,6 +29494,7 @@ static  int update_listener_rule_data(struct osc_env *e, struct osc_update_liste
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateListenerRule");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29322,11 +29528,11 @@ static  int update_load_balancer_data(struct osc_env *e, struct osc_update_load_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->access_log_str) {
 		ARG_TO_JSON(AccessLog, string, args->access_log_str);
@@ -29410,6 +29616,7 @@ static  int update_load_balancer_data(struct osc_env *e, struct osc_update_load_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateLoadBalancer");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29443,11 +29650,11 @@ static  int update_net_access_point_data(struct osc_env *e, struct osc_update_ne
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->add_route_table_ids) {
 		char **as;
@@ -29493,6 +29700,7 @@ static  int update_net_access_point_data(struct osc_env *e, struct osc_update_ne
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateNetAccessPoint");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29526,11 +29734,11 @@ static  int update_net_data(struct osc_env *e, struct osc_update_net_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->dhcp_options_set_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -29549,6 +29757,7 @@ static  int update_net_data(struct osc_env *e, struct osc_update_net_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateNet");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29582,11 +29791,11 @@ static  int update_nic_data(struct osc_env *e, struct osc_update_nic_arg *args, 
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -29631,6 +29840,7 @@ static  int update_nic_data(struct osc_env *e, struct osc_update_nic_arg *args, 
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateNic");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29664,11 +29874,11 @@ static  int update_route_propagation_data(struct osc_env *e, struct osc_update_r
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29691,6 +29901,7 @@ static  int update_route_propagation_data(struct osc_env *e, struct osc_update_r
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateRoutePropagation");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29724,11 +29935,11 @@ static  int update_route_data(struct osc_env *e, struct osc_update_route_arg *ar
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->destination_ip_range) {
 		TRY_APPEND_COL(count_args, data);
@@ -29772,6 +29983,7 @@ static  int update_route_data(struct osc_env *e, struct osc_update_route_arg *ar
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateRoute");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29805,11 +30017,11 @@ static  int update_route_table_link_data(struct osc_env *e, struct osc_update_ro
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29828,6 +30040,7 @@ static  int update_route_table_link_data(struct osc_env *e, struct osc_update_ro
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateRouteTableLink");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29861,11 +30074,11 @@ static  int update_server_certificate_data(struct osc_env *e, struct osc_update_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29889,6 +30102,7 @@ static  int update_server_certificate_data(struct osc_env *e, struct osc_update_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateServerCertificate");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29922,11 +30136,11 @@ static  int update_snapshot_data(struct osc_env *e, struct osc_update_snapshot_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -29950,6 +30164,7 @@ static  int update_snapshot_data(struct osc_env *e, struct osc_update_snapshot_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateSnapshot");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -29983,11 +30198,11 @@ static  int update_subnet_data(struct osc_env *e, struct osc_update_subnet_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -30005,6 +30220,7 @@ static  int update_subnet_data(struct osc_env *e, struct osc_update_subnet_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateSubnet");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30038,11 +30254,11 @@ static  int update_user_group_data(struct osc_env *e, struct osc_update_user_gro
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -30071,6 +30287,7 @@ static  int update_user_group_data(struct osc_env *e, struct osc_update_user_gro
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateUserGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30104,11 +30321,11 @@ static  int update_user_data(struct osc_env *e, struct osc_update_user_arg *args
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -30137,6 +30354,7 @@ static  int update_user_data(struct osc_env *e, struct osc_update_user_arg *args
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateUser");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30170,11 +30388,11 @@ static  int update_vm_group_data(struct osc_env *e, struct osc_update_vm_group_a
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -30221,6 +30439,7 @@ static  int update_vm_group_data(struct osc_env *e, struct osc_update_vm_group_a
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateVmGroup");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30254,11 +30473,11 @@ static  int update_vm_data(struct osc_env *e, struct osc_update_vm_arg *args, st
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
         if (args->block_device_mappings) {
 	        TRY_APPEND_COL(count_args, data);
@@ -30347,6 +30566,7 @@ static  int update_vm_data(struct osc_env *e, struct osc_update_vm_arg *args, st
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateVm");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30380,11 +30600,11 @@ static  int update_vm_template_data(struct osc_env *e, struct osc_update_vm_temp
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->description) {
 		TRY_APPEND_COL(count_args, data);
@@ -30426,6 +30646,7 @@ static  int update_vm_template_data(struct osc_env *e, struct osc_update_vm_temp
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateVmTemplate");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30459,11 +30680,11 @@ static  int update_volume_data(struct osc_env *e, struct osc_update_volume_arg *
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->is_set_dry_run) {
 		ARG_TO_JSON(DryRun, bool, args->dry_run);
@@ -30490,6 +30711,7 @@ static  int update_volume_data(struct osc_env *e, struct osc_update_volume_arg *
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateVolume");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
@@ -30523,11 +30745,11 @@ static  int update_vpn_connection_data(struct osc_env *e, struct osc_update_vpn_
 	int count_args = 0;
 
 	(void)count_args; /* if use only query/header and path, this is unused */
-	if (!args)
-		return 0;
-
 	osc_init_str(&end_call);
 	osc_str_append_string(&end_call, e->endpoint.buf);
+	if (!args)
+		goto no_data;
+
 	osc_str_append_string(data, "{");
 	if (args->client_gateway_id) {
 		TRY_APPEND_COL(count_args, data);
@@ -30561,6 +30783,7 @@ static  int update_vpn_connection_data(struct osc_env *e, struct osc_update_vpn_
 	osc_str_append_string(data, "}");
 	osc_str_append_string(&end_call, "/api/v1/UpdateVpnConnection");
 
+no_data:
 	curl_easy_setopt(e->c, CURLOPT_URL, end_call.buf);
 	osc_deinit_str(&end_call);
 	return !!ret;
