@@ -65,15 +65,15 @@ struct osc_str {
 	char *buf;
 };
 
-#define OSC_ENV_FREE_AK 1 << 0
-#define OSC_ENV_FREE_REGION 1 << 1
-#define OSC_VERBOSE_MODE  1 << 2 /* curl verbose mode + print request content */
-#define OSC_INSECURE_MODE 1 << 3 /* see --insecure option of curl */
-#define OSC_ENV_FREE_CERT 1 << 4
-#define OSC_ENV_FREE_SSLKEY 1 << 5
-#define OSC_ENV_FREE_SK 1 << 6
-#define OSC_ENV_FREE_PROXY 1 << 7
-#define OSC_ENV_FREE_ENDPOINT 1 << 8
+#define OSC_ENV_FREE_AK (1 << 0)
+#define OSC_ENV_FREE_REGION (1 << 1)
+#define OSC_VERBOSE_MODE  (1 << 2) /* curl verbose mode + print request content */
+#define OSC_INSECURE_MODE (1 << 3) /* see --insecure option of curl */
+#define OSC_ENV_FREE_CERT (1 << 4)
+#define OSC_ENV_FREE_SSLKEY (1 << 5)
+#define OSC_ENV_FREE_SK (1 << 6)
+#define OSC_ENV_FREE_PROXY (1 << 7)
+#define OSC_ENV_FREE_ENDPOINT (1 << 8)
 
 #define OSC_ENV_FREE_AK_SK (OSC_ENV_FREE_AK | OSC_ENV_FREE_SK)
 
@@ -7181,7 +7181,8 @@ struct with {
 };
 
 struct osc_accept_net_peering_arg  {
-        /* Required: net_peering_id */
+        /* Required: NetPeeringId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7195,7 +7196,8 @@ struct osc_accept_net_peering_arg  {
 };
 
 struct osc_add_user_to_user_group_arg  {
-        /* Required: user_group_name, user_name */
+        /* Required: UserGroupName UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7221,7 +7223,8 @@ struct osc_add_user_to_user_group_arg  {
 };
 
 struct osc_check_authentication_arg  {
-        /* Required: login, password */
+        /* Required: Login Password
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7239,7 +7242,8 @@ struct osc_check_authentication_arg  {
 };
 
 struct osc_create_access_key_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7262,7 +7266,8 @@ struct osc_create_access_key_arg  {
 };
 
 struct osc_create_account_arg  {
-        /* Required: city, company_name, country, customer_id, email, first_name, last_name, zip_code */
+        /* Required: City CompanyName Country CustomerId Email FirstName LastName ZipCode
+ */
         /*
          * One or more additional email addresses for the account. These 
          * addresses are used for notifications only. If you already have a list 
@@ -7333,7 +7338,8 @@ struct osc_create_account_arg  {
 };
 
 struct osc_create_api_access_rule_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * One or more IDs of Client Certificate Authorities (CAs).
          */
@@ -7363,7 +7369,8 @@ struct osc_create_api_access_rule_arg  {
 };
 
 struct osc_create_ca_arg  {
-        /* Required: ca_pem */
+        /* Required: CaPem
+ */
         /*
          * The CA in PEM format.<br />With OSC CLI, use the following syntax to 
          * make sure your CA file is correctly parsed: `--CaPem=&quot;$(cat 
@@ -7383,7 +7390,8 @@ struct osc_create_ca_arg  {
 };
 
 struct osc_create_client_gateway_arg  {
-        /* Required: bgp_asn, public_ip, connection_type */
+        /* Required: BgpAsn PublicIp ConnectionType
+ */
         /*
          * The Autonomous System Number (ASN) used by the Border Gateway 
          * Protocol (BGP) to find the path to your client gateway through the 
@@ -7411,7 +7419,8 @@ struct osc_create_client_gateway_arg  {
 };
 
 struct osc_create_dedicated_group_arg  {
-        /* Required: cpu_generation, name, subregion_name */
+        /* Required: CpuGeneration Name SubregionName
+ */
         /*
          * The processor generation for the VMs in the dedicated group (for 
          * example, `4`).
@@ -7435,7 +7444,8 @@ struct osc_create_dedicated_group_arg  {
 };
 
 struct osc_create_dhcp_options_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * Specify a domain name (for example, `MyCompany.com`). You can specify 
          * only one domain name. You must specify at least one of the following 
@@ -7474,7 +7484,8 @@ struct osc_create_dhcp_options_arg  {
 };
 
 struct osc_create_direct_link_interface_arg  {
-        /* Required: direct_link_id, direct_link_interface */
+        /* Required: DirectLinkId DirectLinkInterface
+ */
         /*
          * The ID of the existing DirectLink for which you want to create the 
          * DirectLink interface.
@@ -7515,7 +7526,8 @@ struct osc_create_direct_link_interface_arg  {
 };
 
 struct osc_create_direct_link_arg  {
-        /* Required: bandwidth, direct_link_name, location */
+        /* Required: Bandwidth DirectLinkName Location
+ */
         /*
          * The bandwidth of the DirectLink (`1Gbps` \\| `10Gbps`).
          */
@@ -7538,7 +7550,8 @@ struct osc_create_direct_link_arg  {
 };
 
 struct osc_create_flexible_gpu_arg  {
-        /* Required: model_name, subregion_name */
+        /* Required: ModelName SubregionName
+ */
         /*
          * If true, the fGPU is deleted when the VM is terminated.
          */
@@ -7571,7 +7584,8 @@ struct osc_create_flexible_gpu_arg  {
 };
 
 struct osc_create_image_export_task_arg  {
-        /* Required: osu_export, image_id */
+        /* Required: OsuExport ImageId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7607,7 +7621,8 @@ struct osc_create_image_export_task_arg  {
 };
 
 struct osc_create_image_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * **(when registering from a snapshot)** The architecture of the OMI 
          * (`i386` or `x86_64`).
@@ -7725,7 +7740,8 @@ struct osc_create_image_arg  {
 };
 
 struct osc_create_internet_service_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7735,7 +7751,8 @@ struct osc_create_internet_service_arg  {
 };
 
 struct osc_create_keypair_arg  {
-        /* Required: keypair_name */
+        /* Required: KeypairName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7756,7 +7773,8 @@ struct osc_create_keypair_arg  {
 };
 
 struct osc_create_listener_rule_arg  {
-        /* Required: vm_ids, listener, listener_rule */
+        /* Required: VmIds Listener ListenerRule
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7809,7 +7827,8 @@ struct osc_create_listener_rule_arg  {
 };
 
 struct osc_create_load_balancer_listeners_arg  {
-        /* Required: listeners, load_balancer_name */
+        /* Required: Listeners LoadBalancerName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7851,7 +7870,8 @@ struct osc_create_load_balancer_listeners_arg  {
 };
 
 struct osc_create_load_balancer_policy_arg  {
-        /* Required: policy_type, load_balancer_name, policy_name */
+        /* Required: PolicyType LoadBalancerName PolicyName
+ */
         /*
          * The lifetime of the cookie, in seconds. If not specified, the default 
          * value of this parameter is `1`, which means that the sticky session 
@@ -7888,7 +7908,8 @@ struct osc_create_load_balancer_policy_arg  {
 };
 
 struct osc_create_load_balancer_arg  {
-        /* Required: listeners, load_balancer_name */
+        /* Required: Listeners LoadBalancerName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -7976,7 +7997,8 @@ struct osc_create_load_balancer_arg  {
 };
 
 struct osc_create_load_balancer_tags_arg  {
-        /* Required: load_balancer_names, tags */
+        /* Required: LoadBalancerNames Tags
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8002,7 +8024,8 @@ struct osc_create_load_balancer_tags_arg  {
 };
 
 struct osc_create_nat_service_arg  {
-        /* Required: public_ip_id, subnet_id */
+        /* Required: PublicIpId SubnetId
+ */
         /*
          * A unique identifier which enables you to manage the idempotency.
          */
@@ -8026,7 +8049,8 @@ struct osc_create_nat_service_arg  {
 };
 
 struct osc_create_net_access_point_arg  {
-        /* Required: service_name, net_id */
+        /* Required: ServiceName NetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8049,7 +8073,8 @@ struct osc_create_net_access_point_arg  {
 };
 
 struct osc_create_net_peering_arg  {
-        /* Required: accepter_net_id, source_net_id */
+        /* Required: AccepterNetId SourceNetId
+ */
         /*
          * The ID of the Net you want to connect with.
          */
@@ -8073,7 +8098,8 @@ struct osc_create_net_peering_arg  {
 };
 
 struct osc_create_net_arg  {
-        /* Required: ip_range */
+        /* Required: IpRange
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8096,7 +8122,8 @@ struct osc_create_net_arg  {
 };
 
 struct osc_create_nic_arg  {
-        /* Required: subnet_id */
+        /* Required: SubnetId
+ */
         /*
          * A description for the NIC.
          */
@@ -8133,7 +8160,8 @@ struct osc_create_nic_arg  {
 };
 
 struct osc_create_policy_arg  {
-        /* Required: document, policy_name */
+        /* Required: Document PolicyName
+ */
         /*
          * A description for the policy.
          */
@@ -8164,7 +8192,8 @@ struct osc_create_policy_arg  {
 };
 
 struct osc_create_policy_version_arg  {
-        /* Required: document, policy_orn */
+        /* Required: Document PolicyOrn
+ */
         /*
          * The policy document, corresponding to a JSON string that contains the 
          * policy. For more information, see [EIM Reference 
@@ -8190,7 +8219,8 @@ struct osc_create_policy_version_arg  {
 };
 
 struct osc_create_product_type_arg  {
-        /* Required: description */
+        /* Required: Description
+ */
         /*
          * The description of the product type.
          */
@@ -8208,7 +8238,8 @@ struct osc_create_product_type_arg  {
 };
 
 struct osc_create_public_ip_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8218,7 +8249,8 @@ struct osc_create_public_ip_arg  {
 };
 
 struct osc_create_route_arg  {
-        /* Required: destination_ip_range, route_table_id */
+        /* Required: DestinationIpRange RouteTableId
+ */
         /*
          * The IP range used for the destination match, in CIDR notation (for 
          * example, `10.0.0.0/24`).
@@ -8257,7 +8289,8 @@ struct osc_create_route_arg  {
 };
 
 struct osc_create_route_table_arg  {
-        /* Required: net_id */
+        /* Required: NetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8271,7 +8304,8 @@ struct osc_create_route_table_arg  {
 };
 
 struct osc_create_security_group_arg  {
-        /* Required: description, security_group_name */
+        /* Required: Description SecurityGroupName
+ */
         /*
          * A description for the security group.<br />\nThis description can 
          * contain between 1 and 255 characters. Allowed characters are `a-z`, 
@@ -8298,7 +8332,8 @@ struct osc_create_security_group_arg  {
 };
 
 struct osc_create_security_group_rule_arg  {
-        /* Required: security_group_id, flow */
+        /* Required: SecurityGroupId Flow
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8409,7 +8444,8 @@ struct osc_create_security_group_rule_arg  {
 };
 
 struct osc_create_server_certificate_arg  {
-        /* Required: body, private_key, name */
+        /* Required: Body PrivateKey Name
+ */
         /*
          * The PEM-encoded X509 certificate.<br />With OSC CLI, use the 
          * following syntax to make sure your certificate file is correctly 
@@ -8448,7 +8484,8 @@ struct osc_create_server_certificate_arg  {
 };
 
 struct osc_create_snapshot_export_task_arg  {
-        /* Required: osu_export, snapshot_id */
+        /* Required: OsuExport SnapshotId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8484,7 +8521,8 @@ struct osc_create_snapshot_export_task_arg  {
 };
 
 struct osc_create_snapshot_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * A description for the snapshot.
          */
@@ -8526,7 +8564,8 @@ struct osc_create_snapshot_arg  {
 };
 
 struct osc_create_subnet_arg  {
-        /* Required: ip_range, net_id */
+        /* Required: IpRange NetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8554,7 +8593,8 @@ struct osc_create_subnet_arg  {
 };
 
 struct osc_create_tags_arg  {
-        /* Required: resource_ids, tags */
+        /* Required: ResourceIds Tags
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8580,7 +8620,8 @@ struct osc_create_tags_arg  {
 };
 
 struct osc_create_user_group_arg  {
-        /* Required: user_group_name */
+        /* Required: UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8598,7 +8639,8 @@ struct osc_create_user_group_arg  {
 };
 
 struct osc_create_user_arg  {
-        /* Required: user_name */
+        /* Required: UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -8626,7 +8668,8 @@ struct osc_create_user_arg  {
 };
 
 struct osc_create_virtual_gateway_arg  {
-        /* Required: connection_type */
+        /* Required: ConnectionType
+ */
         /*
          * The type of VPN connection supported by the virtual gateway (always 
          * `ipsec.1`).
@@ -8641,7 +8684,8 @@ struct osc_create_virtual_gateway_arg  {
 };
 
 struct osc_create_vm_group_arg  {
-        /* Required: security_group_ids, subnet_id, vm_group_name, vm_template_id, vm_count */
+        /* Required: SecurityGroupIds SubnetId VmGroupName VmTemplateId VmCount
+ */
         /*
          * A description for the VM group.
          */
@@ -8697,7 +8741,8 @@ struct osc_create_vm_group_arg  {
 };
 
 struct osc_create_vm_template_arg  {
-        /* Required: cpu_cores, cpu_generation, image_id, ram, vm_template_name */
+        /* Required: CpuCores CpuGeneration ImageId Ram VmTemplateName
+ */
         /*
          * The number of vCores to use for each VM.
          */
@@ -8753,7 +8798,8 @@ struct osc_create_vm_template_arg  {
 };
 
 struct osc_create_vms_arg  {
-        /* Required: image_id */
+        /* Required: ImageId
+ */
         /*
          * One or more block device mappings.
          *   Information about the block device mapping.
@@ -8990,7 +9036,8 @@ struct osc_create_vms_arg  {
 };
 
 struct osc_create_volume_arg  {
-        /* Required: subregion_name */
+        /* Required: SubregionName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9032,7 +9079,8 @@ struct osc_create_volume_arg  {
 };
 
 struct osc_create_vpn_connection_arg  {
-        /* Required: client_gateway_id, connection_type, virtual_gateway_id */
+        /* Required: ClientGatewayId ConnectionType VirtualGatewayId
+ */
         /*
          * The ID of the client gateway.
          */
@@ -9064,7 +9112,8 @@ struct osc_create_vpn_connection_arg  {
 };
 
 struct osc_create_vpn_connection_route_arg  {
-        /* Required: destination_ip_range, vpn_connection_id */
+        /* Required: DestinationIpRange VpnConnectionId
+ */
         /*
          * The network prefix of the route, in CIDR notation (for example, 
          * `10.12.0.0/16`).
@@ -9083,7 +9132,8 @@ struct osc_create_vpn_connection_route_arg  {
 };
 
 struct osc_delete_access_key_arg  {
-        /* Required: access_key_id */
+        /* Required: AccessKeyId
+ */
         /*
          * The ID of the access key you want to delete.
          */
@@ -9103,7 +9153,8 @@ struct osc_delete_access_key_arg  {
 };
 
 struct osc_delete_api_access_rule_arg  {
-        /* Required: api_access_rule_id */
+        /* Required: ApiAccessRuleId
+ */
         /*
          * The ID of the API access rule you want to delete.
          */
@@ -9117,7 +9168,8 @@ struct osc_delete_api_access_rule_arg  {
 };
 
 struct osc_delete_ca_arg  {
-        /* Required: ca_id */
+        /* Required: CaId
+ */
         /*
          * The ID of the CA you want to delete.
          */
@@ -9131,7 +9183,8 @@ struct osc_delete_ca_arg  {
 };
 
 struct osc_delete_client_gateway_arg  {
-        /* Required: client_gateway_id */
+        /* Required: ClientGatewayId
+ */
         /*
          * The ID of the client gateway you want to delete.
          */
@@ -9145,7 +9198,8 @@ struct osc_delete_client_gateway_arg  {
 };
 
 struct osc_delete_dedicated_group_arg  {
-        /* Required: dedicated_group_id */
+        /* Required: DedicatedGroupId
+ */
         /*
          * The ID of the dedicated group you want to delete.
          */
@@ -9165,7 +9219,8 @@ struct osc_delete_dedicated_group_arg  {
 };
 
 struct osc_delete_dhcp_options_arg  {
-        /* Required: dhcp_options_set_id */
+        /* Required: DhcpOptionsSetId
+ */
         /*
          * The ID of the DHCP options set you want to delete.
          */
@@ -9179,7 +9234,8 @@ struct osc_delete_dhcp_options_arg  {
 };
 
 struct osc_delete_direct_link_interface_arg  {
-        /* Required: direct_link_interface_id */
+        /* Required: DirectLinkInterfaceId
+ */
         /*
          * The ID of the DirectLink interface you want to delete.
          */
@@ -9193,7 +9249,8 @@ struct osc_delete_direct_link_interface_arg  {
 };
 
 struct osc_delete_direct_link_arg  {
-        /* Required: direct_link_id */
+        /* Required: DirectLinkId
+ */
         /*
          * The ID of the DirectLink you want to delete.
          */
@@ -9207,7 +9264,8 @@ struct osc_delete_direct_link_arg  {
 };
 
 struct osc_delete_export_task_arg  {
-        /* Required: export_task_id */
+        /* Required: ExportTaskId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9221,7 +9279,8 @@ struct osc_delete_export_task_arg  {
 };
 
 struct osc_delete_flexible_gpu_arg  {
-        /* Required: flexible_gpu_id */
+        /* Required: FlexibleGpuId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9235,7 +9294,8 @@ struct osc_delete_flexible_gpu_arg  {
 };
 
 struct osc_delete_image_arg  {
-        /* Required: image_id */
+        /* Required: ImageId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9249,7 +9309,8 @@ struct osc_delete_image_arg  {
 };
 
 struct osc_delete_internet_service_arg  {
-        /* Required: internet_service_id */
+        /* Required: InternetServiceId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9263,7 +9324,8 @@ struct osc_delete_internet_service_arg  {
 };
 
 struct osc_delete_keypair_arg  {
-        /* Required: keypair_name */
+        /* Required: KeypairName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9277,7 +9339,8 @@ struct osc_delete_keypair_arg  {
 };
 
 struct osc_delete_listener_rule_arg  {
-        /* Required: listener_rule_name */
+        /* Required: ListenerRuleName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9291,7 +9354,8 @@ struct osc_delete_listener_rule_arg  {
 };
 
 struct osc_delete_load_balancer_listeners_arg  {
-        /* Required: load_balancer_name, load_balancer_ports */
+        /* Required: LoadBalancerName LoadBalancerPorts
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9310,7 +9374,8 @@ struct osc_delete_load_balancer_listeners_arg  {
 };
 
 struct osc_delete_load_balancer_policy_arg  {
-        /* Required: load_balancer_name, policy_name */
+        /* Required: LoadBalancerName PolicyName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9328,7 +9393,8 @@ struct osc_delete_load_balancer_policy_arg  {
 };
 
 struct osc_delete_load_balancer_arg  {
-        /* Required: load_balancer_name */
+        /* Required: LoadBalancerName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9342,7 +9408,8 @@ struct osc_delete_load_balancer_arg  {
 };
 
 struct osc_delete_load_balancer_tags_arg  {
-        /* Required: load_balancer_names, tags */
+        /* Required: LoadBalancerNames Tags
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9366,7 +9433,8 @@ struct osc_delete_load_balancer_tags_arg  {
 };
 
 struct osc_delete_nat_service_arg  {
-        /* Required: nat_service_id */
+        /* Required: NatServiceId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9380,7 +9448,8 @@ struct osc_delete_nat_service_arg  {
 };
 
 struct osc_delete_net_access_point_arg  {
-        /* Required: net_access_point_id */
+        /* Required: NetAccessPointId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9394,7 +9463,8 @@ struct osc_delete_net_access_point_arg  {
 };
 
 struct osc_delete_net_peering_arg  {
-        /* Required: net_peering_id */
+        /* Required: NetPeeringId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9408,7 +9478,8 @@ struct osc_delete_net_peering_arg  {
 };
 
 struct osc_delete_net_arg  {
-        /* Required: net_id */
+        /* Required: NetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9422,7 +9493,8 @@ struct osc_delete_net_arg  {
 };
 
 struct osc_delete_nic_arg  {
-        /* Required: nic_id */
+        /* Required: NicId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9436,7 +9508,8 @@ struct osc_delete_nic_arg  {
 };
 
 struct osc_delete_policy_arg  {
-        /* Required: policy_orn */
+        /* Required: PolicyOrn
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9453,7 +9526,8 @@ struct osc_delete_policy_arg  {
 };
 
 struct osc_delete_policy_version_arg  {
-        /* Required: policy_orn, version_id */
+        /* Required: PolicyOrn VersionId
+ */
         /*
          * The OUTSCALE Resource Name (ORN) of the policy. For more information, 
          * see [Resource 
@@ -9468,7 +9542,8 @@ struct osc_delete_policy_version_arg  {
 };
 
 struct osc_delete_public_ip_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9487,7 +9562,8 @@ struct osc_delete_public_ip_arg  {
 };
 
 struct osc_delete_route_arg  {
-        /* Required: route_table_id, destination_ip_range */
+        /* Required: RouteTableId DestinationIpRange
+ */
         /*
          * The exact IP range for the route.
          */
@@ -9505,7 +9581,8 @@ struct osc_delete_route_arg  {
 };
 
 struct osc_delete_route_table_arg  {
-        /* Required: route_table_id */
+        /* Required: RouteTableId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9519,7 +9596,8 @@ struct osc_delete_route_table_arg  {
 };
 
 struct osc_delete_security_group_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9537,7 +9615,8 @@ struct osc_delete_security_group_arg  {
 };
 
 struct osc_delete_security_group_rule_arg  {
-        /* Required: security_group_id, flow */
+        /* Required: SecurityGroupId Flow
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9641,7 +9720,8 @@ struct osc_delete_security_group_rule_arg  {
 };
 
 struct osc_delete_server_certificate_arg  {
-        /* Required: name */
+        /* Required: Name
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9655,7 +9735,8 @@ struct osc_delete_server_certificate_arg  {
 };
 
 struct osc_delete_snapshot_arg  {
-        /* Required: snapshot_id */
+        /* Required: SnapshotId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9669,7 +9750,8 @@ struct osc_delete_snapshot_arg  {
 };
 
 struct osc_delete_subnet_arg  {
-        /* Required: subnet_id */
+        /* Required: SubnetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9683,7 +9765,8 @@ struct osc_delete_subnet_arg  {
 };
 
 struct osc_delete_tags_arg  {
-        /* Required: resource_ids, tags */
+        /* Required: ResourceIds Tags
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9710,7 +9793,8 @@ struct osc_delete_tags_arg  {
 };
 
 struct osc_delete_user_group_policy_arg  {
-        /* Required: user_group_name, policy_name */
+        /* Required: UserGroupName PolicyName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9732,7 +9816,8 @@ struct osc_delete_user_group_policy_arg  {
 };
 
 struct osc_delete_user_group_arg  {
-        /* Required: user_group_name */
+        /* Required: UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9756,7 +9841,8 @@ struct osc_delete_user_group_arg  {
 };
 
 struct osc_delete_user_arg  {
-        /* Required: user_name */
+        /* Required: UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9770,7 +9856,8 @@ struct osc_delete_user_arg  {
 };
 
 struct osc_delete_virtual_gateway_arg  {
-        /* Required: virtual_gateway_id */
+        /* Required: VirtualGatewayId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9784,7 +9871,8 @@ struct osc_delete_virtual_gateway_arg  {
 };
 
 struct osc_delete_vm_group_arg  {
-        /* Required: vm_group_id */
+        /* Required: VmGroupId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9798,7 +9886,8 @@ struct osc_delete_vm_group_arg  {
 };
 
 struct osc_delete_vm_template_arg  {
-        /* Required: vm_template_id */
+        /* Required: VmTemplateId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9812,7 +9901,8 @@ struct osc_delete_vm_template_arg  {
 };
 
 struct osc_delete_vms_arg  {
-        /* Required: vm_ids */
+        /* Required: VmIds
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9827,7 +9917,8 @@ struct osc_delete_vms_arg  {
 };
 
 struct osc_delete_volume_arg  {
-        /* Required: volume_id */
+        /* Required: VolumeId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9841,7 +9932,8 @@ struct osc_delete_volume_arg  {
 };
 
 struct osc_delete_vpn_connection_arg  {
-        /* Required: vpn_connection_id */
+        /* Required: VpnConnectionId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9855,7 +9947,8 @@ struct osc_delete_vpn_connection_arg  {
 };
 
 struct osc_delete_vpn_connection_route_arg  {
-        /* Required: destination_ip_range, vpn_connection_id */
+        /* Required: DestinationIpRange VpnConnectionId
+ */
         /*
          * The network prefix of the route to delete, in CIDR notation (for 
          * example, `10.12.0.0/16`).
@@ -9874,7 +9967,8 @@ struct osc_delete_vpn_connection_route_arg  {
 };
 
 struct osc_deregister_vms_in_load_balancer_arg  {
-        /* Required: backend_vm_ids, load_balancer_name */
+        /* Required: BackendVmIds LoadBalancerName
+ */
         /*
          * One or more IDs of backend VMs.
          */
@@ -9893,7 +9987,8 @@ struct osc_deregister_vms_in_load_balancer_arg  {
 };
 
 struct osc_link_flexible_gpu_arg  {
-        /* Required: flexible_gpu_id, vm_id */
+        /* Required: FlexibleGpuId VmId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9911,7 +10006,8 @@ struct osc_link_flexible_gpu_arg  {
 };
 
 struct osc_link_internet_service_arg  {
-        /* Required: internet_service_id, net_id */
+        /* Required: InternetServiceId NetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9929,7 +10025,8 @@ struct osc_link_internet_service_arg  {
 };
 
 struct osc_link_load_balancer_backend_machines_arg  {
-        /* Required: load_balancer_name */
+        /* Required: LoadBalancerName
+ */
         /*
          * One or more public IPs of backend VMs.
          */
@@ -9953,7 +10050,8 @@ struct osc_link_load_balancer_backend_machines_arg  {
 };
 
 struct osc_link_managed_policy_to_user_group_arg  {
-        /* Required: policy_orn, user_group_name */
+        /* Required: PolicyOrn UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -9974,7 +10072,8 @@ struct osc_link_managed_policy_to_user_group_arg  {
 };
 
 struct osc_link_nic_arg  {
-        /* Required: device_number, vm_id, nic_id */
+        /* Required: DeviceNumber VmId NicId
+ */
         /*
          * The index of the VM device for the NIC attachment (between `1` and 
          * `7`, both included).
@@ -9998,7 +10097,8 @@ struct osc_link_nic_arg  {
 };
 
 struct osc_link_policy_arg  {
-        /* Required: policy_orn, user_name */
+        /* Required: PolicyOrn UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10020,7 +10120,8 @@ struct osc_link_policy_arg  {
 };
 
 struct osc_link_private_ips_arg  {
-        /* Required: nic_id */
+        /* Required: NicId
+ */
         /*
          * If true, allows an IP that is already assigned to another NIC in the 
          * same Subnet to be assigned to the NIC you specified.
@@ -10051,7 +10152,8 @@ struct osc_link_private_ips_arg  {
 };
 
 struct osc_link_public_ip_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, allows the public IP to be associated with the VM or NIC 
          * that you specify even if it is already associated with another VM or 
@@ -10099,7 +10201,8 @@ struct osc_link_public_ip_arg  {
 };
 
 struct osc_link_route_table_arg  {
-        /* Required: route_table_id, subnet_id */
+        /* Required: RouteTableId SubnetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10117,7 +10220,8 @@ struct osc_link_route_table_arg  {
 };
 
 struct osc_link_virtual_gateway_arg  {
-        /* Required: net_id, virtual_gateway_id */
+        /* Required: NetId VirtualGatewayId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10135,7 +10239,8 @@ struct osc_link_virtual_gateway_arg  {
 };
 
 struct osc_link_volume_arg  {
-        /* Required: device_name, vm_id, volume_id */
+        /* Required: DeviceName VmId VolumeId
+ */
         /*
          * The name of the device. For a root device, you must use `/dev/sda1`. 
          * For other volumes, you must use `/dev/sdX`, `/dev/sdXX`, `/dev/xvdX`, 
@@ -10160,7 +10265,8 @@ struct osc_link_volume_arg  {
 };
 
 struct osc_put_user_group_policy_arg  {
-        /* Required: policy_name, policy_document, user_group_name */
+        /* Required: PolicyName PolicyDocument UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10191,7 +10297,8 @@ struct osc_put_user_group_policy_arg  {
 };
 
 struct osc_read_access_keys_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10216,7 +10323,8 @@ struct osc_read_access_keys_arg  {
 };
 
 struct osc_read_accounts_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10226,7 +10334,8 @@ struct osc_read_accounts_arg  {
 };
 
 struct osc_read_admin_password_arg  {
-        /* Required: vm_id */
+        /* Required: VmId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10240,7 +10349,8 @@ struct osc_read_admin_password_arg  {
 };
 
 struct osc_read_api_access_policy_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10250,7 +10360,8 @@ struct osc_read_api_access_policy_arg  {
 };
 
 struct osc_read_api_access_rules_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10276,7 +10387,8 @@ struct osc_read_api_access_rules_arg  {
 };
 
 struct osc_read_api_logs_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10386,7 +10498,8 @@ struct osc_read_api_logs_arg  {
 };
 
 struct osc_read_cas_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10408,7 +10521,8 @@ struct osc_read_cas_arg  {
 };
 
 struct osc_read_catalog_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10418,7 +10532,8 @@ struct osc_read_catalog_arg  {
 };
 
 struct osc_read_catalogs_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10449,7 +10564,8 @@ struct osc_read_catalogs_arg  {
 };
 
 struct osc_read_client_gateways_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10500,7 +10616,8 @@ struct osc_read_client_gateways_arg  {
 };
 
 struct osc_read_console_output_arg  {
-        /* Required: vm_id */
+        /* Required: VmId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10514,7 +10631,8 @@ struct osc_read_console_output_arg  {
 };
 
 struct osc_read_consumption_account_arg  {
-        /* Required: from_date, to_date */
+        /* Required: FromDate ToDate
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10557,7 +10675,8 @@ struct osc_read_consumption_account_arg  {
 };
 
 struct osc_read_dedicated_groups_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10594,7 +10713,8 @@ struct osc_read_dedicated_groups_arg  {
 };
 
 struct osc_read_dhcp_options_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10646,7 +10766,8 @@ struct osc_read_dhcp_options_arg  {
 };
 
 struct osc_read_direct_link_interfaces_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10677,7 +10798,8 @@ struct osc_read_direct_link_interfaces_arg  {
 };
 
 struct osc_read_direct_links_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10706,7 +10828,8 @@ struct osc_read_direct_links_arg  {
 };
 
 struct osc_read_entities_linked_to_policy_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * The type of entity linked to the policy (`ACCOUNT` \\| `USER` \\| 
          * `GROUP`) you want to get information about.
@@ -10734,7 +10857,8 @@ struct osc_read_entities_linked_to_policy_arg  {
 };
 
 struct osc_read_flexible_gpu_catalog_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10744,7 +10868,8 @@ struct osc_read_flexible_gpu_catalog_arg  {
 };
 
 struct osc_read_flexible_gpus_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10780,7 +10905,8 @@ struct osc_read_flexible_gpus_arg  {
 };
 
 struct osc_read_image_export_tasks_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10809,7 +10935,8 @@ struct osc_read_image_export_tasks_arg  {
 };
 
 struct osc_read_images_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10890,7 +11017,8 @@ struct osc_read_images_arg  {
 };
 
 struct osc_read_internet_services_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10937,7 +11065,8 @@ struct osc_read_internet_services_arg  {
 };
 
 struct osc_read_keypairs_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -10972,7 +11101,8 @@ struct osc_read_keypairs_arg  {
 };
 
 struct osc_read_linked_policies_arg  {
-        /* Required: user_name */
+        /* Required: UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11007,7 +11137,8 @@ struct osc_read_linked_policies_arg  {
 };
 
 struct osc_read_listener_rules_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11025,7 +11156,8 @@ struct osc_read_listener_rules_arg  {
 };
 
 struct osc_read_load_balancer_tags_arg  {
-        /* Required: load_balancer_names */
+        /* Required: LoadBalancerNames
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11040,7 +11172,8 @@ struct osc_read_load_balancer_tags_arg  {
 };
 
 struct osc_read_load_balancers_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11058,7 +11191,8 @@ struct osc_read_load_balancers_arg  {
 };
 
 struct osc_read_locations_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11079,7 +11213,8 @@ struct osc_read_locations_arg  {
 };
 
 struct osc_read_managed_policies_linked_to_user_group_arg  {
-        /* Required: user_group_name */
+        /* Required: UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11116,7 +11251,8 @@ struct osc_read_managed_policies_linked_to_user_group_arg  {
 };
 
 struct osc_read_nat_services_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11165,7 +11301,8 @@ struct osc_read_nat_services_arg  {
 };
 
 struct osc_read_net_access_point_services_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11196,7 +11333,8 @@ struct osc_read_net_access_point_services_arg  {
 };
 
 struct osc_read_net_access_points_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11244,7 +11382,8 @@ struct osc_read_net_access_points_arg  {
 };
 
 struct osc_read_net_peerings_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11305,7 +11444,8 @@ struct osc_read_net_peerings_arg  {
 };
 
 struct osc_read_nets_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11353,7 +11493,8 @@ struct osc_read_nets_arg  {
 };
 
 struct osc_read_nics_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11443,7 +11584,8 @@ struct osc_read_nics_arg  {
 };
 
 struct osc_read_policies_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11478,7 +11620,8 @@ struct osc_read_policies_arg  {
 };
 
 struct osc_read_policy_arg  {
-        /* Required: policy_orn */
+        /* Required: PolicyOrn
+ */
         /*
          * The OUTSCALE Resource Name (ORN) of the policy. For more information, 
          * see [Resource 
@@ -11489,7 +11632,8 @@ struct osc_read_policy_arg  {
 };
 
 struct osc_read_policy_version_arg  {
-        /* Required: policy_orn, version_id */
+        /* Required: PolicyOrn VersionId
+ */
         /*
          * The OUTSCALE Resource Name (ORN) of the policy. For more information, 
          * see [Resource 
@@ -11504,7 +11648,8 @@ struct osc_read_policy_version_arg  {
 };
 
 struct osc_read_policy_versions_arg  {
-        /* Required: policy_orn */
+        /* Required: PolicyOrn
+ */
         /*
          * The item starting the list of policies requested.
          */
@@ -11526,7 +11671,8 @@ struct osc_read_policy_versions_arg  {
 };
 
 struct osc_read_product_types_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11555,7 +11701,8 @@ struct osc_read_product_types_arg  {
 };
 
 struct osc_read_public_catalog_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11565,7 +11712,8 @@ struct osc_read_public_catalog_arg  {
 };
 
 struct osc_read_public_ip_ranges_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11586,7 +11734,8 @@ struct osc_read_public_ip_ranges_arg  {
 };
 
 struct osc_read_public_ips_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11641,7 +11790,8 @@ struct osc_read_public_ips_arg  {
 };
 
 struct osc_read_quotas_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11678,7 +11828,8 @@ struct osc_read_quotas_arg  {
 };
 
 struct osc_read_regions_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11688,7 +11839,8 @@ struct osc_read_regions_arg  {
 };
 
 struct osc_read_route_tables_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11754,7 +11906,8 @@ struct osc_read_route_tables_arg  {
 };
 
 struct osc_read_secret_access_key_arg  {
-        /* Required: access_key_id */
+        /* Required: AccessKeyId
+ */
         /*
          * The ID of the access key.
          */
@@ -11768,7 +11921,8 @@ struct osc_read_secret_access_key_arg  {
 };
 
 struct osc_read_security_groups_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11860,7 +12014,8 @@ struct osc_read_security_groups_arg  {
 };
 
 struct osc_read_server_certificates_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11878,7 +12033,8 @@ struct osc_read_server_certificates_arg  {
 };
 
 struct osc_read_snapshot_export_tasks_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11907,7 +12063,8 @@ struct osc_read_snapshot_export_tasks_arg  {
 };
 
 struct osc_read_snapshots_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -11977,7 +12134,8 @@ struct osc_read_snapshots_arg  {
 };
 
 struct osc_read_subnets_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12028,7 +12186,8 @@ struct osc_read_subnets_arg  {
 };
 
 struct osc_read_subregions_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12061,7 +12220,8 @@ struct osc_read_subregions_arg  {
 };
 
 struct osc_read_tags_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12114,7 +12274,8 @@ struct osc_read_tags_arg  {
 };
 
 struct osc_read_unit_price_arg  {
-        /* Required: operation, service, type */
+        /* Required: Operation Service Type
+ */
         /*
          * The operation associated with the catalog entry (for example, 
          * `RunInstances-OD` or `CreateVolume`).
@@ -12133,7 +12294,8 @@ struct osc_read_unit_price_arg  {
 };
 
 struct osc_read_user_group_policies_arg  {
-        /* Required: user_group_name */
+        /* Required: UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12162,7 +12324,8 @@ struct osc_read_user_group_policies_arg  {
 };
 
 struct osc_read_user_group_policy_arg  {
-        /* Required: policy_name, user_group_name */
+        /* Required: PolicyName UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12184,7 +12347,8 @@ struct osc_read_user_group_policy_arg  {
 };
 
 struct osc_read_user_group_arg  {
-        /* Required: user_group_name */
+        /* Required: UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12202,7 +12366,8 @@ struct osc_read_user_group_arg  {
 };
 
 struct osc_read_user_groups_per_user_arg  {
-        /* Required: user_name */
+        /* Required: UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12220,7 +12385,8 @@ struct osc_read_user_groups_per_user_arg  {
 };
 
 struct osc_read_user_groups_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12253,7 +12419,8 @@ struct osc_read_user_groups_arg  {
 };
 
 struct osc_read_users_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12282,7 +12449,8 @@ struct osc_read_users_arg  {
 };
 
 struct osc_read_virtual_gateways_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12332,7 +12500,8 @@ struct osc_read_virtual_gateways_arg  {
 };
 
 struct osc_read_vm_groups_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12372,7 +12541,8 @@ struct osc_read_vm_groups_arg  {
 };
 
 struct osc_read_vm_templates_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12416,7 +12586,8 @@ struct osc_read_vm_templates_arg  {
 };
 
 struct osc_read_vm_types_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12464,7 +12635,8 @@ struct osc_read_vm_types_arg  {
 };
 
 struct osc_read_vms_health_arg  {
-        /* Required: load_balancer_name */
+        /* Required: LoadBalancerName
+ */
         /*
          * One or more IDs of backend VMs.
          */
@@ -12483,7 +12655,8 @@ struct osc_read_vms_health_arg  {
 };
 
 struct osc_read_vms_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12682,7 +12855,8 @@ struct osc_read_vms_arg  {
 };
 
 struct osc_read_vms_state_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, includes the status of all VMs. By default or if set to 
          * false, only includes the status of running VMs.
@@ -12731,7 +12905,8 @@ struct osc_read_vms_state_arg  {
 };
 
 struct osc_read_volumes_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12800,7 +12975,8 @@ struct osc_read_volumes_arg  {
 };
 
 struct osc_read_vpn_connections_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12862,7 +13038,8 @@ struct osc_read_vpn_connections_arg  {
 };
 
 struct osc_reboot_vms_arg  {
-        /* Required: vm_ids */
+        /* Required: VmIds
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12877,7 +13054,8 @@ struct osc_reboot_vms_arg  {
 };
 
 struct osc_register_vms_in_load_balancer_arg  {
-        /* Required: backend_vm_ids, load_balancer_name */
+        /* Required: BackendVmIds LoadBalancerName
+ */
         /*
          * One or more IDs of backend VMs.<br />\nSpecifying the same ID several 
          * times has no effect as each backend VM has equal weight.
@@ -12897,7 +13075,8 @@ struct osc_register_vms_in_load_balancer_arg  {
 };
 
 struct osc_reject_net_peering_arg  {
-        /* Required: net_peering_id */
+        /* Required: NetPeeringId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12911,7 +13090,8 @@ struct osc_reject_net_peering_arg  {
 };
 
 struct osc_remove_user_from_user_group_arg  {
-        /* Required: user_group_name, user_name */
+        /* Required: UserGroupName UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12937,7 +13117,8 @@ struct osc_remove_user_from_user_group_arg  {
 };
 
 struct osc_scale_down_vm_group_arg  {
-        /* Required: vm_group_id, vm_subtraction */
+        /* Required: VmGroupId VmSubtraction
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12956,7 +13137,8 @@ struct osc_scale_down_vm_group_arg  {
 };
 
 struct osc_scale_up_vm_group_arg  {
-        /* Required: vm_group_id, vm_addition */
+        /* Required: VmGroupId VmAddition
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -12975,7 +13157,8 @@ struct osc_scale_up_vm_group_arg  {
 };
 
 struct osc_set_default_policy_version_arg  {
-        /* Required: policy_orn, version_id */
+        /* Required: PolicyOrn VersionId
+ */
         /*
          * The OUTSCALE Resource Name (ORN) of the policy. For more information, 
          * see [Resource 
@@ -12990,7 +13173,8 @@ struct osc_set_default_policy_version_arg  {
 };
 
 struct osc_start_vms_arg  {
-        /* Required: vm_ids */
+        /* Required: VmIds
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13005,7 +13189,8 @@ struct osc_start_vms_arg  {
 };
 
 struct osc_stop_vms_arg  {
-        /* Required: vm_ids */
+        /* Required: VmIds
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13025,7 +13210,8 @@ struct osc_stop_vms_arg  {
 };
 
 struct osc_unlink_flexible_gpu_arg  {
-        /* Required: flexible_gpu_id */
+        /* Required: FlexibleGpuId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13039,7 +13225,8 @@ struct osc_unlink_flexible_gpu_arg  {
 };
 
 struct osc_unlink_internet_service_arg  {
-        /* Required: internet_service_id, net_id */
+        /* Required: InternetServiceId NetId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13057,7 +13244,8 @@ struct osc_unlink_internet_service_arg  {
 };
 
 struct osc_unlink_load_balancer_backend_machines_arg  {
-        /* Required: load_balancer_name */
+        /* Required: LoadBalancerName
+ */
         /*
          * One or more public IPs of backend VMs.
          */
@@ -13081,7 +13269,8 @@ struct osc_unlink_load_balancer_backend_machines_arg  {
 };
 
 struct osc_unlink_managed_policy_from_user_group_arg  {
-        /* Required: policy_orn, user_group_name */
+        /* Required: PolicyOrn UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13102,7 +13291,8 @@ struct osc_unlink_managed_policy_from_user_group_arg  {
 };
 
 struct osc_unlink_nic_arg  {
-        /* Required: link_nic_id */
+        /* Required: LinkNicId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13116,7 +13306,8 @@ struct osc_unlink_nic_arg  {
 };
 
 struct osc_unlink_policy_arg  {
-        /* Required: policy_orn, user_name */
+        /* Required: PolicyOrn UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13137,7 +13328,8 @@ struct osc_unlink_policy_arg  {
 };
 
 struct osc_unlink_private_ips_arg  {
-        /* Required: nic_id, private_ips */
+        /* Required: NicId PrivateIps
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13156,7 +13348,8 @@ struct osc_unlink_private_ips_arg  {
 };
 
 struct osc_unlink_public_ip_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13177,7 +13370,8 @@ struct osc_unlink_public_ip_arg  {
 };
 
 struct osc_unlink_route_table_arg  {
-        /* Required: link_route_table_id */
+        /* Required: LinkRouteTableId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13191,7 +13385,8 @@ struct osc_unlink_route_table_arg  {
 };
 
 struct osc_unlink_virtual_gateway_arg  {
-        /* Required: net_id, virtual_gateway_id */
+        /* Required: NetId VirtualGatewayId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13209,7 +13404,8 @@ struct osc_unlink_virtual_gateway_arg  {
 };
 
 struct osc_unlink_volume_arg  {
-        /* Required: volume_id */
+        /* Required: VolumeId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13229,7 +13425,8 @@ struct osc_unlink_volume_arg  {
 };
 
 struct osc_update_access_key_arg  {
-        /* Required: access_key_id, state */
+        /* Required: AccessKeyId State
+ */
         /*
          * The ID of the access key.
          */
@@ -13263,7 +13460,8 @@ struct osc_update_access_key_arg  {
 };
 
 struct osc_update_account_arg  {
-        /* Required:none */
+        /* Required: null
+ */
         /*
          * One or more additional email addresses for the account. These 
          * addresses are used for notifications only. If you already have a list 
@@ -13330,7 +13528,8 @@ struct osc_update_account_arg  {
 };
 
 struct osc_update_api_access_policy_arg  {
-        /* Required: max_access_key_expiration_seconds, require_trusted_env */
+        /* Required: MaxAccessKeyExpirationSeconds RequireTrustedEnv
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13362,7 +13561,8 @@ struct osc_update_api_access_policy_arg  {
 };
 
 struct osc_update_api_access_rule_arg  {
-        /* Required: api_access_rule_id */
+        /* Required: ApiAccessRuleId
+ */
         /*
          * The ID of the API access rule you want to update.
          */
@@ -13395,7 +13595,8 @@ struct osc_update_api_access_rule_arg  {
 };
 
 struct osc_update_ca_arg  {
-        /* Required: ca_id */
+        /* Required: CaId
+ */
         /*
          * The ID of the CA.
          */
@@ -13413,7 +13614,8 @@ struct osc_update_ca_arg  {
 };
 
 struct osc_update_dedicated_group_arg  {
-        /* Required: dedicated_group_id, name */
+        /* Required: DedicatedGroupId Name
+ */
         /*
          * The ID of the dedicated group you want to update.
          */
@@ -13431,7 +13633,8 @@ struct osc_update_dedicated_group_arg  {
 };
 
 struct osc_update_direct_link_interface_arg  {
-        /* Required: direct_link_interface_id, mtu */
+        /* Required: DirectLinkInterfaceId Mtu
+ */
         /*
          * The ID of the DirectLink interface you want to update.
          */
@@ -13451,7 +13654,8 @@ struct osc_update_direct_link_interface_arg  {
 };
 
 struct osc_update_flexible_gpu_arg  {
-        /* Required: flexible_gpu_id */
+        /* Required: FlexibleGpuId
+ */
         /*
          * If true, the fGPU is deleted when the VM is terminated.
          */
@@ -13470,7 +13674,8 @@ struct osc_update_flexible_gpu_arg  {
 };
 
 struct osc_update_image_arg  {
-        /* Required: image_id */
+        /* Required: ImageId
+ */
         /*
          * A new description for the image.
          */
@@ -13525,7 +13730,8 @@ struct osc_update_image_arg  {
 };
 
 struct osc_update_listener_rule_arg  {
-        /* Required: listener_rule_name */
+        /* Required: ListenerRuleName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13551,7 +13757,8 @@ struct osc_update_listener_rule_arg  {
 };
 
 struct osc_update_load_balancer_arg  {
-        /* Required: load_balancer_name */
+        /* Required: LoadBalancerName
+ */
         /*
          *   Information about access logs.
          *   --AccessLog.IsEnabled: bool
@@ -13659,7 +13866,8 @@ struct osc_update_load_balancer_arg  {
 };
 
 struct osc_update_net_access_point_arg  {
-        /* Required: net_access_point_id */
+        /* Required: NetAccessPointId
+ */
         /*
          * One or more IDs of route tables to associate with the specified Net 
          * access point.
@@ -13685,7 +13893,8 @@ struct osc_update_net_access_point_arg  {
 };
 
 struct osc_update_net_arg  {
-        /* Required: dhcp_options_set_id, net_id */
+        /* Required: DhcpOptionsSetId NetId
+ */
         /*
          * The ID of the DHCP options set (or `default` if you want to associate 
          * the default one).
@@ -13704,7 +13913,8 @@ struct osc_update_net_arg  {
 };
 
 struct osc_update_nic_arg  {
-        /* Required: nic_id */
+        /* Required: NicId
+ */
         /*
          * A new description for the NIC.
          */
@@ -13743,7 +13953,8 @@ struct osc_update_nic_arg  {
 };
 
 struct osc_update_route_propagation_arg  {
-        /* Required: enable, route_table_id, virtual_gateway_id */
+        /* Required: Enable RouteTableId VirtualGatewayId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13767,7 +13978,8 @@ struct osc_update_route_propagation_arg  {
 };
 
 struct osc_update_route_arg  {
-        /* Required: route_table_id, destination_ip_range */
+        /* Required: RouteTableId DestinationIpRange
+ */
         /*
          * The IP range used for the destination match, in CIDR notation (for 
          * example, `10.0.0.0/24`).
@@ -13806,7 +14018,8 @@ struct osc_update_route_arg  {
 };
 
 struct osc_update_route_table_link_arg  {
-        /* Required: route_table_id, link_route_table_id */
+        /* Required: RouteTableId LinkRouteTableId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13824,7 +14037,8 @@ struct osc_update_route_table_link_arg  {
 };
 
 struct osc_update_server_certificate_arg  {
-        /* Required: name */
+        /* Required: Name
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13846,7 +14060,8 @@ struct osc_update_server_certificate_arg  {
 };
 
 struct osc_update_snapshot_arg  {
-        /* Required: snapshot_id, permissions_to_create_volume */
+        /* Required: SnapshotId PermissionsToCreateVolume
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13897,7 +14112,8 @@ struct osc_update_snapshot_arg  {
 };
 
 struct osc_update_subnet_arg  {
-        /* Required: subnet_id, map_public_ip_on_launch */
+        /* Required: SubnetId MapPublicIpOnLaunch
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13917,7 +14133,8 @@ struct osc_update_subnet_arg  {
 };
 
 struct osc_update_user_group_arg  {
-        /* Required: user_group_name */
+        /* Required: UserGroupName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13944,7 +14161,8 @@ struct osc_update_user_group_arg  {
 };
 
 struct osc_update_user_arg  {
-        /* Required: user_name */
+        /* Required: UserName
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -13970,7 +14188,8 @@ struct osc_update_user_arg  {
 };
 
 struct osc_update_vm_group_arg  {
-        /* Required: vm_group_id */
+        /* Required: VmGroupId
+ */
         /*
          * A new description for the VM group.
          */
@@ -14007,7 +14226,8 @@ struct osc_update_vm_group_arg  {
 };
 
 struct osc_update_vm_arg  {
-        /* Required: vm_id */
+        /* Required: VmId
+ */
         /*
          * One or more block device mappings of the VM.
          *   Information about the block device mapping.
@@ -14109,7 +14329,8 @@ struct osc_update_vm_arg  {
 };
 
 struct osc_update_vm_template_arg  {
-        /* Required: vm_template_id */
+        /* Required: VmTemplateId
+ */
         /*
          * A new description for the VM template.
          */
@@ -14142,7 +14363,8 @@ struct osc_update_vm_template_arg  {
 };
 
 struct osc_update_volume_arg  {
-        /* Required: volume_id */
+        /* Required: VolumeId
+ */
         /*
          * If true, checks whether you have the required permissions to perform 
          * the action.
@@ -14183,7 +14405,8 @@ struct osc_update_volume_arg  {
 };
 
 struct osc_update_vpn_connection_arg  {
-        /* Required: vpn_connection_id */
+        /* Required: VpnConnectionId
+ */
         /*
          * The ID of the client gateway.
          */
@@ -14276,6 +14499,7 @@ struct osc_update_vpn_connection_arg  {
 };
 
 
+int osc_set_extra_flag_from_conf(const char *profile, unsigned int *flag);
 int osc_load_ak_sk_from_conf(const char *profile, char **ak, char **sk);
 int osc_load_region_from_conf(const char *profile, char **region);
 int osc_load_loging_password_from_conf(const char *profile,
