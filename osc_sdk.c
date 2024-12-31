@@ -4811,9 +4811,9 @@ static int filters_users_setter(struct filters_users *args, struct osc_str *data
 static int filters_virtual_gateway_setter(struct filters_virtual_gateway *args, struct osc_str *data);
 static int filters_vm_setter(struct filters_vm *args, struct osc_str *data);
 static int filters_vm_group_setter(struct filters_vm_group *args, struct osc_str *data);
-static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data);
 static int filters_vm_template_setter(struct filters_vm_template *args, struct osc_str *data);
 static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *data);
+static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data);
 static int filters_volume_setter(struct filters_volume *args, struct osc_str *data);
 static int filters_vpn_connection_setter(struct filters_vpn_connection *args, struct osc_str *data);
 static int flexible_gpu_setter(struct flexible_gpu *args, struct osc_str *data);
@@ -4825,14 +4825,14 @@ static int inline_policy_setter(struct inline_policy *args, struct osc_str *data
 static int internet_service_setter(struct internet_service *args, struct osc_str *data);
 static int keypair_setter(struct keypair *args, struct osc_str *data);
 static int keypair_created_setter(struct keypair_created *args, struct osc_str *data);
-static int linked_policy_setter(struct linked_policy *args, struct osc_str *data);
-static int linked_volume_setter(struct linked_volume *args, struct osc_str *data);
 static int link_nic_setter(struct link_nic *args, struct osc_str *data);
 static int link_nic_light_setter(struct link_nic_light *args, struct osc_str *data);
 static int link_nic_to_update_setter(struct link_nic_to_update *args, struct osc_str *data);
 static int link_public_ip_setter(struct link_public_ip *args, struct osc_str *data);
 static int link_public_ip_light_for_vm_setter(struct link_public_ip_light_for_vm *args, struct osc_str *data);
 static int link_route_table_setter(struct link_route_table *args, struct osc_str *data);
+static int linked_policy_setter(struct linked_policy *args, struct osc_str *data);
+static int linked_volume_setter(struct linked_volume *args, struct osc_str *data);
 static int listener_setter(struct listener *args, struct osc_str *data);
 static int listener_for_creation_setter(struct listener_for_creation *args, struct osc_str *data);
 static int listener_rule_setter(struct listener_rule *args, struct osc_str *data);
@@ -11171,124 +11171,6 @@ static int filters_vm_group_setter(struct filters_vm_group *args, struct osc_str
 
 	return !!ret;
 }
-static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data) {
-       int count_args = 0;
-       int ret = 0;
-	if (args->maintenance_event_codes) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventCodes\":[" ));
-		for (as = args->maintenance_event_codes; *as; ++as) {
-			if (as != args->maintenance_event_codes)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_event_codes_str) {
-		ARG_TO_JSON(MaintenanceEventCodes, string, args->maintenance_event_codes_str);
-		ret += 1;
-	}
-	if (args->maintenance_event_descriptions) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventDescriptions\":[" ));
-		for (as = args->maintenance_event_descriptions; *as; ++as) {
-			if (as != args->maintenance_event_descriptions)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_event_descriptions_str) {
-		ARG_TO_JSON(MaintenanceEventDescriptions, string, args->maintenance_event_descriptions_str);
-		ret += 1;
-	}
-	if (args->maintenance_events_not_after) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotAfter\":[" ));
-		for (as = args->maintenance_events_not_after; *as; ++as) {
-			if (as != args->maintenance_events_not_after)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_events_not_after_str) {
-		ARG_TO_JSON(MaintenanceEventsNotAfter, string, args->maintenance_events_not_after_str);
-		ret += 1;
-	}
-	if (args->maintenance_events_not_before) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotBefore\":[" ));
-		for (as = args->maintenance_events_not_before; *as; ++as) {
-			if (as != args->maintenance_events_not_before)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->maintenance_events_not_before_str) {
-		ARG_TO_JSON(MaintenanceEventsNotBefore, string, args->maintenance_events_not_before_str);
-		ret += 1;
-	}
-	if (args->subregion_names) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"SubregionNames\":[" ));
-		for (as = args->subregion_names; *as; ++as) {
-			if (as != args->subregion_names)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->subregion_names_str) {
-		ARG_TO_JSON(SubregionNames, string, args->subregion_names_str);
-		ret += 1;
-	}
-	if (args->vm_ids) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"VmIds\":[" ));
-		for (as = args->vm_ids; *as; ++as) {
-			if (as != args->vm_ids)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->vm_ids_str) {
-		ARG_TO_JSON(VmIds, string, args->vm_ids_str);
-		ret += 1;
-	}
-	if (args->vm_states) {
-		char **as;
-
-	   	TRY_APPEND_COL(count_args, data);
-		STRY(osc_str_append_string(data, "\"VmStates\":[" ));
-		for (as = args->vm_states; *as; ++as) {
-			if (as != args->vm_states)
-				STRY(osc_str_append_string(data, "," ));
-			ARG_TO_JSON_STR("", *as);
-		}
-		STRY(osc_str_append_string(data, "]" ));
-		ret += 1;
-	} else if (args->vm_states_str) {
-		ARG_TO_JSON(VmStates, string, args->vm_states_str);
-		ret += 1;
-	}
-
-	return !!ret;
-}
 static int filters_vm_template_setter(struct filters_vm_template *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
@@ -11620,6 +11502,124 @@ static int filters_vm_type_setter(struct filters_vm_type *args, struct osc_str *
 		ret += 1;
 	} else if (args->volume_sizes_str) {
 		ARG_TO_JSON(VolumeSizes, string, args->volume_sizes_str);
+		ret += 1;
+	}
+
+	return !!ret;
+}
+static int filters_vms_state_setter(struct filters_vms_state *args, struct osc_str *data) {
+       int count_args = 0;
+       int ret = 0;
+	if (args->maintenance_event_codes) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventCodes\":[" ));
+		for (as = args->maintenance_event_codes; *as; ++as) {
+			if (as != args->maintenance_event_codes)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_event_codes_str) {
+		ARG_TO_JSON(MaintenanceEventCodes, string, args->maintenance_event_codes_str);
+		ret += 1;
+	}
+	if (args->maintenance_event_descriptions) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventDescriptions\":[" ));
+		for (as = args->maintenance_event_descriptions; *as; ++as) {
+			if (as != args->maintenance_event_descriptions)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_event_descriptions_str) {
+		ARG_TO_JSON(MaintenanceEventDescriptions, string, args->maintenance_event_descriptions_str);
+		ret += 1;
+	}
+	if (args->maintenance_events_not_after) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotAfter\":[" ));
+		for (as = args->maintenance_events_not_after; *as; ++as) {
+			if (as != args->maintenance_events_not_after)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_events_not_after_str) {
+		ARG_TO_JSON(MaintenanceEventsNotAfter, string, args->maintenance_events_not_after_str);
+		ret += 1;
+	}
+	if (args->maintenance_events_not_before) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"MaintenanceEventsNotBefore\":[" ));
+		for (as = args->maintenance_events_not_before; *as; ++as) {
+			if (as != args->maintenance_events_not_before)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->maintenance_events_not_before_str) {
+		ARG_TO_JSON(MaintenanceEventsNotBefore, string, args->maintenance_events_not_before_str);
+		ret += 1;
+	}
+	if (args->subregion_names) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"SubregionNames\":[" ));
+		for (as = args->subregion_names; *as; ++as) {
+			if (as != args->subregion_names)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->subregion_names_str) {
+		ARG_TO_JSON(SubregionNames, string, args->subregion_names_str);
+		ret += 1;
+	}
+	if (args->vm_ids) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"VmIds\":[" ));
+		for (as = args->vm_ids; *as; ++as) {
+			if (as != args->vm_ids)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->vm_ids_str) {
+		ARG_TO_JSON(VmIds, string, args->vm_ids_str);
+		ret += 1;
+	}
+	if (args->vm_states) {
+		char **as;
+
+	   	TRY_APPEND_COL(count_args, data);
+		STRY(osc_str_append_string(data, "\"VmStates\":[" ));
+		for (as = args->vm_states; *as; ++as) {
+			if (as != args->vm_states)
+				STRY(osc_str_append_string(data, "," ));
+			ARG_TO_JSON_STR("", *as);
+		}
+		STRY(osc_str_append_string(data, "]" ));
+		ret += 1;
+	} else if (args->vm_states_str) {
+		ARG_TO_JSON(VmStates, string, args->vm_states_str);
 		ret += 1;
 	}
 
@@ -12442,67 +12442,6 @@ static int keypair_created_setter(struct keypair_created *args, struct osc_str *
 
 	return !!ret;
 }
-static int linked_policy_setter(struct linked_policy *args, struct osc_str *data) {
-       int count_args = 0;
-       int ret = 0;
-	if (args->creation_date) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"CreationDate\":", args->creation_date);
-	   	ret += 1;
-	}
-	if (args->last_modification_date) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"LastModificationDate\":", args->last_modification_date);
-	   	ret += 1;
-	}
-	if (args->orn) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"Orn\":", args->orn);
-	   	ret += 1;
-	}
-	if (args->policy_id) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"PolicyId\":", args->policy_id);
-	   	ret += 1;
-	}
-	if (args->policy_name) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"PolicyName\":", args->policy_name);
-	   	ret += 1;
-	}
-
-	return !!ret;
-}
-static int linked_volume_setter(struct linked_volume *args, struct osc_str *data) {
-       int count_args = 0;
-       int ret = 0;
-	if (args->is_set_delete_on_vm_deletion) {
-		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
-	   	ret += 1;
-	}
-	if (args->device_name) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"DeviceName\":", args->device_name);
-	   	ret += 1;
-	}
-	if (args->state) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"State\":", args->state);
-	   	ret += 1;
-	}
-	if (args->vm_id) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"VmId\":", args->vm_id);
-	   	ret += 1;
-	}
-	if (args->volume_id) {
-		TRY_APPEND_COL(count_args, data);
-	        ARG_TO_JSON_STR("\"VolumeId\":", args->volume_id);
-	   	ret += 1;
-	}
-
-	return !!ret;
-}
 static int link_nic_setter(struct link_nic *args, struct osc_str *data) {
        int count_args = 0;
        int ret = 0;
@@ -12653,6 +12592,67 @@ static int link_route_table_setter(struct link_route_table *args, struct osc_str
 	if (args->subnet_id) {
 		TRY_APPEND_COL(count_args, data);
 	        ARG_TO_JSON_STR("\"SubnetId\":", args->subnet_id);
+	   	ret += 1;
+	}
+
+	return !!ret;
+}
+static int linked_policy_setter(struct linked_policy *args, struct osc_str *data) {
+       int count_args = 0;
+       int ret = 0;
+	if (args->creation_date) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"CreationDate\":", args->creation_date);
+	   	ret += 1;
+	}
+	if (args->last_modification_date) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"LastModificationDate\":", args->last_modification_date);
+	   	ret += 1;
+	}
+	if (args->orn) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"Orn\":", args->orn);
+	   	ret += 1;
+	}
+	if (args->policy_id) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"PolicyId\":", args->policy_id);
+	   	ret += 1;
+	}
+	if (args->policy_name) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"PolicyName\":", args->policy_name);
+	   	ret += 1;
+	}
+
+	return !!ret;
+}
+static int linked_volume_setter(struct linked_volume *args, struct osc_str *data) {
+       int count_args = 0;
+       int ret = 0;
+	if (args->is_set_delete_on_vm_deletion) {
+		ARG_TO_JSON(DeleteOnVmDeletion, bool, args->delete_on_vm_deletion);
+	   	ret += 1;
+	}
+	if (args->device_name) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"DeviceName\":", args->device_name);
+	   	ret += 1;
+	}
+	if (args->state) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"State\":", args->state);
+	   	ret += 1;
+	}
+	if (args->vm_id) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"VmId\":", args->vm_id);
+	   	ret += 1;
+	}
+	if (args->volume_id) {
+		TRY_APPEND_COL(count_args, data);
+	        ARG_TO_JSON_STR("\"VolumeId\":", args->volume_id);
 	   	ret += 1;
 	}
 
