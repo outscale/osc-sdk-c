@@ -17,22 +17,22 @@ osc_sdk.a: osc_sdk.o
 	ar -crs osc_sdk.a osc_sdk.o
 
 example_a: osc_sdk.a osc_sdk.h examples/example_a.cc
-	$(CXX) examples/example_a.cc -I./ -o example_a -Wall -Wno-unused-function -g $(CFLAGS) `pkg-config --cflags jsoncpp` ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c jsoncpp`
+	$(CXX) examples/example_a.cc -I./ -o example_a -Wall -Wno-unused-function -g $(CFLAGS) -lm `pkg-config --cflags jsoncpp` ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c jsoncpp`
 
 example0: osc_sdk.a osc_sdk.h examples/example0.c
-	$(CC) examples/example0.c -I./ -o example0 -Wall -Wno-unused-function -g -std=c89 $(CFLAGS) ./osc_sdk.a $(LDFLAGS) -lcurl `pkg-config --libs json-c`
+	$(CC) examples/example0.c -I./ -o example0 -Wall -Wno-unused-function -g -std=c89 $(CFLAGS) ./osc_sdk.a $(LDFLAGS) -lcurl -lm `pkg-config --libs json-c`
 
 example1: osc_sdk.c osc_sdk.h examples/example1.c
-	$(CC) examples/example1.c ./osc_sdk.c -I./ `pkg-config --cflags json-c`  -o example1 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
+	$(CC) examples/example1.c ./osc_sdk.c -I./ -lm `pkg-config --cflags json-c`  -o example1 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
 
 example2: osc_sdk.c osc_sdk.h examples/example2.c
-	$(CC) examples/example2.c ./osc_sdk.c -I./ `pkg-config --cflags json-c`  -o example2 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
+	$(CC) examples/example2.c ./osc_sdk.c -I./ -lm `pkg-config --cflags json-c`  -o example2 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
 
 example3: osc_sdk.c osc_sdk.h examples/example3.c
-	$(CC) examples/example3.c ./osc_sdk.c -I./ `pkg-config --cflags json-c`  -o example3 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
+	$(CC) examples/example3.c ./osc_sdk.c -I./ -lm `pkg-config --cflags json-c`  -o example3 -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
 
 ricochet_preparation: osc_sdk.c osc_sdk.h examples/ricochet_preparation.c
-	$(CC) examples/ricochet_preparation.c ./osc_sdk.c -I./ `pkg-config --cflags json-c`  -o ricochet_preparation -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
+	$(CC) examples/ricochet_preparation.c ./osc_sdk.c -I./ -lm `pkg-config --cflags json-c`  -o ricochet_preparation -Wall -Wno-unused-function -g $(CFLAGS) $(LDFLAGS) `pkg-config --libs json-c` -lcurl
 
 COGNAC/.git:
 	git submodule update --init
