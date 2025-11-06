@@ -5,7 +5,7 @@ set -eE
 if [ "$#" -eq 0 ]; then
     trap "echo [clone git FAIL]" ERR
     if [ ! -d "osc-ricochet-2" ]; then
-	git clone https://github.com/outscale-mgo/osc-ricochet-2
+	    git clone https://github.com/outscale/osc-ricochet-2
     fi
 
     trap "echo [make ricochet-2 FAIL]" ERR
