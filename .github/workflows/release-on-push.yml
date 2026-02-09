@@ -1,0 +1,35 @@
+name: Release on push
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release_if_version_advanced:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          branches: master
+      - name: Get Current version
+        id: get-current-version
+        run: |
+          CURRENT_VERSION=$(cat sdk_version)
+          echo "CURRENT_VERSION=v$CURRENT_VERSION" >> $GITHUB_OUTPUT
+      - name: Get Latest Release
+        id: get-latest-release
+        run: |
+          LATEST_RELEASE=$(gh release list --limit 1 --json tagName --jq '.[0].tagName')
+          echo "LATEST_RELEASE=$LATEST_RELEASE" >> $GITHUB_OUTPUT
+      - name: Create Release
+        if: ${{ steps.get-current-version.outputs.CURRENT_VERSION != steps.get-latest-release.outputs.LATEST_RELEASE }}
+        run: |
+          gh release create $CURRENT_VERSION -t "$CURRENT_VERSION" --generate-notes --fail-on-no-commits
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+

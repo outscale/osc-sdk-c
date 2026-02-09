@@ -1,0 +1,73 @@
+name: Update Release PR
+
+on:
+  push:
+    #branches: [master]
+  workflow_dispatch:
+    inputs:
+      next_version:
+        description: 'Manually set next version'
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  prepare_release_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        #with:
+          #branches: master
+      - uses: chainguard-dev/actions/setup-gitsign@main
+      - name: Get Current version
+        id: get-current-version
+        run: |
+          CURRENT_VERSION=$(cat sdk_version)
+          echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+      - name: Set next version
+        id: set-next-version
+        if: "!${{ github.event.inputs.next_version }}" 
+        run: |
+          local_sdk_version_major=$(echo $CURRENT_VERSION | cut -d '.' -f 1)
+          local_sdk_version_minor=$(echo $CURRENT_VERSION | cut -d '.' -f 2)
+          new_sdk_version_minor=$(( local_sdk_version_minor + 1 ))
+          NEXT_VERSION="$local_sdk_version_major.$new_sdk_version_minor.0"
+          echo "NEXT_VERSION=$NEXT_VERSION" >> $GITHUB_OUTPUT
+        env:
+          CURRENT_VERSION: ${{ steps.get-current-version.outputs.CURRENT_VERSION }}
+      - name: Update version and changelog
+        run: |
+          echo $NEXT_VERSION > sdk_version
+          new_changelog=$(mktemp)
+          printf "# v%s\n\n" $NEXT_VERSION > $new_changelog
+          gh api --method POST --jq .body /repos/${{ github.repository }}/releases/generate-notes \
+            -f "tag_name=v$NEXT_VERSION" -f "previous_tag_name=v$CURRENT_VERSION" \
+            -f "configuration_file_path=.github/release.yml" | grep -v "<!--" >> $new_changelog
+          cat "changelog.md" >> $new_changelog || true
+          git ls-files --exclude-standard | grep -v COGNAC | xargs sed -i "s/v${CURRENT_VERSION}/v${NEXT_VERSION}/g"
+          mv "$new_changelog" "changelog.md"
+        env:
+          CURRENT_VERSION: ${{ steps.get-current-version.outputs.CURRENT_VERSION }}
+          NEXT_VERSION: ${{ steps.set-next-version.outputs.NEXT_VERSION || github.event.inputs.next_version }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: release/next
+          committer: "Outscale Bot <opensource+bot@outscale.com>"
+          author: "Outscale Bot <opensource+bot@outscale.com>"
+          commit-message: "🔖 chore(release): Bump version to ${{ env.NEXT_VERSION }}"
+          labels: skip-changelog
+          title: "Release: Bump version to ${{ env.NEXT_VERSION }}"
+          body: |
+            Automated release preparation.
+
+            Next version: ${{ env.NEXT_VERSION }}
+          token: "${{ env.GH_TOKEN }}"
+        env:
+          NEXT_VERSION: ${{ steps.set-next-version.outputs.NEXT_VERSION || github.event.inputs.next_version }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
+
