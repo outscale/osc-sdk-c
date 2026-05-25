@@ -6,6 +6,11 @@ on:
         description: 'Outscale API version'
         required: true
 
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   auto-build:
     environment: auto-build
@@ -34,6 +39,7 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
     - name: create pull request
-      run: .github/scripts/release-pr.sh ${{ github.event.inputs.api_version }}
+      run: .github/scripts/release-pr.sh "$API_VERSION"
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        API_VERSION: ${{ github.event.inputs.api_version }}

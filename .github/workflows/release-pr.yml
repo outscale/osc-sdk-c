@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           branches: master
-      - uses: chainguard-dev/actions/setup-gitsign@main
+      - uses: chainguard-dev/actions/setup-gitsign@3e76343fe029f8e2a10bfbec0da8f437e5dab7a5 # main
       - name: Get Current version
         id: get-current-version
         run: |
@@ -56,7 +56,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
         with:
-          branch: release/next
+          branch: auto-release-pr-${{ env.NEXT_VERSION }}
           committer: "Outscale Bot <opensource+bot@outscale.com>"
           author: "Outscale Bot <opensource+bot@outscale.com>"
           commit-message: "🔖 chore(release): Bump version to ${{ env.NEXT_VERSION }}"
