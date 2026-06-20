@@ -16,7 +16,7 @@ jobs:
     environment: auto-build
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
     - name: apt is for w__p
       run: |
         wget https://github.com/cosmo-ray/json-search/releases/download/0.3.1/json-search-x86_64.AppImage
