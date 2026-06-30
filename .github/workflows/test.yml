@@ -6,8 +6,7 @@ on:
     branches: [ master ]
 jobs:
   auto-build:
-    environment: auto-build
-    runs-on: ubuntu-22.04
+    runs-on: [authenticated, Linux]
     permissions:
       # required for all workflows
       security-events: write
@@ -15,7 +14,14 @@ jobs:
       # only required for workflows in private repositories
       actions: read
       contents: read
+      id-token: write
     steps:
+    - name: 🔒🧹 Setup Vault & Frieza
+      id: secrets
+      uses: outscale/.github/vault-frieza-clean@eb7bd1e0360703d0ad355bce46029ae8d49bac04
+      with:
+        vault_role: outscale-osc-sdk-c
+        osc_account: oak
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
     - name: install dependancies
       run: |
@@ -32,9 +38,9 @@ jobs:
         make fclean
       if: github.event_name != 'pull_request'
       env:
-        OSC_ACCESS_KEY: ${{secrets.OSC_ACCESS_KEY}}
-        OSC_SECRET_KEY: ${{secrets.OSC_SECRET_KEY}}
-        OSC_REGION: ${{secrets.OSC_REGION}}
+        OSC_ACCESS_KEY: ${{ steps.secrets.outputs.access_key }}
+        OSC_SECRET_KEY: ${{ steps.secrets.outputs.secret_key }}
+        OSC_REGION: ${{ steps.secrets.outputs.region }}
     - name: codeql-init
       uses: github/codeql-action/init@e46ed2cbd01164d986452f91f178727624ae40d7 # v4
     - name: codeql-make
